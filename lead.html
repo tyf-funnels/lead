@@ -1,861 +1,907 @@
-import React, { useState, useEffect } from 'react';
-import { AlertTriangle, Shield, Clock, Database, Bell, CheckCircle, XCircle, TrendingDown, Lock, Zap, FileText, LifeBuoy, ArrowRight, Search, RefreshCw, BarChart3, Server } from 'lucide-react';
-
-export default function LeadReliabilityLanding() {
-  const [selectedDealValue, setSelectedDealValue] = useState(2000);
-  const [selectedLeads, setSelectedLeads] = useState(500);
-  const [activeTab, setActiveTab] = useState('logs');
-  
-  const failureRate = 0.055; // 5.5% average
-  const lostLeads = Math.round(selectedLeads * failureRate);
-  const monthlyLoss = lostLeads * selectedDealValue;
-  const annualLoss = monthlyLoss * 12;
-
-  return (
-    <div className="min-h-screen bg-slate-900 text-slate-100">
-      {/* Hero Section */}
-      <div className="border-b border-slate-800 bg-gradient-to-b from-slate-900 to-slate-800">
-        <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
-          <div className="text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/20 rounded-full text-red-400 text-sm font-medium">
-              <AlertTriangle className="w-4 h-4" />
-              Silent lead failures are costing you revenue right now
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-              Your Leads Either Reach<br />Your CRM — Or You're<br />
-              <span className="text-emerald-400">Alerted in 60 Seconds</span>
-            </h1>
-            
-            <p className="text-xl text-slate-400 max-w-3xl mx-auto">
-              Stop losing leads to webhook timeouts, API failures, and CRM errors. This isn't marketing automation — it's infrastructure that ensures every lead is captured, validated, and delivered.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <button className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg text-lg transition-colors">
-                Get Instant Access – $499
-              </button>
-              <button className="px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg text-lg transition-colors">
-                Chat on WhatsApp
-              </button>
-            </div>
-            
-            <p className="text-sm text-slate-500">One-time payment. Own it forever. 48-hour guarantee.</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Silent Failure Story */}
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">The Silent Failure</h2>
-          <p className="text-lg text-slate-400">This happens hundreds of times per month. You just don't see it.</p>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Losing Leads to Silent Failures | Lead Reliability System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
-        <div className="relative">
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-700"></div>
-          
-          <div className="space-y-8 relative">
-            {[
-              { icon: CheckCircle, text: "User submits your lead form", color: "text-emerald-400" },
-              { icon: CheckCircle, text: 'They see "Thank you for your interest"', color: "text-emerald-400" },
-              { icon: XCircle, text: "Webhook times out after 8 seconds", color: "text-red-400" },
-              { icon: XCircle, text: "Lead never reaches your CRM", color: "text-red-400" },
-              { icon: XCircle, text: "Sales team never follows up", color: "text-red-400" },
-              { icon: TrendingDown, text: "Revenue lost. Forever.", color: "text-orange-400" }
-            ].map((step, i) => (
-              <div key={i} className="flex items-start gap-4 pl-16">
-                <step.icon className={`w-6 h-6 ${step.color} flex-shrink-0`} />
-                <p className="text-lg text-slate-300">{step.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            line-height: 1.6;
+        }
         
-        <div className="mt-12 p-6 bg-slate-800 border border-slate-700 rounded-lg">
-          <p className="text-slate-300 text-center text-lg">
-            <span className="font-semibold text-white">No error message.</span> No alert. No retry. No way to know it happened.
-          </p>
-        </div>
-      </div>
-
-      {/* Real Failure Scenarios */}
-      <div className="bg-slate-800/50 border-y border-slate-700">
-        <div className="max-w-5xl mx-auto px-6 py-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Four Ways Leads Fail Silently
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                icon: Clock,
-                title: "Webhook Timeouts",
-                cause: "Your CRM takes 12 seconds to respond, but the webhook times out at 10 seconds.",
-                impact: "Lead is lost. Form thinks it worked. You never know."
-              },
-              {
-                icon: AlertTriangle,
-                title: "CRM Validation Errors",
-                cause: "Required custom field missing, email format changed, or duplicate detection rule triggered.",
-                impact: "CRM rejects the lead. No notification sent. Sale never happens."
-              },
-              {
-                icon: Lock,
-                title: "OAuth Token Expiration",
-                cause: "Your API authentication expires after 60 days and wasn't refreshed automatically.",
-                impact: "Every lead fails for weeks until someone notices the pipeline dried up."
-              },
-              {
-                icon: Zap,
-                title: "API Rate Limits",
-                cause: "You hit your CRM's 100 requests/hour limit during a campaign spike.",
-                impact: "The overflow leads are dropped. You paid for traffic that vanished."
-              }
-            ].map((scenario, i) => (
-              <div key={i} className="p-6 bg-slate-800 border border-slate-700 rounded-lg">
-                <div className="flex items-start gap-4 mb-4">
-                  <scenario.icon className="w-8 h-8 text-emerald-400 flex-shrink-0" />
-                  <h3 className="text-xl font-semibold">{scenario.title}</h3>
-                </div>
-                <p className="text-slate-400 mb-3">
-                  <span className="text-slate-300 font-medium">Technical cause:</span> {scenario.cause}
-                </p>
-                <p className="text-slate-400">
-                  <span className="text-red-400 font-medium">Business impact:</span> {scenario.impact}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Financial Impact Calculator */}
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Calculate Your Hidden Loss</h2>
-          <p className="text-lg text-slate-400">Most businesses lose 3–8% of leads to infrastructure failures.</p>
-        </div>
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
         
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-8">
-          <div className="space-y-6 mb-8">
-            <div>
-              <label className="block text-sm font-medium mb-2">Monthly Leads</label>
-              <input 
-                type="range" 
-                min="100" 
-                max="2000" 
-                step="100"
-                value={selectedLeads}
-                onChange={(e) => setSelectedLeads(parseInt(e.target.value))}
-                className="w-full"
-              />
-              <div className="text-right text-2xl font-bold text-emerald-400">{selectedLeads} leads/month</div>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium mb-2">Average Deal Value</label>
-              <input 
-                type="range" 
-                min="500" 
-                max="10000" 
-                step="500"
-                value={selectedDealValue}
-                onChange={(e) => setSelectedDealValue(parseInt(e.target.value))}
-                className="w-full"
-              />
-              <div className="text-right text-2xl font-bold text-emerald-400">${selectedDealValue.toLocaleString()}</div>
-            </div>
-          </div>
-          
-          <div className="border-t border-slate-700 pt-6 space-y-4">
-            <div className="flex justify-between items-center">
-              <span className="text-slate-400">Estimated failed leads (5.5%):</span>
-              <span className="text-xl font-semibold text-red-400">{lostLeads} leads</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-slate-400">Monthly revenue lost:</span>
-              <span className="text-2xl font-bold text-red-400">${monthlyLoss.toLocaleString()}</span>
-            </div>
-            <div className="flex justify-between items-center text-xl">
-              <span className="text-white font-semibold">Annual revenue impact:</span>
-              <span className="text-3xl font-bold text-red-500">${annualLoss.toLocaleString()}</span>
-            </div>
-          </div>
-        </div>
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 100px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            border-bottom: 1px solid #2a2a2a;
+        }
         
-        <p className="text-center text-slate-400 mt-8 text-lg">
-          One lost deal can cost more than this system. How many are you losing?
-        </p>
-      </div>
-
-      {/* The Solution */}
-      <div className="bg-slate-800/50 border-y border-slate-700">
-        <div className="max-w-5xl mx-auto px-6 py-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">The Lead Reliability Layer</h2>
-            <p className="text-xl text-slate-400">A fail-safe infrastructure that sits between your forms and your CRM</p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-emerald-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Capture First</h3>
-              <p className="text-slate-400">Every lead is stored instantly before any external API call is made.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Database className="w-8 h-8 text-emerald-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Route Second</h3>
-              <p className="text-slate-400">Validated data is delivered to your CRM with automatic retries if needed.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Bell className="w-8 h-8 text-emerald-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Monitor Everything</h3>
-              <p className="text-slate-400">Instant alerts when failures happen. Full audit logs of every lead.</p>
-            </div>
-          </div>
-          
-          <div className="mt-12 p-6 bg-slate-800 border border-emerald-500/20 rounded-lg">
-            <p className="text-center text-lg text-slate-300">
-              Built on n8n. Nothing fails silently. Everything is logged. You own the entire system.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* How It Works */}
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: #ffffff;
+            max-width: 900px;
+        }
         
-        <div className="space-y-6">
-          {[
-            { title: "Ingest", desc: "Lead data arrives from your forms via webhook and is immediately stored" },
-            { title: "Validate", desc: "Required fields are checked, formats are verified, duplicates are flagged" },
-            { title: "Store", desc: "Complete lead record is saved to your database before any external call" },
-            { title: "Route", desc: "Validated lead is sent to your CRM with configurable retry logic" },
-            { title: "Monitor", desc: "Success and failure events are logged with full context and timestamps" },
-            { title: "Alert", desc: "You receive instant notifications when failures occur so you can respond immediately" }
-          ].map((step, i) => (
-            <div key={i} className="flex items-start gap-4 p-6 bg-slate-800 border border-slate-700 rounded-lg">
-              <div className="w-8 h-8 bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
-                {i + 1}
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-slate-400">{step.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* What You Get */}
-      <div className="bg-slate-800/50 border-y border-slate-700">
-        <div className="max-w-4xl mx-auto px-6 py-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What You Get</h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              { icon: FileText, text: "Complete n8n workflows ready to import and customize" },
-              { icon: Bell, text: "Real-time monitoring with Slack/email/SMS alert integrations" },
-              { icon: Zap, text: "Smart retry logic that handles transient failures automatically" },
-              { icon: Database, text: "Full audit logs for every lead with searchable history" },
-              { icon: FileText, text: "Step-by-step documentation for setup and configuration" },
-              { icon: LifeBuoy, text: "48-hour priority support via WhatsApp and email" }
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-4 p-4 bg-slate-800 rounded-lg">
-                <item.icon className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" />
-                <p className="text-slate-300">{item.text}</p>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
-            <div className="p-6 bg-slate-800 border border-slate-700 rounded-lg">
-              <p className="text-3xl font-bold text-emerald-400 mb-2">Unlimited</p>
-              <p className="text-slate-400">Process unlimited leads. No volume caps.</p>
-            </div>
-            <div className="p-6 bg-slate-800 border border-slate-700 rounded-lg">
-              <p className="text-3xl font-bold text-emerald-400 mb-2">Owned</p>
-              <p className="text-slate-400">Full ownership. No recurring fees.</p>
-            </div>
-            <div className="p-6 bg-slate-800 border border-slate-700 rounded-lg">
-              <p className="text-3xl font-bold text-emerald-400 mb-2">Forever</p>
-              <p className="text-slate-400">Use it forever. Modify as needed.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* System Screenshots Preview */}
-      <div className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">See The System In Action</h2>
-        <p className="text-center text-slate-400 text-lg mb-12">Real monitoring, real alerts, real peace of mind</p>
+        .hero h1 .highlight {
+            color: #ff4444;
+        }
         
-        <div className="flex justify-center gap-4 mb-8">
-          {[
-            { id: 'logs', label: 'Audit Logs', icon: FileText },
-            { id: 'alerts', label: 'Alert Dashboard', icon: Bell },
-            { id: 'analytics', label: 'Analytics', icon: BarChart3 }
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors ${
-                activeTab === tab.id 
-                  ? 'bg-emerald-500 text-white' 
-                  : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
-              }`}
-            >
-              <tab.icon className="w-5 h-5" />
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Logs View */}
-        {activeTab === 'logs' && (
-          <div className="bg-slate-900 border border-slate-700 rounded-lg p-6 font-mono text-sm">
-            <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-700">
-              <Search className="w-5 h-5 text-slate-500" />
-              <input 
-                type="text" 
-                placeholder="Search leads by email, ID, or status..." 
-                className="flex-1 bg-slate-800 border border-slate-600 rounded px-3 py-2 text-slate-300 focus:outline-none focus:border-emerald-500"
-              />
-            </div>
-            
-            <div className="space-y-3">
-              {[
-                { time: '14:23:41', email: 'sarah.johnson@techcorp.com', status: 'success', crm: 'HubSpot', duration: '847ms' },
-                { time: '14:23:38', email: 'mike.chen@startupxyz.io', status: 'success', crm: 'Salesforce', duration: '1.2s' },
-                { time: '14:23:35', email: 'alex.rivera@agency.co', status: 'failed', crm: 'Pipedrive', duration: '10.1s', error: 'Webhook timeout' },
-                { time: '14:23:32', email: 'jessica.brown@saasco.com', status: 'retrying', crm: 'HubSpot', duration: '8.9s', error: 'Rate limit hit' },
-                { time: '14:23:29', email: 'david.kim@growth.io', status: 'success', crm: 'Salesforce', duration: '923ms' }
-              ].map((log, i) => (
-                <div key={i} className="flex items-start gap-4 p-3 bg-slate-800 rounded border-l-4 border-l-transparent hover:border-l-emerald-500 transition-colors" style={{
-                  borderLeftColor: log.status === 'success' ? '#10b981' : log.status === 'failed' ? '#ef4444' : '#f59e0b'
-                }}>
-                  <span className="text-slate-500 w-20">{log.time}</span>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-1">
-                      <span className="text-slate-300">{log.email}</span>
-                      <span className={`px-2 py-0.5 rounded text-xs font-semibold ${
-                        log.status === 'success' ? 'bg-emerald-500/20 text-emerald-400' :
-                        log.status === 'failed' ? 'bg-red-500/20 text-red-400' :
-                        'bg-orange-500/20 text-orange-400'
-                      }`}>
-                        {log.status.toUpperCase()}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-4 text-xs text-slate-500">
-                      <span>→ {log.crm}</span>
-                      <span>⏱ {log.duration}</span>
-                      {log.error && <span className="text-red-400">⚠ {log.error}</span>}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="mt-4 pt-4 border-t border-slate-700 text-slate-500 text-center">
-              Showing 5 of 1,247 leads processed today
-            </div>
-          </div>
-        )}
-
-        {/* Alerts View */}
-        {activeTab === 'alerts' && (
-          <div className="bg-slate-900 border border-slate-700 rounded-lg p-6">
-            <div className="grid md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-slate-400 text-sm">Active Alerts</span>
-                  <AlertTriangle className="w-5 h-5 text-red-400" />
-                </div>
-                <p className="text-3xl font-bold text-red-400">3</p>
-              </div>
-              <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-slate-400 text-sm">Success Rate</span>
-                  <CheckCircle className="w-5 h-5 text-emerald-400" />
-                </div>
-                <p className="text-3xl font-bold text-emerald-400">94.8%</p>
-              </div>
-              <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-slate-400 text-sm">Avg Response</span>
-                  <Clock className="w-5 h-5 text-blue-400" />
-                </div>
-                <p className="text-3xl font-bold text-blue-400">1.2s</p>
-              </div>
-            </div>
-            
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-slate-300 mb-4">Recent Alerts</h3>
-              
-              {[
-                {
-                  type: 'critical',
-                  title: 'HubSpot OAuth Token Expired',
-                  message: 'All leads to HubSpot are failing. Refresh OAuth token immediately.',
-                  time: '2 minutes ago',
-                  affected: '12 leads queued'
-                },
-                {
-                  type: 'warning',
-                  title: 'Pipedrive Rate Limit Approaching',
-                  message: 'You have used 87 of 100 API calls this hour. Consider throttling.',
-                  time: '8 minutes ago',
-                  affected: 'No leads lost'
-                },
-                {
-                  type: 'critical',
-                  title: 'Salesforce Validation Error',
-                  message: 'Required custom field "Industry" missing in 3 consecutive leads.',
-                  time: '14 minutes ago',
-                  affected: '3 leads failed'
-                }
-              ].map((alert, i) => (
-                <div key={i} className={`p-4 rounded-lg border-l-4 ${
-                  alert.type === 'critical' 
-                    ? 'bg-red-500/10 border-l-red-500' 
-                    : 'bg-orange-500/10 border-l-orange-500'
-                }`}>
-                  <div className="flex items-start justify-between mb-2">
-                    <h4 className={`font-semibold ${
-                      alert.type === 'critical' ? 'text-red-400' : 'text-orange-400'
-                    }`}>
-                      {alert.title}
-                    </h4>
-                    <span className="text-xs text-slate-500">{alert.time}</span>
-                  </div>
-                  <p className="text-slate-300 text-sm mb-2">{alert.message}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-slate-500">{alert.affected}</span>
-                    <button className="px-3 py-1 bg-slate-700 hover:bg-slate-600 rounded text-xs text-slate-300 transition-colors">
-                      View Details
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Analytics View */}
-        {activeTab === 'analytics' && (
-          <div className="bg-slate-900 border border-slate-700 rounded-lg p-6">
-            <div className="grid md:grid-cols-4 gap-4 mb-6">
-              <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-                <div className="text-slate-400 text-sm mb-1">Today</div>
-                <p className="text-2xl font-bold text-slate-300">1,247</p>
-                <p className="text-xs text-emerald-400">+18% from yesterday</p>
-              </div>
-              <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-                <div className="text-slate-400 text-sm mb-1">This Week</div>
-                <p className="text-2xl font-bold text-slate-300">8,392</p>
-                <p className="text-xs text-emerald-400">+12% from last week</p>
-              </div>
-              <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-                <div className="text-slate-400 text-sm mb-1">Failed</div>
-                <p className="text-2xl font-bold text-red-400">65</p>
-                <p className="text-xs text-slate-500">5.2% failure rate</p>
-              </div>
-              <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
-                <div className="text-slate-400 text-sm mb-1">Recovered</div>
-                <p className="text-2xl font-bold text-emerald-400">58</p>
-                <p className="text-xs text-emerald-400">89% auto-retry success</p>
-              </div>
-            </div>
-            
-            <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
-              <h4 className="text-lg font-semibold mb-4 text-slate-300">Performance By CRM</h4>
-              <div className="space-y-4">
-                {[
-                  { crm: 'HubSpot', success: 96, avg: '847ms', color: 'bg-emerald-500' },
-                  { crm: 'Salesforce', success: 94, avg: '1.2s', color: 'bg-emerald-500' },
-                  { crm: 'Pipedrive', success: 89, avg: '2.1s', color: 'bg-orange-500' },
-                  { crm: 'Custom API', success: 98, avg: '654ms', color: 'bg-emerald-500' }
-                ].map((crm, i) => (
-                  <div key={i}>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-slate-300 font-medium">{crm.crm}</span>
-                      <div className="flex items-center gap-4 text-sm">
-                        <span className="text-slate-400">{crm.success}% success</span>
-                        <span className="text-slate-500">avg {crm.avg}</span>
-                      </div>
-                    </div>
-                    <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-                      <div className={`h-full ${crm.color}`} style={{width: `${crm.success}%`}}></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+        .hero p {
+            font-size: 20px;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
         
-        <p className="text-center text-slate-500 text-sm mt-6">
-          Placeholder interface - your actual system will connect to your live data
-        </p>
-      </div>
-
-      {/* What This Is/Isn't */}
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What This Is (And Isn't)</h2>
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
         
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-emerald-400 mb-4">This IS:</h3>
-            {[
-              "Infrastructure that ensures lead reliability",
-              "A technical system you own and control",
-              "Built for businesses with existing funnels",
-              "Designed for 50+ leads per month minimum",
-              "Requires basic n8n or automation knowledge"
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                <p className="text-slate-300">{item}</p>
-              </div>
-            ))}
-          </div>
-          
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-red-400 mb-4">This is NOT:</h3>
-            {[
-              "A plug-and-play SaaS solution",
-              "Marketing automation or lead nurturing",
-              "A hosted service with monthly fees",
-              "A CRM replacement or lead gen tool",
-              "Managed or done-for-you infrastructure"
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <XCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-                <p className="text-slate-300">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        .btn-primary {
+            background: #ff4444;
+            color: #ffffff;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+        }
         
-        <div className="mt-8 p-6 bg-slate-800 border border-slate-700 rounded-lg">
-          <p className="text-slate-300 text-center">
-            This is for operators who want reliability without ongoing SaaS costs. If you need plug-and-play, this isn't for you.
-          </p>
-        </div>
-      </div>
-
-      {/* Social Proof / Use Cases */}
-      <div className="bg-slate-800/50 border-y border-slate-700">
-        <div className="max-w-5xl mx-auto px-6 py-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Who This Is Built For</h2>
-          <p className="text-center text-slate-400 text-lg mb-12">Real infrastructure for real businesses</p>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                title: "SaaS Founders",
-                scenario: "Running paid ads to free trial signups",
-                problem: "Webhook timeouts during traffic spikes lose 8% of signups",
-                solution: "Every signup captured before CRM call, retry logic handles the rest"
-              },
-              {
-                title: "Agency Owners",
-                scenario: "Managing lead gen for 15+ clients",
-                problem: "OAuth tokens expire, client leads fail for days unnoticed",
-                solution: "Instant alerts when any client integration breaks, full audit trail"
-              },
-              {
-                title: "E-commerce Ops",
-                scenario: "High-ticket product with multi-step qualification",
-                problem: "Klaviyo rate limits drop leads during launch campaigns",
-                solution: "Queue management prevents lost leads, all data stored first"
-              }
-            ].map((useCase, i) => (
-              <div key={i} className="bg-slate-800 border border-slate-700 rounded-lg p-6">
-                <h3 className="text-xl font-semibold text-emerald-400 mb-3">{useCase.title}</h3>
-                <div className="space-y-3 text-sm">
-                  <div>
-                    <p className="text-slate-500 mb-1">Scenario:</p>
-                    <p className="text-slate-300">{useCase.scenario}</p>
-                  </div>
-                  <div>
-                    <p className="text-red-400 mb-1">Problem:</p>
-                    <p className="text-slate-300">{useCase.problem}</p>
-                  </div>
-                  <div>
-                    <p className="text-emerald-400 mb-1">Solution:</p>
-                    <p className="text-slate-300">{useCase.solution}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Technical Requirements */}
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Technical Requirements</h2>
+        .btn-primary:hover {
+            background: #e63939;
+        }
         
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-4 text-emerald-400">What You Need</h3>
-            <div className="space-y-3">
-              {[
-                { label: "n8n instance", detail: "Self-hosted or n8n Cloud ($20/mo)" },
-                { label: "Database", detail: "PostgreSQL, MySQL, or SQLite" },
-                { label: "Webhook endpoints", detail: "Your existing forms/tools" },
-                { label: "CRM access", detail: "API keys for your CRM(s)" },
-                { label: "Basic understanding", detail: "JSON, webhooks, API concepts" }
-              ].map((req, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <Server className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-slate-300 font-medium">{req.label}</p>
-                    <p className="text-slate-500 text-sm">{req.detail}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-4 text-slate-300">Setup Time</h3>
-            <div className="space-y-4">
-              <div className="flex justify-between items-center pb-3 border-b border-slate-700">
-                <span className="text-slate-400">Import workflows</span>
-                <span className="text-emerald-400 font-semibold">10 min</span>
-              </div>
-              <div className="flex justify-between items-center pb-3 border-b border-slate-700">
-                <span className="text-slate-400">Configure credentials</span>
-                <span className="text-emerald-400 font-semibold">15 min</span>
-              </div>
-              <div className="flex justify-between items-center pb-3 border-b border-slate-700">
-                <span className="text-slate-400">Test with sample data</span>
-                <span className="text-emerald-400 font-semibold">20 min</span>
-              </div>
-              <div className="flex justify-between items-center pb-3 border-b border-slate-700">
-                <span className="text-slate-400">Connect to live forms</span>
-                <span className="text-emerald-400 font-semibold">15 min</span>
-              </div>
-              <div className="flex justify-between items-center pt-2">
-                <span className="text-white font-semibold">Total setup time</span>
-                <span className="text-2xl text-emerald-400 font-bold">~60 min</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border: 2px solid #3a3a3a;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: border-color 0.2s;
+        }
         
-        <div className="mt-8 p-6 bg-slate-800 border border-emerald-500/20 rounded-lg">
-          <p className="text-slate-300 text-center">
-            <span className="font-semibold text-white">Note:</span> If you're not familiar with n8n or prefer done-for-you setup, we offer implementation support separately. Ask on WhatsApp.
-          </p>
-        </div>
-      </div>
-
-      {/* Offer & Guarantee */}
-      <div className="bg-gradient-to-b from-slate-800 to-slate-900 border-y border-slate-700">
-        <div className="max-w-3xl mx-auto px-6 py-20 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Own It For $499</h2>
-          
-          <div className="bg-slate-800 border border-emerald-500/30 rounded-lg p-8 mb-8">
-            <div className="text-5xl font-bold text-emerald-400 mb-4">$499</div>
-            <p className="text-xl text-slate-300 mb-6">One-time payment. Yours forever.</p>
-            
-            <div className="space-y-3 text-left max-w-md mx-auto mb-6">
-              {[
-                "Complete n8n workflow system",
-                "Full documentation and setup guides",
-                "48-hour priority support",
-                "Unlimited lead processing",
-                "No monthly fees ever"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                  <span className="text-slate-300">{item}</span>
-                </div>
-              ))}
-            </div>
-            
-            <button className="w-full px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg text-xl transition-colors mb-4">
-              Get Instant Access – $499
-            </button>
-            
-            <button className="w-full px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg text-xl transition-colors">
-              Questions? Chat on WhatsApp
-            </button>
-          </div>
-          
-          <div className="p-6 bg-slate-800 border border-slate-700 rounded-lg mb-8">
-            <h3 className="text-xl font-semibold mb-3">48-Hour Guarantee</h3>
-            <p className="text-slate-400">
-              If the workflows don't perform as documented within 48 hours of setup, you get a full refund. No questions asked. This either works for your infrastructure or you pay nothing.
-            </p>
-          </div>
-
-          {/* Price Comparison */}
-          <div className="text-left">
-            <h3 className="text-2xl font-bold mb-6 text-center">Compare The Real Cost</h3>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
-                <div className="text-center mb-4">
-                  <p className="text-slate-400 text-sm mb-2">Typical SaaS Solution</p>
-                  <p className="text-3xl font-bold text-slate-300">$99<span className="text-lg text-slate-500">/mo</span></p>
-                </div>
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center gap-2 text-slate-400">
-                    <XCircle className="w-4 h-4 text-red-400" />
-                    <span>Volume limits apply</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-slate-400">
-                    <XCircle className="w-4 h-4 text-red-400" />
-                    <span>Data stored on their servers</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-slate-400">
-                    <XCircle className="w-4 h-4 text-red-400" />
-                    <span>Price increases over time</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-slate-400">
-                    <XCircle className="w-4 h-4 text-red-400" />
-                    <span>Lock-in to their platform</span>
-                  </div>
-                </div>
-                <div className="mt-4 pt-4 border-t border-slate-700 text-center">
-                  <p className="text-slate-500 text-xs">Year 1: $1,188</p>
-                  <p className="text-slate-400 font-semibold">3 Years: <span className="text-red-400">$3,564</span></p>
-                </div>
-              </div>
-              
-              <div className="bg-gradient-to-br from-emerald-500/10 to-emerald-600/10 border-2 border-emerald-500/30 rounded-lg p-6 relative">
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-full">
-                  BEST VALUE
-                </div>
-                <div className="text-center mb-4">
-                  <p className="text-slate-400 text-sm mb-2">Lead Reliability System</p>
-                  <p className="text-3xl font-bold text-emerald-400">$499<span className="text-lg text-slate-500">/once</span></p>
-                </div>
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center gap-2 text-slate-300">
-                    <CheckCircle className="w-4 h-4 text-emerald-400" />
-                    <span>Unlimited leads forever</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-slate-300">
-                    <CheckCircle className="w-4 h-4 text-emerald-400" />
-                    <span>Full data ownership & control</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-slate-300">
-                    <CheckCircle className="w-4 h-4 text-emerald-400" />
-                    <span>No recurring fees ever</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-slate-300">
-                    <CheckCircle className="w-4 h-4 text-emerald-400" />
-                    <span>Customize without limits</span>
-                  </div>
-                </div>
-                <div className="mt-4 pt-4 border-t border-emerald-500/30 text-center">
-                  <p className="text-slate-500 text-xs">Year 1: $499</p>
-                  <p className="text-slate-300 font-semibold">3 Years: <span className="text-emerald-400">$499</span></p>
-                </div>
-              </div>
-            </div>
-            
-            <p className="text-center text-slate-500 text-sm mt-6">
-              Save $3,065 over 3 years. Plus n8n hosting (~$20/mo optional if using n8n Cloud)
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* FAQ Section */}
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Common Questions</h2>
+        .btn-secondary:hover {
+            border-color: #4a4a4a;
+        }
         
-        <div className="space-y-4">
-          {[
-            {
-              q: "Do I need to know how to code?",
-              a: "No. You need to understand concepts like webhooks, API keys, and JSON structure. If you've set up Zapier or similar tools, you'll be fine. The workflows are pre-built; you just configure credentials and endpoints."
-            },
-            {
-              q: "What if I'm using a CRM that's not listed?",
-              a: "The system works with any CRM that has an API or webhook support. We provide templates for HubSpot, Salesforce, and Pipedrive, but n8n supports 350+ integrations. Custom APIs work perfectly."
-            },
-            {
-              q: "Is this just for lead forms, or can it handle other data sources?",
-              a: "Any data source that can send a webhook or make an API call works. Lead forms, chatbots, payment processors, support tickets—anything that generates inbound data you need to track reliably."
-            },
-            {
-              q: "What happens to my data if I stop using this?",
-              a: "You own everything. The workflows, the database, the logs—all yours. Export your data anytime. Stop using it, start again later. No lock-in."
-            },
-            {
-              q: "Do you provide implementation support?",
-              a: "The system includes 48-hour support for technical questions. If you want hands-off setup or custom workflow building, we offer paid implementation separately. Ask on WhatsApp for details."
-            },
-            {
-              q: "How is this different from just using n8n directly?",
-              a: "n8n is the platform. This is the complete system: workflows for capture, storage, routing, retry logic, monitoring, alerting, and logging—already built and tested. You're buying months of infrastructure work, not just a tool."
-            },
-            {
-              q: "What if I need to customize the workflows?",
-              a: "You own the workflows. Modify them however you want. Add custom logic, integrate new tools, change alert rules. It's yours to customize without restriction."
-            },
-            {
-              q: "Is the 48-hour guarantee really no questions asked?",
-              a: "Yes. If it doesn't work as documented, we refund. We only ask that you've actually attempted setup following the included documentation."
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        
+        h2 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        
+        .section-intro {
+            font-size: 18px;
+            color: #a0a0a0;
+            margin-bottom: 48px;
+            max-width: 800px;
+        }
+        
+        /* Silent Failure Story */
+        .failure-story {
+            background: #141414;
+            border-left: 4px solid #ff4444;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        
+        .failure-step {
+            display: flex;
+            align-items: start;
+            margin-bottom: 24px;
+            gap: 20px;
+        }
+        
+        .failure-step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .step-icon {
+            width: 36px;
+            height: 36px;
+            background: #2a2a2a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+            color: #ff4444;
+        }
+        
+        .step-content h3 {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+        
+        .step-content p {
+            color: #909090;
+            font-size: 15px;
+        }
+        
+        .callout {
+            background: #1a0a0a;
+            border: 1px solid #3a1a1a;
+            padding: 24px;
+            border-radius: 6px;
+            margin-top: 32px;
+            text-align: center;
+        }
+        
+        .callout p {
+            color: #ff6666;
+            font-size: 17px;
+            font-weight: 600;
+        }
+        
+        /* Real Failure Scenarios */
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .scenario-card {
+            background: #141414;
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid #2a2a2a;
+        }
+        
+        .scenario-icon {
+            width: 48px;
+            height: 48px;
+            background: #2a2a2a;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .scenario-card h3 {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+        
+        .technical-cause {
+            color: #909090;
+            font-size: 14px;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+        
+        .business-impact {
+            color: #ff6666;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        
+        /* Financial Impact */
+        .financial-calculator {
+            background: #141414;
+            padding: 48px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border: 2px solid #2a2a2a;
+        }
+        
+        .calc-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        
+        .calc-row:last-child {
+            border-bottom: none;
+        }
+        
+        .calc-label {
+            font-size: 16px;
+            color: #a0a0a0;
+        }
+        
+        .calc-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .calc-total {
+            background: #1a0a0a;
+            padding: 32px;
+            margin-top: 32px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        .calc-total .label {
+            color: #a0a0a0;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .calc-total .amount {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ff4444;
+            margin-bottom: 12px;
+        }
+        
+        .calc-total .context {
+            color: #909090;
+            font-size: 15px;
+        }
+        
+        /* Solution Section */
+        .solution-visual {
+            background: #141414;
+            padding: 48px;
+            border-radius: 8px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .flow-diagram {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+        
+        .flow-box {
+            flex: 1;
+            min-width: 140px;
+            background: #0a0a0a;
+            padding: 24px 16px;
+            border-radius: 6px;
+            border: 1px solid #2a2a2a;
+        }
+        
+        .flow-box h4 {
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        
+        .flow-box p {
+            font-size: 13px;
+            color: #707070;
+        }
+        
+        .flow-arrow {
+            color: #505050;
+            font-size: 24px;
+        }
+        
+        .reliability-layer {
+            background: #1a1a1a;
+            border: 2px solid #ff4444;
+        }
+        
+        /* How It Works */
+        .steps-list {
+            margin-top: 40px;
+        }
+        
+        .step-item {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            align-items: start;
+        }
+        
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: #ff4444;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .step-text h3 {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        
+        .step-text p {
+            color: #909090;
+            font-size: 15px;
+        }
+        
+        /* What You Get */
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .feature-item {
+            display: flex;
+            gap: 16px;
+            align-items: start;
+        }
+        
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: #ff4444;
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+        
+        .feature-text h4 {
+            font-size: 17px;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+        
+        .feature-text p {
+            color: #909090;
+            font-size: 14px;
+        }
+        
+        /* What This Is/Isn't */
+        .comparison-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 40px;
+        }
+        
+        .comparison-box {
+            background: #141414;
+            padding: 40px;
+            border-radius: 8px;
+        }
+        
+        .is-box {
+            border: 2px solid #2a8a2a;
+        }
+        
+        .isnt-box {
+            border: 2px solid #8a2a2a;
+        }
+        
+        .comparison-box h3 {
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .is-box h3 {
+            color: #4ade80;
+        }
+        
+        .isnt-box h3 {
+            color: #ff6666;
+        }
+        
+        .comparison-box ul {
+            list-style: none;
+        }
+        
+        .comparison-box li {
+            padding: 12px 0;
+            border-bottom: 1px solid #2a2a2a;
+            color: #a0a0a0;
+            font-size: 15px;
+        }
+        
+        .comparison-box li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Offer Section */
+        .offer-box {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 2px solid #ff4444;
+            padding: 64px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .price {
+            font-size: 72px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+        
+        .price-context {
+            font-size: 18px;
+            color: #a0a0a0;
+            margin-bottom: 32px;
+        }
+        
+        .guarantee {
+            background: #0a0a0a;
+            padding: 24px;
+            border-radius: 6px;
+            margin-top: 32px;
+        }
+        
+        .guarantee h4 {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+        
+        .guarantee p {
+            color: #909090;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: #0a0a0a;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .final-cta h2 {
+            font-size: 42px;
+            margin-bottom: 24px;
+        }
+        
+        .final-cta p {
+            font-size: 20px;
+            color: #a0a0a0;
+            margin-bottom: 48px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
             }
-          ].map((faq, i) => (
-            <details key={i} className="bg-slate-800 border border-slate-700 rounded-lg p-6 cursor-pointer hover:border-emerald-500/30 transition-colors">
-              <summary className="font-semibold text-slate-200 cursor-pointer">
-                {faq.q}
-              </summary>
-              <p className="mt-3 text-slate-400 leading-relaxed">
-                {faq.a}
-              </p>
-            </details>
-          ))}
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            h2 {
+                font-size: 28px;
+            }
+            
+            .comparison-boxes {
+                grid-template-columns: 1fr;
+            }
+            
+            .flow-diagram {
+                flex-direction: column;
+            }
+            
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+            
+            .offer-box {
+                padding: 40px 24px;
+            }
+            
+            .price {
+                font-size: 56px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Your Leads Either Reach Your CRM — <span class="highlight">Or You're Alerted in 60 Seconds</span></h1>
+            <p>Stop losing revenue to silent webhook failures, CRM errors, and API timeouts. This is infrastructure that monitors every lead, every time.</p>
+            <div class="cta-group">
+                <a href="#offer" class="btn-primary">Get Instant Access – $499</a>
+                <a href="https://wa.me/yourwhatsapp" class="btn-secondary">Chat on WhatsApp</a>
+            </div>
         </div>
-      </div>
+    </section>
 
-      {/* Final CTA */}
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 border border-red-500/20 rounded-lg p-12 text-center">
-          <AlertTriangle className="w-16 h-16 text-red-400 mx-auto mb-6" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Every Day Without Monitoring Is Another Day<br />A Lead Can Fail Silently
-          </h2>
-          <p className="text-xl text-slate-400 mb-8">
-            Stop wondering if your leads made it. Start knowing.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg text-lg transition-colors">
-              Get Instant Access – $499
-            </button>
-            <button className="px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg text-lg transition-colors">
-              WhatsApp Support
-            </button>
-          </div>
+    <!-- Silent Failure Story -->
+    <section>
+        <div class="container">
+            <h2>The Lead That Never Existed</h2>
+            <p class="section-intro">Here's what's happening to your leads right now, and your system won't tell you.</p>
+            
+            <div class="failure-story">
+                <div class="failure-step">
+                    <div class="step-icon">1</div>
+                    <div class="step-content">
+                        <h3>Prospect submits your form</h3>
+                        <p>They're interested. They filled out every field. They clicked submit.</p>
+                    </div>
+                </div>
+                
+                <div class="failure-step">
+                    <div class="step-icon">2</div>
+                    <div class="step-content">
+                        <h3>They see "Thank You"</h3>
+                        <p>Your landing page confirms submission. Everything looks perfect.</p>
+                    </div>
+                </div>
+                
+                <div class="failure-step">
+                    <div class="step-icon">3</div>
+                    <div class="step-content">
+                        <h3>The webhook times out at 29 seconds</h3>
+                        <p>Your CRM took too long to respond. The connection dropped.</p>
+                    </div>
+                </div>
+                
+                <div class="failure-step">
+                    <div class="step-icon">4</div>
+                    <div class="step-content">
+                        <h3>The lead never reaches your CRM</h3>
+                        <p>No record. No notification. No error log.</p>
+                    </div>
+                </div>
+                
+                <div class="failure-step">
+                    <div class="step-icon">5</div>
+                    <div class="step-content">
+                        <h3>Your sales team never follows up</h3>
+                        <p>They can't follow up on a lead they don't know exists.</p>
+                    </div>
+                </div>
+                
+                <div class="failure-step">
+                    <div class="step-icon">6</div>
+                    <div class="step-content">
+                        <h3>Revenue lost forever</h3>
+                        <p>The prospect moves on. You never even knew they were there.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="callout">
+                <p>No error. No alert. No retry. Just silence.</p>
+            </div>
         </div>
-      </div>
+    </section>
 
-      {/* Footer */}
-      <div className="border-t border-slate-800 py-8">
-        <p className="text-center text-slate-500 text-sm">
-          © 2026 Lead Reliability System. One-time payment. No subscriptions. 48-hour guarantee.
-        </p>
-      </div>
-    </div>
-  );
-}
+    <!-- Real Failure Scenarios -->
+    <section>
+        <div class="container">
+            <h2>Four Ways Your Leads Disappear</h2>
+            <p class="section-intro">These are the most common silent failures happening right now in your pipeline.</p>
+            
+            <div class="scenarios-grid">
+                <div class="scenario-card">
+                    <div class="scenario-icon">⏱️</div>
+                    <h3>Webhook Timeouts</h3>
+                    <p class="technical-cause">Your CRM takes longer than 30 seconds to process the webhook request.</p>
+                    <p class="business-impact">Lead data is lost before it's saved. No record, no follow-up.</p>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-icon">⚠️</div>
+                    <h3>CRM Validation Errors</h3>
+                    <p class="technical-cause">Missing required fields, invalid email formats, or duplicate detection rules reject the lead.</p>
+                    <p class="business-impact">CRM silently drops the lead. Your form says success. Your database says nothing.</p>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-icon">🔑</div>
+                    <h3>OAuth Token Expiration</h3>
+                    <p class="technical-cause">Your API authentication token expired overnight and wasn't refreshed.</p>
+                    <p class="business-impact">Every lead fails for hours or days until someone manually notices.</p>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-icon">🚫</div>
+                    <h3>API Rate Limiting</h3>
+                    <p class="technical-cause">Your CRM hits its API call limit and starts rejecting requests.</p>
+                    <p class="business-impact">Leads during peak hours vanish. You pay for the traffic but get zero conversions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Impact -->
+    <section>
+        <div class="container">
+            <h2>What Silent Failures Are Costing You</h2>
+            <p class="section-intro">Conservative math on a 500-lead-per-month business with a 5% failure rate.</p>
+            
+            <div class="financial-calculator">
+                <div class="calc-row">
+                    <span class="calc-label">Monthly leads</span>
+                    <span class="calc-value">500</span>
+                </div>
+                <div class="calc-row">
+                    <span class="calc-label">Average failure rate</span>
+                    <span class="calc-value">5%</span>
+                </div>
+                <div class="calc-row">
+                    <span class="calc-label">Lost leads per month</span>
+                    <span class="calc-value">25</span>
+                </div>
+                <div class="calc-row">
+                    <span class="calc-label">Average deal value</span>
+                    <span class="calc-value">$2,500</span>
+                </div>
+                <div class="calc-row">
+                    <span class="calc-label">Lead-to-close rate</span>
+                    <span class="calc-value">20%</span>
+                </div>
+                
+                <div class="calc-total">
+                    <div class="label">Annual Revenue Lost</div>
+                    <div class="amount">$150,000</div>
+                    <div class="context">One lost deal pays for this system 5 times over.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section>
+        <div class="container">
+            <h2>A Reliability Layer Between Your Forms and Your CRM</h2>
+            <p class="section-intro">This system sits in front of your existing infrastructure and guarantees nothing fails silently.</p>
+            
+            <div class="solution-visual">
+                <div class="flow-diagram">
+                    <div class="flow-box">
+                        <h4>Your Forms</h4>
+                        <p>Landing pages, ads, webinars</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box reliability-layer">
+                        <h4>Reliability Layer</h4>
+                        <p>Capture, validate, monitor</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">
+                        <h4>Your CRM</h4>
+                        <p>HubSpot, Salesforce, etc.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="callout" style="margin-top: 48px;">
+                <p>Capture first. Route second. Nothing is lost. Everything is logged.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section>
+        <div class="container">
+            <h2>How It Works</h2>
+            <p class="section-intro">No code. No complexity. Just reliable lead capture.</p>
+            
+            <div class="steps-list">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                        <h3>Ingest</h3>
+                        <p>Every form submission is immediately captured and stored, regardless of what happens next.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-text">
+                        <h3>Validate</h3>
+                        <p>Data is checked for required fields, correct formats, and business rules before routing.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <h3>Store</h3>
+                        <p>Every lead is logged with a timestamp, source, and full audit trail before attempting delivery.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-text">
+                        <h3>Route</h3>
+                        <p>The system attempts delivery to your CRM with proper timeout handling and error detection.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">5</div>
+                    <div class="step-text">
+                        <h3>Monitor</h3>
+                        <p>Success or failure is tracked in real-time. If it fails, the system knows immediately.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">6</div>
+                    <div class="step-text">
+                        <h3>Alert</h3>
+                        <p>You're notified within 60 seconds of any failure. No lead dies in silence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get -->
+    <section>
+        <div class="container">
+            <h2>What You Get</h2>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon"></div>
+                    <div class="feature-text">
+                        <h4>Complete n8n Workflows</h4>
+                        <p>Pre-built automation flows ready to import and configure for your CRM.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon"></div>
+                    <div class="feature-text">
+                        <h4>Real-Time Monitoring & Alerts</h4>
+                        <p>Instant notifications via email, Slack, or webhook when failures occur.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon"></div>
+                    <div class="feature-text">
+                        <h4>Automatic Retry Logic</h4>
+                        <p>Failed deliveries are retried with exponential backoff until they succeed.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon"></div>
+                    <div class="feature-text">
+                        <h4>Complete Audit Logs</h4>
+                        <p>Every lead is timestamped, tracked, and traceable from submission to CRM delivery.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon"></div>
+                    <div class="feature-text">
+                        <h4>Setup Documentation</h4>
+                        <p>Step-by-step guides for connecting to HubSpot, Salesforce, Pipedrive, and custom APIs.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon"></div>
+                    <div class="feature-text">
+                        <h4>48-Hour Direct Support</h4>
+                        <p>WhatsApp access to get you up and running within 48 hours of purchase.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="callout" style="margin-top: 48px;">
+                <p>Unlimited leads. Full ownership. No monthly fees. Ever.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What This Is / Isn't -->
+    <section>
+        <div class="container">
+            <h2>What This Is (And What It Isn't)</h2>
+            <p class="section-intro">Clear expectations build trust. Here's what you're actually buying.</p>
+            
+            <div class="comparison-boxes">
+                <div class="comparison-box is-box">
+                    <h3>This IS:</h3>
+                    <ul>
+                        <li>Infrastructure you own forever</li>
+                        <li>Complete n8n workflows and documentation</li>
+                        <li>A reliability layer for lead capture</li>
+                        <li>Built for technical founders and agencies</li>
+                        <li>Designed for self-hosting or n8n cloud</li>
+                        <li>One-time purchase with 48-hour support</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-box isnt-box">
+                    <h3>This is NOT:</h3>
+                    <ul>
+                        <li>A SaaS subscription service</li>
+                        <li>Plug-and-play with zero setup</li>
+                        <li>Marketing automation or email sequences</li>
+                        <li>Managed hosting or white-glove service</li>
+                        <li>A CRM replacement or lead scoring tool</li>
+                        <li>For non-technical users with no dev support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer & Guarantee -->
+    <section id="offer">
+        <div class="container">
+            <h2>The Offer</h2>
+            
+            <div class="offer-box">
+                <div class="price">$499</div>
+                <p class="price-context">One-time payment. Own it forever. No recurring fees.</p>
+                
+                <div class="cta-group" style="justify-content: center;">
+                    <a href="#" class="btn-primary">Get Instant Access</a>
+                    <a href="https://wa.me/yourwhatsapp" class="btn-secondary">Chat on WhatsApp</a>
+                </div>
+                
+                <div class="guarantee">
+                    <h4>48-Hour Money-Back Guarantee</h4>
+                    <p>If the workflows don't import correctly, the documentation is incomplete, or you can't get it running with our support within 48 hours — full refund, no questions asked. This either works or you don't pay.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Every Day Without Monitoring Is Another Day a Lead Can Fail Silently</h2>
+            <p>You're generating leads. You're paying for traffic. You deserve to know that every single one reaches your CRM.</p>
+            
+            <div class="cta-group
