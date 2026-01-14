@@ -1,735 +1,861 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lead Infrastructure System - Never Lose a Lead Again</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
-            line-height: 1.7;
-            color: #374151;
-            background: #fafbfc;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
-            padding: 140px 32px 120px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 58px;
-            font-weight: 600;
-            letter-spacing: -1.8px;
-            margin-bottom: 28px;
-            line-height: 1.15;
-            color: #1f2937;
-        }
-
-        .hero .subheadline {
-            font-size: 21px;
-            color: #6b7280;
-            margin-bottom: 52px;
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 400;
-            line-height: 1.65;
-        }
-
-        .cta-primary {
-            display: inline-block;
-            background: #374151;
-            color: #ffffff;
-            padding: 19px 52px;
-            font-size: 17px;
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: all 0.35s ease;
-            border: 1px solid #374151;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(55, 65, 81, 0.12);
-            letter-spacing: -0.2px;
-        }
-
-        .cta-primary:hover {
-            background: #1f2937;
-            border-color: #1f2937;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 18px rgba(55, 65, 81, 0.18);
-        }
-
-        .whatsapp-badge {
-            margin-top: 36px;
-            display: inline-flex;
-            align-items: center;
-            gap: 13px;
-            background: #ffffff;
-            padding: 15px 30px;
-            border-radius: 60px;
-            border: 1px solid #e5e7eb;
-            text-decoration: none;
-            color: #374151;
-            transition: all 0.35s ease;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-            font-size: 15px;
-        }
-
-        .whatsapp-badge:hover {
-            border-color: #d1d5db;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-            transform: translateY(-1px);
-        }
-
-        .whatsapp-badge svg {
-            width: 22px;
-            height: 22px;
-        }
-
-        /* Section Styling */
-        section {
-            padding: 110px 32px;
-        }
-
-        .section-title {
-            font-size: 44px;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 18px;
-            letter-spacing: -1.2px;
-            color: #1f2937;
-        }
-
-        .section-subtitle {
-            font-size: 19px;
-            color: #6b7280;
-            text-align: center;
-            margin-bottom: 68px;
-            max-width: 620px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.65;
-        }
-
-        /* Problem Section */
-        .problem {
-            background: #ffffff;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 36px;
-            max-width: 920px;
-            margin: 0 auto;
-        }
-
-        .problem-item {
-            padding: 40px;
-            background: #fafbfc;
-            border: 1px solid #f3f4f6;
-            border-radius: 14px;
-            transition: all 0.35s ease;
-        }
-
-        .problem-item:hover {
-            border-color: #e5e7eb;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-            transform: translateY(-2px);
-        }
-
-        .problem-icon {
-            width: 58px;
-            height: 58px;
-            background: #ffffff;
-            border: 1px solid #f3f4f6;
-            border-radius: 13px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 22px;
-            font-size: 27px;
-        }
-
-        .problem-item h3 {
-            font-size: 20px;
-            margin-bottom: 13px;
-            font-weight: 600;
-            color: #1f2937;
-            letter-spacing: -0.3px;
-        }
-
-        .problem-item p {
-            color: #6b7280;
-            font-size: 15.5px;
-            line-height: 1.7;
-        }
-
-        /* Workflow Section */
-        .workflow {
-            background: #fafbfc;
-        }
-
-        .workflow-visual {
-            max-width: 1020px;
-            margin: 0 auto 60px;
-            background: #ffffff;
-            padding: 44px;
-            border-radius: 16px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-            border: 1px solid #f3f4f6;
-        }
-
-        .workflow-placeholder {
-            background: #fafbfc;
-            border: 2px dashed #e5e7eb;
-            border-radius: 12px;
-            padding: 80px 40px;
-            text-align: center;
-        }
-
-        .workflow-placeholder-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-            opacity: 0.3;
-        }
-
-        .workflow-placeholder-text {
-            color: #9ca3af;
-            font-size: 16px;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .workflow-placeholder-subtext {
-            color: #d1d5db;
-            font-size: 14px;
-        }
-
-        .workflow-visual img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            border: 1px solid #f3f4f6;
-            display: block;
-        }
-
-        .workflow-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 28px;
-            max-width: 1020px;
-            margin: 0 auto;
-        }
-
-        .workflow-step {
-            background: #ffffff;
-            padding: 32px;
-            border-radius: 14px;
-            border: 1px solid #f3f4f6;
-            transition: all 0.35s ease;
-        }
-
-        .workflow-step:hover {
-            box-shadow: 0 3px 14px rgba(0, 0, 0, 0.05);
-            transform: translateY(-2px);
-            border-color: #e5e7eb;
-        }
-
-        .workflow-step .step-number {
-            display: inline-block;
-            width: 38px;
-            height: 38px;
-            background: #374151;
-            color: #ffffff;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 38px;
-            font-weight: 600;
-            margin-bottom: 18px;
-            font-size: 15px;
-        }
-
-        .workflow-step h4 {
-            font-size: 18.5px;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: #1f2937;
-            letter-spacing: -0.3px;
-        }
-
-        .workflow-step p {
-            font-size: 14.5px;
-            color: #6b7280;
-            line-height: 1.7;
-        }
-
-        /* Benefits Section */
-        .benefits {
-            background: #ffffff;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-            gap: 44px;
-            max-width: 1020px;
-            margin: 0 auto;
-        }
-
-        .benefit-item {
-            display: flex;
-            gap: 22px;
-            padding: 28px;
-            background: #fafbfc;
-            border-radius: 14px;
-            border: 1px solid #f3f4f6;
-            transition: all 0.35s ease;
-        }
-
-        .benefit-item:hover {
-            box-shadow: 0 3px 14px rgba(0, 0, 0, 0.05);
-            transform: translateY(-2px);
-            border-color: #e5e7eb;
-        }
-
-        .benefit-icon {
-            flex-shrink: 0;
-            width: 58px;
-            height: 58px;
-            background: #374151;
-            color: #ffffff;
-            border-radius: 13px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 27px;
-        }
-
-        .benefit-content h3 {
-            font-size: 19px;
-            margin-bottom: 9px;
-            font-weight: 600;
-            color: #1f2937;
-            letter-spacing: -0.3px;
-        }
-
-        .benefit-content p {
-            color: #6b7280;
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            background: #fafbfc;
-        }
-
-        .pricing-card {
-            max-width: 620px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 68px 52px;
-            border-radius: 16px;
-            border: 1px solid #f3f4f6;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .price {
-            font-size: 74px;
-            font-weight: 600;
-            margin: 26px 0;
-            letter-spacing: -2.5px;
-            color: #1f2937;
-        }
-
-        .price-label {
-            font-size: 17.5px;
-            color: #6b7280;
-            margin-bottom: 36px;
-            line-height: 1.6;
-        }
-
-        .pricing-features {
-            text-align: left;
-            margin: 36px 0;
-            list-style: none;
-        }
-
-        .pricing-features li {
-            padding: 15px 0;
-            border-bottom: 1px solid #f3f4f6;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            color: #374151;
-        }
-
-        .pricing-features li:last-child {
-            border-bottom: none;
-        }
-
-        .checkmark {
-            color: #10b981;
-            font-weight: 600;
-            font-size: 17px;
-        }
-
-        /* Guarantee Section */
-        .guarantee {
-            background: #ffffff;
-            text-align: center;
-        }
-
-        .guarantee-box {
-            max-width: 720px;
-            margin: 0 auto;
-            background: #fafbfc;
-            padding: 52px;
-            border-radius: 16px;
-            border: 1px solid #f3f4f6;
-        }
-
-        .guarantee-icon {
-            font-size: 62px;
-            margin-bottom: 26px;
-            opacity: 0.9;
-        }
-
-        .guarantee-box h3 {
-            font-size: 29px;
-            margin-bottom: 18px;
-            font-weight: 600;
-            color: #1f2937;
-            letter-spacing: -0.5px;
-        }
-
-        .guarantee-box p {
-            font-size: 16.5px;
-            color: #6b7280;
-            line-height: 1.75;
-        }
-
-        /* Footer */
-        footer {
-            background: #fafbfc;
-            color: #374151;
-            padding: 68px 32px 36px;
-            border-top: 1px solid #f3f4f6;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .footer-contacts {
-            display: flex;
-            justify-content: center;
-            gap: 52px;
-            margin-bottom: 36px;
-            flex-wrap: wrap;
-        }
-
-        .footer-contact {
-            display: flex;
-            align-items: center;
-            gap: 13px;
-            color: #6b7280;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 15px;
-        }
-
-        .footer-contact:hover {
-            color: #374151;
-        }
-
-        .copyright {
-            padding-top: 36px;
-            border-top: 1px solid #f3f4f6;
-            color: #9ca3af;
-            font-size: 14px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 100px 24px 80px;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-                letter-spacing: -1px;
-            }
-
-            .hero .subheadline {
-                font-size: 18px;
-            }
-
-            .section-title {
-                font-size: 34px;
-            }
-
-            .price {
-                font-size: 58px;
-            }
-
-            .cta-primary {
-                display: block;
-                margin: 16px auto;
-                max-width: 320px;
-            }
-
-            .benefit-item {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-contacts {
-                flex-direction: column;
-                gap: 28px;
-            }
-
-            .workflow-visual {
-                padding: 28px;
-            }
-
-            .pricing-card {
-                padding: 48px 32px;
-            }
-
-            .guarantee-box {
-                padding: 40px 28px;
-            }
-
-            section {
-                padding: 80px 24px;
-            }
-
-            .container {
-                padding: 0 24px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Stop Losing Leads You'll Never Know About</h1>
-            <p class="subheadline">A bulletproof lead infrastructure that captures, validates, routes, and monitors every single lead—with instant alerts, full audit logs, and complete documentation.</p>
-            <div>
-                <a href="#pricing" class="cta-primary">Get It Now - $499</a>
+import React, { useState, useEffect } from 'react';
+import { AlertTriangle, Shield, Clock, Database, Bell, CheckCircle, XCircle, TrendingDown, Lock, Zap, FileText, LifeBuoy, ArrowRight, Search, RefreshCw, BarChart3, Server } from 'lucide-react';
+
+export default function LeadReliabilityLanding() {
+  const [selectedDealValue, setSelectedDealValue] = useState(2000);
+  const [selectedLeads, setSelectedLeads] = useState(500);
+  const [activeTab, setActiveTab] = useState('logs');
+  
+  const failureRate = 0.055; // 5.5% average
+  const lostLeads = Math.round(selectedLeads * failureRate);
+  const monthlyLoss = lostLeads * selectedDealValue;
+  const annualLoss = monthlyLoss * 12;
+
+  return (
+    <div className="min-h-screen bg-slate-900 text-slate-100">
+      {/* Hero Section */}
+      <div className="border-b border-slate-800 bg-gradient-to-b from-slate-900 to-slate-800">
+        <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
+          <div className="text-center space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/20 rounded-full text-red-400 text-sm font-medium">
+              <AlertTriangle className="w-4 h-4" />
+              Silent lead failures are costing you revenue right now
             </div>
-            <a href="https://wa.me/213676127853" class="whatsapp-badge" target="_blank" rel="noopener noreferrer">
-                <svg fill="#25D366" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                <span>Have a question? Chat with us on WhatsApp 24/7!</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="problem">
-        <div class="container">
-            <h2 class="section-title">The Hidden Cost of Lead Failures</h2>
-            <p class="section-subtitle">Every day, businesses lose revenue from leads that slip through the cracks—and they never even know it happened.</p>
-            <div class="problem-grid">
-                <div class="problem-item">
-                    <div class="problem-icon">⚠️</div>
-                    <h3>Silent Failures</h3>
-                    <p>Forms submit successfully on the frontend, but leads vanish before reaching your CRM. No error. No alert. Just lost revenue.</p>
-                </div>
-                <div class="problem-item">
-                    <div class="problem-icon">🕳️</div>
-                    <h3>Integration Blind Spots</h3>
-                    <p>API timeouts, validation errors, or third-party service failures cause leads to disappear without any trace or notification.</p>
-                </div>
-                <div class="problem-item">
-                    <div class="problem-icon">❌</div>
-                    <h3>No Recovery System</h3>
-                    <p>When failures occur, there's no retry logic, no backup routing, and no way to recover lost opportunities.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Workflow Section -->
-    <section class="workflow" id="workflow">
-        <div class="container">
-            <h2 class="section-title">How It Works</h2>
-            <p class="section-subtitle">A complete lead infrastructure that ensures zero data loss and full visibility</p>
             
-        <img src="lom.png" alt="Lead Infrastructure Workflow" style="width: 70%; max-width: 700px; display: block; margin: 0 auto;">
-
-
-                <!-- When ready, replace placeholder with:
-                <img src="YOUR_GITHUB_RAW_URL/lom.png" alt="Lead Infrastructure Workflow">
-                -->
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+              Your Leads Either Reach<br />Your CRM — Or You're<br />
+              <span className="text-emerald-400">Alerted in 60 Seconds</span>
+            </h1>
+            
+            <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+              Stop losing leads to webhook timeouts, API failures, and CRM errors. This isn't marketing automation — it's infrastructure that ensures every lead is captured, validated, and delivered.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <button className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg text-lg transition-colors">
+                Get Instant Access – $499
+              </button>
+              <button className="px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg text-lg transition-colors">
+                Chat on WhatsApp
+              </button>
             </div>
-
-            <div class="workflow-steps">
-                <div class="workflow-step">
-                    <span class="step-number">1</span>
-                    <h4>Lead Ingestion</h4>
-                    <p>Every lead enters through a secure endpoint with automatic timestamp and source tracking.</p>
-                </div>
-                <div class="workflow-step">
-                    <span class="step-number">2</span>
-                    <h4>Validation & Enrichment</h4>
-                    <p>Data is validated, cleaned, and enriched before processing—ensuring quality from the start.</p>
-                </div>
-                <div class="workflow-step">
-                    <span class="step-number">3</span>
-                    <h4>Smart Routing</h4>
-                    <p>Leads are intelligently routed to your CRM, email systems, or custom endpoints based on your rules.</p>
-                </div>
-                <div class="workflow-step">
-                    <span class="step-number">4</span>
-                    <h4>Real-Time Monitoring</h4>
-                    <p>Every lead is tracked with full audit logs, status updates, and instant failure alerts via email and WhatsApp.</p>
-                </div>
-                <div class="workflow-step">
-                    <span class="step-number">5</span>
-                    <h4>Automatic Retry Logic</h4>
-                    <p>Failed deliveries are automatically retried with exponential backoff—no lead left behind.</p>
-                </div>
-                <div class="workflow-step">
-                    <span class="step-number">6</span>
-                    <h4>Complete Audit Trail</h4>
-                    <p>Full searchable history of every lead, every attempt, and every status change—forever accessible.</p>
-                </div>
-            </div>
+            
+            <p className="text-sm text-slate-500">One-time payment. Own it forever. 48-hour guarantee.</p>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Benefits Section -->
-    <section class="benefits">
-        <div class="container">
-            <h2 class="section-title">Why Decision-Makers Choose This System</h2>
-            <p class="section-subtitle">Built for reliability, transparency, and ROI</p>
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-icon">🛡️</div>
-                    <div class="benefit-content">
-                        <h3>Zero Lead Loss</h3>
-                        <p>Bulletproof architecture with retry logic, fallback routing, and automatic recovery ensures every lead is captured and delivered.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">⚡</div>
-                    <div class="benefit-content">
-                        <h3>Instant Alerts</h3>
-                        <p>Get notified immediately via email and WhatsApp when any failure occurs—respond before opportunities are lost.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">📊</div>
-                    <div class="benefit-content">
-                        <h3>Complete Visibility</h3>
-                        <p>Full audit logs and searchable history give you total transparency into every lead's journey through your system.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">🔧</div>
-                    <div class="benefit-content">
-                        <h3>Full Control</h3>
-                        <p>Deploy on your infrastructure with complete source code, documentation, and customization freedom. No vendor lock-in.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">📚</div>
-                    <div class="benefit-content">
-                        <h3>Complete Documentation</h3>
-                        <p>Comprehensive setup guides, API documentation, and integration examples get you running in hours, not weeks.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">💬</div>
-                    <div class="benefit-content">
-                        <h3>48-Hour Support</h3>
-                        <p>Direct WhatsApp and email support with guaranteed response within 48 hours for any technical questions or issues.</p>
-                    </div>
-                </div>
-            </div>
+      {/* Silent Failure Story */}
+      <div className="max-w-4xl mx-auto px-6 py-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">The Silent Failure</h2>
+          <p className="text-lg text-slate-400">This happens hundreds of times per month. You just don't see it.</p>
         </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <h2 class="section-title">One-Time Investment, Lifetime Value</h2>
-            <p class="section-subtitle">No monthly fees. No recurring charges. Own it forever.</p>
-            <div class="pricing-card">
-                <div class="price">$499</div>
-                <p class="price-label">One-time payment • Full ownership • Complete source code</p>
-                <ul class="pricing-features">
-                    <li><span class="checkmark">✓</span> Complete Lead Infrastructure System</li>
-                    <li><span class="checkmark">✓</span> Full source code and documentation</li>
-                    <li><span class="checkmark">✓</span> Unlimited leads, unlimited usage</li>
-                    <li><span class="checkmark">✓</span> Real-time monitoring and alerts</li>
-                    <li><span class="checkmark">✓</span> Automatic retry and recovery logic</li>
-                    <li><span class="checkmark">✓</span> Complete audit logs and reporting</li>
-                    <li><span class="checkmark">✓</span> 48-hour WhatsApp/email support</li>
-                    <li><span class="checkmark">✓</span> Free updates for 12 months</li>
-                    <li><span class="checkmark">✓</span> 48-hour money-back guarantee</li>
-                </ul>
-                <a href="#" class="cta-primary" style="margin-top: 32px;">Get Instant Access Now</a>
-                <p style="margin-top: 26px; font-size: 14.5px; color: #9ca3af;">One lost high-value deal pays for this system many times over.</p>
-            </div>
+        
+        <div className="relative">
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-700"></div>
+          
+          <div className="space-y-8 relative">
+            {[
+              { icon: CheckCircle, text: "User submits your lead form", color: "text-emerald-400" },
+              { icon: CheckCircle, text: 'They see "Thank you for your interest"', color: "text-emerald-400" },
+              { icon: XCircle, text: "Webhook times out after 8 seconds", color: "text-red-400" },
+              { icon: XCircle, text: "Lead never reaches your CRM", color: "text-red-400" },
+              { icon: XCircle, text: "Sales team never follows up", color: "text-red-400" },
+              { icon: TrendingDown, text: "Revenue lost. Forever.", color: "text-orange-400" }
+            ].map((step, i) => (
+              <div key={i} className="flex items-start gap-4 pl-16">
+                <step.icon className={`w-6 h-6 ${step.color} flex-shrink-0`} />
+                <p className="text-lg text-slate-300">{step.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
-    </section>
-
-    <!-- Guarantee Section -->
-    <section class="guarantee">
-        <div class="container">
-            <div class="guarantee-box">
-                <div class="guarantee-icon">🛡️</div>
-                <h3>48-Hour Money-Back Guarantee</h3>
-                <p>If the system doesn't work as described, or you're not completely satisfied with the documentation and functionality within 48 hours of purchase, we'll refund your investment immediately—no questions asked. We stand behind the quality and reliability of this system.</p>
-            </div>
+        
+        <div className="mt-12 p-6 bg-slate-800 border border-slate-700 rounded-lg">
+          <p className="text-slate-300 text-center text-lg">
+            <span className="font-semibold text-white">No error message.</span> No alert. No retry. No way to know it happened.
+          </p>
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-contacts">
-                <a href="https://wa.me/213676127853" class="footer-contact" target="_blank" rel="noopener noreferrer">
-                    <svg width="22" height="22" fill="#25D366" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    <span>WhatsApp: +213 676 127 853</span>
-                </a>
-                <a href="mailto:support@leadinfra.com" class="footer-contact">
-                    <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    <span>support@leadinfra.com</span>
-                </a>
-            </div>
-            <div class="copyright">
-                &copy; 2026 Lead Infrastructure System. All rights reserved.
-            </div>
+      {/* Real Failure Scenarios */}
+      <div className="bg-slate-800/50 border-y border-slate-700">
+        <div className="max-w-5xl mx-auto px-6 py-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            Four Ways Leads Fail Silently
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                icon: Clock,
+                title: "Webhook Timeouts",
+                cause: "Your CRM takes 12 seconds to respond, but the webhook times out at 10 seconds.",
+                impact: "Lead is lost. Form thinks it worked. You never know."
+              },
+              {
+                icon: AlertTriangle,
+                title: "CRM Validation Errors",
+                cause: "Required custom field missing, email format changed, or duplicate detection rule triggered.",
+                impact: "CRM rejects the lead. No notification sent. Sale never happens."
+              },
+              {
+                icon: Lock,
+                title: "OAuth Token Expiration",
+                cause: "Your API authentication expires after 60 days and wasn't refreshed automatically.",
+                impact: "Every lead fails for weeks until someone notices the pipeline dried up."
+              },
+              {
+                icon: Zap,
+                title: "API Rate Limits",
+                cause: "You hit your CRM's 100 requests/hour limit during a campaign spike.",
+                impact: "The overflow leads are dropped. You paid for traffic that vanished."
+              }
+            ].map((scenario, i) => (
+              <div key={i} className="p-6 bg-slate-800 border border-slate-700 rounded-lg">
+                <div className="flex items-start gap-4 mb-4">
+                  <scenario.icon className="w-8 h-8 text-emerald-400 flex-shrink-0" />
+                  <h3 className="text-xl font-semibold">{scenario.title}</h3>
+                </div>
+                <p className="text-slate-400 mb-3">
+                  <span className="text-slate-300 font-medium">Technical cause:</span> {scenario.cause}
+                </p>
+                <p className="text-slate-400">
+                  <span className="text-red-400 font-medium">Business impact:</span> {scenario.impact}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-    </footer>
-</body>
-</html>
+      </div>
 
+      {/* Financial Impact Calculator */}
+      <div className="max-w-4xl mx-auto px-6 py-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Calculate Your Hidden Loss</h2>
+          <p className="text-lg text-slate-400">Most businesses lose 3–8% of leads to infrastructure failures.</p>
+        </div>
+        
+        <div className="bg-slate-800 border border-slate-700 rounded-lg p-8">
+          <div className="space-y-6 mb-8">
+            <div>
+              <label className="block text-sm font-medium mb-2">Monthly Leads</label>
+              <input 
+                type="range" 
+                min="100" 
+                max="2000" 
+                step="100"
+                value={selectedLeads}
+                onChange={(e) => setSelectedLeads(parseInt(e.target.value))}
+                className="w-full"
+              />
+              <div className="text-right text-2xl font-bold text-emerald-400">{selectedLeads} leads/month</div>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-2">Average Deal Value</label>
+              <input 
+                type="range" 
+                min="500" 
+                max="10000" 
+                step="500"
+                value={selectedDealValue}
+                onChange={(e) => setSelectedDealValue(parseInt(e.target.value))}
+                className="w-full"
+              />
+              <div className="text-right text-2xl font-bold text-emerald-400">${selectedDealValue.toLocaleString()}</div>
+            </div>
+          </div>
+          
+          <div className="border-t border-slate-700 pt-6 space-y-4">
+            <div className="flex justify-between items-center">
+              <span className="text-slate-400">Estimated failed leads (5.5%):</span>
+              <span className="text-xl font-semibold text-red-400">{lostLeads} leads</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-slate-400">Monthly revenue lost:</span>
+              <span className="text-2xl font-bold text-red-400">${monthlyLoss.toLocaleString()}</span>
+            </div>
+            <div className="flex justify-between items-center text-xl">
+              <span className="text-white font-semibold">Annual revenue impact:</span>
+              <span className="text-3xl font-bold text-red-500">${annualLoss.toLocaleString()}</span>
+            </div>
+          </div>
+        </div>
+        
+        <p className="text-center text-slate-400 mt-8 text-lg">
+          One lost deal can cost more than this system. How many are you losing?
+        </p>
+      </div>
 
+      {/* The Solution */}
+      <div className="bg-slate-800/50 border-y border-slate-700">
+        <div className="max-w-5xl mx-auto px-6 py-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">The Lead Reliability Layer</h2>
+            <p className="text-xl text-slate-400">A fail-safe infrastructure that sits between your forms and your CRM</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-emerald-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Capture First</h3>
+              <p className="text-slate-400">Every lead is stored instantly before any external API call is made.</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Database className="w-8 h-8 text-emerald-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Route Second</h3>
+              <p className="text-slate-400">Validated data is delivered to your CRM with automatic retries if needed.</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Bell className="w-8 h-8 text-emerald-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Monitor Everything</h3>
+              <p className="text-slate-400">Instant alerts when failures happen. Full audit logs of every lead.</p>
+            </div>
+          </div>
+          
+          <div className="mt-12 p-6 bg-slate-800 border border-emerald-500/20 rounded-lg">
+            <p className="text-center text-lg text-slate-300">
+              Built on n8n. Nothing fails silently. Everything is logged. You own the entire system.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* How It Works */}
+      <div className="max-w-4xl mx-auto px-6 py-20">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
+        
+        <div className="space-y-6">
+          {[
+            { title: "Ingest", desc: "Lead data arrives from your forms via webhook and is immediately stored" },
+            { title: "Validate", desc: "Required fields are checked, formats are verified, duplicates are flagged" },
+            { title: "Store", desc: "Complete lead record is saved to your database before any external call" },
+            { title: "Route", desc: "Validated lead is sent to your CRM with configurable retry logic" },
+            { title: "Monitor", desc: "Success and failure events are logged with full context and timestamps" },
+            { title: "Alert", desc: "You receive instant notifications when failures occur so you can respond immediately" }
+          ].map((step, i) => (
+            <div key={i} className="flex items-start gap-4 p-6 bg-slate-800 border border-slate-700 rounded-lg">
+              <div className="w-8 h-8 bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                {i + 1}
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                <p className="text-slate-400">{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* What You Get */}
+      <div className="bg-slate-800/50 border-y border-slate-700">
+        <div className="max-w-4xl mx-auto px-6 py-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What You Get</h2>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { icon: FileText, text: "Complete n8n workflows ready to import and customize" },
+              { icon: Bell, text: "Real-time monitoring with Slack/email/SMS alert integrations" },
+              { icon: Zap, text: "Smart retry logic that handles transient failures automatically" },
+              { icon: Database, text: "Full audit logs for every lead with searchable history" },
+              { icon: FileText, text: "Step-by-step documentation for setup and configuration" },
+              { icon: LifeBuoy, text: "48-hour priority support via WhatsApp and email" }
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-4 p-4 bg-slate-800 rounded-lg">
+                <item.icon className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" />
+                <p className="text-slate-300">{item.text}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
+            <div className="p-6 bg-slate-800 border border-slate-700 rounded-lg">
+              <p className="text-3xl font-bold text-emerald-400 mb-2">Unlimited</p>
+              <p className="text-slate-400">Process unlimited leads. No volume caps.</p>
+            </div>
+            <div className="p-6 bg-slate-800 border border-slate-700 rounded-lg">
+              <p className="text-3xl font-bold text-emerald-400 mb-2">Owned</p>
+              <p className="text-slate-400">Full ownership. No recurring fees.</p>
+            </div>
+            <div className="p-6 bg-slate-800 border border-slate-700 rounded-lg">
+              <p className="text-3xl font-bold text-emerald-400 mb-2">Forever</p>
+              <p className="text-slate-400">Use it forever. Modify as needed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* System Screenshots Preview */}
+      <div className="max-w-6xl mx-auto px-6 py-20">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">See The System In Action</h2>
+        <p className="text-center text-slate-400 text-lg mb-12">Real monitoring, real alerts, real peace of mind</p>
+        
+        <div className="flex justify-center gap-4 mb-8">
+          {[
+            { id: 'logs', label: 'Audit Logs', icon: FileText },
+            { id: 'alerts', label: 'Alert Dashboard', icon: Bell },
+            { id: 'analytics', label: 'Analytics', icon: BarChart3 }
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors ${
+                activeTab === tab.id 
+                  ? 'bg-emerald-500 text-white' 
+                  : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+              }`}
+            >
+              <tab.icon className="w-5 h-5" />
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Logs View */}
+        {activeTab === 'logs' && (
+          <div className="bg-slate-900 border border-slate-700 rounded-lg p-6 font-mono text-sm">
+            <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-700">
+              <Search className="w-5 h-5 text-slate-500" />
+              <input 
+                type="text" 
+                placeholder="Search leads by email, ID, or status..." 
+                className="flex-1 bg-slate-800 border border-slate-600 rounded px-3 py-2 text-slate-300 focus:outline-none focus:border-emerald-500"
+              />
+            </div>
+            
+            <div className="space-y-3">
+              {[
+                { time: '14:23:41', email: 'sarah.johnson@techcorp.com', status: 'success', crm: 'HubSpot', duration: '847ms' },
+                { time: '14:23:38', email: 'mike.chen@startupxyz.io', status: 'success', crm: 'Salesforce', duration: '1.2s' },
+                { time: '14:23:35', email: 'alex.rivera@agency.co', status: 'failed', crm: 'Pipedrive', duration: '10.1s', error: 'Webhook timeout' },
+                { time: '14:23:32', email: 'jessica.brown@saasco.com', status: 'retrying', crm: 'HubSpot', duration: '8.9s', error: 'Rate limit hit' },
+                { time: '14:23:29', email: 'david.kim@growth.io', status: 'success', crm: 'Salesforce', duration: '923ms' }
+              ].map((log, i) => (
+                <div key={i} className="flex items-start gap-4 p-3 bg-slate-800 rounded border-l-4 border-l-transparent hover:border-l-emerald-500 transition-colors" style={{
+                  borderLeftColor: log.status === 'success' ? '#10b981' : log.status === 'failed' ? '#ef4444' : '#f59e0b'
+                }}>
+                  <span className="text-slate-500 w-20">{log.time}</span>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-1">
+                      <span className="text-slate-300">{log.email}</span>
+                      <span className={`px-2 py-0.5 rounded text-xs font-semibold ${
+                        log.status === 'success' ? 'bg-emerald-500/20 text-emerald-400' :
+                        log.status === 'failed' ? 'bg-red-500/20 text-red-400' :
+                        'bg-orange-500/20 text-orange-400'
+                      }`}>
+                        {log.status.toUpperCase()}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-4 text-xs text-slate-500">
+                      <span>→ {log.crm}</span>
+                      <span>⏱ {log.duration}</span>
+                      {log.error && <span className="text-red-400">⚠ {log.error}</span>}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="mt-4 pt-4 border-t border-slate-700 text-slate-500 text-center">
+              Showing 5 of 1,247 leads processed today
+            </div>
+          </div>
+        )}
+
+        {/* Alerts View */}
+        {activeTab === 'alerts' && (
+          <div className="bg-slate-900 border border-slate-700 rounded-lg p-6">
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-slate-400 text-sm">Active Alerts</span>
+                  <AlertTriangle className="w-5 h-5 text-red-400" />
+                </div>
+                <p className="text-3xl font-bold text-red-400">3</p>
+              </div>
+              <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-slate-400 text-sm">Success Rate</span>
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                </div>
+                <p className="text-3xl font-bold text-emerald-400">94.8%</p>
+              </div>
+              <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-slate-400 text-sm">Avg Response</span>
+                  <Clock className="w-5 h-5 text-blue-400" />
+                </div>
+                <p className="text-3xl font-bold text-blue-400">1.2s</p>
+              </div>
+            </div>
+            
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-slate-300 mb-4">Recent Alerts</h3>
+              
+              {[
+                {
+                  type: 'critical',
+                  title: 'HubSpot OAuth Token Expired',
+                  message: 'All leads to HubSpot are failing. Refresh OAuth token immediately.',
+                  time: '2 minutes ago',
+                  affected: '12 leads queued'
+                },
+                {
+                  type: 'warning',
+                  title: 'Pipedrive Rate Limit Approaching',
+                  message: 'You have used 87 of 100 API calls this hour. Consider throttling.',
+                  time: '8 minutes ago',
+                  affected: 'No leads lost'
+                },
+                {
+                  type: 'critical',
+                  title: 'Salesforce Validation Error',
+                  message: 'Required custom field "Industry" missing in 3 consecutive leads.',
+                  time: '14 minutes ago',
+                  affected: '3 leads failed'
+                }
+              ].map((alert, i) => (
+                <div key={i} className={`p-4 rounded-lg border-l-4 ${
+                  alert.type === 'critical' 
+                    ? 'bg-red-500/10 border-l-red-500' 
+                    : 'bg-orange-500/10 border-l-orange-500'
+                }`}>
+                  <div className="flex items-start justify-between mb-2">
+                    <h4 className={`font-semibold ${
+                      alert.type === 'critical' ? 'text-red-400' : 'text-orange-400'
+                    }`}>
+                      {alert.title}
+                    </h4>
+                    <span className="text-xs text-slate-500">{alert.time}</span>
+                  </div>
+                  <p className="text-slate-300 text-sm mb-2">{alert.message}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-slate-500">{alert.affected}</span>
+                    <button className="px-3 py-1 bg-slate-700 hover:bg-slate-600 rounded text-xs text-slate-300 transition-colors">
+                      View Details
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Analytics View */}
+        {activeTab === 'analytics' && (
+          <div className="bg-slate-900 border border-slate-700 rounded-lg p-6">
+            <div className="grid md:grid-cols-4 gap-4 mb-6">
+              <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
+                <div className="text-slate-400 text-sm mb-1">Today</div>
+                <p className="text-2xl font-bold text-slate-300">1,247</p>
+                <p className="text-xs text-emerald-400">+18% from yesterday</p>
+              </div>
+              <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
+                <div className="text-slate-400 text-sm mb-1">This Week</div>
+                <p className="text-2xl font-bold text-slate-300">8,392</p>
+                <p className="text-xs text-emerald-400">+12% from last week</p>
+              </div>
+              <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
+                <div className="text-slate-400 text-sm mb-1">Failed</div>
+                <p className="text-2xl font-bold text-red-400">65</p>
+                <p className="text-xs text-slate-500">5.2% failure rate</p>
+              </div>
+              <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
+                <div className="text-slate-400 text-sm mb-1">Recovered</div>
+                <p className="text-2xl font-bold text-emerald-400">58</p>
+                <p className="text-xs text-emerald-400">89% auto-retry success</p>
+              </div>
+            </div>
+            
+            <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
+              <h4 className="text-lg font-semibold mb-4 text-slate-300">Performance By CRM</h4>
+              <div className="space-y-4">
+                {[
+                  { crm: 'HubSpot', success: 96, avg: '847ms', color: 'bg-emerald-500' },
+                  { crm: 'Salesforce', success: 94, avg: '1.2s', color: 'bg-emerald-500' },
+                  { crm: 'Pipedrive', success: 89, avg: '2.1s', color: 'bg-orange-500' },
+                  { crm: 'Custom API', success: 98, avg: '654ms', color: 'bg-emerald-500' }
+                ].map((crm, i) => (
+                  <div key={i}>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-slate-300 font-medium">{crm.crm}</span>
+                      <div className="flex items-center gap-4 text-sm">
+                        <span className="text-slate-400">{crm.success}% success</span>
+                        <span className="text-slate-500">avg {crm.avg}</span>
+                      </div>
+                    </div>
+                    <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
+                      <div className={`h-full ${crm.color}`} style={{width: `${crm.success}%`}}></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+        
+        <p className="text-center text-slate-500 text-sm mt-6">
+          Placeholder interface - your actual system will connect to your live data
+        </p>
+      </div>
+
+      {/* What This Is/Isn't */}
+      <div className="max-w-4xl mx-auto px-6 py-20">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What This Is (And Isn't)</h2>
+        
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-emerald-400 mb-4">This IS:</h3>
+            {[
+              "Infrastructure that ensures lead reliability",
+              "A technical system you own and control",
+              "Built for businesses with existing funnels",
+              "Designed for 50+ leads per month minimum",
+              "Requires basic n8n or automation knowledge"
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                <p className="text-slate-300">{item}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-red-400 mb-4">This is NOT:</h3>
+            {[
+              "A plug-and-play SaaS solution",
+              "Marketing automation or lead nurturing",
+              "A hosted service with monthly fees",
+              "A CRM replacement or lead gen tool",
+              "Managed or done-for-you infrastructure"
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <XCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                <p className="text-slate-300">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div className="mt-8 p-6 bg-slate-800 border border-slate-700 rounded-lg">
+          <p className="text-slate-300 text-center">
+            This is for operators who want reliability without ongoing SaaS costs. If you need plug-and-play, this isn't for you.
+          </p>
+        </div>
+      </div>
+
+      {/* Social Proof / Use Cases */}
+      <div className="bg-slate-800/50 border-y border-slate-700">
+        <div className="max-w-5xl mx-auto px-6 py-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Who This Is Built For</h2>
+          <p className="text-center text-slate-400 text-lg mb-12">Real infrastructure for real businesses</p>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "SaaS Founders",
+                scenario: "Running paid ads to free trial signups",
+                problem: "Webhook timeouts during traffic spikes lose 8% of signups",
+                solution: "Every signup captured before CRM call, retry logic handles the rest"
+              },
+              {
+                title: "Agency Owners",
+                scenario: "Managing lead gen for 15+ clients",
+                problem: "OAuth tokens expire, client leads fail for days unnoticed",
+                solution: "Instant alerts when any client integration breaks, full audit trail"
+              },
+              {
+                title: "E-commerce Ops",
+                scenario: "High-ticket product with multi-step qualification",
+                problem: "Klaviyo rate limits drop leads during launch campaigns",
+                solution: "Queue management prevents lost leads, all data stored first"
+              }
+            ].map((useCase, i) => (
+              <div key={i} className="bg-slate-800 border border-slate-700 rounded-lg p-6">
+                <h3 className="text-xl font-semibold text-emerald-400 mb-3">{useCase.title}</h3>
+                <div className="space-y-3 text-sm">
+                  <div>
+                    <p className="text-slate-500 mb-1">Scenario:</p>
+                    <p className="text-slate-300">{useCase.scenario}</p>
+                  </div>
+                  <div>
+                    <p className="text-red-400 mb-1">Problem:</p>
+                    <p className="text-slate-300">{useCase.problem}</p>
+                  </div>
+                  <div>
+                    <p className="text-emerald-400 mb-1">Solution:</p>
+                    <p className="text-slate-300">{useCase.solution}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Technical Requirements */}
+      <div className="max-w-4xl mx-auto px-6 py-20">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Technical Requirements</h2>
+        
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
+            <h3 className="text-xl font-semibold mb-4 text-emerald-400">What You Need</h3>
+            <div className="space-y-3">
+              {[
+                { label: "n8n instance", detail: "Self-hosted or n8n Cloud ($20/mo)" },
+                { label: "Database", detail: "PostgreSQL, MySQL, or SQLite" },
+                { label: "Webhook endpoints", detail: "Your existing forms/tools" },
+                { label: "CRM access", detail: "API keys for your CRM(s)" },
+                { label: "Basic understanding", detail: "JSON, webhooks, API concepts" }
+              ].map((req, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <Server className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-slate-300 font-medium">{req.label}</p>
+                    <p className="text-slate-500 text-sm">{req.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
+            <h3 className="text-xl font-semibold mb-4 text-slate-300">Setup Time</h3>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center pb-3 border-b border-slate-700">
+                <span className="text-slate-400">Import workflows</span>
+                <span className="text-emerald-400 font-semibold">10 min</span>
+              </div>
+              <div className="flex justify-between items-center pb-3 border-b border-slate-700">
+                <span className="text-slate-400">Configure credentials</span>
+                <span className="text-emerald-400 font-semibold">15 min</span>
+              </div>
+              <div className="flex justify-between items-center pb-3 border-b border-slate-700">
+                <span className="text-slate-400">Test with sample data</span>
+                <span className="text-emerald-400 font-semibold">20 min</span>
+              </div>
+              <div className="flex justify-between items-center pb-3 border-b border-slate-700">
+                <span className="text-slate-400">Connect to live forms</span>
+                <span className="text-emerald-400 font-semibold">15 min</span>
+              </div>
+              <div className="flex justify-between items-center pt-2">
+                <span className="text-white font-semibold">Total setup time</span>
+                <span className="text-2xl text-emerald-400 font-bold">~60 min</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="mt-8 p-6 bg-slate-800 border border-emerald-500/20 rounded-lg">
+          <p className="text-slate-300 text-center">
+            <span className="font-semibold text-white">Note:</span> If you're not familiar with n8n or prefer done-for-you setup, we offer implementation support separately. Ask on WhatsApp.
+          </p>
+        </div>
+      </div>
+
+      {/* Offer & Guarantee */}
+      <div className="bg-gradient-to-b from-slate-800 to-slate-900 border-y border-slate-700">
+        <div className="max-w-3xl mx-auto px-6 py-20 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Own It For $499</h2>
+          
+          <div className="bg-slate-800 border border-emerald-500/30 rounded-lg p-8 mb-8">
+            <div className="text-5xl font-bold text-emerald-400 mb-4">$499</div>
+            <p className="text-xl text-slate-300 mb-6">One-time payment. Yours forever.</p>
+            
+            <div className="space-y-3 text-left max-w-md mx-auto mb-6">
+              {[
+                "Complete n8n workflow system",
+                "Full documentation and setup guides",
+                "48-hour priority support",
+                "Unlimited lead processing",
+                "No monthly fees ever"
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                  <span className="text-slate-300">{item}</span>
+                </div>
+              ))}
+            </div>
+            
+            <button className="w-full px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg text-xl transition-colors mb-4">
+              Get Instant Access – $499
+            </button>
+            
+            <button className="w-full px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg text-xl transition-colors">
+              Questions? Chat on WhatsApp
+            </button>
+          </div>
+          
+          <div className="p-6 bg-slate-800 border border-slate-700 rounded-lg mb-8">
+            <h3 className="text-xl font-semibold mb-3">48-Hour Guarantee</h3>
+            <p className="text-slate-400">
+              If the workflows don't perform as documented within 48 hours of setup, you get a full refund. No questions asked. This either works for your infrastructure or you pay nothing.
+            </p>
+          </div>
+
+          {/* Price Comparison */}
+          <div className="text-left">
+            <h3 className="text-2xl font-bold mb-6 text-center">Compare The Real Cost</h3>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
+                <div className="text-center mb-4">
+                  <p className="text-slate-400 text-sm mb-2">Typical SaaS Solution</p>
+                  <p className="text-3xl font-bold text-slate-300">$99<span className="text-lg text-slate-500">/mo</span></p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center gap-2 text-slate-400">
+                    <XCircle className="w-4 h-4 text-red-400" />
+                    <span>Volume limits apply</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-slate-400">
+                    <XCircle className="w-4 h-4 text-red-400" />
+                    <span>Data stored on their servers</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-slate-400">
+                    <XCircle className="w-4 h-4 text-red-400" />
+                    <span>Price increases over time</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-slate-400">
+                    <XCircle className="w-4 h-4 text-red-400" />
+                    <span>Lock-in to their platform</span>
+                  </div>
+                </div>
+                <div className="mt-4 pt-4 border-t border-slate-700 text-center">
+                  <p className="text-slate-500 text-xs">Year 1: $1,188</p>
+                  <p className="text-slate-400 font-semibold">3 Years: <span className="text-red-400">$3,564</span></p>
+                </div>
+              </div>
+              
+              <div className="bg-gradient-to-br from-emerald-500/10 to-emerald-600/10 border-2 border-emerald-500/30 rounded-lg p-6 relative">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-full">
+                  BEST VALUE
+                </div>
+                <div className="text-center mb-4">
+                  <p className="text-slate-400 text-sm mb-2">Lead Reliability System</p>
+                  <p className="text-3xl font-bold text-emerald-400">$499<span className="text-lg text-slate-500">/once</span></p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center gap-2 text-slate-300">
+                    <CheckCircle className="w-4 h-4 text-emerald-400" />
+                    <span>Unlimited leads forever</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-slate-300">
+                    <CheckCircle className="w-4 h-4 text-emerald-400" />
+                    <span>Full data ownership & control</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-slate-300">
+                    <CheckCircle className="w-4 h-4 text-emerald-400" />
+                    <span>No recurring fees ever</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-slate-300">
+                    <CheckCircle className="w-4 h-4 text-emerald-400" />
+                    <span>Customize without limits</span>
+                  </div>
+                </div>
+                <div className="mt-4 pt-4 border-t border-emerald-500/30 text-center">
+                  <p className="text-slate-500 text-xs">Year 1: $499</p>
+                  <p className="text-slate-300 font-semibold">3 Years: <span className="text-emerald-400">$499</span></p>
+                </div>
+              </div>
+            </div>
+            
+            <p className="text-center text-slate-500 text-sm mt-6">
+              Save $3,065 over 3 years. Plus n8n hosting (~$20/mo optional if using n8n Cloud)
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="max-w-4xl mx-auto px-6 py-20">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Common Questions</h2>
+        
+        <div className="space-y-4">
+          {[
+            {
+              q: "Do I need to know how to code?",
+              a: "No. You need to understand concepts like webhooks, API keys, and JSON structure. If you've set up Zapier or similar tools, you'll be fine. The workflows are pre-built; you just configure credentials and endpoints."
+            },
+            {
+              q: "What if I'm using a CRM that's not listed?",
+              a: "The system works with any CRM that has an API or webhook support. We provide templates for HubSpot, Salesforce, and Pipedrive, but n8n supports 350+ integrations. Custom APIs work perfectly."
+            },
+            {
+              q: "Is this just for lead forms, or can it handle other data sources?",
+              a: "Any data source that can send a webhook or make an API call works. Lead forms, chatbots, payment processors, support tickets—anything that generates inbound data you need to track reliably."
+            },
+            {
+              q: "What happens to my data if I stop using this?",
+              a: "You own everything. The workflows, the database, the logs—all yours. Export your data anytime. Stop using it, start again later. No lock-in."
+            },
+            {
+              q: "Do you provide implementation support?",
+              a: "The system includes 48-hour support for technical questions. If you want hands-off setup or custom workflow building, we offer paid implementation separately. Ask on WhatsApp for details."
+            },
+            {
+              q: "How is this different from just using n8n directly?",
+              a: "n8n is the platform. This is the complete system: workflows for capture, storage, routing, retry logic, monitoring, alerting, and logging—already built and tested. You're buying months of infrastructure work, not just a tool."
+            },
+            {
+              q: "What if I need to customize the workflows?",
+              a: "You own the workflows. Modify them however you want. Add custom logic, integrate new tools, change alert rules. It's yours to customize without restriction."
+            },
+            {
+              q: "Is the 48-hour guarantee really no questions asked?",
+              a: "Yes. If it doesn't work as documented, we refund. We only ask that you've actually attempted setup following the included documentation."
+            }
+          ].map((faq, i) => (
+            <details key={i} className="bg-slate-800 border border-slate-700 rounded-lg p-6 cursor-pointer hover:border-emerald-500/30 transition-colors">
+              <summary className="font-semibold text-slate-200 cursor-pointer">
+                {faq.q}
+              </summary>
+              <p className="mt-3 text-slate-400 leading-relaxed">
+                {faq.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+
+      {/* Final CTA */}
+      <div className="max-w-4xl mx-auto px-6 py-20">
+        <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 border border-red-500/20 rounded-lg p-12 text-center">
+          <AlertTriangle className="w-16 h-16 text-red-400 mx-auto mb-6" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Every Day Without Monitoring Is Another Day<br />A Lead Can Fail Silently
+          </h2>
+          <p className="text-xl text-slate-400 mb-8">
+            Stop wondering if your leads made it. Start knowing.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg text-lg transition-colors">
+              Get Instant Access – $499
+            </button>
+            <button className="px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg text-lg transition-colors">
+              WhatsApp Support
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="border-t border-slate-800 py-8">
+        <p className="text-center text-slate-500 text-sm">
+          © 2026 Lead Reliability System. One-time payment. No subscriptions. 48-hour guarantee.
+        </p>
+      </div>
+    </div>
+  );
+}
