@@ -3,841 +3,801 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stop Losing Leads to Silent Failures | Lead Reliability System</title>
+    <title>AI Lead System - Capture & Manage Every Lead with AI Precision</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-primary: #DDBEA9;
+            --bg-secondary: #d4af94;
+            --bg-card: #f5ebe0;
+            --text-primary: #2b1810;
+            --text-secondary: #5a4738;
+            --accent-brown: #8b6f47;
+            --accent-dark: #3d2817;
+            --border-color: #c4a583;
+            --button-primary: #3d2817;
+            --button-hover: #2b1810;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #0a0a0a;
-            color: #e5e5e5;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 18px;
         }
-        
+
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 32px;
         }
-        
-        /* Hero Section */
+
+        .container-narrow {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        header {
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--bg-primary);
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+        }
+
         .hero {
-            padding: 80px 0 100px;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            border-bottom: 1px solid #2a2a2a;
+            padding: 120px 0 140px;
+            text-align: center;
         }
-        
-        .hero h1 {
+
+        h1 {
             font-size: 52px;
             font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            color: #ffffff;
-            max-width: 900px;
-        }
-        
-        .hero h1 .highlight {
-            color: #ff4444;
-        }
-        
-        .hero p {
-            font-size: 20px;
-            color: #a0a0a0;
-            margin-bottom: 40px;
-            max-width: 700px;
-        }
-        
-        .cta-group {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        
-        .btn-primary {
-            background: #ff4444;
-            color: #ffffff;
-            padding: 18px 40px;
-            font-size: 18px;
-            font-weight: 600;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: background 0.2s;
-        }
-        
-        .btn-primary:hover {
-            background: #e63939;
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: #ffffff;
-            padding: 18px 40px;
-            font-size: 18px;
-            font-weight: 600;
-            border: 2px solid #3a3a3a;
-            border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: border-color 0.2s;
-        }
-        
-        .btn-secondary:hover {
-            border-color: #4a4a4a;
-        }
-        
-        /* Section Styles */
-        section {
-            padding: 80px 0;
-            border-bottom: 1px solid #2a2a2a;
-        }
-        
-        h2 {
-            font-size: 38px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-        
-        .section-intro {
-            font-size: 18px;
-            color: #a0a0a0;
-            margin-bottom: 48px;
-            max-width: 800px;
-        }
-        
-        /* Silent Failure Story */
-        .failure-story {
-            background: #141414;
-            border-left: 4px solid #ff4444;
-            padding: 40px;
-            border-radius: 8px;
-            margin-top: 40px;
-        }
-        
-        .failure-step {
-            display: flex;
-            align-items: start;
-            margin-bottom: 24px;
-            gap: 20px;
-        }
-        
-        .failure-step:last-child {
-            margin-bottom: 0;
-        }
-        
-        .step-icon {
-            width: 36px;
-            height: 36px;
-            background: #2a2a2a;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            flex-shrink: 0;
-            color: #ff4444;
-        }
-        
-        .step-content h3 {
-            font-size: 18px;
-            color: #ffffff;
-            margin-bottom: 6px;
-        }
-        
-        .step-content p {
-            color: #909090;
-            font-size: 15px;
-        }
-        
-        .callout {
-            background: #1a0a0a;
-            border: 1px solid #3a1a1a;
-            padding: 24px;
-            border-radius: 6px;
-            margin-top: 32px;
-            text-align: center;
-        }
-        
-        .callout p {
-            color: #ff6666;
-            font-size: 17px;
-            font-weight: 600;
-        }
-        
-        /* Real Failure Scenarios */
-        .scenarios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-        
-        .scenario-card {
-            background: #141414;
-            padding: 32px;
-            border-radius: 8px;
-            border: 1px solid #2a2a2a;
-        }
-        
-        .scenario-icon {
-            width: 48px;
-            height: 48px;
-            background: #2a2a2a;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-        
-        .scenario-card h3 {
-            font-size: 20px;
-            color: #ffffff;
-            margin-bottom: 12px;
-        }
-        
-        .technical-cause {
-            color: #909090;
-            font-size: 14px;
-            margin-bottom: 12px;
-            font-style: italic;
-        }
-        
-        .business-impact {
-            color: #ff6666;
-            font-size: 15px;
-            font-weight: 600;
-        }
-        
-        /* Financial Impact */
-        .financial-calculator {
-            background: #141414;
-            padding: 48px;
-            border-radius: 8px;
-            margin-top: 40px;
-            border: 2px solid #2a2a2a;
-        }
-        
-        .calc-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #2a2a2a;
-        }
-        
-        .calc-row:last-child {
-            border-bottom: none;
-        }
-        
-        .calc-label {
-            font-size: 16px;
-            color: #a0a0a0;
-        }
-        
-        .calc-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: #ffffff;
-        }
-        
-        .calc-total {
-            background: #1a0a0a;
-            padding: 32px;
-            margin-top: 32px;
-            border-radius: 6px;
-            text-align: center;
-        }
-        
-        .calc-total .label {
-            color: #a0a0a0;
-            font-size: 16px;
-            margin-bottom: 12px;
-        }
-        
-        .calc-total .amount {
-            font-size: 48px;
-            font-weight: 700;
-            color: #ff4444;
-            margin-bottom: 12px;
-        }
-        
-        .calc-total .context {
-            color: #909090;
-            font-size: 15px;
-        }
-        
-        /* Solution Section */
-        .solution-visual {
-            background: #141414;
-            padding: 48px;
-            border-radius: 8px;
-            margin-top: 40px;
-            text-align: center;
-        }
-        
-        .flow-diagram {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            margin-top: 32px;
-            flex-wrap: wrap;
-        }
-        
-        .flow-box {
-            flex: 1;
-            min-width: 140px;
-            background: #0a0a0a;
-            padding: 24px 16px;
-            border-radius: 6px;
-            border: 1px solid #2a2a2a;
-        }
-        
-        .flow-box h4 {
-            font-size: 16px;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-        
-        .flow-box p {
-            font-size: 13px;
-            color: #707070;
-        }
-        
-        .flow-arrow {
-            color: #505050;
-            font-size: 24px;
-        }
-        
-        .reliability-layer {
-            background: #1a1a1a;
-            border: 2px solid #ff4444;
-        }
-        
-        /* How It Works */
-        .steps-list {
-            margin-top: 40px;
-        }
-        
-        .step-item {
-            display: flex;
-            gap: 24px;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
             margin-bottom: 32px;
-            align-items: start;
-        }
-        
-        .step-number {
-            width: 48px;
-            height: 48px;
-            background: #ff4444;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-        
-        .step-text h3 {
-            font-size: 20px;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-        
-        .step-text p {
-            color: #909090;
-            font-size: 15px;
-        }
-        
-        /* What You Get */
-        .features-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-        
-        .feature-item {
-            display: flex;
-            gap: 16px;
-            align-items: start;
-        }
-        
-        .feature-icon {
-            width: 24px;
-            height: 24px;
-            background: #ff4444;
-            border-radius: 4px;
-            flex-shrink: 0;
-            margin-top: 4px;
-        }
-        
-        .feature-text h4 {
-            font-size: 17px;
-            color: #ffffff;
-            margin-bottom: 6px;
-        }
-        
-        .feature-text p {
-            color: #909090;
-            font-size: 14px;
-        }
-        
-        /* What This Is/Isn't */
-        .comparison-boxes {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            margin-top: 40px;
-        }
-        
-        .comparison-box {
-            background: #141414;
-            padding: 40px;
-            border-radius: 8px;
-        }
-        
-        .is-box {
-            border: 2px solid #2a8a2a;
-        }
-        
-        .isnt-box {
-            border: 2px solid #8a2a2a;
-        }
-        
-        .comparison-box h3 {
-            font-size: 24px;
-            margin-bottom: 24px;
-        }
-        
-        .is-box h3 {
-            color: #4ade80;
-        }
-        
-        .isnt-box h3 {
-            color: #ff6666;
-        }
-        
-        .comparison-box ul {
-            list-style: none;
-        }
-        
-        .comparison-box li {
-            padding: 12px 0;
-            border-bottom: 1px solid #2a2a2a;
-            color: #a0a0a0;
-            font-size: 15px;
-        }
-        
-        .comparison-box li:last-child {
-            border-bottom: none;
-        }
-        
-        /* Offer Section */
-        .offer-box {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-            border: 2px solid #ff4444;
-            padding: 64px;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        .price {
-            font-size: 72px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 16px;
-        }
-        
-        .price-context {
-            font-size: 18px;
-            color: #a0a0a0;
-            margin-bottom: 32px;
-        }
-        
-        .guarantee {
-            background: #0a0a0a;
-            padding: 24px;
-            border-radius: 6px;
-            margin-top: 32px;
-        }
-        
-        .guarantee h4 {
-            font-size: 18px;
-            color: #ffffff;
-            margin-bottom: 12px;
-        }
-        
-        .guarantee p {
-            color: #909090;
-            font-size: 15px;
-            line-height: 1.6;
-        }
-        
-        /* Final CTA */
-        .final-cta {
-            background: #0a0a0a;
-            text-align: center;
-            padding: 100px 0;
-        }
-        
-        .final-cta h2 {
-            font-size: 42px;
-            margin-bottom: 24px;
-        }
-        
-        .final-cta p {
-            font-size: 20px;
-            color: #a0a0a0;
-            margin-bottom: 48px;
-            max-width: 700px;
+            color: var(--text-primary);
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
         }
-        
+
+        .subheadline {
+            font-size: 21px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 32px;
+            font-weight: 400;
+        }
+
+        .results-notice {
+            font-size: 16px;
+            color: var(--accent-dark);
+            font-weight: 600;
+            margin-bottom: 48px;
+            padding: 16px;
+            background: rgba(61, 40, 23, 0.1);
+            border-radius: 6px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 48px;
+        }
+
+        .channel-icons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 32px 0 48px;
+            flex-wrap: wrap;
+        }
+
+        .channel-icon {
+            background: var(--bg-card);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-dark);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 48px;
+        }
+
+        .btn {
+            padding: 18px 36px;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--button-primary);
+            color: var(--bg-card);
+        }
+
+        .btn-primary:hover {
+            background: var(--button-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-dark);
+            border: 2px solid var(--accent-brown);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-dark);
+            background: rgba(61, 40, 23, 0.05);
+            transform: translateY(-1px);
+        }
+
+        section {
+            padding: 100px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        section.alt-bg {
+            background: var(--bg-secondary);
+        }
+
+        h2 {
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 32px;
+            line-height: 1.25;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+        }
+
+        .highlight {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .problem-narrative {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 48px;
+        }
+
+        .problem-steps {
+            background: var(--bg-card);
+            padding: 48px;
+            border-radius: 6px;
+            margin: 48px 0;
+            border-left: 4px solid var(--accent-brown);
+        }
+
+        .step {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--accent-dark);
+            color: var(--bg-card);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            margin-right: 16px;
+            font-size: 14px;
+        }
+
+        .cost-calculation {
+            background: var(--bg-card);
+            padding: 48px;
+            border-radius: 6px;
+            margin: 48px 0;
+            border: 2px solid var(--accent-brown);
+            box-shadow: 0 2px 16px rgba(43, 24, 16, 0.1);
+        }
+
+        .calculation-row {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .calculation-row:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--accent-dark);
+            margin-top: 16px;
+        }
+
+        .workflow-grid {
+            display: grid;
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .workflow-step {
+            background: var(--bg-card);
+            padding: 32px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-brown);
+            box-shadow: 0 2px 12px rgba(43, 24, 16, 0.08);
+        }
+
+        .workflow-number {
+            display: inline-block;
+            background: var(--accent-dark);
+            color: var(--bg-card);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin: 48px 0;
+        }
+
+        .comparison-card {
+            background: var(--bg-card);
+            padding: 32px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .comparison-card.manual {
+            border-left: 4px solid #d32f2f;
+        }
+
+        .comparison-card.ai-system {
+            border-left: 4px solid #4caf50;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 32px 0;
+        }
+
+        .feature-list li {
+            padding: 12px 0 12px 28px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-brown);
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin: 48px 0;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 32px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 12px rgba(43, 24, 16, 0.08);
+        }
+
+        .feature-card h4 {
+            color: var(--accent-dark);
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+
+        .is-not-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin: 48px 0;
+        }
+
+        .is-not-card {
+            background: var(--bg-card);
+            padding: 48px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .is-not-card.is {
+            border-left: 4px solid #4caf50;
+        }
+
+        .is-not-card.is-not {
+            border-left: 4px solid #d32f2f;
+        }
+
+        .is-not-list {
+            list-style: none;
+            margin: 24px 0;
+        }
+
+        .is-not-list li {
+            padding: 8px 0 8px 24px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .is-card .is-not-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: 700;
+        }
+
+        .is-not-card .is-not-list li:before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: #d32f2f;
+            font-weight: 700;
+        }
+
+        .guarantee-box {
+            background: var(--bg-card);
+            padding: 48px;
+            border-radius: 6px;
+            border: 2px solid var(--accent-brown);
+            margin: 48px 0;
+            box-shadow: 0 2px 16px rgba(43, 24, 16, 0.1);
+        }
+
+        .final-cta {
+            text-align: center;
+            padding: 120px 0;
+            background: var(--bg-secondary);
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent-dark);
+            margin: 32px 0;
+        }
+
+        .price-details {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin-bottom: 48px;
+        }
+
+        .setup-reminder {
+            font-size: 14px;
+            color: var(--accent-dark);
+            font-style: italic;
+            margin-top: 16px;
+        }
+
+        .faq-section {
+            background: var(--bg-card);
+            padding: 48px;
+            border-radius: 6px;
+            margin: 48px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-item {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        footer {
+            padding: 48px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 16px;
+            background: var(--bg-primary);
+        }
+
+        footer a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: var(--accent-dark);
+        }
+
         @media (max-width: 768px) {
-            .hero h1 {
+            h1 {
                 font-size: 36px;
             }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
+
             h2 {
-                font-size: 28px;
+                font-size: 30px;
             }
-            
-            .comparison-boxes {
+
+            .hero {
+                padding: 80px 0 100px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .comparison-grid,
+            .is-not-grid {
                 grid-template-columns: 1fr;
+                gap: 32px;
             }
-            
-            .flow-diagram {
+
+            .cta-group {
                 flex-direction: column;
             }
-            
-            .flow-arrow {
-                transform: rotate(90deg);
+
+            .btn {
+                width: 100%;
             }
-            
-            .offer-box {
-                padding: 40px 24px;
+
+            .container,
+            .container-narrow {
+                padding: 0 24px;
             }
-            
-            .price {
-                font-size: 56px;
+
+            .channel-icons {
+                gap: 12px;
+            }
+
+            .channel-icon {
+                padding: 12px;
+                font-size: 12px;
             }
         }
     </style>
 </head>
 <body>
+
+    <header>
+        <div class="container">
+            <div class="logo">AI Lead System</div>
+        </div>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Your Leads Either Reach Your CRM — <span class="highlight">Or You're Alerted in 60 Seconds</span></h1>
-            <p>Stop losing revenue to silent webhook failures, CRM errors, and API timeouts. This is infrastructure that monitors every lead, every time.</p>
+            <h1>AI-Powered Lead Capture & Management — Never Lose Another Lead Again</h1>
+            
+            <p class="subheadline">
+                Intelligent multi-channel lead capture with AI scoring, automated responses, and bulletproof CRM delivery. Every lead captured, analyzed, and routed with machine precision.
+            </p>
+
+            <div class="results-notice">
+                ⚠️ <strong>Results occur after proper setup</strong> — System performs all functions once configured with your APIs and business rules
+            </div>
+
+            <div class="channel-icons">
+                <div class="channel-icon">📱 WhatsApp</div>
+                <div class="channel-icon">📧 Email</div>
+                <div class="channel-icon">📱 Instagram DM</div>
+                <div class="channel-icon">📝 Web Forms</div>
+                <div class="channel-icon">☎️ Phone Calls</div>
+            </div>
+
             <div class="cta-group">
-                <a href="#offer" class="btn-primary">Get Instant Access – $499</a>
-                <a href="https://wa.me/yourwhatsapp" class="btn-secondary">Chat on WhatsApp</a>
+                <a href="#purchase" class="btn btn-primary">Get Instant Access</a>
+                <a href="https://wa.me/YOUR_NUMBER" class="btn btn-secondary">Chat on WhatsApp</a>
             </div>
         </div>
     </section>
 
-    <!-- Silent Failure Story -->
+    <!-- Problem Statement -->
     <section>
-        <div class="container">
-            <h2>The Lead That Never Existed</h2>
-            <p class="section-intro">Here's what's happening to your leads right now, and your system won't tell you.</p>
+        <div class="container-narrow">
+            <h2>The Silent Lead Loss Crisis</h2>
             
-            <div class="failure-story">
-                <div class="failure-step">
-                    <div class="step-icon">1</div>
-                    <div class="step-content">
-                        <h3>Prospect submits your form</h3>
-                        <p>They're interested. They filled out every field. They clicked submit.</p>
-                    </div>
-                </div>
-                
-                <div class="failure-step">
-                    <div class="step-icon">2</div>
-                    <div class="step-content">
-                        <h3>They see "Thank You"</h3>
-                        <p>Your landing page confirms submission. Everything looks perfect.</p>
-                    </div>
-                </div>
-                
-                <div class="failure-step">
-                    <div class="step-icon">3</div>
-                    <div class="step-content">
-                        <h3>The webhook times out at 29 seconds</h3>
-                        <p>Your CRM took too long to respond. The connection dropped.</p>
-                    </div>
-                </div>
-                
-                <div class="failure-step">
-                    <div class="step-icon">4</div>
-                    <div class="step-content">
-                        <h3>The lead never reaches your CRM</h3>
-                        <p>No record. No notification. No error log.</p>
-                    </div>
-                </div>
-                
-                <div class="failure-step">
-                    <div class="step-icon">5</div>
-                    <div class="step-content">
-                        <h3>Your sales team never follows up</h3>
-                        <p>They can't follow up on a lead they don't know exists.</p>
-                    </div>
-                </div>
-                
-                <div class="failure-step">
-                    <div class="step-icon">6</div>
-                    <div class="step-content">
-                        <h3>Revenue lost forever</h3>
-                        <p>The prospect moves on. You never even knew they were there.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="callout">
-                <p>No error. No alert. No retry. Just silence.</p>
-            </div>
-        </div>
-    </section>
+            <div class="problem-narrative">
+                <p>Your business generates leads across multiple channels — website forms, WhatsApp, Instagram, email inquiries. But here's what happens behind the scenes:</p>
 
-    <!-- Real Failure Scenarios -->
-    <section>
-        <div class="container">
-            <h2>Four Ways Your Leads Disappear</h2>
-            <p class="section-intro">These are the most common silent failures happening right now in your pipeline.</p>
-            
-            <div class="scenarios-grid">
-                <div class="scenario-card">
-                    <div class="scenario-icon">⏱️</div>
-                    <h3>Webhook Timeouts</h3>
-                    <p class="technical-cause">Your CRM takes longer than 30 seconds to process the webhook request.</p>
-                    <p class="business-impact">Lead data is lost before it's saved. No record, no follow-up.</p>
+                <div class="problem-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Lead submits inquiry</strong> — Customer shows genuine interest, provides contact details
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>System appears to work</strong> — Thank you page displays, confirmation sent
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Silent failure occurs</strong> — Webhook times out, API rejects, CRM validation fails
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Lead vanishes</strong> — No error logged, no alert sent, no record exists
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Revenue lost</strong> — Customer buys from competitor, you never knew they existed
+                    </div>
                 </div>
-                
-                <div class="scenario-card">
-                    <div class="scenario-icon">⚠️</div>
-                    <h3>CRM Validation Errors</h3>
-                    <p class="technical-cause">Missing required fields, invalid email formats, or duplicate detection rules reject the lead.</p>
-                    <p class="business-impact">CRM silently drops the lead. Your form says success. Your database says nothing.</p>
-                </div>
-                
-                <div class="scenario-card">
-                    <div class="scenario-icon">🔑</div>
-                    <h3>OAuth Token Expiration</h3>
-                    <p class="technical-cause">Your API authentication token expired overnight and wasn't refreshed.</p>
-                    <p class="business-impact">Every lead fails for hours or days until someone manually notices.</p>
-                </div>
-                
-                <div class="scenario-card">
-                    <div class="scenario-icon">🚫</div>
-                    <h3>API Rate Limiting</h3>
-                    <p class="technical-cause">Your CRM hits its API call limit and starts rejecting requests.</p>
-                    <p class="business-impact">Leads during peak hours vanish. You pay for the traffic but get zero conversions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Financial Impact -->
-    <section>
-        <div class="container">
-            <h2>What Silent Failures Are Costing You</h2>
-            <p class="section-intro">Conservative math on a 500-lead-per-month business with a 5% failure rate.</p>
-            
-            <div class="financial-calculator">
-                <div class="calc-row">
-                    <span class="calc-label">Monthly leads</span>
-                    <span class="calc-value">500</span>
-                </div>
-                <div class="calc-row">
-                    <span class="calc-label">Average failure rate</span>
-                    <span class="calc-value">5%</span>
-                </div>
-                <div class="calc-row">
-                    <span class="calc-label">Lost leads per month</span>
-                    <span class="calc-value">25</span>
-                </div>
-                <div class="calc-row">
-                    <span class="calc-label">Average deal value</span>
-                    <span class="calc-value">$2,500</span>
-                </div>
-                <div class="calc-row">
-                    <span class="calc-label">Lead-to-close rate</span>
-                    <span class="calc-value">20%</span>
-                </div>
-                
-                <div class="calc-total">
-                    <div class="label">Annual Revenue Lost</div>
-                    <div class="amount">$150,000</div>
-                    <div class="context">One lost deal pays for this system 5 times over.</div>
-                </div>
+                <p class="highlight">This is happening right now: CRM API failures, webhook timeouts, authentication expiry, rate limiting, validation errors.</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Solution -->
-    <section>
-        <div class="container">
-            <h2>A Reliability Layer Between Your Forms and Your CRM</h2>
-            <p class="section-intro">This system sits in front of your existing infrastructure and guarantees nothing fails silently.</p>
-            
-            <div class="solution-visual">
-                <div class="flow-diagram">
-                    <div class="flow-box">
-                        <h4>Your Forms</h4>
-                        <p>Landing pages, ads, webinars</p>
-                    </div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-box reliability-layer">
-                        <h4>Reliability Layer</h4>
-                        <p>Capture, validate, monitor</p>
-                    </div>
-                    <div class="flow-arrow">→</div>
-                    <div class="flow-box">
-                        <h4>Your CRM</h4>
-                        <p>HubSpot, Salesforce, etc.</p>
-                    </div>
+            <div class="cost-calculation">
+                <h3>What Silent Failures Actually Cost You</h3>
+                <div class="calculation-row">
+                    <span>Monthly form submissions:</span>
+                    <span><strong>500 leads</strong></span>
+                </div>
+                <div class="calculation-row">
+                    <span>Industry failure rate (webhooks, API, auth):</span>
+                    <span><strong>5-8%</strong></span>
+                </div>
+                <div class="calculation-row">
+                    <span>Lost leads per month:</span>
+                    <span><strong>25-40 leads</strong></span>
+                </div>
+                <div class="calculation-row">
+                    <span>Average deal value:</span>
+                    <span><strong>$3,000</strong></span>
+                </div>
+                <div class="calculation-row">
+                    <span><strong>Annual revenue loss:</strong></span>
+                    <span><strong>$300,000+</strong></span>
                 </div>
             </div>
-            
-            <div class="callout" style="margin-top: 48px;">
-                <p>Capture first. Route second. Nothing is lost. Everything is logged.</p>
+
+            <div class="cta-group">
+                <a href="#purchase" class="btn btn-primary">Stop Losing Leads Today</a>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section>
-        <div class="container">
-            <h2>How It Works</h2>
-            <p class="section-intro">No code. No complexity. Just reliable lead capture.</p>
-            
-            <div class="steps-list">
-                <div class="step-item">
-                    <div class="step-number">1</div>
-                    <div class="step-text">
-                        <h3>Ingest</h3>
-                        <p>Every form submission is immediately captured and stored, regardless of what happens next.</p>
-                    </div>
+    <section class="alt-bg">
+        <div class="container-narrow">
+            <h2>How AI Lead System Works</h2>
+            <p>6-step intelligent workflow that captures, analyzes, and delivers every lead with AI precision:</p>
+
+            <div class="workflow-grid">
+                <div class="workflow-step">
+                    <span class="workflow-number">1</span>
+                    <h4>Multi-Channel Capture</h4>
+                    <p><strong>Ingests leads from:</strong> Web forms, WhatsApp Business API, Instagram Graph API, email parsing, phone call transcripts</p>
+                    <p><strong>AI processes:</strong> Data normalization, duplicate detection, source attribution</p>
                 </div>
-                
-                <div class="step-item">
-                    <div class="step-number">2</div>
-                    <div class="step-text">
-                        <h3>Validate</h3>
-                        <p>Data is checked for required fields, correct formats, and business rules before routing.</p>
-                    </div>
+
+                <div class="workflow-step">
+                    <span class="workflow-number">2</span>
+                    <h4>Fail-Safe Storage</h4>
+                    <p><strong>Immediate persistence:</strong> Every lead stored in secure database before any routing</p>
+                    <p><strong>Guarantees:</strong> Zero data loss, complete audit trail, recovery capability</p>
                 </div>
-                
-                <div class="step-item">
-                    <div class="step-number">3</div>
-                    <div class="step-text">
-                        <h3>Store</h3>
-                        <p>Every lead is logged with a timestamp, source, and full audit trail before attempting delivery.</p>
-                    </div>
+
+                <div class="workflow-step">
+                    <span class="workflow-number">3</span>
+                    <h4>AI Analysis & Scoring</h4>
+                    <p><strong>Machine learning evaluates:</strong> Lead quality, urgency, buying intent, best response strategy</p>
+                    <p><strong>AI generates:</strong> Personalized response drafts, priority scoring, recommended actions</p>
                 </div>
-                
-                <div class="step-item">
-                    <div class="step-number">4</div>
-                    <div class="step-text">
-                        <h3>Route</h3>
-                        <p>The system attempts delivery to your CRM with proper timeout handling and error detection.</p>
-                    </div>
+
+                <div class="workflow-step">
+                    <span class="workflow-number">4</span>
+                    <h4>Smart Routing & Automation</h4>
+                    <p><strong>Intelligent assignment:</strong> Route to best team member based on skills, availability, lead type</p>
+                    <p><strong>Automated follow-up:</strong> Sends AI-drafted responses, schedules callbacks, sets reminders</p>
                 </div>
-                
-                <div class="step-item">
-                    <div class="step-number">5</div>
-                    <div class="step-text">
-                        <h3>Monitor</h3>
-                        <p>Success or failure is tracked in real-time. If it fails, the system knows immediately.</p>
-                    </div>
+
+                <div class="workflow-step">
+                    <span class="workflow-number">5</span>
+                    <h4>Bulletproof CRM Delivery</h4>
+                    <p><strong>Guaranteed delivery:</strong> Multiple retry attempts with exponential backoff</p>
+                    <p><strong>Error handling:</strong> Validates data format, handles API failures, maintains connection health</p>
                 </div>
-                
-                <div class="step-item">
-                    <div class="step-number">6</div>
-                    <div class="step-text">
-                        <h3>Alert</h3>
-                        <p>You're notified within 60 seconds of any failure. No lead dies in silence.</p>
-                    </div>
+
+                <div class="workflow-step">
+                    <span class="workflow-number">6</span>
+                    <h4>Real-Time Monitoring & Alerts</h4>
+                    <p><strong>Instant notifications:</strong> Any failure triggers immediate WhatsApp/SMS alert</p>
+                    <p><strong>Complete visibility:</strong> Dashboard shows every lead, every step, every outcome</p>
                 </div>
+            </div>
+
+            <div class="setup-reminder">
+                ✓ <strong>System performs all functions after proper setup:</strong> Configure your API connections, set business rules, connect CRM integrations
+            </div>
+
+            <div class="cta-group">
+                <a href="#purchase" class="btn btn-primary">Get Your AI Lead System</a>
             </div>
         </div>
     </section>
 
-    <!-- What You Get -->
+    <!-- Benefits -->
     <section>
         <div class="container">
-            <h2>What You Get</h2>
-            
-            <div class="features-list">
-                <div class="feature-item">
-                    <div class="feature-icon"></div>
-                    <div class="feature-text">
-                        <h4>Complete n8n Workflows</h4>
-                        <p>Pre-built automation flows ready to import and configure for your CRM.</p>
-                    </div>
+            <h2>Why AI Lead System Outperforms Manual Processes</h2>
+
+            <div class="comparison-grid">
+                <div class="comparison-card manual">
+                    <h3>❌ Manual Lead Management</h3>
+                    <ul class="feature-list">
+                        <li>Leads arrive in different formats across channels</li>
+                        <li>Manual data entry introduces errors</li>
+                        <li>Delayed response times hurt conversion</li>
+                        <li>No quality scoring or prioritization</li>
+                        <li>Team assignments based on guesswork</li>
+                        <li>Failed deliveries go unnoticed</li>
+                        <li>No audit trail for compliance</li>
+                        <li>Scaling requires hiring more people</li>
+                    </ul>
                 </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon"></div>
-                    <div class="feature-text">
-                        <h4>Real-Time Monitoring & Alerts</h4>
-                        <p>Instant notifications via email, Slack, or webhook when failures occur.</p>
-                    </div>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon"></div>
-                    <div class="feature-text">
-                        <h4>Automatic Retry Logic</h4>
-                        <p>Failed deliveries are retried with exponential backoff until they succeed.</p>
-                    </div>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon"></div>
-                    <div class="feature-text">
-                        <h4>Complete Audit Logs</h4>
-                        <p>Every lead is timestamped, tracked, and traceable from submission to CRM delivery.</p>
-                    </div>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon"></div>
-                    <div class="feature-text">
-                        <h4>Setup Documentation</h4>
-                        <p>Step-by-step guides for connecting to HubSpot, Salesforce, Pipedrive, and custom APIs.</p>
-                    </div>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-icon"></div>
-                    <div class="feature-text">
-                        <h4>48-Hour Direct Support</h4>
-                        <p>WhatsApp access to get you up and running within 48 hours of purchase.</p>
-                    </div>
+
+                <div class="comparison-card ai-system">
+                    <h3>✅ AI Lead System</h3>
+                    <ul class="feature-list">
+                        <li>Unified multi-channel intake with normalization</li>
+                        <li>AI ensures data accuracy and completeness</li>
+                        <li>Instant automated responses increase conversion</li>
+                        <li>Machine learning scores lead quality and urgency</li>
+                        <li>Intelligent routing to optimal team members</li>
+                        <li>Guaranteed delivery with failure alerts</li>
+                        <li>Complete audit logs for every interaction</li>
+                        <li>Infinite scalability without additional staff</li>
+                    </ul>
                 </div>
             </div>
-            
-            <div class="callout" style="margin-top: 48px;">
-                <p>Unlimited leads. Full ownership. No monthly fees. Ever.</p>
+
+            <div class="cost-calculation">
+                <h3>Return on Investment</h3>
+                <div class="calculation-row">
+                    <span>AI Lead System (one-time):</span>
+                    <span><strong>$499</strong></span>
+                </div>
+                <div class="calculation-row">
+                    <span>Prevents just 1 lost $3,000 deal:</span>
+                    <span><strong>500% ROI</strong></span>
+                </div>
+                <div class="calculation-row">
+                    <span>No recurring fees, own forever:</span>
+                    <span><strong>Infinite value</strong></span>
+                </div>
+            </div>
+
+            <div class="cta-group">
+                <a href="#purchase" class="btn btn-primary">Get Instant Access — $499</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="alt-bg">
+        <div class="container">
+            <h2>Complete Feature Set</h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>🔄 Real-Time Monitoring & Alerts</h4>
+                    <p>Instant notifications via WhatsApp, SMS, or email when any part of the system fails. Never lose a lead silently again.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🔁 Automatic Retry Logic</h4>
+                    <p>Intelligent retry with exponential backoff. Failed API calls get retried automatically until successful delivery.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>📊 Complete Audit Logs</h4>
+                    <p>Timestamped logs of every lead, every action, every outcome. Full compliance trail and debugging capability.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🔌 CRM Integration Ready</h4>
+                    <p>Pre-built connectors for HubSpot, Salesforce, Pipedrive, plus custom API support for any system.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🤖 AI Analysis & Scoring</h4>
+                    <p>Machine learning evaluates lead quality, generates response drafts, and provides intelligent recommendations.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>📱 Multi-Channel Capture</h4>
+                    <p>WhatsApp Business API, Instagram DMs, email parsing, web forms — all leads captured in unified format.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>⏱️ 48-Hour Setup Support</h4>
+                    <p>Direct WhatsApp access for configuration help, troubleshooting, and getting your system operational.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>∞ Unlimited Capacity</h4>
+                    <p>Handle thousands of leads per day. No per-lead charges, no monthly limits, no usage restrictions.</p>
+                </div>
+            </div>
+
+            <div class="setup-reminder">
+                💡 <strong>All features work after proper setup:</strong> Connect your APIs, configure rules, test integrations
             </div>
         </div>
     </section>
@@ -845,63 +805,256 @@
     <!-- What This Is / Isn't -->
     <section>
         <div class="container">
-            <h2>What This Is (And What It Isn't)</h2>
-            <p class="section-intro">Clear expectations build trust. Here's what you're actually buying.</p>
-            
-            <div class="comparison-boxes">
-                <div class="comparison-box is-box">
-                    <h3>This IS:</h3>
-                    <ul>
-                        <li>Infrastructure you own forever</li>
-                        <li>Complete n8n workflows and documentation</li>
-                        <li>A reliability layer for lead capture</li>
-                        <li>Built for technical founders and agencies</li>
-                        <li>Designed for self-hosting or n8n cloud</li>
-                        <li>One-time purchase with 48-hour support</li>
+            <h2>Setting Clear Expectations</h2>
+
+            <div class="is-not-grid">
+                <div class="is-not-card is">
+                    <h3>✅ What This IS</h3>
+                    <ul class="is-not-list">
+                        <li><strong>Technical infrastructure system</strong> you configure and own</li>
+                        <li><strong>AI-powered reliability layer</strong> between leads and your CRM</li>
+                        <li><strong>Complete workflow automation</strong> with intelligent routing</li>
+                        <li><strong>Comprehensive documentation</strong> for setup and maintenance</li>
+                        <li><strong>Multi-channel lead capture</strong> with unified processing</li>
+                        <li><strong>Production-grade monitoring</strong> with real-time alerts</li>
+                        <li><strong>One-time purchase</strong> — own it forever</li>
                     </ul>
                 </div>
-                
-                <div class="comparison-box isnt-box">
-                    <h3>This is NOT:</h3>
-                    <ul>
-                        <li>A SaaS subscription service</li>
-                        <li>Plug-and-play with zero setup</li>
-                        <li>Marketing automation or email sequences</li>
-                        <li>Managed hosting or white-glove service</li>
-                        <li>A CRM replacement or lead scoring tool</li>
-                        <li>For non-technical users with no dev support</li>
+
+                <div class="is-not-card is-not">
+                    <h3>❌ What This IS NOT</h3>
+                    <ul class="is-not-list">
+                        <li><strong>SaaS subscription service</strong> — No monthly fees required</li>
+                        <li><strong>Plug-and-play solution</strong> — Requires technical configuration</li>
+                        <li><strong>Marketing automation platform</strong> — Focused on lead infrastructure</li>
+                        <li><strong>Managed hosting service</strong> — You control your own deployment</li>
+                        <li><strong>Custom development</strong> — Pre-built system, not bespoke code</li>
+                        <li><strong>Lead generation tool</strong> — Manages leads you already capture</li>
+                        <li><strong>Ready-to-use template</strong
+                                                                                     <li><strong>Ready-to-use template</strong> — Requires setup and configuration</li>
                     </ul>
+                </div>
+            </div>
+
+            <div class="setup-reminder">
+                ⚙️ <strong>Setup Requirement:</strong> System performs all functions after proper setup — you configure connections, APIs, and business rules
+            </div>
+
+            <div class="cta-group">
+                <a href="#purchase" class="btn btn-primary">Get Your System — $499</a>
+                <a href="https://wa.me/YOUR_NUMBER" class="btn btn-secondary">Ask Technical Questions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="alt-bg">
+        <div class="container-narrow">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question">Q: What exactly do I need to do to set this up?</div>
+                    <p><strong>A:</strong> You'll need to configure API connections to your CRM (HubSpot, Salesforce, etc.), set up your WhatsApp Business API, connect your email parsing, and define your business rules. We provide complete documentation and 48 hours of setup support via WhatsApp.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: Which CRMs are compatible?</div>
+                    <p><strong>A:</strong> Pre-built integrations for HubSpot, Salesforce, Pipedrive, Zoho, and ActiveCampaign. Plus custom API support for any system with REST API access. If your CRM has an API, we can connect to it.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: How does the AI functionality work?</div>
+                    <p><strong>A:</strong> The AI analyzes lead content, scores quality based on your criteria, detects urgency signals, generates personalized response drafts, and recommends optimal team assignments. It learns from your feedback to improve over time.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: What if I don't have technical experience?</div>
+                    <p><strong>A:</strong> The system is designed for business owners, not just developers. Our documentation includes step-by-step screenshots, and we provide 48 hours of WhatsApp support to help you through the configuration process.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: Can I modify the system for my specific needs?</div>
+                    <p><strong>A:</strong> Yes, the system is built on n8n workflows that you fully control. You can modify routing rules, add new integrations, customize AI scoring criteria, and adjust automation sequences to match your business processes.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: What happens after the 48-hour support period?</div>
+                    <p><strong>A:</strong> The system is designed to run independently once configured. You own it completely and can modify it as needed. For ongoing technical support, we offer additional consulting at $150/hour, but most users find this unnecessary.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: How quickly will I see results?</div>
+                    <p><strong>A:</strong> <strong>Results occur after proper setup.</strong> Once configured, the system immediately starts capturing and routing leads with AI analysis. Most users see the first prevented failure within days of going live.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Offer & Guarantee -->
-    <section id="offer">
-        <div class="container">
-            <h2>The Offer</h2>
-            
-            <div class="offer-box">
-                <div class="price">$499</div>
-                <p class="price-context">One-time payment. Own it forever. No recurring fees.</p>
+    <!-- Guarantee -->
+    <section>
+        <div class="container-narrow">
+            <div class="guarantee-box">
+                <h3>🛡️ 48-Hour Performance Guarantee</h3>
                 
-                <div class="cta-group" style="justify-content: center;">
-                    <a href="#" class="btn-primary">Get Instant Access</a>
-                    <a href="https://wa.me/yourwhatsapp" class="btn-secondary">Chat on WhatsApp</a>
-                </div>
-                
-                <div class="guarantee">
-                    <h4>48-Hour Money-Back Guarantee</h4>
-                    <p>If the workflows don't import correctly, the documentation is incomplete, or you can't get it running with our support within 48 hours — full refund, no questions asked. This either works or you don't pay.</p>
+                <p class="highlight" style="font-size: 19px; margin-bottom: 24px;">
+                    If the AI Lead System doesn't capture, analyze, and route your leads as described — if monitoring doesn't alert you to failures, if the AI doesn't provide useful scoring and responses, or if the system doesn't deliver the reliability promised — we'll refund your payment in full within 48 hours.
+                </p>
+
+                <h4>Guarantee Conditions:</h4>
+                <ul class="feature-list">
+                    <li>You've followed the setup documentation and configured the required API connections</li>
+                    <li>You've reported any technical issues during the 48-hour support window</li>
+                    <li>System failures are due to our code, not external service downtime</li>
+                    <li>You've tested the system with real leads as documented</li>
+                </ul>
+
+                <p style="margin-top: 32px; color: var(--text-primary); font-weight: 600;">
+                    This is production infrastructure. It either works as described or you don't pay.
+                </p>
+
+                <div class="setup-reminder">
+                    📞 <strong>Support Access:</strong> Direct WhatsApp line for immediate technical assistance during setup
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Final CTA -->
-    <section class="final-cta">
-        <div class="container">
-            <h2>Every Day Without Monitoring Is Another Day a Lead Can Fail Silently</h2>
-            <p>You're generating leads. You're paying for traffic. You deserve to know that every single one reaches your CRM.</p>
+    <section class="final-cta" id="purchase">
+        <div class="container-narrow">
+            <h2>Get Your AI Lead System Now</h2>
+
+            <p style="font-size: 19px; margin: 32px auto 48px; max-width: 700px; color: var(--text-secondary);">
+                Every day without intelligent lead capture is another day losing prospects to silent failures, delayed responses, and manual inefficiencies.
+            </p>
+
+            <div class="price">$499</div>
+            <p class="price-details">
+                <strong>One-time payment • Lifetime access • No recurring fees</strong><br>
+                Own your lead infrastructure forever
+            </p>
+
+            <div style="background: var(--bg-card); padding: 32px; border-radius: 6px; margin: 48px 0; border: 1px solid var(--border-color);">
+                <h4 style="margin-bottom: 16px;">Complete Package Includes:</h4>
+                <ul class="feature-list" style="margin: 0;">
+                    <li><strong>AI Lead System</strong> — Complete n8n workflow with machine learning</li>
+                    <li><strong>Multi-channel integrations</strong> — WhatsApp, Instagram, Email, Forms</li>
+                    <li><strong>CRM connectors</strong> — HubSpot, Salesforce, Pipedrive, custom APIs</li>
+                    <li><strong>Monitoring & alerting</strong> — Real-time failure detection</li>
+                    <li><strong>Complete documentation</strong> — Step-by-step setup guides</li>
+                    <li><strong>48-hour setup support</strong> — Direct WhatsApp technical assistance</li>
+                </ul>
+            </div>
+
+            <p style="margin-bottom: 48px; font-size: 18px; color: var(--text-secondary);">
+                <strong>48-hour guarantee:</strong> System works as described or full refund
+            </p>
+
+            <div class="cta-group">
+                <a href="https://buy.stripe.com/your_payment_link" class="btn btn-primary" style="font-size: 20px; padding: 20px 40px;">Get Instant Access — $499</a>
+                <a href="https://wa.me/YOUR_NUMBER" class="btn btn-secondary">Questions? Message on WhatsApp</a>
+            </div>
+
+            <div class="setup-reminder" style="margin-top: 32px;">
+                ⚡ <strong>Immediate delivery:</strong> System download link sent within 5 minutes of purchase
+            </div>
+
+            <p style="margin-top: 64px; color: var(--text-secondary); font-size: 16px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Stop losing leads to silent failures. Stop manual routing errors. Stop delayed responses.<br>
+                <strong>Get intelligent lead infrastructure that actually works.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Additional Trust Section -->
+    <section style="padding: 60px 0; background: var(--bg-card);">
+        <div class="container-narrow" style="text-align: center;">
+            <h3 style="margin-bottom: 32px;">Why Choose AI Lead System</h3>
             
-            <div class="cta-group
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px;">
+                <div>
+                    <h4 style="color: var(--accent-dark); margin-bottom: 12px;">🎯 Precision Routing</h4>
+                    <p style="font-size: 16px;">AI matches leads to optimal team members based on expertise and availability</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent-dark); margin-bottom: 12px;">⚡ Instant Response</h4>
+                    <p style="font-size: 16px;">Automated AI-generated responses sent within seconds of lead capture</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent-dark); margin-bottom: 12px;">🔒 Zero Loss</h4>
+                    <p style="font-size: 16px;">Bulletproof storage and delivery ensure no lead ever disappears</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent-dark); margin-bottom: 12px;">📈 Full Ownership</h4>
+                    <p style="font-size: 16px;">One-time purchase, no monthly fees, complete control over your data</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 48px;">
+                <a href="#purchase" class="btn btn-primary">Secure Your AI Lead System</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 16px;">
+                <strong>Need technical clarification?</strong> 
+                <a href="https://wa.me/YOUR_NUMBER">WhatsApp: +YOUR_NUMBER</a> | 
+                <a href="mailto:support@example.com">Email: support@example.com</a>
+            </p>
+            <p style="margin-bottom: 16px;">
+                Fast response for pre-purchase technical questions and post-purchase setup support
+            </p>
+            <p style="font-size: 14px; color: var(--text-secondary);">
+                © 2025 AI Lead System. All rights reserved. | 
+                <a href="/privacy" style="color: var(--text-secondary);">Privacy Policy</a> | 
+                <a href="/terms" style="color: var(--text-secondary);">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Optional: Add smooth scrolling behavior -->
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add subtle entrance animations on scroll (optional)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.workflow-step, .feature-card, .comparison-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
