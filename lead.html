@@ -1,27 +1,24 @@
-I'll help you optimize this landing page for better conversion from cold traffic. Here's the updated version following your specific requirements:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Lead System - Infrastructure for Reliable Lead Management</title>
+    <title>AI Lead System - Lead Infrastructure for CRM Reliability</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #DDBEA9;
-            --bg-secondary: #d4af94;
-            --bg-card: #f5ebe0;
-            --text-primary: #2b1810;
-            --text-secondary: #5a4738;
-            --accent-brown: #8b6f47;
-            --accent-dark: #3d2817;
-            --border-color: #c4a583;
-            --button-primary: #3d2817;
-            --button-hover: #2b1810;
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2a2a2a;
+            --bg-card: #f8f8f8;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent-brown: #666666;
+            --accent-dark: #333333;
+            --border-color: #404040;
+            --button-primary: #333333;
+            --button-hover: #000000;
         }
 
         * {
@@ -34,7 +31,7 @@ I'll help you optimize this landing page for better conversion from cold traffic
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
-            line-height: 1.7;
+            line-height: 1.6;
             font-size: 18px;
         }
 
@@ -45,19 +42,19 @@ I'll help you optimize this landing page for better conversion from cold traffic
         }
 
         .container-narrow {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 32px;
         }
 
         header {
-            padding: 32px 0;
+            padding: 24px 0;
             border-bottom: 1px solid var(--border-color);
             background: var(--bg-primary);
         }
 
         .logo {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             letter-spacing: 0.5px;
             color: var(--text-primary);
@@ -65,61 +62,36 @@ I'll help you optimize this landing page for better conversion from cold traffic
         }
 
         .hero {
-            padding: 120px 0 140px;
+            padding: 80px 0 60px;
             text-align: center;
         }
 
         h1 {
-            font-size: 52px;
+            font-size: 48px;
             font-weight: 700;
-            line-height: 1.15;
+            line-height: 1.2;
             letter-spacing: -0.02em;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
             color: var(--text-primary);
-            max-width: 1000px;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .subheadline {
-            font-size: 21px;
+            font-size: 20px;
             color: var(--text-secondary);
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto 32px;
+            line-height: 1.5;
+            max-width: 600px;
+            margin: 0 auto 24px;
             font-weight: 400;
         }
 
         .audience-qualifier {
-            font-size: 16px;
-            color: var(--accent-dark);
-            font-weight: 500;
-            margin-bottom: 48px;
-            padding: 16px;
-            background: rgba(61, 40, 23, 0.1);
-            border-radius: 6px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 48px;
-        }
-
-        .channel-icons {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin: 32px 0 48px;
-            flex-wrap: wrap;
-        }
-
-        .channel-icon {
-            background: var(--bg-card);
-            padding: 16px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
             font-size: 14px;
-            font-weight: 600;
-            color: var(--accent-dark);
+            color: var(--accent-brown);
+            font-weight: 500;
+            margin-bottom: 40px;
         }
 
         .cta-group {
@@ -127,14 +99,14 @@ I'll help you optimize this landing page for better conversion from cold traffic
             gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 48px;
+            margin-top: 40px;
         }
 
         .btn {
-            padding: 18px 36px;
-            font-size: 17px;
+            padding: 16px 32px;
+            font-size: 16px;
             font-weight: 600;
-            border-radius: 6px;
+            border-radius: 4px;
             text-decoration: none;
             display: inline-block;
             transition: all 0.2s ease;
@@ -144,28 +116,37 @@ I'll help you optimize this landing page for better conversion from cold traffic
 
         .btn-primary {
             background: var(--button-primary);
-            color: var(--bg-card);
+            color: var(--text-primary);
         }
 
         .btn-primary:hover {
             background: var(--button-hover);
-            transform: translateY(-1px);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--accent-dark);
-            border: 2px solid var(--accent-brown);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
         }
 
         .btn-secondary:hover {
-            border-color: var(--accent-dark);
-            background: rgba(61, 40, 23, 0.05);
-            transform: translateY(-1px);
+            border-color: var(--accent-brown);
+            color: var(--text-primary);
+        }
+
+        .hero-image {
+            margin: 60px auto 40px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
 
         section {
-            padding: 100px 0;
+            padding: 60px 0;
             border-top: 1px solid var(--border-color);
         }
 
@@ -174,257 +155,188 @@ I'll help you optimize this landing page for better conversion from cold traffic
         }
 
         h2 {
-            font-size: 38px;
+            font-size: 32px;
             font-weight: 700;
             letter-spacing: -0.01em;
-            margin-bottom: 32px;
-            line-height: 1.25;
+            margin-bottom: 24px;
+            line-height: 1.3;
             color: var(--text-primary);
         }
 
         h3 {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 600;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             color: var(--text-primary);
         }
 
         h4 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
             margin-bottom: 12px;
             color: var(--text-primary);
         }
 
         p {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             color: var(--text-secondary);
-        }
-
-        .highlight {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .problem-narrative {
-            font-size: 20px;
-            line-height: 1.8;
-            margin-bottom: 48px;
         }
 
         .problem-steps {
             background: var(--bg-card);
-            padding: 48px;
+            color: var(--accent-dark);
+            padding: 32px;
             border-radius: 6px;
-            margin: 48px 0;
-            border-left: 4px solid var(--accent-brown);
+            margin: 32px 0;
         }
 
         .step {
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 8px;
+            font-size: 16px;
         }
 
         .step:last-child {
-            border-bottom: none;
+            margin-bottom: 0;
         }
 
-        .step-number {
-            display: inline-block;
-            background: var(--accent-dark);
-            color: var(--bg-card);
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 28px;
-            font-weight: 700;
-            margin-right: 16px;
-            font-size: 14px;
-        }
-
-        .cost-calculation {
+        .cost-example {
             background: var(--bg-card);
-            padding: 48px;
-            border-radius: 6px;
-            margin: 48px 0;
-            border: 2px solid var(--accent-brown);
-            box-shadow: 0 2px 16px rgba(43, 24, 16, 0.1);
-        }
-
-        .calculation-row {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .calculation-row:last-child {
-            border-bottom: none;
-            font-weight: 700;
-            font-size: 20px;
             color: var(--accent-dark);
-            margin-top: 16px;
+            padding: 24px;
+            border-radius: 6px;
+            margin: 32px 0;
+            text-align: center;
         }
 
-        .workflow-grid {
-            display: grid;
-            gap: 24px;
-            margin: 48px 0;
+        .cost-example h4 {
+            color: var(--accent-dark);
+            margin-bottom: 16px;
         }
 
-        .workflow-step {
+        .workflow-list {
             background: var(--bg-card);
+            color: var(--accent-dark);
             padding: 32px;
             border-radius: 6px;
-            border-left: 4px solid var(--accent-brown);
-            box-shadow: 0 2px 12px rgba(43, 24, 16, 0.08);
+            margin: 32px 0;
         }
 
-        .workflow-number {
-            display: inline-block;
-            background: var(--accent-dark);
-            color: var(--bg-card);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 36px;
-            font-weight: 700;
-            margin-bottom: 16px;
+        .workflow-list ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .workflow-list li {
+            padding: 8px 0;
             font-size: 16px;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .workflow-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-dark);
+            font-weight: 700;
         }
 
         .comparison-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            margin: 48px 0;
+            gap: 32px;
+            margin: 32px 0;
         }
 
         .comparison-card {
             background: var(--bg-card);
-            padding: 32px;
+            color: var(--accent-dark);
+            padding: 24px;
             border-radius: 6px;
-            border: 1px solid var(--border-color);
         }
 
-        .comparison-card.manual {
-            border-left: 4px solid #d32f2f;
-        }
-
-        .comparison-card.ai-system {
-            border-left: 4px solid #4caf50;
+        .comparison-card h3 {
+            color: var(--accent-dark);
+            font-size: 18px;
+            margin-bottom: 16px;
         }
 
         .feature-list {
             list-style: none;
-            margin: 32px 0;
+            margin: 0;
         }
 
         .feature-list li {
-            padding: 12px 0 12px 28px;
-            position: relative;
-            color: var(--text-secondary);
-        }
-
-        .feature-list li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent-brown);
-            font-weight: 700;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            margin: 48px 0;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            padding: 32px;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 12px rgba(43, 24, 16, 0.08);
-        }
-
-        .feature-card h4 {
-            color: var(--accent-dark);
-            margin-bottom: 16px;
-            font-size: 18px;
+            padding: 6px 0;
+            font-size: 15px;
         }
 
         .best-for-section {
             background: var(--bg-card);
-            padding: 48px;
+            color: var(--accent-dark);
+            padding: 32px;
             border-radius: 6px;
-            margin: 48px 0;
-            border: 1px solid var(--border-color);
+            margin: 32px 0;
+        }
+
+        .best-for-section h3 {
+            color: var(--accent-dark);
+            text-align: center;
+            margin-bottom: 32px;
         }
 
         .best-for-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 32px;
-            margin-top: 32px;
         }
 
         .best-for-card h4 {
             color: var(--accent-dark);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
-        .guarantee-box {
-            background: var(--bg-card);
-            padding: 48px;
-            border-radius: 6px;
-            border: 2px solid var(--accent-brown);
-            margin: 48px 0;
-            box-shadow: 0 2px 16px rgba(43, 24, 16, 0.1);
+        .best-for-card ul {
+            list-style: none;
+            margin: 16px 0 0 0;
+        }
+
+        .best-for-card li {
+            padding: 4px 0;
+            font-size: 14px;
         }
 
         .final-cta {
             text-align: center;
-            padding: 120px 0;
+            padding: 80px 0;
             background: var(--bg-secondary);
         }
 
         .price {
-            font-size: 48px;
+            font-size: 36px;
             font-weight: 700;
-            color: var(--accent-dark);
-            margin: 32px 0;
+            color: var(--text-primary);
+            margin: 24px 0;
         }
 
         .price-details {
             color: var(--text-secondary);
             font-size: 16px;
-            margin-bottom: 48px;
-        }
-
-        .setup-reminder {
-            font-size: 14px;
-            color: var(--accent-dark);
-            font-style: italic;
-            margin-top: 16px;
+            margin-bottom: 40px;
         }
 
         .faq-section {
             background: var(--bg-card);
-            padding: 48px;
+            color: var(--accent-dark);
+            padding: 32px;
             border-radius: 6px;
-            margin: 48px 0;
-            border: 1px solid var(--border-color);
+            margin: 32px 0;
         }
 
         .faq-item {
-            margin-bottom: 32px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .faq-item:last-child {
@@ -434,18 +346,43 @@ I'll help you optimize this landing page for better conversion from cold traffic
         }
 
         .faq-question {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 12px;
+            color: var(--accent-dark);
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            color: var(--accent-dark);
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        .guarantee-box {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 32px;
+            border-radius: 6px;
+            margin: 32px 0;
+            text-align: center;
+        }
+
+        .guarantee-box h3 {
+            color: var(--accent-dark);
+            margin-bottom: 16px;
+        }
+
+        .guarantee-box p {
+            color: var(--accent-dark);
+            margin-bottom: 0;
         }
 
         footer {
-            padding: 48px 0;
+            padding: 40px 0;
             text-align: center;
             border-top: 1px solid var(--border-color);
             color: var(--text-secondary);
-            font-size: 16px;
+            font-size: 14px;
             background: var(--bg-primary);
         }
 
@@ -456,30 +393,30 @@ I'll help you optimize this landing page for better conversion from cold traffic
         }
 
         footer a:hover {
-            color: var(--accent-dark);
+            color: var(--accent-brown);
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 36px;
+                font-size: 32px;
             }
 
             h2 {
-                font-size: 30px;
+                font-size: 24px;
             }
 
             .hero {
-                padding: 80px 0 100px;
+                padding: 60px 0 40px;
             }
 
             section {
-                padding: 80px 0;
+                padding: 40px 0;
             }
 
             .comparison-grid,
             .best-for-grid {
                 grid-template-columns: 1fr;
-                gap: 32px;
+                gap: 20px;
             }
 
             .cta-group {
@@ -492,16 +429,7 @@ I'll help you optimize this landing page for better conversion from cold traffic
 
             .container,
             .container-narrow {
-                padding: 0 24px;
-            }
-
-            .channel-icons {
-                gap: 12px;
-            }
-
-            .channel-icon {
-                padding: 12px;
-                font-size: 12px;
+                padding: 0 20px;
             }
         }
     </style>
@@ -516,23 +444,15 @@ I'll help you optimize this landing page for better conversion from cold traffic
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <div class="container-narrow">
             <h1>Some of Your Leads Never Reach Your CRM — You Just Don't See the Failure</h1>
             
             <p class="subheadline">
-                AI Lead System captures, analyzes, and monitors inbound leads across WhatsApp, forms, email, and DMs — with alerts when technical failures occur.
+                Capture inbound leads, monitor delivery, and get alerted when something breaks.
             </p>
 
             <div class="audience-qualifier">
-                Built for businesses receiving consistent inbound leads (100+ per month)
-            </div>
-
-            <div class="channel-icons">
-                <div class="channel-icon">📱 WhatsApp</div>
-                <div class="channel-icon">📧 Email</div>
-                <div class="channel-icon">📱 Instagram DM</div>
-                <div class="channel-icon">📝 Web Forms</div>
-                <div class="channel-icon">☎️ Phone Calls</div>
+                For businesses receiving 100+ inbound leads per month.
             </div>
 
             <div class="cta-group">
@@ -542,344 +462,188 @@ I'll help you optimize this landing page for better conversion from cold traffic
         </div>
     </section>
 
-    <!-- Problem Statement - MOVED UP -->
+    <!-- Hero Image -->
+    <section class="hero-image">
+        <div class="container-narrow">
+            <img src="lom.png" alt="Lead system dashboard" />
+        </div>
+    </section>
+
+    <!-- Problem Statement -->
     <section>
         <div class="container-narrow">
-            <h2>Understanding Lead Infrastructure Failures</h2>
+            <h2>When Lead Systems Fail Quietly</h2>
             
-            <p style="color: var(--text-secondary); font-size: 16px; margin-bottom: 32px;">
-                Based on common industry failure rates in webhooks, APIs, and CRM integrations.
-            </p>
-            
-            <div class="problem-narrative">
-                <p>Your business generates leads across multiple channels — website forms, WhatsApp, Instagram, email inquiries. Here's what often happens behind the scenes:</p>
-
-                <div class="problem-steps">
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Lead submits inquiry</strong> — Customer shows genuine interest, provides contact details
-                    </div>
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>System appears to work</strong> — Thank you page displays, confirmation sent
-                    </div>
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Silent failure occurs</strong> — Webhook times out, API rejects, CRM validation fails
-                    </div>
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Lead vanishes</strong> — No error logged, no alert sent, no record exists
-                    </div>
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Revenue opportunity lost</strong> — Customer buys from competitor, you never knew they existed
-                    </div>
-                </div>
-
-                <p class="highlight">Common causes: CRM API failures, webhook timeouts, authentication expiry, rate limiting, validation errors.</p>
+            <div class="problem-steps">
+                <div class="step">→ Leads submit</div>
+                <div class="step">→ Systems appear to work</div>
+                <div class="step">→ A technical failure occurs</div>
+                <div class="step">→ Lead never reaches CRM</div>
+                <div class="step">→ No alert, no visibility</div>
             </div>
 
-            <div class="cost-calculation">
-                <h3>What Silent Failures Can Cost You</h3>
-                <div class="calculation-row">
-                    <span>Monthly form submissions:</span>
-                    <span><strong>500 leads</strong></span>
-                </div>
-                <div class="calculation-row">
-                    <span>Industry failure rate (webhooks, API, auth):</span>
-                    <span><strong>5-8%</strong></span>
-                </div>
-                <div class="calculation-row">
-                    <span>Potentially lost leads per month:</span>
-                    <span><strong>25-40 leads</strong></span>
-                </div>
-                <div class="calculation-row">
-                    <span>Average deal value:</span>
-                    <span><strong>$3,000</strong></span>
-                </div>
-                <div class="calculation-row">
-                    <span><strong>Annual revenue at risk:</strong></span>
-                    <span><strong>$300,000+</strong></span>
-                </div>
-            </div>
+            <p>Common in webhook- and API-based lead systems.</p>
 
             <div class="cta-group">
-                <a href="#purchase" class="btn btn-primary">Reduce Lead Loss Risk</a>
+                <a href="#purchase" class="btn btn-primary">Get the System — One-Time $499</a>
             </div>
+        </div>
+    </section>
+
+    <!-- Cost Framing -->
+    <section class="alt-bg">
+        <div class="container-narrow">
+            <h2>What One Missed Lead Can Cost</h2>
+            
+            <div class="cost-example">
+                <h4>Example: $5,000 Deal Value</h4>
+                <p>One missed high-intent lead = $5,000 lost opportunity<br>
+                System cost = $499<br>
+                <strong>10x return if it prevents just one missed lead per year</strong></p>
+            </div>
+
+            <p style="text-align: center;">The system pays for itself if it prevents a single missed high-intent lead per year.</p>
         </div>
     </section>
 
     <!-- How It Works -->
+    <section>
+        <div class="container-narrow">
+            <h2>How It Works</h2>
+
+            <div class="workflow-list">
+                <ul>
+                    <li>Capture leads from all channels</li>
+                    <li>Store data safely before routing</li>
+                    <li>AI prioritizes and drafts responses</li>
+                    <li>CRM delivery with failure alerts</li>
+                </ul>
+            </div>
+
+            <p>You deploy, configure, and run — nothing is built from scratch.</p>
+
+            <div class="cta-group">
+                <a href="#purchase" class="btn btn-primary">Get the System — One-Time $499</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manual vs AI -->
     <section class="alt-bg">
         <div class="container-narrow">
-            <h2>How AI Lead System Works</h2>
-            
-            <p style="margin-bottom: 32px;">You don't build anything from scratch. You deploy, configure, and run the system.</p>
-            
-            <p>4-step workflow that provides infrastructure designed for reliability and visibility:</p>
-
-            <div class="workflow-grid">
-                <div class="workflow-step">
-                    <span class="workflow-number">1</span>
-                    <h4>Capture</h4>
-                    <p><strong>Multi-channel lead intake:</strong> Web forms, WhatsApp Business API, Instagram Graph API, email parsing, phone call transcripts</p>
-                    <p><strong>AI processes:</strong> Data normalization, duplicate detection, source attribution</p>
-                </div>
-
-                <div class="workflow-step">
-                    <span class="workflow-number">2</span>
-                    <h4>Store Safely</h4>
-                    <p><strong>Immediate persistence:</strong> Every lead stored in database before any routing</p>
-                    <p><strong>Ensures:</strong> Complete audit trail, recovery capability, data integrity</p>
-                </div>
-
-                <div class="workflow-step">
-                    <span class="workflow-number">3</span>
-                    <h4>Analyze & Prioritize</h4>
-                    <p><strong>AI scoring and response drafting:</strong> Lead quality evaluation, urgency detection, buying intent analysis</p>
-                    <p><strong>AI generates:</strong> Personalized response drafts, priority scoring, recommended actions</p>
-                </div>
-
-                <div class="workflow-step">
-                    <span class="workflow-number">4</span>
-                    <h4>Deliver & Monitor</h4>
-                    <p><strong>CRM delivery with alerts if anything fails:</strong> Multiple retry attempts, error handling, connection health monitoring</p>
-                    <p><strong>Real-time alerts:</strong> WhatsApp/SMS notifications for any delivery issues</p>
-                </div>
-            </div>
-
-            <div class="setup-reminder">
-                ✓ <strong>System performs all functions after proper setup:</strong> Configure your API connections, set business rules, connect CRM integrations
-            </div>
-
-            <div class="cta-group">
-                <a href="#purchase" class="btn btn-primary">Get Your AI Lead System</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits -->
-    <section>
-        <div class="container">
-            <h2>Infrastructure Designed for Reliability and Visibility</h2>
+            <h2>Manual vs AI Lead Management</h2>
 
             <div class="comparison-grid">
-                <div class="comparison-card manual">
-                    <h3>❌ Manual Lead Management</h3>
+                <div class="comparison-card">
+                    <h3>❌ Manual Process</h3>
                     <ul class="feature-list">
-                        <li>Leads arrive in different formats across channels</li>
-                        <li>Manual data entry introduces errors</li>
-                        <li>Delayed response times hurt conversion</li>
-                        <li>No quality scoring or prioritization</li>
-                        <li>Team assignments based on guesswork</li>
+                        <li>Different formats across channels</li>
+                        <li>Manual data entry errors</li>
+                        <li>Delayed response times</li>
                         <li>Failed deliveries go unnoticed</li>
-                        <li>No audit trail for compliance</li>
-                        <li>Scaling requires hiring more people</li>
+                        <li>No audit trail</li>
                     </ul>
                 </div>
 
-                <div class="comparison-card ai-system">
+                <div class="comparison-card">
                     <h3>✅ AI Lead System</h3>
                     <ul class="feature-list">
-                        <li>Unified multi-channel intake with normalization</li>
-                        <li>AI ensures data accuracy and completeness</li>
-                        <li>Automated responses sent within minutes</li>
-                        <li>Machine learning scores lead quality and urgency</li>
-                        <li>Intelligent routing to optimal team members</li>
-                        <li>Detect and alert on delivery failures</li>
-                        <li>Complete audit logs for every interaction</li>
-                        <li>Scalable infrastructure without additional staff</li>
+                        <li>Unified multi-channel intake</li>
+                        <li>AI ensures data accuracy</li>
+                        <li>Instant automated responses</li>
+                        <li>Failure alerts and monitoring</li>
+                        <li>Complete audit logs</li>
                     </ul>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="cost-calculation">
-                <h3>Return on Investment</h3>
-                <div class="calculation-row">
-                    <span>$499 — One-time infrastructure purchase</span>
-                    <span><strong>Equivalent to losing just one missed high-intent lead per year</strong></span>
-                </div>
-                <div class="calculation-row">
-                    <span>No recurring fees, own forever:</span>
-                    <span><strong>Ongoing value</strong></span>
-                </div>
-            </div>
+    <!-- Pricing -->
+    <section>
+        <div class="container-narrow">
+            <h2>Simple Pricing</h2>
+            
+            <div class="price">$499 — One-time infrastructure purchase</div>
+            <p class="price-details" style="text-align: center;">
+                No monthly fees. Full ownership.
+            </p>
 
             <div class="cta-group">
-                <a href="#purchase" class="btn btn-primary">Get Infrastructure Access — $499</a>
+                <a href="#purchase" class="btn btn-primary">Get the System — One-Time $499</a>
             </div>
         </div>
     </section>
 
-    <!-- Features -->
+    <!-- Is This Right for You -->
     <section class="alt-bg">
-        <div class="container">
-            <h2>Complete Infrastructure Components</h2>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h4>🔄 Real-Time Monitoring & Alerts</h4>
-                    <p>Instant notifications via WhatsApp, SMS, or email when any part of the system encounters delivery issues.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h4>🔁 Automatic Retry Logic</h4>
-                    <p>Intelligent retry with exponential backoff. Failed API calls get retried automatically with proper error handling.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h4>📊 Complete Audit Logs</h4>
-                    <p>Timestamped logs of every lead, every action, every outcome. Full compliance trail and debugging capability.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h4>🔌 CRM Integration Ready</h4>
-                    <p>Pre-built connectors for HubSpot, Salesforce, Pipedrive, plus custom API support for any system.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h4>🤖 AI Analysis & Scoring</h4>
-                    <p>Machine learning evaluates lead quality, generates response drafts, and provides intelligent recommendations.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h4>📱 Multi-Channel Capture</h4>
-                    <p>WhatsApp Business API, Instagram DMs, email parsing, web forms — all leads captured in unified format.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h4>⏱️ 48-Hour Setup Support</h4>
-                    <p>Direct WhatsApp access for configuration help, troubleshooting, and getting your system operational.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h4>∞ Unlimited Capacity</h4>
-                    <p>Handle thousands of leads per day. No per-lead charges, no monthly limits, no usage restrictions.</p>
-                </div>
-            </div>
-
-            <div class="setup-reminder">
-                💡 <strong>All features work after proper setup:</strong> Connect your APIs, configure rules, test integrations
-            </div>
-        </div>
-    </section>
-
-    <!-- What This Is / Isn't - COMPRESSED -->
-    <section>
-        <div class="container">
-            <h2>Setting Clear Expectations</h2>
+        <div class="container-narrow">
+            <h2>Is This Right for You?</h2>
 
             <div class="best-for-section">
-                <h3>Is This Right for Your Business?</h3>
-                
                 <div class="best-for-grid">
                     <div class="best-for-card">
                         <h4>✅ Best for:</h4>
-                        <p>Teams that already receive inbound leads and want visibility, reliability, and AI-assisted routing.</p>
-                        <ul class="feature-list" style="margin-top: 16px;">
-                            <li>100+ leads per month from multiple channels</li>
-                            <li>Need reliable CRM delivery and failure alerts</li>
-                            <li>Want AI-powered lead scoring and routing</li>
-                            <li>Comfortable with technical configuration</li>
+                        <ul>
+                            <li>Consistent inbound leads</li>
+                            <li>Needs CRM reliability & visibility</li>
+                            <li>Can follow setup documentation</li>
                         </ul>
                     </div>
 
                     <div class="best-for-card">
                         <h4>❌ Not ideal for:</h4>
-                        <p>Businesses without consistent inbound leads or those looking for a plug-and-play SaaS.</p>
-                        <ul class="feature-list" style="margin-top: 16px;">
-                            <li>Less than 100 leads per month</li>
-                            <li>Looking for ready-to-use templates</li>
-                            <li>Need managed hosting services</li>
-                            <li>Want SaaS subscription model</li>
+                        <ul>
+                            <li>Low lead volume</li>
+                            <li>Looking for SaaS</li>
+                            <li>Wants done-for-you service</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
-            <div class="setup-reminder">
-                ⚙️ <strong>Setup Requirement:</strong> System performs all functions after proper setup — you configure connections, APIs, and business rules
-            </div>
-
-            <div class="cta-group">
-                <a href="#purchase" class="btn btn-primary">Get Your System — $499</a>
-                <a href="https://wa.me/YOUR_NUMBER" class="btn btn-secondary">Ask Technical Questions</a>
-            </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="alt-bg">
+    <!-- FAQ -->
+    <section>
         <div class="container-narrow">
-            <h2>Frequently Asked Questions</h2>
+            <h2>Common Questions</h2>
 
             <div class="faq-section">
                 <div class="faq-item">
-                    <div class="faq-question">Q: What exactly do I need to do to set this up?</div>
-                    <p><strong>A:</strong> You'll need to configure API connections to your CRM (HubSpot, Salesforce, etc.), set up your WhatsApp Business API, connect your email parsing, and define your business rules. We provide complete documentation and 48 hours of setup support via WhatsApp.</p>
+                    <div class="faq-question">Q: What setup is required?</div>
+                    <p><strong>A:</strong> Configure API connections to your CRM, set up integrations, and define business rules. Complete documentation and 48-hour WhatsApp support included.</p>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">Q: Which CRMs are compatible?</div>
-                    <p><strong>A:</strong> Pre-built integrations for HubSpot, Salesforce, Pipedrive, Zoho, and Active                <div class="faq-item">
-                    <div class="faq-question">Q: Which CRMs are compatible?</div>
-                    <p><strong>A:</strong> Pre-built integrations for HubSpot, Salesforce, Pipedrive, Zoho, and ActiveCampaign. Plus custom API support for any system with REST API access. If your CRM has an API, we can connect to it.</p>
+                    <div class="faq-question">Q: Which CRMs work with this?</div>
+                    <p><strong>A:</strong> HubSpot, Salesforce, Pipedrive, Zoho, ActiveCampaign, plus custom API support for any system with REST API.</p>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">Q: How does the AI functionality work?</div>
-                    <p><strong>A:</strong> The AI analyzes lead content, scores quality based on your criteria, detects urgency signals, generates personalized response drafts, and recommends optimal team assignments. It learns from your feedback to improve over time.</p>
+                    <div class="faq-question">Q: How does the AI work?</div>
+                    <p><strong>A:</strong> Analyzes lead content, scores quality, generates response drafts, and recommends team assignments based on your criteria.</p>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">Q: What if I don't have technical experience?</div>
-                    <p><strong>A:</strong> The system is designed for business owners, not just developers. Our documentation includes step-by-step screenshots, and we provide 48 hours of WhatsApp support to help you through the configuration process.</p>
+                    <div class="faq-question">Q: Can I modify it for my needs?</div>
+                    <p><strong>A:</strong> Yes. Built on n8n workflows that you fully control. Modify routing rules, integrations, and automation sequences as needed.</p>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question">Q: Can I modify the system for my specific needs?</div>
-                    <p><strong>A:</strong> Yes, the system is built on n8n workflows that you fully control. You can modify routing rules, add new integrations, customize AI scoring criteria, and adjust automation sequences to match your business processes.</p>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: What happens after the 48-hour support period?</div>
-                    <p><strong>A:</strong> The system is designed to run independently once configured. You own it completely and can modify it as needed. For ongoing technical support, we offer additional consulting at $150/hour, but most users find this unnecessary.</p>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: How quickly will I see results?</div>
-                    <p><strong>A:</strong> Results occur after proper setup. Once configured, the system immediately starts capturing and routing leads with AI analysis. Most users detect their first prevented failure within days of going live.</p>
+                    <div class="faq-question">Q: What ongoing support is available?</div>
+                    <p><strong>A:</strong> 48 hours of setup support via WhatsApp. After that, optional consulting at $150/hour for modifications or troubleshooting.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Guarantee -->
-    <section>
+    <section class="alt-bg">
         <div class="container-narrow">
             <div class="guarantee-box">
-                <h3>🛡️ 48-Hour Performance Guarantee</h3>
-                
-                <p class="highlight" style="font-size: 19px; margin-bottom: 24px;">
-                    If the system does not perform as described in the documentation after proper setup, you may request a full refund within 48 hours.
-                </p>
-
-                <h4>Guarantee Conditions:</h4>
-                <ul class="feature-list">
-                    <li>You've followed the setup documentation and configured the required API connections</li>
-                    <li>You've reported any technical issues during the 48-hour support window</li>
-                    <li>System failures are due to our code, not external service downtime</li>
-                    <li>You've tested the system with real leads as documented</li>
-                </ul>
-
-                <p style="margin-top: 32px; color: var(--text-primary); font-weight: 600;">
-                    This is production infrastructure. It either works as described or you don't pay.
-                </p>
-
-                <div class="setup-reminder">
-                    📞 <strong>Support Access:</strong> Direct WhatsApp line for immediate technical assistance during setup
-                </div>
+                <h3>🛡️ 48-Hour Guarantee</h3>
+                <p>If the system does not perform as described in the documentation after proper setup, you may request a full refund within 48 hours.</p>
             </div>
         </div>
     </section>
@@ -887,102 +651,40 @@ I'll help you optimize this landing page for better conversion from cold traffic
     <!-- Final CTA -->
     <section class="final-cta" id="purchase">
         <div class="container-narrow">
-            <h2>Get Your AI Lead System Now</h2>
-
-            <p style="font-size: 19px; margin: 32px auto 48px; max-width: 700px; color: var(--text-secondary);">
-                Every day without reliable lead infrastructure increases the risk of losing prospects to silent failures, delayed responses, and manual inefficiencies.
-            </p>
+            <h2>Get Your AI Lead System</h2>
 
             <div class="price">$499</div>
             <p class="price-details">
-                <strong>One-time infrastructure purchase — Equivalent to losing just one missed high-intent lead per year</strong><br>
-                Own your lead infrastructure forever
-            </p>
-
-            <div style="background: var(--bg-card); padding: 32px; border-radius: 6px; margin: 48px 0; border: 1px solid var(--border-color);">
-                <h4 style="margin-bottom: 16px;">Complete Package Includes:</h4>
-                <ul class="feature-list" style="margin: 0;">
-                    <li><strong>AI Lead System</strong> — Complete n8n workflow with machine learning</li>
-                    <li><strong>Multi-channel integrations</strong> — WhatsApp, Instagram, Email, Forms</li>
-                    <li><strong>CRM connectors</strong> — HubSpot, Salesforce, Pipedrive, custom APIs</li>
-                    <li><strong>Monitoring & alerting</strong> — Real-time failure detection</li>
-                    <li><strong>Complete documentation</strong> — Step-by-step setup guides</li>
-                    <li><strong>48-hour setup support</strong> — Direct WhatsApp technical assistance</li>
-                </ul>
-            </div>
-
-            <p style="margin-bottom: 48px; font-size: 18px; color: var(--text-secondary);">
-                <strong>48-hour guarantee:</strong> System works as described or full refund
+                <strong>One-time infrastructure purchase</strong><br>
+                No monthly fees. Full ownership.
             </p>
 
             <div class="cta-group">
-                <a href="https://buy.stripe.com/your_payment_link" class="btn btn-primary" style="font-size: 20px; padding: 20px 40px;">Get Instant Access — $499</a>
-                <a href="https://wa.me/YOUR_NUMBER" class="btn btn-secondary">Questions? Message on WhatsApp</a>
+                <a href="https://buy.stripe.com/your_payment_link" class="btn btn-primary" style="font-size: 18px; padding: 18px 36px;">Get the System — One-Time $499</a>
+                <a href="https://wa.me/YOUR_NUMBER" class="btn btn-secondary">Questions? WhatsApp</a>
             </div>
 
-            <div class="setup-reminder" style="margin-top: 32px;">
-                ⚡ <strong>Immediate delivery:</strong> System download link sent within 5 minutes of purchase
-            </div>
-
-            <p style="margin-top: 64px; color: var(--text-secondary); font-size: 16px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Reduce lead loss caused by silent technical failures. Improve response times with AI assistance. Get infrastructure designed for reliability and visibility.<br>
-                <strong>Get intelligent lead infrastructure that actually works.</strong>
+            <p style="margin-top: 40px; font-size: 14px;">
+                ⚡ <strong>Immediate delivery:</strong> Download link sent within 5 minutes
             </p>
-        </div>
-    </section>
-
-    <!-- Additional Trust Section -->
-    <section style="padding: 60px 0; background: var(--bg-card);">
-        <div class="container-narrow" style="text-align: center;">
-            <h3 style="margin-bottom: 32px;">Why Choose AI Lead System</h3>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px;">
-                <div>
-                    <h4 style="color: var(--accent-dark); margin-bottom: 12px;">🎯 Precision Routing</h4>
-                    <p style="font-size: 16px;">AI matches leads to optimal team members based on expertise and availability</p>
-                </div>
-                <div>
-                    <h4 style="color: var(--accent-dark); margin-bottom: 12px;">⚡ Automated Response</h4>
-                    <p style="font-size: 16px;">AI-generated responses sent within minutes of lead capture</p>
-                </div>
-                <div>
-                    <h4 style="color: var(--accent-dark); margin-bottom: 12px;">🔒 Reliable Storage</h4>
-                    <p style="font-size: 16px;">Infrastructure designed for reliability ensures lead data integrity</p>
-                </div>
-                <div>
-                    <h4 style="color: var(--accent-dark); margin-bottom: 12px;">📈 Full Ownership</h4>
-                    <p style="font-size: 16px;">One-time purchase, no monthly fees, complete control over your data</p>
-                </div>
-            </div>
-
-            <div style="margin-top: 48px;">
-                <a href="#purchase" class="btn btn-primary">Secure Your AI Lead System</a>
-            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p style="margin-bottom: 16px;">
-                <strong>Need technical clarification?</strong> 
-                <a href="https://wa.me/YOUR_NUMBER">WhatsApp: +YOUR_NUMBER</a> | 
-                <a href="mailto:support@example.com">Email: support@example.com</a>
+            <p style="margin-bottom: 12px;">
+                <strong>Technical questions:</strong> 
+                <a href="https://wa.me/YOUR_NUMBER">WhatsApp</a> | 
+                <a href="mailto:support@example.com">Email</a>
             </p>
-            <p style="margin-bottom: 16px;">
-                Fast response for pre-purchase technical questions and post-purchase setup support
-            </p>
-            <p style="font-size: 14px; color: var(--text-secondary);">
-                © 2025 AI Lead System. All rights reserved. | 
-                <a href="/privacy" style="color: var(--text-secondary);">Privacy Policy</a> | 
-                <a href="/terms" style="color: var(--text-secondary);">Terms of Service</a>
+            <p style="font-size: 12px;">
+                © 2025 AI Lead System. All rights reserved.
             </p>
         </div>
     </footer>
 
-    <!-- Optional: Add smooth scrolling behavior -->
     <script>
-        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -994,29 +696,6 @@ I'll help you optimize this landing page for better conversion from cold traffic
                     });
                 }
             });
-        });
-
-        // Add subtle entrance animations on scroll (optional)
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.querySelectorAll('.workflow-step, .feature-card, .comparison-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
         });
     </script>
 
