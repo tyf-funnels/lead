@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Powered Omnichannel Lead Management System</title>
+    <title>Lead Infrastructure - Revenue Protection System</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,11 +17,11 @@
             --accent-brown: #666666;
             --accent-dark: #333333;
             --border-color: #404040;
-            --button-primary: #ff5722;
-            --button-hover: #e64a19;
+            --button-primary: #333333;
+            --button-hover: #000000;
         }
 
-        * {
+{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -95,6 +95,13 @@
             font-weight: 400;
         }
 
+        .audience-qualifier {
+            font-size: 14px;
+            color: var(--accent-brown);
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
         .cta-group {
             display: flex;
             gap: 16px;
@@ -135,6 +142,17 @@
             color: var(--text-primary);
         }
 
+        .hero-image {
+            margin: 60px auto 40px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
         section {
             padding: 60px 0;
             border-top: 1px solid var(--border-color);
@@ -153,9 +171,147 @@
             color: var(--text-primary);
         }
 
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
         p {
             margin-bottom: 20px;
             color: var(--text-secondary);
+        }
+
+        .problem-steps {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 32px;
+            border-radius: 6px;
+            margin: 32px 0;
+        }
+
+        .step {
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .cost-example {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 24px;
+            border-radius: 6px;
+            margin: 32px 0;
+            text-align: center;
+        }
+
+        .cost-example h4 {
+            color: var(--accent-dark);
+            margin-bottom: 16px;
+        }
+
+        .workflow-list {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 32px;
+            border-radius: 6px;
+            margin: 32px 0;
+        }
+
+        .workflow-list ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .workflow-list li {
+            padding: 8px 0;
+            font-size: 16px;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .workflow-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 32px 0;
+        }
+
+        .comparison-card {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 24px;
+            border-radius: 6px;
+        }
+
+        .comparison-card h3 {
+            color: var(--accent-dark);
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 0;
+        }
+
+        .feature-list li {
+            padding: 6px 0;
+            font-size: 15px;
+        }
+
+        .best-for-section {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 32px;
+            border-radius: 6px;
+            margin: 32px 0;
+        }
+
+        .best-for-section h3 {
+            color: var(--accent-dark);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .best-for-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .best-for-card h4 {
+            color: var(--accent-dark);
+            margin-bottom: 12px;
+        }
+
+        .best-for-card ul {
+            list-style: none;
+            margin: 16px 0 0 0;
+        }
+
+        .best-for-card li {
+            padding: 4px 0;
+            font-size: 14px;
         }
 
         .final-cta {
@@ -175,6 +331,67 @@
             color: var(--text-secondary);
             font-size: 16px;
             margin-bottom: 40px;
+        }
+
+        .faq-section {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 32px;
+            border-radius: 6px;
+            margin: 32px 0;
+        }
+
+        .faq-item {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--accent-dark);
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            color: var(--accent-dark);
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        .guarantee-box {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 32px;
+            border-radius: 6px;
+            margin: 32px 0;
+            text-align: center;
+        }
+
+        .guarantee-box h3 {
+            color: var(--accent-dark);
+            margin-bottom: 16px;
+        }
+
+        .guarantee-box p {
+            color: var(--accent-dark);
+            margin-bottom: 0;
+        }
+
+        .image-annotation {
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            border-left: 2px solid var(--accent-brown);
+            padding-left: 16px;
+            text-align: left;
         }
 
         footer {
@@ -213,6 +430,12 @@
                 padding: 40px 0;
             }
 
+            .comparison-grid,
+            .best-for-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
             .cta-group {
                 flex-direction: column;
             }
@@ -239,142 +462,240 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container-narrow">
-            <h1>Turn Every Message into Revenue Instantly</h1>
+            <h1>Your Forms Work. Your CRM Works. The Connection Between Them Does Not.</h1>
+
             <p class="subheadline">
-                Capture leads from WhatsApp, Instagram, Facebook Messenger, Email, and your Website—all automated. One-time payment, no subscriptions.
+                There is a gap between lead submission and database entry. It is invisible, silent, and it costs you revenue every single week.
             </p>
+
+            <div class="audience-qualifier">
+                For founders and agencies generating 50+ leads per month
+            </div>
+
             <div class="cta-group">
-                <a href="#the-pain" class="btn btn-primary">Stop Losing Leads</a>
+                <a href="#the-risk" class="btn btn-primary">Check if you are leaking revenue</a>
+                <!-- Updated WhatsApp Link -->
                 <a href="https://wa.me/213676127853?text=Hi%20%F0%9F%91%8B%20I%20have%20a%20quick%20question%20and%20would%20like%20more%20details%20before%20purchasing%2E" class="btn btn-secondary">Chat Before You Buy</a>
             </div>
         </div>
     </section>
 
-    <!-- PAIN AMPLIFICATION -->
-    <section id="the-pain">
+    <!-- Hero Image / Visual Proof -->
+    <section class="hero-image">
         <div class="container-narrow">
-            <h2>The Real Cost of Missed Leads</h2>
-            <p>Every second your response is delayed, you lose potential revenue. Consider this:</p>
-            <ul>
-                <li>A single missed lead could cost your business $3,000.</li>
-                <li>If you miss just 3 leads a month, that's $9,000 lost annually.</li>
-                <li>Slow replies create a negative impression and drive potential clients to your competitors.</li>
-            </ul>
-            <p>When leads slip through the cracks, it’s not just money lost; it’s trust and reputation at stake. Don’t let chaos cost you.</p>
+            <!-- Image lom.png is sourced here -->
+            <img src="lom.png" alt="Lead infrastructure interception layer" />
+            <div class="image-annotation">
+                <strong>Figure 1:</strong> The Interception Layer. This system sits between your web forms and your CRM. It validates every submission and guarantees delivery—or alerts you instantly if it fails.
+            </div>
         </div>
     </section>
 
-    <!-- INTRODUCE THE SOLUTION -->
+    <!-- Problem Statement / Inevitability -->
+    <section id="the-risk">
+        <div class="container-narrow">
+            <h2>The Invisible Failure Loop</h2>
+
+            <div class="problem-steps">
+                <div class="step">→ High-intent lead submits form</div>
+                <div class="step">→ Page confirms "Success"</div>
+                <div class="step">→ API connection times out silently</div>
+                <div class="step">→ Data never reaches your CRM</div>
+                <div class="step">→ You never know it happened</div>
+            </div>
+
+            <p>You assume the lead was low quality. You blame the source. The reality is that your infrastructure failed. The lead vanished in transit.</p>
+
+            <p>Modern tech stacks are chains of integrations. Any link with a failure rate greater than zero guarantees data loss over time. This is not a bug; it is a structural certainty of complex systems.</p>
+
+            <div class="cta-group">
+                <a href="#the-solution" class="btn btn-primary">See the fix</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works / Solution -->
     <section class="alt-bg" id="the-solution">
         <div class="container-narrow">
-            <h2>Your Sales Engine: The AI-Powered System</h2>
-            <p>This isn’t just software; it’s a sales engine designed to turn chaos into a predictable flow. Imagine:</p>
-            <ul>
-                <li>Every lead from every channel captured and organized.</li>
-                <li>AI analyzing intent and urgency to prioritize responses.</li>
-                <li>Automated, intelligent replies that keep your leads engaged.</li>
-            </ul>
+            <h2>Infrastructure That Guarantees Delivery</h2>
+
+            <div class="workflow-list">
+                <ul>
+                    <li>Intercepts every lead before it leaves your server</li>
+                    <li>Validates data integrity immediately</li>
+                    <li>Attempts secure delivery to your CRM with automatic retries</li>
+                    <li>If delivery fails, you receive an instant alert with the lead data</li>
+                </ul>
+            </div>
+
+            <p>We do not rely on third-party connectors. We provide a dedicated infrastructure layer that eliminates blind spots. Either the lead reaches your CRM, or you are notified manually.</p>
+
+            <div class="cta-group">
+                <a href="#the-math" class="btn btn-primary">View the math</a>
+            </div>
         </div>
     </section>
 
-    <!-- HOW IT ACTUALLY WORKS -->
+    <!-- Comparison -->
     <section>
         <div class="container-narrow">
-            <h2>How It Works</h2>
-            <ol>
-                <li><strong>Lead Intake:</strong> Capture leads from WhatsApp, Instagram, Facebook Messenger, Email, and your Website.</li>
-                <li><strong>AI Understanding:</strong> Analyze lead intent, urgency, and budget signals.</li>
-                <li><strong>Scoring:</strong> Classify leads as Hot, Warm, or Cold.</li>
-                <li><strong>Smart Replies:</strong> Auto-reply based on lead temperature.</li>
-                <li><strong>Manager Alerts:</strong> Notify your sales team instantly for hot leads.</li>
-                <li><strong>Follow-Ups:</strong> Run automated, non-spammy follow-ups.</li>
-                <li><strong>CRM & Logs:</strong> Store everything in a lightweight, organized format with compliance logs.</li>
-            </ol>
-            <p>This streamlined process elevates your sales strategy, maximizing your revenue potential while minimizing effort.</p>
+            <h2>Standard Integration vs. Guaranteed Delivery</h2>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>Current Stack Risk</h3>
+                    <ul class="feature-list">
+                        <li>Multiple points of failure</li>
+                        <li>Silent API breakdowns</li>
+                        <li>No failure monitoring</li>
+                        <li>Lost revenue is invisible</li>
+                        <li>Zero audit trail</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card">
+                    <h3>Revenue-Protected System</h3>
+                    <ul class="feature-list">
+                        <li>Single point of control</li>
+                        <li>Guaranteed CRM delivery</li>
+                        <li>Real-time failure alerts</li>
+                        <li>100% lead accountability</li>
+                        <li>Complete data audit trail</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- WHY THIS IS DIFFERENT -->
-    <section class="alt-bg">
+    <!-- Cost Framing / Math -->
+    <section class="alt-bg" id="the-math">
         <div class="container-narrow">
-            <h2>Why This Is NOT a Chatbot or a CRM</h2>
-            <p>This system is designed for serious founders who want results, not just features:</p>
-            <ul>
-                <li><strong>Ownership:</strong> Full ownership with a one-time payment—no vendor lock-in.</li>
-                <li><strong>Custom Logic:</strong> Tailor the system to fit your unique business needs.</li>
-                <li><strong>AI Reasoning:</strong> Built with intelligent automation, not just scripted replies.</li>
-                <li><strong>Cost-Effective:</strong> Compare this to hiring staff or monthly SaaS subscriptions.</li>
-            </ul>
+            <h2>The Cost of Doing Nothing</h2>
+
+            <div class="cost-example">
+                <h4>Conservative Revenue Impact</h4>
+                <p>Average deal size: $3,000<br>
+                Leads lost per year: 3 (Conservative 5% failure rate)<br>
+                <strong>Annual revenue lost: $9,000</strong><br>
+                <strong>System cost: $499 (One-time)</strong></p>
+                <p style="margin-top: 16px; font-size: 14px; font-weight: 600;">
+                    The system pays for itself if it saves you <u>one</u> lead every two years.
+                </p>
+            </div>
+
+            <p style="text-align: center;">
+                This is not optimization. It is insurance against invisible structural loss.
+            </p>
         </div>
     </section>
 
-    <!-- TRUST & PROOF SECTION -->
+    <!-- Is This Right for You -->
     <section>
         <div class="container-narrow">
-            <h2>Built for Real Businesses</h2>
-            <p>This system was engineered by an automation expert for business owners like you. It works best for:</p>
-            <ul>
-                <li>SMB Founders</li>
-                <li>Agency Owners</li>
-                <li>Course Creators</li>
-                <li>Service-Based Businesses</li>
-            </ul>
-            <p>With transparency in how it works, you get full control over your leads, backed by audit logs and compliance tracking.</p>
+            <h2>Infrastructure Qualification</h2>
+
+            <div class="best-for-section">
+                <div class="best-for-grid">
+                    <div class="best-for-card">
+                        <h4>Essential for:</h4>
+                        <ul>
+                            <li>Generating 50+ leads per month</li>
+                            <li>$2,000+ average deal size</li>
+                            <li>Complex tech stacks (Zapier, Make)</li>
+                            <li>Teams relying on inbound revenue</li>
+                        </ul>
+                    </div>
+
+                    <div class="best-for-card">
+                        <h4>Unnecessary if:</h4>
+                        <ul>
+                            <li>Generating < 20 leads per month</li>
+                            <li>Manual data entry processes</li>
+                            <li>Low-value transaction model</li>
+                            <li>No active sales team</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- PRICE JUSTIFICATION -->
-    <section class="alt-bg">
+    <!-- Guarantee (Moved up for risk reversal) -->
+    <section class="alt-bg" id="guarantee">
         <div class="container-narrow">
-            <h2>Price Justification</h2>
-            <p>Consider what you're losing by not acting:</p>
-            <ul>
-                <li>Hiring a staff member could cost $3,000/month.</li>
-                <li>CRM subscriptions add up to $500+/month.</li>
-                <li>Each lost deal can cost you thousands.</li>
-            </ul>
-            <p>For just <strong>$499 one-time</strong>, you gain:</p>
-            <ul>
-                <li>Instant delivery of a ready-to-use system.</li>
-                <li>Full ownership and control over your automation.</li>
-                <li>No recurring fees or subscriptions.</li>
-            </ul>
-            <p>Make this small investment for massive returns in revenue.</p>
+            <div class="guarantee-box">
+                <h3>Risk Reversal Guarantee</h3>
+                <p>We carry the technical risk, not you. If the system fails to deliver leads to your CRM after proper setup, we will issue a full refund within 48 hours. You either protect your revenue, or you don't pay.</p>
+            </div>
         </div>
     </section>
 
-    <!-- STRONG CTA -->
-    <section class="final-cta">
+    <!-- FAQ -->
+    <section>
         <div class="container-narrow">
-            <h2>Turn Messages into Revenue</h2>
+            <h2>Technical Implementation</h2>
+
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question">Q: How long does setup take?</div>
+                    <p><strong>A:</strong> Approximately 2-4 hours. You connect your form webhooks to our system and configure your CRM endpoint. Technical support is included for the first 48 hours.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: Does this integrate with my CRM?</div>
+                    <p><strong>A:</strong> Yes. It works with any system accepting webhooks or APIs (HubSpot, Salesforce, Pipedrive, GoHighLevel, etc.).</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: What are the ongoing costs?</div>
+                    <p><strong>A:</strong> You will need server hosting ($20-50/month) and API usage ($10-30/month). There are no licensing fees or subscription costs to us.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: Is the system customizable?</div>
+                    <p><strong>A:</strong> Yes. You receive full access to the source code and workflows. You can modify routing logic, alerts, and data handling as your needs evolve.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="purchase">
+        <div class="container-narrow">
+            <h2>Secure Your Lead Infrastructure</h2>
+
             <div class="price">$499</div>
             <p class="price-details">
-                <strong>One-time payment</strong><br>
-                Instant access to your new sales engine.
+                <strong>One-time ownership</strong><br>
+                No recurring fees. Full control.
             </p>
+
             <div class="cta-group">
-                <a href="https://buy.stripe.com/your_payment_link" class="btn btn-primary">Get Full Access Now</a>
+                <a href="https://buy.stripe.com/your_payment_link" class="btn btn-primary" style="font-size: 18px; padding: 18px 36px;">Get Full Access Now</a>
+                <!-- Updated WhatsApp Link -->
                 <a href="https://wa.me/213676127853?text=Hi%20%F0%9F%91%8B%20I%20have%20a%20quick%20question%20and%20would%20like%20more%20details%20before%20purchasing%2E" class="btn btn-secondary">Not Sure? Let’s Talk</a>
             </div>
+
             <p style="margin-top: 40px; font-size: 14px;">
-                <strong>Immediate access:</strong> Complete system delivered within 5 minutes.
+                <strong>Immediate access:</strong> Complete system delivered within 5 minutes
             </p>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p style="margin-bottom: 12px;">
-                <strong>Need Support?</strong> 
+                <strong>Implementation support:</strong> 
+                <!-- Updated Footer WhatsApp Link -->
                 <a href="https://wa.me/213676127853?text=Hi%20%F0%9F%91%8B%20I%20have%20a%20quick%20question%20and%20would%20like%20more%20details%20before%20purchasing%2E">WhatsApp</a> | 
                 <a href="mailto:support@tyfunnels.com">Email</a>
             </p>
             <p style="font-size: 12px;">
-                © 2026 TYF Funnels. All rights reserved.
+                © 2025 TYF Funnels. All rights reserved.
             </p>
         </div>
     </footer>
