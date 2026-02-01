@@ -69,6 +69,39 @@
             width: auto;
         }
 
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subheadline {
+            font-size: 20px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            max-width: 600px;
+            margin: 0 auto 24px;
+            font-weight: 400;
+        }
+
+        .audience-qualifier {
+            font-size: 14px;
+            color: var(--accent-brown);
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
         .cta-group {
             display: flex;
             gap: 16px;
@@ -98,7 +131,324 @@
             background: var(--button-hover);
         }
 
-        /* Additional styles omitted for brevity */
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-brown);
+            color: var(--text-primary);
+        }
+
+        .hero-image {
+            margin: 60px auto 40px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        section.alt-bg {
+            background: var(--bg-secondary);
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+            line-height: 1.3;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .problem-steps {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 32px;
+            border-radius: 6px;
+            margin: 32px 0;
+        }
+
+        .step {
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .cost-example {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 24px;
+            border-radius: 6px;
+            margin: 32px 0;
+            text-align: center;
+        }
+
+        .cost-example h4 {
+            color: var(--accent-dark);
+            margin-bottom: 16px;
+        }
+
+        .workflow-list {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 32px;
+            border-radius: 6px;
+            margin: 32px 0;
+        }
+
+        .workflow-list ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .workflow-list li {
+            padding: 8px 0;
+            font-size: 16px;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .workflow-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 32px 0;
+        }
+
+        .comparison-card {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 24px;
+            border-radius: 6px;
+        }
+
+        .comparison-card h3 {
+            color: var(--accent-dark);
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 0;
+        }
+
+        .feature-list li {
+            padding: 6px 0;
+            font-size: 15px;
+        }
+
+        .best-for-section {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 32px;
+            border-radius: 6px;
+            margin: 32px 0;
+        }
+
+        .best-for-section h3 {
+            color: var(--accent-dark);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .best-for-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .best-for-card h4 {
+            color: var(--accent-dark);
+            margin-bottom: 12px;
+        }
+
+        .best-for-card ul {
+            list-style: none;
+            margin: 16px 0 0 0;
+        }
+
+        .best-for-card li {
+            padding: 4px 0;
+            font-size: 14px;
+        }
+
+        .final-cta {
+            text-align: center;
+            padding: 80px 0;
+            background: var(--bg-secondary);
+        }
+
+        .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 24px 0;
+        }
+
+        .price-details {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        .faq-section {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 32px;
+            border-radius: 6px;
+            margin: 32px 0;
+        }
+
+        .faq-item {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--accent-dark);
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            color: var(--accent-dark);
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        .guarantee-box {
+            background: var(--bg-card);
+            color: var(--accent-dark);
+            padding: 32px;
+            border-radius: 6px;
+            margin: 32px 0;
+            text-align: center;
+        }
+
+        .guarantee-box h3 {
+            color: var(--accent-dark);
+            margin-bottom: 16px;
+        }
+
+        .guarantee-box p {
+            color: var(--accent-dark);
+            margin-bottom: 0;
+        }
+
+        .image-annotation {
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            border-left: 2px solid var(--accent-brown);
+            padding-left: 16px;
+            text-align: left;
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 14px;
+            background: var(--bg-primary);
+        }
+
+        footer a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: var(--accent-brown);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .comparison-grid,
+            .best-for-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .container,
+            .container-narrow {
+                padding: 0 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -112,20 +462,240 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container-narrow">
             <h1>Are You Losing Revenue Without Knowing It?</h1>
+
             <p class="subheadline">
                 Every time a lead submits a form, it should lead to revenue. But what if some leads just vanish? This silent problem is costing you money each week.
             </p>
+
+            <div class="audience-qualifier">
+                For founders and agencies generating 50+ leads every month
+            </div>
+
             <div class="cta-group">
-                <a href="payment.html" class="btn btn-primary">Protect My Leads Now</a>
+                <a href="#the-risk" class="btn btn-primary">Uncover Your Revenue Loss</a>
+                <a href="https://wa.me/213676127853?text=Hi%20%F0%9F%91%8B%20I%20have%20a%20quick%20question%20and%20would%20like%20more%20details%20before%20purchasing%2E" class="btn btn-secondary">Talk Before You Buy</a>
             </div>
         </div>
     </section>
 
-    <!-- Other sections of the landing page omitted for brevity -->
+    <!-- Hero Image / Visual Proof -->
+    <section class="hero-image">
+        <div class="container-narrow">
+            <img src="lom.png" alt="Lead protection system" />
+            <div class="image-annotation">
+                <strong>Figure 1:</strong> The Protection Layer. This system sits between your web forms and your CRM, ensuring every submission is validated and delivered—or you're instantly alerted if it fails.
+            </div>
+        </div>
+    </section>
 
+    <!-- Problem Statement / Inevitability -->
+    <section id="the-risk">
+        <div class="container-narrow">
+            <h2>The Silent Revenue Drain</h2>
+
+            <div class="problem-steps">
+                <div class="step">→ A lead shows intent by submitting a form</div>
+                <div class="step">→ You get a "Success" confirmation</div>
+                <div class="step">→ But the connection fails silently</div>
+                <div class="step">→ The data never reaches your CRM</div>
+                <div class="step">→ You remain unaware of the lost opportunity</div>
+            </div>
+
+            <p>Your instinct might lead you to think the lead was unqualified. You might blame the source. The reality is, your systems are failing. Leads are vanishing in transit.</p>
+
+            <p>Today's tech landscape is a complex web of integrations. Any weak link guarantees revenue loss over time. This isn’t just an oversight; it’s a hidden risk in intricate systems.</p>
+
+            <div class="cta-group">
+                <a href="#the-solution" class="btn btn-primary">Discover Your Solution</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works / Solution -->
+    <section class="alt-bg" id="the-solution">
+        <div class="container-narrow">
+            <h2>Your Revenue Protection System</h2>
+
+            <div class="workflow-list">
+                <ul>
+                    <li>Intercepts every lead before it leaves your server</li>
+                    <li>Immediately validates the accuracy of the data</li>
+                    <li>Attempts secure delivery to your CRM with automatic retries</li>
+                    <li>If delivery fails, you receive an instant alert with lead information</li>
+                </ul>
+            </div>
+
+            <p>We don’t rely on third-party systems. We provide a robust solution that eliminates blind spots. Your leads will either reach your CRM, or you’ll know right away if they don’t.</p>
+
+            <div class="cta-group">
+                <a href="#the-math" class="btn btn-primary">See the Financial Impact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section>
+        <div class="container-narrow">
+            <h2>Current Systems vs. Your Revenue Shield</h2>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>Current System Risks</h3>
+                    <ul class="feature-list">
+                        <li>Multiple failure points</li>
+                        <li>Silent breakdowns</li>
+                        <li>No monitoring of failures</li>
+                        <li>Invisible revenue loss</li>
+                        <li>No accountability</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card">
+                    <h3>Protected Revenue System</h3>
+                    <ul class="feature-list">
+                        <li>Single point of control</li>
+                        <li>Guaranteed delivery to CRM</li>
+                        <li>Real-time alerts for failures</li>
+                        <li>Complete lead accountability</li>
+                        <li>Full data audit trail</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Framing / Math -->
+    <section class="alt-bg" id="the-math">
+        <div class="container-narrow">
+            <h2>The Cost of Ignoring This</h2>
+
+            <div class="cost-example">
+                <h4>Conservative Revenue Loss Estimate</h4>
+                <p>Average deal size: $3,000<br>
+                Estimated leads lost annually: 3 (5% failure rate)<br>
+                <strong>Annual revenue lost: $9,000</strong><br>
+                <strong>One-time investment in our system: $499</strong></p>
+                <p style="margin-top: 16px; font-size: 14px; font-weight: 600;">
+                    This system pays for itself if it saves just <u>one</u> lead every two years.
+                </p>
+            </div>
+
+            <p style="text-align: center;">
+                This isn’t just optimization. It’s your shield against unseen revenue loss.
+            </p>
+        </div>
+    </section>
+
+    <!-- Is This Right for You -->
+    <section>
+        <div class="container-narrow">
+            <h2>Is This Right for Your Business?</h2>
+
+            <div class="best-for-section">
+                <div class="best-for-grid">
+                    <div class="best-for-card">
+                        <h4>Ideal For:</h4>
+                        <ul>
+                            <li>Generating 50+ leads per month</li>
+                            <li>Average deal sizes of $2,000+</li>
+                            <li>Complex tech setups</li>
+                            <li>Teams focused on inbound revenue</li>
+                        </ul>
+                    </div>
+
+                    <div class="best-for-card">
+                        <h4>Not Needed If:</h4>
+                        <ul>
+                            <li>Generating less than 20 leads per month</li>
+                            <li>Manual data entry processes</li>
+                            <li>Low-value transaction models</li>
+                            <li>No active sales team</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee -->
+    <section class="alt-bg" id="guarantee">
+          <div class="container
+-narrow">
+            <div class="guarantee-box">
+                <h3>No-Risk Guarantee</h3>
+                <p>We take on the technical risk. If our system fails to deliver leads to your CRM after setup, we will issue a full refund within 48 hours. You either protect your revenue or you don't pay.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+        <div class="container-narrow">
+            <h2>Implementation Questions</h2>
+
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question">Q: How long does it take to set up?</div>
+                    <p><strong>A:</strong> About 2-4 hours. You'll connect your form webhooks to our system and configure your CRM endpoint. Technical support is available for the first 48 hours.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: Will this integrate with my CRM?</div>
+                    <p><strong>A:</strong> Yes, it works with any system that accepts webhooks or integrations (like HubSpot, Salesforce, Pipedrive, GoHighLevel, etc.).</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: What are the ongoing costs?</div>
+                    <p><strong>A:</strong> You'll need server hosting ($20-50/month) and integration usage ($10-30/month). There are no licensing fees or subscription costs.</p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: Is the system customizable?</div>
+                    <p><strong>A:</strong> Yes, you get full access to the source code and workflows, allowing you to modify routing logic, alerts, and data handling as your needs change.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="purchase">
+        <div class="container-narrow">
+            <h2>Protect Your Revenue Today</h2>
+
+            <div class="price">$499</div>
+            <p class="price-details">
+                <strong>One-time payment</strong><br>
+                No recurring fees. Full ownership and control.
+            </p>
+
+            <div class="cta-group">
+                <a href="https://buy.stripe.com/your_payment_link" class="btn btn-primary" style="font-size: 18px; padding: 18px 36px;">Protect My Leads Now</a>
+                <a href="https://wa.me/213676127853?text=Hi%20%F0%9F%91%8B%20I%20have%20a%20quick%20question%20and%20would%20like%20more%20details%20before%20purchasing%2E" class="btn btn-secondary">Have Questions? Let's Talk</a>
+            </div>
+
+            <p style="margin-top: 40px; font-size: 14px;">
+                <strong>Immediate access:</strong> Complete system delivered within 5 minutes.
+            </p>
+
+            <div style="max-width:410px;margin:0 auto;">
+                <iframe 
+                    src="https://nowpayments.io/embeds/payment-widget?iid=6145284323"
+                    width="100%"
+                    height="696"
+                    frameborder="0"
+                    scrolling="no"
+                    style="overflow:hidden;">
+                    Can't load widget
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p style="margin-bottom: 12px;">
@@ -138,6 +708,21 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
