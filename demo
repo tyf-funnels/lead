@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadFlow AI — Live Demo Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+           DESIGN TOKENS — matching LeadFlow AI brand
+        ============================================================ */
+        :root {
+            --bg-primary:    #0d0f14;
+            --bg-secondary:  #13161d;
+            --bg-card:       #f5f4f0;
+            --text-primary:  #f0ede8;
+            --text-secondary:#8a8d96;
+            --accent:        #c8f04a;
+            --accent-dim:    #98b836;
+            --accent-dark:   #1e2128;
+            --border-color:  #232730;
+            --card-dark:     #181b22;
+
+            /* Chat-specific */
+            --bubble-ai:     #181b22;
+            --bubble-user:   #c8f04a;
+            --bubble-ai-text:#d6d3ce;
+            --bubble-user-text: #0d0f14;
+            --chat-bg:       #0b0d11;
+            --header-chat:   #111318;
+            --online-dot:    #4ade80;
+            --time-color:    #5a5d66;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.65;
+            font-size: 16px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ============================================================
+           PAGE HEADER
+        ============================================================ */
+        .page-header {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+
+        .page-header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 0.02em;
+        }
+
+        .logo-dot {
+            width: 8px; height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .header-badge {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: rgba(200,240,74,0.1);
+            border: 1px solid rgba(200,240,74,0.25);
+            padding: 5px 14px;
+            border-radius: 100px;
+        }
+
+        .header-cta {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            border: 1px solid var(--accent);
+            padding: 8px 18px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .header-cta:hover {
+            background: var(--accent);
+            color: #0d0f14;
+        }
+
+        /* ============================================================
+           MAIN LAYOUT
+        ============================================================ */
+        .demo-layout {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 480px 1fr;
+            gap: 0;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 48px 32px;
+            align-items: start;
+        }
+
+        /* LEFT COPY PANEL */
+        .demo-copy {
+            padding-right: 48px;
+            padding-top: 16px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .demo-copy h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .demo-copy h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .demo-copy p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .feature-pills {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+
+        .pill {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .pill-dot {
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .back-link {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--accent); }
+
+        /* RIGHT INFO PANEL */
+        .demo-info {
+            padding-left: 48px;
+            padding-top: 16px;
+        }
+
+        .info-card {
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .info-card h3 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+        }
+
+        .info-card p, .info-card li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .info-card ul { list-style: none; }
+
+        .info-card li {
+            padding-left: 18px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .info-card li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 11px;
+        }
+
+        .info-card p:last-child { margin-bottom: 0; }
+
+        .webhook-notice {
+            background: rgba(200,240,74,0.06);
+            border: 1px solid rgba(200,240,74,0.2);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+        }
+
+        .webhook-notice p {
+            font-size: 12px;
+            color: var(--accent-dim);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .webhook-notice strong {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* ============================================================
+           CHAT WINDOW — the hero component
+        ============================================================ */
+        .chat-window {
+            width: 100%;
+            background: var(--chat-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow:
+                0 0 0 1px rgba(200,240,74,0.06),
+                0 24px 64px rgba(0,0,0,0.5),
+                0 4px 16px rgba(0,0,0,0.3);
+            height: 620px;
+            position: relative;
+        }
+
+        /* subtle top accent line */
+        .chat-window::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            z-index: 2;
+        }
+
+        /* ---- Chat Header ---- */
+        .chat-header {
+            background: var(--header-chat);
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .chat-avatar {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e2a10, #3a5c18);
+            border: 2px solid rgba(200,240,74,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .chat-avatar svg { width: 20px; height: 20px; }
+
+        .online-indicator {
+            width: 10px; height: 10px;
+            background: var(--online-dot);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0; right: 0;
+            border: 2px solid var(--header-chat);
+        }
+
+        .chat-header-info { flex: 1; }
+
+        .chat-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .chat-status {
+            font-size: 11px;
+            color: var(--online-dot);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .chat-header-actions {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .header-icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+            padding: 4px;
+            border-radius: 4px;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-icon-btn:hover { color: var(--text-primary); }
+
+        /* ---- Message List ---- */
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            scroll-behavior: smooth;
+        }
+
+        /* custom scrollbar */
+        .chat-messages::-webkit-scrollbar { width: 4px; }
+        .chat-messages::-webkit-scrollbar-track { background: transparent; }
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 2px;
+        }
+
+        /* Date divider */
+        .date-divider {
+            text-align: center;
+            margin: 12px 0;
+        }
+
+        .date-divider span {
+            font-size: 11px;
+            color: var(--time-color);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border-color);
+            padding: 3px 12px;
+            border-radius: 100px;
+            letter-spacing: 0.04em;
+        }
+
+        /* Message rows */
+        .msg-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            margin-bottom: 2px;
+            animation: msgIn 0.25s ease forwards;
+        }
+
+        @keyframes msgIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .msg-row.user { flex-direction: row-reverse; }
+
+        .msg-avatar-small {
+            width: 26px; height: 26px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e2a10, #3a5c18);
+            border: 1px solid rgba(200,240,74,0.2);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .msg-avatar-small svg { width: 13px; height: 13px; }
+
+        /* hide avatar for consecutive AI messages (set by JS) */
+        .msg-row.consecutive .msg-avatar-small { visibility: hidden; }
+
+        .bubble-wrap { display: flex; flex-direction: column; max-width: 78%; }
+        .msg-row.user .bubble-wrap { align-items: flex-end; }
+
+        .bubble {
+            padding: 9px 14px;
+            border-radius: 14px;
+            font-size: 13.5px;
+            line-height: 1.55;
+            word-break: break-word;
+            position: relative;
+        }
+
+        /* AI bubble */
+        .bubble.ai {
+            background: var(--bubble-ai);
+            color: var(--bubble-ai-text);
+            border: 1px solid var(--border-color);
+            border-bottom-left-radius: 4px;
+        }
+
+        /* User bubble */
+        .bubble.user {
+            background: var(--bubble-user);
+            color: var(--bubble-user-text);
+            border-bottom-right-radius: 4px;
+        }
+
+        .bubble-meta {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 3px;
+            padding: 0 2px;
+        }
+
+        .bubble-time {
+            font-size: 10px;
+            color: var(--time-color);
+        }
+
+        .msg-row.user .bubble-time { color: rgba(13,15,20,0.45); }
+
+        /* read ticks */
+        .read-ticks {
+            display: flex;
+            gap: 1px;
+        }
+
+        .tick {
+            width: 9px; height: 9px;
+            opacity: 0.6;
+        }
+
+        /* Typing indicator bubble */
+        .typing-bubble {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 2px;
+        }
+
+        .typing-bubble.visible { display: flex; }
+
+        .typing-dots {
+            background: var(--bubble-ai);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            border-bottom-left-radius: 4px;
+            padding: 11px 16px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--text-secondary);
+            animation: bounce 1.2s infinite ease-in-out;
+        }
+
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0.7); opacity: 0.4; }
+            40%            { transform: scale(1.1); opacity: 1;   }
+        }
+
+        /* ---- Chat Input ---- */
+        .chat-input-area {
+            background: var(--header-chat);
+            border-top: 1px solid var(--border-color);
+            padding: 12px 14px;
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .input-attach-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: color 0.2s, background 0.2s;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-attach-btn:hover {
+            background: var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .chat-input-wrap {
+            flex: 1;
+            background: #1a1e27;
+            border: 1px solid var(--border-color);
+            border-radius: 22px;
+            display: flex;
+            align-items: flex-end;
+            padding: 6px 14px;
+            transition: border-color 0.2s;
+        }
+
+        .chat-input-wrap:focus-within {
+            border-color: rgba(200,240,74,0.35);
+        }
+
+        #chatInput {
+            flex: 1;
+            background: none;
+            border: none;
+            outline: none;
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13.5px;
+            line-height: 1.5;
+            resize: none;
+            max-height: 100px;
+            padding: 4px 0;
+        }
+
+        #chatInput::placeholder { color: var(--text-secondary); }
+
+        #chatInput::-webkit-scrollbar { width: 3px; }
+        #chatInput::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 2px; }
+
+        .send-btn {
+            width: 40px; height: 40px;
+            background: var(--accent);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .send-btn:hover {
+            background: #b8e03a;
+            transform: scale(1.05);
+        }
+
+        .send-btn:active { transform: scale(0.95); }
+
+        .send-btn svg { width: 18px; height: 18px; }
+
+        /* send btn disabled state */
+        .send-btn:disabled {
+            background: var(--border-color);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ---- Error Toast ---- */
+        .toast {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #3a1a1a;
+            border: 1px solid #7a3030;
+            color: #ffaaaa;
+            font-size: 12px;
+            padding: 8px 18px;
+            border-radius: 100px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .toast.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ============================================================
+           SETUP INSTRUCTIONS SECTION
+        ============================================================ */
+        .setup-section {
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            padding: 64px 0;
+        }
+
+        .setup-inner {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .setup-inner h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 30px;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .setup-inner > p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 36px;
+        }
+
+        .steps-numbered {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 40px;
+        }
+
+        .setup-step {
+            display: grid;
+            grid-template-columns: 52px 1fr;
+            gap: 20px;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .setup-step:last-child { border-bottom: none; }
+
+        .setup-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 32px;
+            color: rgba(200,240,74,0.18);
+            line-height: 1;
+            padding-top: 2px;
+        }
+
+        .setup-content h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .setup-content p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .setup-content p:last-child { margin-bottom: 0; }
+
+        .code-inline {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+            color: var(--accent);
+            padding: 2px 7px;
+            border-radius: 4px;
+        }
+
+        .code-block {
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+            overflow-x: auto;
+            line-height: 1.7;
+        }
+
+        .code-block .key   { color: #79b8ff; }
+        .code-block .val   { color: #c8f04a; }
+        .code-block .str   { color: #f8a070; }
+        .code-block .cmnt  { color: #555d6e; font-style: italic; }
+
+        .n8n-flow {
+            background: var(--card-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            overflow-x: auto;
+            margin: 12px 0;
+        }
+
+        .flow-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .flow-node-box {
+            background: #1e2128;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px 14px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .flow-node-box.accent {
+            background: rgba(200,240,74,0.1);
+            border-color: rgba(200,240,74,0.3);
+            color: var(--accent);
+        }
+
+        .flow-node-label {
+            font-size: 10px;
+            color: var(--time-color);
+            letter-spacing: 0.04em;
+        }
+
+        .flow-arrow {
+            font-size: 16px;
+            color: var(--border-color);
+            margin: 0 8px;
+            flex-shrink: 0;
+            align-self: center;
+            padding-bottom: 14px;
+        }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        footer {
+            padding: 28px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 13px;
+            background: var(--bg-primary);
+        }
+
+        footer a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover { color: var(--accent); }
+
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+        @media (max-width: 960px) {
+            .demo-layout {
+                grid-template-columns: 1fr;
+                padding: 32px 20px;
+                gap: 32px;
+            }
+
+            .demo-copy { padding-right: 0; padding-top: 0; }
+            .demo-info  { padding-left: 0; }
+
+            .chat-window { height: 560px; }
+
+            .page-header-inner { padding: 0 20px; }
+            .header-badge { display: none; }
+        }
+
+        @media (max-width: 540px) {
+            .chat-window { height: 500px; border-radius: 12px; }
+            .page-header-inner .header-cta { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================================================================
+         PAGE HEADER
+    ================================================================ -->
+    <header class="page-header">
+        <div class="page-header-inner">
+            <div class="logo">
+                <span class="logo-dot"></span>
+                LeadFlow AI
+            </div>
+            <span class="header-badge">Live Demo</span>
+            <a href="https://checkout.stripe.com/your-payment-link" class="header-cta">Get The System →</a>
+        </div>
+    </header>
+
+    <!-- ================================================================
+         DEMO LAYOUT
+    ================================================================ -->
+    <main class="demo-layout">
+
+        <!-- LEFT: copy -->
+        <aside class="demo-copy">
+            <span class="section-label">Interactive Demo</span>
+            <h1>See the AI<br><em>reply in real time</em></h1>
+            <p>
+                Type any message below — just like a real prospect would on WhatsApp. The AI responds instantly, qualifies your intent, and shows you exactly what your clients' customers will experience.
+            </p>
+
+            <div class="feature-pills">
+                <div class="pill">
+                    <span class="pill-dot"></span>
+                    Responds in under 2 seconds
+                </div>
+                <div class="pill">
+                    <span class="pill-dot"></span>
+                    Friendly, professional tone by default
+                </div>
+                <div class="pill">
+                    <span class="pill-dot"></span>
+                    Connected to live n8n AI workflow
+                </div>
+                <div class="pill">
+                    <span class="pill-dot"></span>
+                    Session memory — no permanent storage
+                </div>
+                <div class="pill">
+                    <span class="pill-dot"></span>
+                    Deployable for any client in days
+                </div>
+            </div>
+
+            <a href="https://leadflowai.com" class="back-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 5l-7 7 7 7"/>
+                </svg>
+                Back to main page
+            </a>
+        </aside>
+
+        <!-- CENTER: Chat Window -->
+        <div class="chat-window" id="chatWindow">
+
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-avatar">
+                    <!-- Bot icon -->
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="8" width="18" height="12" rx="3" stroke="#c8f04a" stroke-width="1.5"/>
+                        <circle cx="9" cy="13" r="1.5" fill="#c8f04a"/>
+                        <circle cx="15" cy="13" r="1.5" fill="#c8f04a"/>
+                        <path d="M12 4v4" stroke="#c8f04a" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="12" cy="3" r="1" fill="#c8f04a"/>
+                        <path d="M8 20v1M16 20v1" stroke="#c8f04a" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="online-indicator"></span>
+                </div>
+                <div class="chat-header-info">
+                    <div class="chat-name">LeadFlow Assistant</div>
+                    <div class="chat-status">Online — typically replies instantly</div>
+                </div>
+                <div class="chat-header-actions">
+                    <!-- Search icon -->
+                    <button class="header-icon-btn" title="Search" aria-label="Search">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                    </button>
+                    <!-- Menu dots icon -->
+                    <button class="header-icon-btn" title="Menu" aria-label="Menu">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Message List -->
+            <div class="chat-messages" id="chatMessages">
+                <div class="date-divider">
+                    <span id="todayLabel">Today</span>
+                </div>
+
+                <!-- Welcome message injected by JS on load -->
+            </div>
+
+            <!-- Typing indicator (always present, toggled visible) -->
+            <div class="typing-bubble" id="typingIndicator" style="padding: 0 16px 4px; gap: 8px; display: none; align-items: flex-end;">
+                <div class="msg-avatar-small">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="8" width="18" height="12" rx="3" stroke="#c8f04a" stroke-width="1.8"/>
+                        <circle cx="9" cy="13" r="1.5" fill="#c8f04a"/>
+                        <circle cx="15" cy="13" r="1.5" fill="#c8f04a"/>
+                    </svg>
+                </div>
+                <div class="typing-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+
+            <!-- Error toast -->
+            <div class="toast" id="errorToast">Could not reach AI — check webhook URL</div>
+
+            <!-- Input Area -->
+            <div class="chat-input-area">
+                <!-- Attachment icon -->
+                <button class="input-attach-btn" title="Attach" aria-label="Attach file">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/>
+                    </svg>
+                </button>
+
+                <div class="chat-input-wrap">
+                    <textarea
+                        id="chatInput"
+                        placeholder="Type a message..."
+                        rows="1"
+                        aria-label="Chat message input"
+                    ></textarea>
+                </div>
+
+                <button class="send-btn" id="sendBtn" aria-label="Send message" title="Send">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 2L11 13" stroke="#0d0f14" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="#0d0f14" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- RIGHT: Setup info -->
+        <aside class="demo-info">
+            <div class="webhook-notice">
+                <p>
+                    <strong>Developer Note:</strong> Replace the webhook URL constant at the top of the script below to connect this to your live n8n workflow. All other logic is ready to go.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3>How It Works</h3>
+                <ul>
+                    <li>User types a message and hits Send</li>
+                    <li>JS sends a POST request to your n8n webhook</li>
+                    <li>n8n runs your AI node (OpenAI / Claude)</li>
+                    <li>AI response is returned as JSON</li>
+                    <li>Reply appears in the chat instantly</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Payload Format</h3>
+                <p>The page sends this JSON body to your webhook:</p>
+                <div class="code-block">
+{<br>
+&nbsp;&nbsp;<span class="key">"message"</span>: <span class="str">"visitor text here"</span>,<br>
+&nbsp;&nbsp;<span class="key">"sessionId"</span>: <span class="str">"uuid-auto-generated"</span>,<br>
+&nbsp;&nbsp;<span class="key">"timestamp"</span>: <span class="str">"ISO 8601 string"</span><br>
+}
+                </div>
+                <p>Your n8n workflow must return:</p>
+                <div class="code-block">
+{<span class="key">"reply"</span>: <span class="str">"AI response text"</span>}
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>Fallback Mode</h3>
+                <p>If no webhook is configured, the demo uses a built-in offline AI simulator so visitors still see a great experience. Perfect for demos before n8n is live.</p>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- ================================================================
+         SETUP INSTRUCTIONS SECTION
+    ================================================================ -->
+    <section class="setup-section">
+        <div class="setup-inner">
+            <span class="section-label">Integration Guide</span>
+            <h2>Connect This Page to n8n in 4 Steps</h2>
+            <p>No backend server required. Just paste your webhook URL and deploy the HTML file anywhere.</p>
+
+            <div class="steps-numbered">
+
+                <div class="setup-step">
+                    <div class="setup-num">01</div>
+                    <div class="setup-content">
+                        <h4>Create the n8n Webhook Node</h4>
+                        <p>
+                            In your n8n workflow, add a <span class="code-inline">Webhook</span> trigger node.
+                            Set the HTTP method to <span class="code-inline">POST</span> and copy the generated URL.
+                            Enable <span class="code-inline">Respond to Webhook</span> so the node can return data.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="setup-step">
+                    <div class="setup-num">02</div>
+                    <div class="setup-content">
+                        <h4>Paste Your Webhook URL</h4>
+                        <p>
+                            In the <span class="code-inline">&lt;script&gt;</span> section of this HTML file, find the constant at the very top and replace the placeholder:
+                        </p>
+                        <div class="code-block">
+<span class="cmnt">// -----------------------------------------------</span><br>
+<span class="cmnt">// REPLACE THIS WITH YOUR ACTUAL n8n WEBHOOK URL</span><br>
+<span class="cmnt">// -----------------------------------------------</span><br>
+const <span class="key">N8N_WEBHOOK_URL</span> = <span class="str">"https://your-n8n-instance.app/webhook/YOUR-ID"</span>;<br><br>
+<span class="cmnt">// Optional: Add an API key header for security</span><br>
+const <span class="key">API_KEY</span> = <span class="str">"your-secret-key-or-leave-blank"</span>;
+                        </div>
+                    </div>
+                </div>
+
+                <div class="setup-step">
+                    <div class="setup-num">03</div>
+                    <div class="setup-content">
+                        <h4>Build the n8n AI Workflow</h4>
+                        <p>Connect the Webhook node to an AI Chat node (OpenAI, Claude, or Gemini). Use this system prompt:</p>
+                        <div class="code-block">
+You are a friendly marketing assistant for a business automation company.<br>
+Reply in 1-2 sentences. Be helpful, professional, and approachable.<br>
+If intent is unclear, ask ONE clarifying question.<br>
+Occasionally mention: "Imagine having all your messages from<br>
+every platform managed automatically..."<br>
+Maximum 1 emoji per reply. Never be pushy.
+                        </div>
+                        <p>The workflow flow looks like this:</p>
+                        <div class="n8n-flow">
+                            <div class="flow-node">
+                                <div class="flow-node-box accent">Webhook</div>
+                                <div class="flow-node-label">Trigger</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-node">
+                                <div class="flow-node-box">Set Fields</div>
+                                <div class="flow-node-label">Extract msg</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-node">
+                                <div class="flow-node-box">AI Agent</div>
+                                <div class="flow-node-label">OpenAI/Claude</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-node">
+                                <div class="flow-node-box">Respond</div>
+                                <div class="flow-node-label">Return JSON</div>
+                            </div>
+                        </div>
+                        <p>In the final <span class="code-inline">Respond to Webhook</span> node, set body to:
+                        <span class="code-inline">{"reply": "{{ $json.output }}"}</span></p>
+                    </div>
+                </div>
+
+                <div class="setup-step">
+                    <div class="setup-num">04</div>
+                    <div class="setup-content">
+                        <h4>Deploy and Test</h4>
+                        <p>
+                            Save and activate the n8n workflow. Open the HTML file in any browser, type a test message, and watch the AI reply appear. Deploy the HTML to any static host — GitHub Pages, Netlify, Vercel, or your own domain. No server needed.
+                        </p>
+                        <p>
+                            For CORS issues on self-hosted n8n, add the header <span class="code-inline">Access-Control-Allow-Origin: *</span> in your n8n webhook node settings.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         FOOTER
+    ================================================================ -->
+    <footer>
+        <div>
+            <p style="margin-bottom: 8px;">
+                <a href="https://wa.me/213676127853?text=Hi%20I%20want%20to%20learn%20more%20about%20the%20AI%20lead%20automation%20system">WhatsApp</a>
+                &nbsp;&middot;&nbsp;
+                <a href="mailto:support@leadflowai.com">Email Support</a>
+                &nbsp;&middot;&nbsp;
+                <a href="https://checkout.stripe.com/your-payment-link">Get The Full System</a>
+            </p>
+            <p style="font-size: 12px; color: var(--text-secondary);">
+                &copy; 2025 LeadFlow AI Systems &nbsp;&middot;&nbsp; 30-Day Money-Back Guarantee
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- ================================================================
+         JAVASCRIPT — Chat Engine
+         ----------------------------------------------------------------
+         CONFIGURATION BLOCK: Edit the two constants below to connect
+         this page to your live n8n workflow.
+    ================================================================ -->
+    <script>
+        /* ============================================================
+           CONFIG — REPLACE THESE VALUES
+           ============================================================
+           N8N_WEBHOOK_URL : Your n8n webhook POST URL.
+                             Leave as empty string "" to use the built-in
+                             offline fallback simulator instead.
+
+           API_KEY         : Optional. If your n8n webhook is protected
+                             by a header secret, put it here.
+                             It will be sent as: X-API-Key: <value>
+                             Leave as "" if not needed.
+        ============================================================ */
+        const N8N_WEBHOOK_URL = "";  // <-- PASTE YOUR WEBHOOK URL HERE
+        const API_KEY         = "";  // <-- OPTIONAL API KEY
+
+        /* ============================================================
+           OFFLINE FALLBACK RESPONSES
+           Used when N8N_WEBHOOK_URL is empty or the webhook fails.
+           These simulate the AI behavior described in the requirements.
+        ============================================================ */
+        const FALLBACK_RESPONSES = [
+            "Thanks for reaching out! I'd love to help — could you tell me a bit more about what you're looking to automate?",
+            "Great question! Imagine having all your messages from every platform managed automatically — that's exactly what this system does. What's your biggest pain point right now?",
+            "Absolutely, we can help with that. What industry is your business in so I can point you to the right solution?",
+            "That's a common challenge for agencies. The good news is this system handles multi-channel follow-ups without any manual work on your end.",
+            "Happy to walk you through it! The setup typically takes a few days and you can start offering it to clients right away.",
+            "That's a great use case. Most clients see response rates improve significantly within the first week. Shall I share more details?",
+            "Thanks for that context! Imagine having all your messages from every platform managed automatically — this system makes that possible. Want to see how it works for your specific setup?",
+            "Of course! No coding experience is needed at all. The implementation guide covers every step clearly. What would be most useful to know first?",
+        ];
+
+        let fallbackIndex = 0;
+
+        /* ============================================================
+           SESSION ID — persists in sessionStorage for memory context
+        ============================================================ */
+        let sessionId = sessionStorage.getItem("lf_session_id");
+        if (!sessionId) {
+            sessionId = "lf-" + Math.random().toString(36).slice(2, 10) + "-" + Date.now();
+            sessionStorage.setItem("lf_session_id", sessionId);
+        }
+
+        /* ============================================================
+           DOM REFS
+        ============================================================ */
+        const messagesEl    = document.getElementById("chatMessages");
+        const inputEl       = document.getElementById("chatInput");
+        const sendBtnEl     = document.getElementById("sendBtn");
+        const typingEl      = document.getElementById("typingIndicator");
+        const toastEl       = document.getElementById("errorToast");
+        const todayLabelEl  = document.getElementById("todayLabel");
+
+        /* ============================================================
+           UTILITIES
+        ============================================================ */
+        function getTimeString() {
+            const now = new Date();
+            return now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+        }
+
+        function setTodayLabel() {
+            const now = new Date();
+            const options = { weekday: "long", month: "long", day: "numeric" };
+            todayLabelEl.textContent = now.toLocaleDateString(undefined, options);
+        }
+
+        function scrollToBottom(smooth) {
+            messagesEl.scrollTo({
+                top: messagesEl.scrollHeight,
+                behavior: smooth ? "smooth" : "auto"
+            });
+        }
+
+        function showToast(msg) {
+            toastEl.textContent = msg;
+            toastEl.classList.add("visible");
+            setTimeout(() => toastEl.classList.remove("visible"), 3500);
+        }
+
+        /* ============================================================
+           AUTO-RESIZE TEXTAREA
+        ============================================================ */
+        inputEl.addEventListener("input", () => {
+            inputEl.style.height = "auto";
+            inputEl.style.height = Math.min(inputEl.scrollHeight, 100) + "px";
+        });
+
+        /* ============================================================
+           RENDER A MESSAGE BUBBLE
+        ============================================================ */
+        let lastSender = null;
+
+        function appendMessage(text, sender) {
+            /* sender: "ai" | "user" */
+            const isConsecutive = (lastSender === sender) && (sender === "ai");
+            lastSender = sender;
+
+            const row = document.createElement("div");
+            row.className = "msg-row " + sender + (isConsecutive ? " consecutive" : "");
+
+            /* AI avatar */
+            if (sender === "ai") {
+                const avatarEl = document.createElement("div");
+                avatarEl.className = "msg-avatar-small";
+                avatarEl.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="8" width="18" height="12" rx="3" stroke="#c8f04a" stroke-width="1.8"/>
+                        <circle cx="9" cy="13" r="1.5" fill="#c8f04a"/>
+                        <circle cx="15" cy="13" r="1.5" fill="#c8f04a"/>
+                    </svg>`;
+                row.appendChild(avatarEl);
+            }
+
+            const wrap = document.createElement("div");
+            wrap.className = "bubble-wrap";
+
+            const bubble = document.createElement("div");
+            bubble.className = "bubble " + sender;
+            bubble.textContent = text;
+
+            const meta = document.createElement("div");
+            meta.className = "bubble-meta";
+
+            const time = document.createElement("span");
+            time.className = "bubble-time";
+            time.textContent = getTimeString();
+            meta.appendChild(time);
+
+            /* read ticks for user messages */
+            if (sender === "user") {
+                const ticks = document.createElement("span");
+                ticks.className = "read-ticks";
+                ticks.innerHTML = `
+                    <svg class="tick" viewBox="0 0 24 24" fill="none">
+                        <path d="M20 6L9 17L4 12" stroke="#0d0f14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg class="tick" viewBox="0 0 24 24" fill="none" style="margin-left:-5px;">
+                        <path d="M20 6L9 17L4 12" stroke="#0d0f14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`;
+                meta.appendChild(ticks);
+            }
+
+            wrap.appendChild(bubble);
+            wrap.appendChild(meta);
+            row.appendChild(wrap);
+
+            messagesEl.appendChild(row);
+            scrollToBottom(true);
+        }
+
+        /* ============================================================
+           TYPING INDICATOR
+        ============================================================ */
+        function showTyping() {
+            typingEl.style.display = "flex";
+            scrollToBottom(true);
+        }
+
+        function hideTyping() {
+            typingEl.style.display = "none";
+        }
+
+        /* ============================================================
+           FETCH AI REPLY FROM n8n WEBHOOK
+        ============================================================ */
+        async function fetchAIReply(userMessage) {
+            /* If no webhook configured, use offline fallback */
+            if (!N8N_WEBHOOK_URL || N8N_WEBHOOK_URL.trim() === "") {
+                return await simulateOfflineReply();
+            }
+
+            try {
+                const headers = {
+                    "Content-Type": "application/json"
+                };
+
+                /* Attach optional API key header */
+                if (API_KEY && API_KEY.trim() !== "") {
+                    headers["X-API-Key"] = API_KEY.trim();
+                }
+
+                const response = await fetch(N8N_WEBHOOK_URL, {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify({
+                        message:   userMessage,
+                        sessionId: sessionId,
+                        timestamp: new Date().toISOString()
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error("HTTP " + response.status);
+                }
+
+                const data = await response.json();
+
+                /* Support both { reply: "..." } and { output: "..." } or raw string */
+                if (data && data.reply) return data.reply;
+                if (data && data.output) return data.output;
+                if (data && data.text) return data.text;
+                if (typeof data === "string") return data;
+
+                throw new Error("Unexpected response format");
+
+            } catch (err) {
+                console.warn("Webhook error, falling back to offline mode:", err.message);
+                showToast("Webhook offline — showing demo response");
+                return await simulateOfflineReply();
+            }
+        }
+
+        /* ============================================================
+           OFFLINE SIMULATOR
+           Adds realistic typing delay to mimic real AI latency
+        ============================================================ */
+        function simulateOfflineReply() {
+            return new Promise((resolve) => {
+                const delay = 800 + Math.random() * 1200; /* 0.8 – 2.0 seconds */
+                const reply = FALLBACK_RESPONSES[fallbackIndex % FALLBACK_RESPONSES.length];
+                fallbackIndex++;
+                setTimeout(() => resolve(reply), delay);
+            });
+        }
+
+        /* ============================================================
+           SEND MESSAGE — main handler
+        ============================================================ */
+        async function sendMessage() {
+            const text = inputEl.value.trim();
+            if (!text) return;
+
+            /* Disable UI while waiting */
+            sendBtnEl.disabled = true;
+            inputEl.disabled   = true;
+            inputEl.value      = "";
+            inputEl.style.height = "auto";
+
+            /* Render user message */
+            appendMessage(text, "user");
+
+            /* Show typing indicator */
+            showTyping();
+
+            /* Fetch AI reply */
+            const reply = await fetchAIReply(text);
+
+            /* Hide typing, show reply */
+            hideTyping();
+            appendMessage(reply, "ai");
+
+            /* Re-enable UI */
+            sendBtnEl.disabled = false;
+            inputEl.disabled   = false;
+            inputEl.focus();
+        }
+
+        /* ============================================================
+           EVENT LISTENERS
+        ============================================================ */
+        sendBtnEl.addEventListener("click", sendMessage);
+
+        inputEl.addEventListener("keydown", (e) => {
+            /* Send on Enter (not Shift+Enter) */
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        /* ============================================================
+           INIT — Welcome message on load
+        ============================================================ */
+        function init() {
+            setTodayLabel();
+
+            /* Slight delay so the page renders before the welcome appears */
+            setTimeout(() => {
+                appendMessage(
+                    "Hi there! I'm the LeadFlow AI assistant. I'm here to help you understand how automated lead management works. What would you like to know?",
+                    "ai"
+                );
+                inputEl.focus();
+            }, 600);
+        }
+
+        window.addEventListener("DOMContentLoaded", init);
+    </script>
+
+</body>
+</html>
