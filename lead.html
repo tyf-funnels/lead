@@ -136,8 +136,12 @@ h1 em{font-style:italic;color:var(--accent);}
 }
 .btn-primary{background:var(--accent);color:#0d0f14;}
 .btn-primary:hover{background:#b8e03a;transform:translateY(-2px);box-shadow:0 8px 30px rgba(200,240,74,.2);}
-.btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border);}
-.btn-ghost:hover{border-color:var(--accent);color:var(--text);}
+
+/* CHANGE 1: "Watch a Demo" button now uses btn-ghost class but is overridden
+   to match btn-primary visual style exactly */
+.btn-ghost{background:var(--accent);color:#0d0f14;}
+.btn-ghost:hover{background:#b8e03a;transform:translateY(-2px);box-shadow:0 8px 30px rgba(200,240,74,.2);}
+
 .btn-wa{
   background:#25D366;color:#fff;
   padding:18px 40px;font-size:16px;border-radius:6px;
@@ -414,14 +418,23 @@ p:last-child{margin-bottom:0;}
 .compare-list.gain-list li::before{content:'✓';position:absolute;left:0;color:var(--accent);}
 
 /* ─── GUARANTEE ─── */
+/* CHANGE 2: Guarantee card now matches hero-free-section style */
 .guarantee{
-  background:var(--white-card);color:#1a1d24;
-  padding:36px 40px;border-radius:12px;
-  margin-top:36px;text-align:center;
-  border:2px dashed #ccc;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:36px 40px;
+  margin-top:36px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
 }
-.guarantee h3{color:#1a1d24;font-size:20px;margin-bottom:10px;}
-.guarantee p{color:#555;font-size:15px;margin:0;}
+.guarantee::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--accent);
+}
+.guarantee h3{color:var(--text);font-size:20px;margin-bottom:10px;}
+.guarantee p{color:var(--muted);font-size:15px;margin:0;}
 .guarantee .g-icon{font-size:40px;display:block;margin-bottom:12px;}
 
 /* ─── FINAL CTA ─── */
@@ -530,6 +543,7 @@ footer a:hover{color:var(--accent);}
       <p class="reveal">Most businesses lose 40–60% of potential clients simply because no one followed up fast enough or consistently enough. This system fixes that — permanently.</p>
     </div>
 
+    <!-- CHANGE 3: Added reveal + delay classes to all four benefit cards -->
     <div class="benefits-grid">
       <div class="benefit-card reveal delay-1">
         <span class="benefit-icon">⚡</span>
@@ -620,6 +634,7 @@ footer a:hover{color:var(--accent);}
         </div>
       </div>
     </div>
+    <!-- CHANGE 1: "Watch a Demo" button now uses btn-primary styling via btn-ghost override -->
     <div class="cta-row reveal" style="margin-top:28px;">
       <a href="#demo" class="btn btn-ghost">Watch a Demo</a>
     </div>
@@ -697,6 +712,7 @@ footer a:hover{color:var(--accent);}
     <h2 class="reveal" style="text-align:center;">Try it. See results in 7 days — or we fix it.</h2>
     <p class="reveal" style="text-align:center;">We're confident in what we deliver. If your system isn't up and running and showing results within the first week, we stay on until it does. No excuses, no extra charges.</p>
 
+    <!-- CHANGE 2: Guarantee card background now matches hero-free-section (dark card + green top border) -->
     <div class="guarantee reveal">
       <span class="g-icon">🛡️</span>
       <h3>7-Day Results Guarantee</h3>
