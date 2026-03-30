@@ -148,6 +148,58 @@ h1 em{font-style:italic;color:var(--accent);}
 
 .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 
+/* ─── HERO FREE VALUE SECTION ─── */
+.hero-free-section{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:36px 36px 32px;
+  margin:32px auto 0;
+  text-align:left;
+  position:relative;
+  overflow:hidden;
+}
+.hero-free-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--accent);
+}
+.hero-free-section h2{
+  font-size:26px;text-align:left;margin-bottom:14px;
+}
+.hero-free-section p{
+  font-size:15px;
+}
+.hero-analysis-items{
+  display:flex;flex-direction:column;gap:18px;margin-bottom:0;
+}
+.hero-analysis-item{
+  display:flex;align-items:flex-start;gap:14px;
+}
+.hero-analysis-item .a-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.hero-analysis-item strong{
+  display:block;font-size:14px;font-weight:700;
+  color:var(--text);margin-bottom:3px;
+}
+.hero-analysis-item p{font-size:13px;color:var(--muted);margin:0;}
+
+/* ─── URGENCY & SCARCITY ─── */
+.urgency-note{
+  font-size:13px;font-weight:600;
+  color:var(--red);
+  text-align:center;
+  margin-top:16px;
+  margin-bottom:0;
+  letter-spacing:.01em;
+}
+.scarcity-note{
+  font-size:12px;font-weight:600;
+  color:var(--accent);
+  text-align:center;
+  margin-top:14px;
+  margin-bottom:0;
+  letter-spacing:.01em;
+}
+
 /* ─── HERO ANALYSIS BLOCK ─── */
 .hero-analysis{
   background:var(--accent-dim);
@@ -403,6 +455,8 @@ footer a:hover{color:var(--accent);}
   .wrap,.wrap-sm{padding:0 20px;}
   .nav-cta{display:none;}
   .trust{gap:24px;}
+  .hero-free-section{padding:24px 20px;}
+  .hero-free-section h2{font-size:22px;}
 }
 </style>
 </head>
@@ -432,14 +486,29 @@ footer a:hover{color:var(--accent);}
       Stop losing leads, wasting hours on repetitive tasks, and missing follow-ups. Let a smart system do it — so you can focus on what actually grows your business.
     </p>
 
-    <div class="hero-analysis reveal delay-3">
-      <span class="analysis-label">🎁 Free Business Analysis</span>
-      <p class="analysis-text">Get a clear overview of your business, identify bottlenecks, and see exactly how automation can improve your workflow — before you commit to anything.</p>
-    </div>
-
-    <div class="cta-row reveal delay-4">
-      <a href="https://wa.me/213676127853?text=Hi%2C%20I'd%20like%20my%20free%20business%20analysis%20please!" class="btn btn-primary" target="_blank" rel="noopener">Get Your Free Business Analysis Now →</a>
-      <a href="#demo" class="btn btn-ghost">Watch a Demo</a>
+    <div class="hero-free-section reveal delay-3">
+      <span class="section-label" style="text-align:center;display:block;margin-bottom:10px;">Free Value — No Commitment</span>
+      <h2 style="font-size:26px;margin-bottom:14px;">Your Free Business Analysis — See What's Possible</h2>
+      <p style="font-size:15px;margin-bottom:24px;">Before you buy, we give you a free snapshot of your business: what's working, what's slowing you down, and how automation can fix repetitive tasks, speed up responses, and stop lost leads. You get a clear, actionable plan to improve your workflow — no risk, no commitment, just insight.</p>
+      <div class="hero-analysis-items">
+        <div class="hero-analysis-item">
+          <span class="a-icon">🔍</span>
+          <div><strong>Identify Your Bottlenecks</strong><p>We pinpoint exactly where time and leads are being lost in your current workflow.</p></div>
+        </div>
+        <div class="hero-analysis-item">
+          <span class="a-icon">📈</span>
+          <div><strong>See the Opportunity</strong><p>We show you the tangible improvements automation would make — in plain numbers.</p></div>
+        </div>
+        <div class="hero-analysis-item">
+          <span class="a-icon">🗺️</span>
+          <div><strong>Get a Clear Action Plan</strong><p>You receive a concrete roadmap tailored to your business — free, no strings attached.</p></div>
+        </div>
+      </div>
+      <div style="margin-top:28px;">
+        <a href="https://wa.me/213676127853?text=Hi%2C%20I'd%20like%20my%20free%20business%20analysis%20please!" class="btn btn-primary" target="_blank" rel="noopener" style="font-size:15px;padding:15px 28px;">Get Your Free Business Analysis Now →</a>
+        <p class="scarcity-note">⚠️ Free Business Analysis — Available for the first 25 businesses only. <strong>Limited spots remaining.</strong></p>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;margin-bottom:0;">Takes 10 minutes. Zero cost. Zero obligation.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -486,46 +555,6 @@ footer a:hover{color:var(--accent);}
   </div>
 </section>
 
-<!-- FREE BUSINESS ANALYSIS SECTION -->
-<section id="free-analysis" style="background:var(--bg2);">
-  <div class="wrap-sm">
-    <span class="section-label reveal" style="text-align:center;display:block;">Free Value — No Commitment</span>
-    <h2 class="reveal" style="text-align:center;">Your Free Business Analysis — See What's Possible</h2>
-    <p class="reveal" style="text-align:center;">
-      Before you buy, we give you a free snapshot of your business: what's working, what's slowing you down, and how automation can fix repetitive tasks, speed up responses, and stop lost leads. You get a clear, actionable plan to improve your workflow — no risk, no commitment, just insight.
-    </p>
-
-    <div class="analysis-card reveal delay-1">
-      <div class="analysis-items">
-        <div class="analysis-item">
-          <span class="a-icon">🔍</span>
-          <div>
-            <strong>Identify Your Bottlenecks</strong>
-            <p>We pinpoint exactly where time and leads are being lost in your current workflow.</p>
-          </div>
-        </div>
-        <div class="analysis-item">
-          <span class="a-icon">📈</span>
-          <div>
-            <strong>See the Opportunity</strong>
-            <p>We show you the tangible improvements automation would make — in plain numbers.</p>
-          </div>
-        </div>
-        <div class="analysis-item">
-          <span class="a-icon">🗺️</span>
-          <div>
-            <strong>Get a Clear Action Plan</strong>
-            <p>You receive a concrete roadmap tailored to your business — free, no strings attached.</p>
-          </div>
-        </div>
-      </div>
-      <div class="analysis-cta">
-        <a href="https://wa.me/213676127853?text=Hi%2C%20I'd%20like%20my%20free%20business%20analysis%20please!" class="btn btn-primary" target="_blank" rel="noopener" style="font-size:15px;padding:15px 28px;">Get Your Free Business Analysis Now →</a>
-        <p style="font-size:12px;color:var(--muted);margin-top:12px;margin-bottom:0;">Takes 10 minutes. Zero cost. Zero obligation.</p>
-      </div>
-    </div>
-  </div>
-</section>
 <section id="demo" style="background:var(--bg2);">
   <div class="wrap">
     <div class="wrap-sm" style="padding:0;">
@@ -591,10 +620,12 @@ footer a:hover{color:var(--accent);}
         </div>
       </div>
     </div>
+    <div class="cta-row reveal" style="margin-top:28px;">
+      <a href="#demo" class="btn btn-ghost">Watch a Demo</a>
+    </div>
+    <p class="urgency-note reveal delay-1">Don't wait — every delayed response could mean a lost client.</p>
   </div>
 </section>
-
-<!-- HOW IT WORKS -->
 <section id="process">
   <div class="wrap">
     <div class="wrap-sm" style="padding:0;">
@@ -681,6 +712,8 @@ footer a:hover{color:var(--accent);}
     <p class="reveal" style="color:var(--muted);">
       One conversation is all it takes. Tell us about your business — we'll show you exactly how automation fits in and what results to expect.
     </p>
+
+    <p class="urgency-note reveal" style="margin-bottom:24px;">Before you lose another lead — let's talk.</p>
 
     <div class="cta-row reveal delay-1">
       <a
