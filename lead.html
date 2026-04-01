@@ -451,66 +451,6 @@ footer{
 footer a{color:var(--text);text-decoration:none;font-weight:500;}
 footer a:hover{color:var(--accent);}
 
-/* ─── VIDEO MODAL ─── */
-#demo-modal{
-  display:none;
-  position:fixed;inset:0;z-index:9999;
-  background:rgba(0,0,0,.85);
-  backdrop-filter:blur(8px);
-  align-items:center;justify-content:center;
-  padding:20px;
-}
-#demo-modal.active{display:flex;}
-.modal-inner{
-  position:relative;
-  width:100%;max-width:900px;
-  background:#0d0f14;
-  border:1px solid var(--border);
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 30px 80px rgba(0,0,0,.7);
-  animation:modal-in .3s ease;
-}
-@keyframes modal-in{
-  from{opacity:0;transform:scale(.95) translateY(16px);}
-  to{opacity:1;transform:scale(1) translateY(0);}
-}
-.modal-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px 20px;
-  background:#1e2128;
-  border-bottom:1px solid var(--border);
-}
-.modal-header-dots{display:flex;gap:7px;align-items:center;}
-.modal-header-dots span{
-  width:10px;height:10px;border-radius:50%;display:block;
-}
-.modal-header-dots .r{background:#e05555;}
-.modal-header-dots .y{background:#e0b655;}
-.modal-header-dots .g{background:var(--accent);}
-.modal-title{
-  font-size:12px;font-weight:600;color:var(--muted);
-  letter-spacing:.05em;position:absolute;left:50%;transform:translateX(-50%);
-}
-.modal-close{
-  background:none;border:none;cursor:pointer;
-  color:var(--muted);font-size:20px;line-height:1;
-  padding:4px 8px;border-radius:4px;
-  transition:.2s;margin-left:auto;
-}
-.modal-close:hover{background:rgba(255,255,255,.08);color:var(--text);}
-.modal-video-wrap{
-  position:relative;
-  width:100%;
-  padding-top:56.25%; /* 16:9 */
-  background:#000;
-}
-.modal-video-wrap video{
-  position:absolute;inset:0;
-  width:100%;height:100%;
-  display:block;
-}
-
 /* ─── RESPONSIVE ─── */
 @media(max-width:768px){
   h1{font-size:36px;}
@@ -527,33 +467,10 @@ footer a:hover{color:var(--accent);}
   .trust{gap:24px;}
   .hero-free-section{padding:24px 20px;}
   .hero-free-section h2{font-size:22px;}
-  #demo-modal{padding:12px;}
-  .modal-inner{border-radius:8px;}
 }
 </style>
 </head>
 <body>
-
-<!-- VIDEO MODAL -->
-<div id="demo-modal" role="dialog" aria-modal="true" aria-label="Demo Video">
-  <div class="modal-inner">
-    <div class="modal-header">
-      <div class="modal-header-dots">
-        <span class="r"></span>
-        <span class="y"></span>
-        <span class="g"></span>
-      </div>
-      <span class="modal-title">Live Demo — AutoFlow Clinic Automation</span>
-      <button class="modal-close" id="modal-close-btn" aria-label="Close video">✕</button>
-    </div>
-    <div class="modal-video-wrap">
-      <video id="demo-video" controls playsinline preload="none">
-        <source src="https://drive.google.com/uc?export=download&id=16XDd8_NhS-ksPpaalFguzyEVuWCESIQ4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
-</div>
 
 <!-- NAV -->
 <nav>
@@ -724,7 +641,7 @@ footer a:hover{color:var(--accent);}
       </div>
     </div>
     <div class="cta-row reveal" style="margin-top:28px;">
-      <a href="#demo" class="btn btn-ghost" id="watch-demo-btn">Watch a Demo</a>
+      <a href="#demo" class="btn btn-ghost">Watch a Demo</a>
     </div>
     <p class="urgency-note reveal delay-1">Don't wait — every delayed response could mean a lost patient.</p>
   </div>
@@ -863,8 +780,6 @@ document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => 
 
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    // Skip the Watch a Demo button — handled separately
-    if (a.id === 'watch-demo-btn') return;
     e.preventDefault();
     const t = document.querySelector(a.getAttribute('href'));
     if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -892,39 +807,6 @@ const demoObserver = new IntersectionObserver(entries => {
 
 const demoWindow = document.querySelector('.demo-window');
 if (demoWindow) demoObserver.observe(demoWindow);
-
-/* ─── VIDEO MODAL LOGIC ─── */
-const modal     = document.getElementById('demo-modal');
-const video     = document.getElementById('demo-video');
-const closeBtn  = document.getElementById('modal-close-btn');
-const watchBtn  = document.getElementById('watch-demo-btn');
-
-function openModal(e) {
-  e.preventDefault();
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-  video.play().catch(() => {/* autoplay blocked — user can press play */});
-}
-
-function closeModal() {
-  modal.classList.remove('active');
-  document.body.style.overflow = '';
-  video.pause();
-  video.currentTime = 0;
-}
-
-watchBtn.addEventListener('click', openModal);
-closeBtn.addEventListener('click', closeModal);
-
-// Close on backdrop click
-modal.addEventListener('click', function(e) {
-  if (e.target === modal) closeModal();
-});
-
-// Close on Escape key
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
-});
 </script>
 </body>
 </html>
