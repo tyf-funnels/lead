@@ -549,7 +549,7 @@ footer a:hover{color:var(--accent);}
           <div class="offer-highlight">
             <span class="o-icon"></span>
             <div>
-              <strong>Bookings, Reminders & Follow-Ups — On Autopilot</strong>
+              <strong>Bookings, Reminders &amp; Follow-Ups — On Autopilot</strong>
               <p>Handles every patient touchpoint automatically. No manual work, no missed appointments, no lost leads.</p>
             </div>
           </div>
@@ -583,7 +583,8 @@ footer a:hover{color:var(--accent);}
         </div>
 
         <div class="offer-cta">
-          <a href="https://wa.me/213676127853?text=Hi%2C%20I'd%20like%20to%20claim%20the%2020%25%20off%20offer%20for%20clinic%20automation!" class="btn btn-primary" target="_blank" rel="noopener" style="font-size:15px;padding:15px 28px;">Claim 20% Off Now →</a>
+          <!-- CHANGE 1: Button now scrolls smoothly to #benefits section -->
+          <a href="#benefits" class="btn btn-primary" id="hero-get-started-btn" style="font-size:15px;padding:15px 28px;">Get Started →</a>
           <p class="urgency-note" style="margin-top:14px;">⏳ Discount valid for the next 72 hours only. Don't miss it.</p>
           <p style="font-size:12px;color:var(--muted);margin-top:8px;margin-bottom:0;">No commitment. One conversation is all it takes.</p>
         </div>
@@ -618,7 +619,7 @@ footer a:hover{color:var(--accent);}
       </div>
       <div class="benefit-card reveal delay-2">
         <span class="benefit-icon">🗓️</span>
-        <h3>Appointment Confirmations & Reminders</h3>
+        <h3>Appointment Confirmations &amp; Reminders</h3>
         <p>Automated reminders sent 1 day and 1 hour before each appointment — with options to confirm or reschedule. Eliminate no-shows and wasted slots without lifting a finger.</p>
       </div>
       <div class="benefit-card reveal delay-3">
@@ -628,17 +629,17 @@ footer a:hover{color:var(--accent);}
       </div>
       <div class="benefit-card reveal delay-4">
         <span class="benefit-icon">📋</span>
-        <h3>Full Patient & Appointment Dashboard</h3>
+        <h3>Full Patient &amp; Appointment Dashboard</h3>
         <p>One clear view of every patient, every appointment, every message, and every status — Confirmed, Pending, Canceled — all in one place. No lost notes, no missed bookings.</p>
       </div>
       <div class="benefit-card reveal delay-1">
         <span class="benefit-icon">💊</span>
-        <h3>Treatment & Routine Check Reminders</h3>
+        <h3>Treatment &amp; Routine Check Reminders</h3>
         <p>Patients forget recurring treatments and routine check-ups. The system sends automated reminders based on each patient's treatment schedule — keeping them engaged and healthy.</p>
       </div>
       <div class="benefit-card reveal delay-2">
         <span class="benefit-icon">⭐</span>
-        <h3>Automated Feedback & Review Collection</h3>
+        <h3>Automated Feedback &amp; Review Collection</h3>
         <p>After every visit, a friendly follow-up message is sent automatically requesting feedback. Build your reputation effortlessly — no manual chasing required.</p>
       </div>
     </div>
@@ -686,7 +687,7 @@ footer a:hover{color:var(--accent);}
           <div class="avatar ai">AI</div>
           <div>
             <div class="bubble ai">Perfect — we have slots on Friday at 10 AM or 2 PM. Which time works best for you? I'll confirm your appointment and send a reminder the day before. 🦷</div>
-            <div class="bubble-time">2:16 AM — Appointment slot offered & lead qualified ✓</div>
+            <div class="bubble-time">2:16 AM — Appointment slot offered &amp; lead qualified ✓</div>
           </div>
         </div>
       </div>
@@ -697,7 +698,7 @@ footer a:hover{color:var(--accent);}
         </div>
         <div class="stat-cell reveal delay-1">
           <div class="stat-num">100%</div>
-          <div class="stat-lbl">Patients captured & stored</div>
+          <div class="stat-lbl">Patients captured &amp; stored</div>
         </div>
         <div class="stat-cell reveal delay-2">
           <div class="stat-num">0</div>
@@ -745,7 +746,7 @@ footer a:hover{color:var(--accent);}
   <div class="wrap">
     <div class="wrap-sm" style="padding:0;">
       <span class="section-label reveal">The Difference</span>
-      <h2 class="reveal">Before & after — in plain terms.</h2>
+      <h2 class="reveal">Before &amp; after — in plain terms.</h2>
     </div>
 
     <div class="compare">
@@ -824,7 +825,8 @@ footer a:hover{color:var(--accent);}
     <p style="margin-bottom:10px;">
       <a href="https://wa.me/213676127853">WhatsApp</a>
       &nbsp;·&nbsp;
-      <a href="mailto:contact@autflow.online">Email Support</a>
+      <!-- CHANGE 2: mailto link with pre-filled To, Subject, and Body -->
+      <a href="mailto:contact@autflow.online?subject=Hello%2C%20I%20have%20a%20question%20about%20your%20service&body=Hi%20AutFlow%20team%2C%0A%0AI%20have%20a%20question%20about%20your%20clinic%20automation%20service.%0A%0A">Email Support</a>
     </p>
     <p style="font-size:12px;">© 2025 AutFlow. All rights reserved. &nbsp;·&nbsp; 7-Day Results Guarantee</p>
   </div>
@@ -841,12 +843,16 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 
 /* ─── SMOOTH SCROLL ─── */
+// Handles all anchor links including the new "Get Started" hero button
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
+    // Skip the watch-demo-btn (it opens the modal instead)
     if (a.id === 'watch-demo-btn') return;
-    e.preventDefault();
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 });
 
@@ -898,7 +904,6 @@ document.addEventListener('keydown', function(e) {
   const STORAGE_KEY = 'autflow_offer_deadline';
   const DURATION_MS = 72 * 60 * 60 * 1000; // 72 hours
 
-  // Persist deadline across page reloads
   let deadline;
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -908,7 +913,6 @@ document.addEventListener('keydown', function(e) {
       localStorage.setItem(STORAGE_KEY, deadline);
     }
   } catch(e) {
-    // localStorage blocked — just use session
     deadline = Date.now() + DURATION_MS;
   }
 
