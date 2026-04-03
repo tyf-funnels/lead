@@ -583,8 +583,8 @@ footer a:hover{color:var(--accent);}
         </div>
 
         <div class="offer-cta">
-          <!-- CHANGE 1: Button now scrolls smoothly to #benefits section -->
-          <a href="#benefits" class="btn btn-primary" id="hero-get-started-btn" style="font-size:15px;padding:15px 28px;">Get Started →</a>
+          <!-- ✅ CHANGE 1: Button text updated to "Claim 20% Off" — scrolls smoothly to #benefits -->
+          <a href="#benefits" class="btn btn-primary" id="hero-get-started-btn" style="font-size:15px;padding:15px 28px;">Claim 20% Off →</a>
           <p class="urgency-note" style="margin-top:14px;">⏳ Discount valid for the next 72 hours only. Don't miss it.</p>
           <p style="font-size:12px;color:var(--muted);margin-top:8px;margin-bottom:0;">No commitment. One conversation is all it takes.</p>
         </div>
@@ -825,8 +825,8 @@ footer a:hover{color:var(--accent);}
     <p style="margin-bottom:10px;">
       <a href="https://wa.me/213676127853">WhatsApp</a>
       &nbsp;·&nbsp;
-      <!-- CHANGE 2: mailto link with pre-filled To, Subject, and Body -->
-      <a href="mailto:contact@autflow.online?subject=Hello%2C%20I%20have%20a%20question%20about%20your%20service&body=Hi%20AutFlow%20team%2C%0A%0AI%20have%20a%20question%20about%20your%20clinic%20automation%20service.%0A%0A">Email Support</a>
+      <!-- ✅ CHANGE 2: "Email Support" replaced by visible email address on click; also opens mail client -->
+      <a href="mailto:contact@autflow.online" id="email-support-link">Email Support</a>
     </p>
     <p style="font-size:12px;">© 2025 AutFlow. All rights reserved. &nbsp;·&nbsp; 7-Day Results Guarantee</p>
   </div>
@@ -843,10 +843,8 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 
 /* ─── SMOOTH SCROLL ─── */
-// Handles all anchor links including the new "Get Started" hero button
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    // Skip the watch-demo-btn (it opens the modal instead)
     if (a.id === 'watch-demo-btn') return;
     const target = document.querySelector(a.getAttribute('href'));
     if (target) {
@@ -941,6 +939,25 @@ document.addEventListener('keydown', function(e) {
 
   tick();
   setInterval(tick, 1000);
+})();
+
+/* ─── ✅ CHANGE 2: Email Support → reveal email address on click ─── */
+(function() {
+  const emailLink = document.getElementById('email-support-link');
+  if (!emailLink) return;
+
+  emailLink.addEventListener('click', function(e) {
+    const email = 'contact@autflow.online';
+
+    // Replace visible link text with the email address
+    emailLink.textContent = email;
+
+    // Update href to open mail client addressed to the email
+    emailLink.href = 'mailto:' + email;
+
+    // Remove this listener so subsequent clicks just open the mail client normally
+    emailLink.removeEventListener('click', arguments.callee);
+  });
 })();
 </script>
 </body>
