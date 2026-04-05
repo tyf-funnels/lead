@@ -485,7 +485,7 @@ footer a:hover{color:var(--accent);}
 <section class="hero" style="border-top:none;padding-top:100px;">
   <div class="hero-glow"></div>
   <div class="wrap-sm">
-    <div class="badge reveal"> Full-Stack Web Development Studio</div>
+    <div class="badge reveal">⚡ Full-Stack Web Development Studio</div>
 
     <h1 class="reveal delay-1">
       Engineered for the Web.<br><em>Built to Work Under Pressure.</em>
@@ -501,7 +501,7 @@ footer a:hover{color:var(--accent);}
 
         <div>
           <div class="services-badge-row">
-            <span class="services-badge"> React · Next.js · Node.js · Laravel · PostgreSQL</span>
+            <span class="services-badge">🖥️ React · Next.js · Node.js · Laravel · PostgreSQL</span>
           </div>
           <h2 class="services-headline">I design the UI, write the code, <em>and ship the system.</em></h2>
         </div>
@@ -512,18 +512,21 @@ footer a:hover{color:var(--accent);}
 
         <div class="services-features">
           <div class="services-feature">
+            <span class="fof-icon">🎨</span>
             <div>
               <strong>Interface Design Built Around User Behaviour</strong>
               <p>Layouts are structured around information hierarchy and conversion logic — not aesthetics alone. Component states, interaction flows, and responsive breakpoints are defined before a single line of code is written.</p>
             </div>
           </div>
           <div class="services-feature">
+            <span class="fof-icon">⚙️</span>
             <div>
               <strong>Frontend Architecture with React &amp; Next.js — Backend Logic with Node.js or Laravel</strong>
               <p>Frontend builds use component-based architecture with proper state management, code splitting, and lazy loading. Backend systems are structured around RESTful or GraphQL APIs, with authentication, middleware, and database queries handled server-side — not hacked together client-side.</p>
             </div>
           </div>
           <div class="services-feature">
+            <span class="fof-icon">🚀</span>
             <div>
               <strong>Deployed on VPS or Cloud with CDN, SSL, and Environment Configuration</strong>
               <p>Delivery includes production deployment on a configured server environment — Nginx reverse proxy, SSL certificate setup, environment variable management, and CDN integration for static asset delivery. Projects go live properly, not just "uploaded."</p>
@@ -532,7 +535,14 @@ footer a:hover{color:var(--accent);}
         </div>
 
         <div class="services-cta">
-        
+          <a
+            href="https://wa.me/213676127853?text=Hi%2C%20I'd%20like%20to%20discuss%20a%20web%20development%20project!"
+            class="btn btn-primary"
+            target="_blank" rel="noopener"
+            style="font-size:15px;padding:15px 28px;"
+          >
+            Get Started →
+          </a>
           <p style="font-size:12px;color:var(--muted);margin-top:10px;margin-bottom:0;">
             Share your project requirements. I'll respond with a technical breakdown of how it gets built.
           </p>
@@ -600,9 +610,9 @@ footer a:hover{color:var(--accent);}
 <section id="demo" style="background:var(--bg2);">
   <div class="wrap">
     <div class="wrap-sm" style="padding:0;">
-      <span class="section-label reveal">A Real Scoping Conversation</span>
-      <h2 class="reveal">This is how a project gets defined — before any code is written.</h2>
-      <p class="reveal">Scoping happens first. The goal is to understand the business logic, the user flow, and the technical requirements well enough to make the right architectural decisions upfront — not correct them mid-build.</p>
+      <span class="section-label reveal">How a Project Gets Defined</span>
+      <h2 class="reveal">Architecture decisions happen before the first line of code — not during it.</h2>
+      <p class="reveal">Every project starts with a structured discovery conversation. The goal is to map your business operations, the flows your users move through, and the data your system needs to manage — so that the right technical decisions are made upfront, where they cost nothing to change.</p>
     </div>
 
     <div class="demo-window reveal">
@@ -610,35 +620,35 @@ footer a:hover{color:var(--accent);}
         <span class="demo-dot r"></span>
         <span class="demo-dot y"></span>
         <span class="demo-dot g"></span>
-        <span class="demo-title">Project Scoping — Technical Discovery Call</span>
+        <span class="demo-title">Technical Discovery — Project Scoping Session</span>
       </div>
       <div class="demo-body">
         <div class="chat reveal">
           <div class="avatar customer">C</div>
           <div>
-            <div class="bubble customer">We need a booking platform for our clinic — patients should be able to book, receive confirmations, and our staff should manage everything from an admin panel.</div>
-            <div class="bubble-time">Discovery Call — Requirements</div>
+            <div class="bubble customer">We run a service-based business and need a platform where clients can browse our offerings, submit requests, and track their order status — while our team manages everything from a backend dashboard.</div>
+            <div class="bubble-time">Discovery Session — Business Requirements</div>
           </div>
         </div>
         <div class="chat right reveal delay-1">
           <div class="avatar ai">A</div>
           <div>
-            <div class="bubble ai">Understood. I'd architect this as a Next.js frontend with a Node.js API layer and a PostgreSQL database. The booking flow would use server-side validation, and the admin panel would be a protected route with role-based access — staff see their own appointments, admins see everything. Auth via JWT with refresh tokens.</div>
-            <div class="bubble-time">Discovery Call — Architecture proposed ✓</div>
+            <div class="bubble ai">That's a clear split between a public-facing frontend and an internal operations layer. I'd build this with a React or Next.js frontend — server-rendered for the client-facing pages so they load fast and index well — connected to a Node.js or Laravel API backed by a PostgreSQL database. The dashboard would be a protected area with role-based access: standard users see their own submissions, admins manage the full pipeline. Auth handled via JWT with refresh token rotation.</div>
+            <div class="bubble-time">Discovery Session — Architecture proposed ✓</div>
           </div>
         </div>
         <div class="chat reveal delay-2">
           <div class="avatar customer">C</div>
           <div>
-            <div class="bubble customer">We also need automated email confirmations and reminder messages before appointments.</div>
-            <div class="bubble-time">Follow-up</div>
+            <div class="bubble customer">We'd also want automatic status update emails sent to clients whenever their request moves through the workflow — and our team should get internal notifications too.</div>
+            <div class="bubble-time">Follow-up — Feature clarification</div>
           </div>
         </div>
         <div class="chat right reveal delay-3">
           <div class="avatar ai">A</div>
           <div>
-            <div class="bubble ai">That fits into the backend as a scheduled job — a cron task queries upcoming appointments at set intervals and triggers transactional emails via an SMTP service. Reminders are queued and sent 24 hours and 1 hour before. All email templates are stored server-side and version-controlled. ✦</div>
-            <div class="bubble-time">Follow-up — Technical scope confirmed ✓</div>
+            <div class="bubble ai">Both are handled server-side. Status change events trigger a notification dispatch — transactional emails go out via a configured SMTP service, and internal alerts can route through email or a webhook to whatever tool your team uses. Email templates are version-controlled and editable without touching the codebase. The event logic lives in the backend, so notification behaviour can be updated independently of the UI. ✦</div>
+            <div class="bubble-time">Follow-up — Full technical scope confirmed ✓</div>
           </div>
         </div>
       </div>
@@ -649,15 +659,15 @@ footer a:hover{color:var(--accent);}
         </div>
         <div class="stat-cell reveal delay-1">
           <div class="stat-num">0</div>
-          <div class="stat-lbl">Third-party templates or page builders</div>
+          <div class="stat-lbl">Third-party builders or locked platforms</div>
         </div>
         <div class="stat-cell reveal delay-2">
           <div class="stat-num">1</div>
-          <div class="stat-lbl">Developer — handling the full stack</div>
+          <div class="stat-lbl">Developer — owning the full stack</div>
         </div>
       </div>
     </div>
-    <p class="urgency-note reveal delay-1" style="color:var(--red);text-align:center;font-size:13px;font-weight:600;margin-top:24px;">A poorly architected site is harder to fix than it is to build correctly from the start.</p>
+    <p class="urgency-note reveal delay-1" style="color:var(--red);text-align:center;font-size:13px;font-weight:600;margin-top:24px;">A system built on a well-defined architecture is easier to maintain, scale, and extend than one corrected after the fact.</p>
   </div>
 </section>
 
