@@ -272,50 +272,6 @@ p:last-child{margin-bottom:0;}
 .benefit-card h3{color:var(--text);font-size:16px;margin-bottom:8px;}
 .benefit-card p{font-size:14px;margin:0;}
 
-/* ─── DEMO SECTION ─── */
-.demo-window{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:12px;overflow:hidden;margin-top:36px;
-  box-shadow:0 20px 60px rgba(0,0,0,.4);
-}
-.demo-bar{
-  background:#1e2128;padding:12px 20px;
-  display:flex;align-items:center;gap:8px;
-  border-bottom:1px solid var(--border);
-}
-.demo-dot{width:10px;height:10px;border-radius:50%;}
-.demo-dot.r{background:#e05555;}
-.demo-dot.y{background:#e0b655;}
-.demo-dot.g{background:var(--accent);}
-.demo-title{flex:1;text-align:center;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.05em;}
-.demo-body{padding:28px 28px 20px;display:flex;flex-direction:column;gap:16px;}
-
-.chat{display:flex;gap:10px;align-items:flex-start;}
-.chat.right{flex-direction:row-reverse;}
-.avatar{
-  width:32px;height:32px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:14px;flex-shrink:0;font-weight:700;
-}
-.avatar.customer{background:#2a2d35;color:var(--muted);}
-.avatar.ai{background:var(--accent);color:#0d0f14;}
-.bubble{
-  max-width:75%;padding:10px 14px;border-radius:10px;
-  font-size:13px;line-height:1.55;
-}
-.bubble.customer{background:#22262f;color:var(--text);border-radius:2px 10px 10px 10px;}
-.bubble.ai{background:rgba(200,240,74,.1);border:1px solid var(--accent-border);color:var(--text);border-radius:10px 2px 10px 10px;}
-.bubble-time{font-size:10px;color:var(--muted);margin-top:4px;text-align:right;}
-
-.demo-stats{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
-  border-top:1px solid var(--border);margin-top:8px;
-}
-.stat-cell{padding:14px 16px;text-align:center;border-right:1px solid var(--border);}
-.stat-cell:last-child{border-right:none;}
-.stat-num{font-size:22px;font-weight:700;color:var(--accent);font-family:'DM Serif Display',serif;}
-.stat-lbl{font-size:11px;color:var(--muted);margin-top:2px;font-weight:500;}
-
 /* ─── PROCESS ─── */
 .process-steps{
   display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
@@ -372,6 +328,158 @@ p:last-child{margin-bottom:0;}
 .guarantee p{color:var(--muted);font-size:15px;margin:0;}
 .guarantee .g-icon{font-size:40px;display:block;margin-bottom:12px;}
 
+/* ─── PRICING ─── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+  align-items: start;
+}
+.pricing-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .3s, transform .3s;
+}
+.pricing-card:hover {
+  border-color: rgba(200,240,74,.3);
+  transform: translateY(-4px);
+}
+.pricing-card.featured {
+  background: rgba(200,240,74,.04);
+  border-color: rgba(200,240,74,.35);
+}
+.pricing-card.featured::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #4af0c8, var(--accent));
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+.pricing-card:not(.featured)::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--border), rgba(200,240,74,.2), var(--border));
+}
+.pricing-tier-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+  display: block;
+}
+.pricing-card.featured .pricing-tier-label {
+  color: var(--accent);
+}
+.pricing-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.pricing-price {
+  margin-bottom: 6px;
+}
+.pricing-price .amount {
+  font-family: 'DM Serif Display', serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1;
+}
+.pricing-price .amount-note {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 500;
+  margin-left: 4px;
+}
+.pricing-tagline {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.pricing-features {
+  list-style: none;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.pricing-features li {
+  font-size: 14px;
+  color: var(--muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+  padding: 0;
+  border: none;
+}
+.pricing-features li::before {
+  content: none;
+}
+.pricing-check {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.pricing-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 14px 24px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  transition: .2s ease;
+  letter-spacing: .02em;
+}
+.pricing-btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.pricing-btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.pricing-btn-solid {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #0d0f14;
+}
+.pricing-btn-solid:hover {
+  background: #b8e03a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(200,240,74,.2);
+}
+.pricing-note {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 20px;
+}
+
 /* ─── FINAL CTA ─── */
 .final{
   text-align:center;padding:100px 0;
@@ -389,81 +497,25 @@ footer{
 footer a{color:var(--text);text-decoration:none;font-weight:500;}
 footer a:hover{color:var(--accent);}
 
-/* ─── VIDEO MODAL ─── */
-#demo-modal{
-  display:none;position:fixed;inset:0;z-index:9999;
-  background:rgba(0,0,0,.85);backdrop-filter:blur(8px);
-  align-items:center;justify-content:center;padding:20px;
-}
-#demo-modal.active{display:flex;}
-.modal-inner{
-  position:relative;width:100%;max-width:900px;
-  background:#0d0f14;border:1px solid var(--border);
-  border-radius:12px;overflow:hidden;
-  box-shadow:0 30px 80px rgba(0,0,0,.7);
-  animation:modal-in .3s ease;
-}
-@keyframes modal-in{
-  from{opacity:0;transform:scale(.95) translateY(16px);}
-  to{opacity:1;transform:scale(1) translateY(0);}
-}
-.modal-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px 20px;background:#1e2128;border-bottom:1px solid var(--border);
-}
-.modal-header-dots{display:flex;gap:7px;align-items:center;}
-.modal-header-dots span{width:10px;height:10px;border-radius:50%;display:block;}
-.modal-header-dots .r{background:#e05555;}
-.modal-header-dots .y{background:#e0b655;}
-.modal-header-dots .g{background:var(--accent);}
-.modal-title{
-  font-size:12px;font-weight:600;color:var(--muted);
-  letter-spacing:.05em;position:absolute;left:50%;transform:translateX(-50%);
-}
-.modal-close{
-  background:none;border:none;cursor:pointer;
-  color:var(--muted);font-size:20px;line-height:1;
-  padding:4px 8px;border-radius:4px;transition:.2s;margin-left:auto;
-}
-.modal-close:hover{background:rgba(255,255,255,.08);color:var(--text);}
-.modal-video-wrap{position:relative;width:100%;padding-top:56.25%;background:#000;}
-.modal-video-wrap video{position:absolute;inset:0;width:100%;height:100%;display:block;}
-
 /* ─── RESPONSIVE ─── */
 @media(max-width:768px){
   h1{font-size:36px;}
   h2{font-size:28px;}
   .hero{padding:70px 0 50px;}
   section{padding:60px 0;}
-  .benefits-grid,.compare,.process-steps{grid-template-columns:1fr;gap:14px;}
-  .demo-stats{grid-template-columns:1fr;}
-  .stat-cell{border-right:none;border-bottom:1px solid var(--border);}
-  .stat-cell:last-child{border-bottom:none;}
+  .benefits-grid,.compare,.process-steps,.pricing-grid{grid-template-columns:1fr;gap:14px;}
   .process-steps::before{display:none;}
   .wrap,.wrap-sm{padding:0 20px;}
   .nav-cta{display:none;}
   .trust{gap:24px;}
   .services-highlight{padding:24px 20px;}
   .services-headline{font-size:22px;}
-  #demo-modal{padding:12px;}
-  .modal-inner{border-radius:8px;}
+  .pricing-card{padding:28px 22px;}
+  .pricing-price .amount{font-size:34px;}
 }
 </style>
 </head>
 <body>
-
-<!-- VIDEO MODAL -->
-<div id="demo-modal" role="dialog" aria-modal="true" aria-label="Demo Video">
-  <div class="modal-inner">
-    <div class="modal-header">
-      <div class="modal-header-dots">
-        <span class="r"></span><span class="y"></span><span class="g"></span>
-      </div>
-      <span class="modal-title">Project Showcase — AutFlow Studio</span>
-      <button class="modal-close" id="modal-close-btn" aria-label="Close video">✕</button>
-    </div> 
-  </div>
-</div>
 
 <!-- NAV -->
 <nav>
@@ -589,71 +641,6 @@ footer a:hover{color:var(--accent);}
   </div>
 </section>
 
-<!-- DEMO / EXAMPLE SECTION -->
-<section id="demo" style="background:var(--bg2);">
-  <div class="wrap">
-    <div class="wrap-sm" style="padding:0;">
-      <span class="section-label reveal">How a Project Gets Defined</span>
-      <h2 class="reveal">Architecture decisions happen before the first line of code — not during it.</h2>
-      <p class="reveal">Every project starts with a structured discovery conversation. The goal is to map your business operations, the flows your users move through, and the data your system needs to manage — so that the right technical decisions are made upfront, where they cost nothing to change.</p>
-    </div>
-
-    <div class="demo-window reveal">
-      <div class="demo-bar">
-        <span class="demo-dot r"></span>
-        <span class="demo-dot y"></span>
-        <span class="demo-dot g"></span>
-        <span class="demo-title">Technical Discovery — Project Scoping Session</span>
-      </div>
-      <div class="demo-body">
-        <div class="chat reveal">
-          <div class="avatar customer">C</div>
-          <div>
-            <div class="bubble customer">We run a service-based business and need a platform where clients can browse our offerings, submit requests, and track their order status — while our team manages everything from a backend dashboard.</div>
-            <div class="bubble-time">Discovery Session — Business Requirements</div>
-          </div>
-        </div>
-        <div class="chat right reveal delay-1">
-          <div class="avatar ai">A</div>
-          <div>
-            <div class="bubble ai">That's a clear split between a public-facing frontend and an internal operations layer. I'd build this with a React or Next.js frontend — server-rendered for the client-facing pages so they load fast and index well — connected to a Node.js or Laravel API backed by a PostgreSQL database. The dashboard would be a protected area with role-based access: standard users see their own submissions, admins manage the full pipeline. Auth handled via JWT with refresh token rotation.</div>
-            <div class="bubble-time">Discovery Session — Architecture proposed ✓</div>
-          </div>
-        </div>
-        <div class="chat reveal delay-2">
-          <div class="avatar customer">C</div>
-          <div>
-            <div class="bubble customer">We'd also want automatic status update emails sent to clients whenever their request moves through the workflow — and our team should get internal notifications too.</div>
-            <div class="bubble-time">Follow-up — Feature clarification</div>
-          </div>
-        </div>
-        <div class="chat right reveal delay-3">
-          <div class="avatar ai">A</div>
-          <div>
-            <div class="bubble ai">Both are handled server-side. Status change events trigger a notification dispatch — transactional emails go out via a configured SMTP service, and internal alerts can route through email or a webhook to whatever tool your team uses. Email templates are version-controlled and editable without touching the codebase. The event logic lives in the backend, so notification behaviour can be updated independently of the UI. ✦</div>
-            <div class="bubble-time">Follow-up — Full technical scope confirmed ✓</div>
-          </div>
-        </div>
-      </div>
-      <div class="demo-stats">
-        <div class="stat-cell reveal">
-          <div class="stat-num">48h</div>
-          <div class="stat-lbl">Technical proposal &amp; architecture doc</div>
-        </div>
-        <div class="stat-cell reveal delay-1">
-          <div class="stat-num">0</div>
-          <div class="stat-lbl">Third-party builders or locked platforms</div>
-        </div>
-        <div class="stat-cell reveal delay-2">
-          <div class="stat-num">1</div>
-          <div class="stat-lbl">Developer — owning the full stack</div>
-        </div>
-      </div>
-    </div>
-    <p class="urgency-note reveal delay-1" style="color:var(--red);text-align:center;font-size:13px;font-weight:600;margin-top:24px;">A system built on a well-defined architecture is easier to maintain, scale, and extend than one corrected after the fact.</p>
-  </div>
-</section>
-
 <!-- PROCESS -->
 <section id="process">
   <div class="wrap">
@@ -718,7 +705,7 @@ footer a:hover{color:var(--accent);}
   </div>
 </section>
 
-<!-- COMMITMENT SECTION (repurposed from guarantee) -->
+<!-- COMMITMENT SECTION -->
 <section id="guarantee">
   <div class="wrap-sm">
     <span class="section-label reveal text-center" style="text-align:center;display:block;">Post-Launch &amp; Ongoing Support</span>
@@ -730,6 +717,82 @@ footer a:hover{color:var(--accent);}
       <h3>Complete Codebase Handoff — No Lock-In, No Black Box</h3>
       <p>At project close, you receive the full repository with documented structure, environment configuration files, and deployment instructions. The project is yours to run, extend, or hand to another developer — no proprietary systems, no hidden dependencies, no ongoing platform fees owed to anyone.</p>
     </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="background:var(--bg2);">
+  <div class="wrap">
+    <div class="wrap-sm" style="padding:0;">
+      <span class="section-label reveal" style="text-align:center;display:block;">Pricing</span>
+      <h2 class="reveal" style="text-align:center;">Transparent, fixed-scope pricing — no surprises mid-build.</h2>
+      <p class="reveal" style="text-align:center;">Every project begins with a scoping conversation to confirm what's needed. Price is agreed before a line of code is written. What's quoted is what's invoiced.</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- Plan 1: Basic Landing Page -->
+      <div class="pricing-card reveal delay-1">
+        <span class="pricing-tier-label">Plan 01 — Entry</span>
+        <div class="pricing-name">Basic Landing Page</div>
+        <div class="pricing-price">
+          <span class="amount">$300</span>
+          <span class="amount-note">– $400</span>
+        </div>
+        <p class="pricing-tagline">
+          Perfect for creators, coaches, and small businesses that need a focused page built to convert visitors into leads or customers — not a generic template, but a purpose-built conversion tool.
+        </p>
+        <ul class="pricing-features">
+          <li><span class="pricing-check">✓</span> Conversion-focused design with clear visual hierarchy</li>
+          <li><span class="pricing-check">✓</span> Fully mobile-responsive layout across all screen sizes</li>
+          <li><span class="pricing-check">✓</span> Fast-loading performance — optimised for Core Web Vitals</li>
+          <li><span class="pricing-check">✓</span> Structured call-to-action flow engineered to drive action</li>
+          <li><span class="pricing-check">✓</span> Basic on-page SEO — semantic HTML, meta tags, schema markup</li>
+          <li><span class="pricing-check">✓</span> Lead capture form integration with backend or third-party handler</li>
+          <li><span class="pricing-check">✓</span> Modern UI layout designed for trust, clarity, and credibility</li>
+          <li><span class="pricing-check">✓</span> Production deployment with SSL and environment configuration</li>
+        </ul>
+        <a
+          href="https://wa.me/213659735828?text=Hi%2C%20I'm%20interested%20in%20the%20Basic%20Landing%20Page%20plan.%20Can%20we%20talk%3F"
+          class="pricing-btn pricing-btn-outline"
+          target="_blank" rel="noopener"
+        >Get Started →</a>
+      </div>
+
+      <!-- Plan 2: Full Website -->
+      <div class="pricing-card featured reveal delay-2">
+        <span class="pricing-tier-label">Plan 02 — Full Build</span>
+        <div class="pricing-name">Full Website</div>
+        <div class="pricing-price">
+          <span class="amount">$800</span>
+          <span class="amount-note">+ depending on scope</span>
+        </div>
+        <p class="pricing-tagline">
+          Ideal for businesses that need a full online presence — not just a page, but a system built to grow with their operations. Every layer of the stack, handled personally from design to deployment.
+        </p>
+        <ul class="pricing-features">
+          <li><span class="pricing-check">✓</span> Fully custom design tailored to the brand — no templates</li>
+          <li><span class="pricing-check">✓</span> Multi-page architecture with defined routing and information hierarchy</li>
+          <li><span class="pricing-check">✓</span> Responsive across all devices — tested on real hardware</li>
+          <li><span class="pricing-check">✓</span> Fast loading with lazy-loaded assets, deferred scripts, and CDN delivery</li>
+          <li><span class="pricing-check">✓</span> SEO-ready structure — server-rendered or statically generated per route</li>
+          <li><span class="pricing-check">✓</span> Scalable architecture designed for future features and integrations</li>
+          <li><span class="pricing-check">✓</span> Professional UI/UX with conversion-oriented page layouts</li>
+          <li><span class="pricing-check">✓</span> Backend API, authentication, and database — built and secured server-side</li>
+          <li><span class="pricing-check">✓</span> Clean, documented, version-controlled codebase — fully yours at handoff</li>
+        </ul>
+        <a
+          href="https://wa.me/213659735828?text=Hi%2C%20I'm%20interested%20in%20the%20Full%20Website%20plan.%20Can%20we%20talk%3F"
+          class="pricing-btn pricing-btn-solid"
+          target="_blank" rel="noopener"
+        >Book a Call →</a>
+      </div>
+
+    </div>
+
+    <p class="pricing-note reveal delay-3">
+      Not sure which plan fits? Describe your project — you'll get a direct technical response with a recommended scope and price.
+    </p>
   </div>
 </section>
 
@@ -782,48 +845,12 @@ document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => 
 /* ─── SMOOTH SCROLL ─── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    if (a.id === 'watch-demo-btn') return;
     const target = document.querySelector(a.getAttribute('href'));
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
-});
-
-/* ─── CHAT BUBBLE ANIMATION ─── */
-const bubbles = document.querySelectorAll('.bubble');
-bubbles.forEach((b, i) => {
-  b.style.opacity = '0';
-  b.style.transition = `opacity 0.5s ease ${i * 0.3 + 0.5}s, transform 0.5s ease ${i * 0.3 + 0.5}s`;
-  b.style.transform = 'translateY(8px)';
-});
-const demoObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      bubbles.forEach(b => { b.style.opacity = '1'; b.style.transform = 'translateY(0)'; });
-      demoObserver.disconnect();
-    }
-  });
-}, { threshold: 0.2 });
-const demoWindow = document.querySelector('.demo-window');
-if (demoWindow) demoObserver.observe(demoWindow);
-
-/* ─── VIDEO MODAL ─── */
-const modal    = document.getElementById('demo-modal');
-const video    = document.getElementById('demo-video');
-const closeBtn = document.getElementById('modal-close-btn');
-
-function closeModal() {
-  modal.classList.remove('active');
-  document.body.style.overflow = '';
-  video.pause();
-  video.currentTime = 0;
-}
-closeBtn.addEventListener('click', closeModal);
-modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
 });
 </script>
 </body>
