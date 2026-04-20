@@ -175,7 +175,6 @@ a.inline-link::after{content:'';position:absolute;left:0;bottom:-1px;width:0;hei
 a.inline-link:hover::after{width:100%;}
 
 /* ===================== ENTRANCE ANIMATIONS ===================== */
-/* Items hidden by default — JS adds .appeared when in view */
 .fade-up {
   opacity: 0;
   transform: translateY(30px);
@@ -545,68 +544,43 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
 <div id="intro-loader" aria-hidden="true">
   <div class="intro-svg-wrap">
     <div class="intro-glow"></div>
-
-    <!-- Animated Circuit SVG Logo -->
     <svg class="circuit-logo" viewBox="0 0 500 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <!-- Main horizontal trunk lines -->
       <line class="path-draw" x1="30" y1="140" x2="180" y2="140" stroke="#64ffda" stroke-width="3" stroke-linecap="round"/>
       <line class="path-draw-2" x1="320" y1="140" x2="470" y2="140" stroke="#64ffda" stroke-width="3" stroke-linecap="round"/>
-
-      <!-- Left branch lines -->
       <line class="path-draw" x1="80" y1="140" x2="40" y2="90" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
       <line class="path-draw-2" x1="40" y1="90" x2="10" y2="90" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
-
       <line class="path-draw" x1="100" y1="140" x2="60" y2="180" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
       <line class="path-draw-2" x1="60" y1="180" x2="10" y2="180" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
-
       <line class="path-draw-3" x1="130" y1="140" x2="100" y2="60" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
       <line class="path-draw-4" x1="100" y1="60" x2="60" y2="60" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
-
       <line class="path-draw-3" x1="120" y1="140" x2="90" y2="210" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
       <line class="path-draw-4" x1="90" y1="210" x2="50" y2="210" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
-
-      <!-- Center hex shape -->
-      <polygon class="path-draw" points="180,100 220,78 260,100 260,180 220,202 180,180"
-               stroke="#64ffda" stroke-width="2.5" fill="none"/>
-      <polygon class="path-draw-2" points="240,108 270,90 300,108 300,172 270,190 240,172"
-               stroke="#64ffda" stroke-width="2.5" fill="none"/>
-
-      <!-- Right branch lines -->
+      <polygon class="path-draw" points="180,100 220,78 260,100 260,180 220,202 180,180" stroke="#64ffda" stroke-width="2.5" fill="none"/>
+      <polygon class="path-draw-2" points="240,108 270,90 300,108 300,172 270,190 240,172" stroke="#64ffda" stroke-width="2.5" fill="none"/>
       <line class="path-draw" x1="420" y1="140" x2="460" y2="90" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
       <line class="path-draw-2" x1="460" y1="90" x2="490" y2="90" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
-
       <line class="path-draw" x1="400" y1="140" x2="440" y2="180" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
       <line class="path-draw-2" x1="440" y1="180" x2="490" y2="180" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
-
       <line class="path-draw-3" x1="370" y1="140" x2="400" y2="60" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
       <line class="path-draw-4" x1="400" y1="60" x2="440" y2="60" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
-
       <line class="path-draw-3" x1="380" y1="140" x2="410" y2="220" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
       <line class="path-draw-4" x1="410" y1="220" x2="460" y2="220" stroke="#64ffda" stroke-width="2" stroke-linecap="round"/>
-
-      <!-- Dots - filled (solid) -->
       <circle class="dot-pop filled-dot" cx="30" cy="140" fill="#64ffda" stroke="none"/>
       <circle class="dot-pop-2 filled-dot" cx="470" cy="140" fill="#64ffda" stroke="none"/>
       <circle class="dot-pop filled-dot" cx="220" cy="140" fill="#64ffda" stroke="none"/>
-
-      <!-- Open circle termination nodes -->
       <circle class="path-draw" cx="10" cy="90" r="5" stroke="#64ffda" stroke-width="2" fill="none"/>
       <circle class="path-draw" cx="10" cy="180" r="5" stroke="#64ffda" stroke-width="2" fill="none"/>
       <circle class="path-draw-2" cx="60" cy="60" r="5" stroke="#64ffda" stroke-width="2" fill="none"/>
       <circle class="path-draw-2" cx="50" cy="210" r="5" stroke="#64ffda" stroke-width="2" fill="none"/>
-
       <circle class="path-draw" cx="490" cy="90" r="5" stroke="#64ffda" stroke-width="2" fill="none"/>
       <circle class="path-draw" cx="490" cy="180" r="5" stroke="#64ffda" stroke-width="2" fill="none"/>
       <circle class="path-draw-2" cx="440" cy="60" r="5" stroke="#64ffda" stroke-width="2" fill="none"/>
       <circle class="path-draw-2" cx="460" cy="220" r="5" stroke="#64ffda" stroke-width="2" fill="none"/>
-
-      <!-- Small mid dots on center hex -->
       <circle class="dot-pop-3 filled-dot" cx="220" cy="90" fill="#64ffda" r="5" stroke="none"/>
       <circle class="dot-pop-3 filled-dot" cx="270" cy="140" fill="#64ffda" r="5" stroke="none"/>
       <circle class="dot-pop-2 filled-dot" cx="220" cy="190" fill="#64ffda" r="5" stroke="none"/>
     </svg>
   </div>
-
   <span class="intro-studio-text">AutFlow Studio</span>
 </div>
 
@@ -626,7 +600,6 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
     </svg>
     <span class="logo-letter">A</span>
   </a>
-
   <ol class="nav-links" aria-label="Navigation">
     <li><a href="#services">Services</a></li>
     <li><a href="#pricing">Pricing</a></li>
@@ -658,7 +631,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
       </a>
     </li>
     <li>
-      <a href="mailto:autflow.studio@gmail.com" aria-label="Gmail" rel="noreferrer">
+      <a href="mailto:autflow.studio@gmail.com" aria-label="Gmail" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <title>Email</title>
           <rect x="2" y="4" width="20" height="16" rx="2"/>
@@ -677,7 +650,6 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
   <section class="hero" aria-label="Introduction">
     <div class="hero-logo-icon fade-up d1">
       <div class="logo-icon-wrapper">
-        <!-- Circuit logo in green for hero -->
         <svg class="hero-circuit-svg" viewBox="0 0 500 280" fill="none" xmlns="http://www.w3.org/2000/svg">
           <line x1="30" y1="140" x2="180" y2="140" stroke="#64ffda" stroke-width="3" stroke-linecap="round"/>
           <line x1="320" y1="140" x2="470" y2="140" stroke="#64ffda" stroke-width="3" stroke-linecap="round"/>
@@ -717,28 +689,28 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
       </div>
     </div>
 
-    <p class="overline fade-up d2">Hi, my name is Anes — I run AutFlow Studio.</p>
+    <p class="overline fade-up d2">Hi, my name is Anes -- I run AutFlow Studio.</p>
     <h1 class="fade-up d3">I turn ideas into<br>working web products.</h1>
     <h2 class="fade-up d4">Fast. Reliable. No fluff.</h2>
     <p class="fade-up d5">
-      I build landing pages, business websites, and custom web applications for businesses that need real results — not just a pretty template. Clear communication, on-time delivery, and code you actually own.
+      I build landing pages, business websites, and custom web applications for businesses that need real results -- not just a pretty template. Clear communication, on-time delivery, and code you actually own.
     </p>
   </section>
 
   <!-- TRUST BAR -->
   <div class="trust-bar fade-up">
-    <div class="trust-item"><span class="emoji">⚛️</span> React &amp; Next.js</div>
-    <div class="trust-item"><span class="emoji">🔧</span> Node.js &amp; Laravel</div>
-    <div class="trust-item"><span class="emoji">📱</span> Mobile-First Design</div>
-    <div class="trust-item"><span class="emoji">🌐</span> Cloud Deployment</div>
-    <div class="trust-item"><span class="emoji">🛡️</span> Full Code Ownership</div>
+    <div class="trust-item"><span class="emoji">&#9883;&#65039;</span> React &amp; Next.js</div>
+    <div class="trust-item"><span class="emoji">&#128295;</span> Node.js &amp; Laravel</div>
+    <div class="trust-item"><span class="emoji">&#128241;</span> Mobile-First Design</div>
+    <div class="trust-item"><span class="emoji">&#127760;</span> Cloud Deployment</div>
+    <div class="trust-item"><span class="emoji">&#128737;&#65039;</span> Full Code Ownership</div>
   </div>
 
   <!-- SERVICES -->
   <section id="services">
     <h2 class="numbered-heading fade-up">What I Build</h2>
     <p class="fade-up d1" style="color:var(--slate);font-size:var(--fz-md);max-width:520px;margin-bottom:40px;line-height:1.7;">
-      Every project is built from scratch — no page builders, no bloated themes. You get clean code, a fast website, and a product that actually does its job.
+      Every project is built from scratch -- no page builders, no bloated themes. You get clean code, a fast website, and a product that actually does its job.
     </p>
 
     <div class="services-grid">
@@ -749,7 +721,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           </svg>
         </div>
         <h3>Landing Pages</h3>
-        <p>A focused page designed to convert visitors into leads or paying customers. Fast to load, clear in message, and built around a single goal — getting you results.</p>
+        <p>A focused page designed to convert visitors into leads or paying customers. Fast to load, clear in message, and built around a single goal -- getting you results.</p>
       </div>
 
       <div class="service-card fade-up d2">
@@ -759,7 +731,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           </svg>
         </div>
         <h3>Business Websites</h3>
-        <p>Multi-page websites that build credibility and drive organic traffic. Responsive design, clean structure, and fully yours at handoff — no subscriptions, no lock-in.</p>
+        <p>Multi-page websites that build credibility and drive organic traffic. Responsive design, clean structure, and fully yours at handoff -- no subscriptions, no lock-in.</p>
       </div>
 
       <div class="service-card fade-up d3">
@@ -779,7 +751,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           </svg>
         </div>
         <h3>API &amp; Integrations</h3>
-        <p>Connect your tools — payment systems, CRMs, booking platforms, third-party APIs. Everything wired server-side, documented, and tested so it works reliably.</p>
+        <p>Connect your tools -- payment systems, CRMs, booking platforms, third-party APIs. Everything wired server-side, documented, and tested so it works reliably.</p>
       </div>
     </div>
   </section>
@@ -793,50 +765,50 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
 
     <div class="pricing-grid">
       <div class="pricing-card fade-left d2">
-        <span class="pricing-tier-label">Plan 01 — Entry</span>
+        <span class="pricing-tier-label">Plan 01 -- Entry</span>
         <div class="pricing-name">Landing Page</div>
         <div class="pricing-price">
           <span class="amount">$400</span>
         </div>
         <p class="pricing-tagline">
-          One page, one goal. Designed to convert visitors into customers — built from scratch, not from a template.
+          One page, one goal. Designed to convert visitors into customers -- built from scratch, not from a template.
         </p>
         <ul class="pricing-features">
-          <li><span class="pricing-check">▹</span> Conversion-focused layout with clear hierarchy</li>
-          <li><span class="pricing-check">▹</span> Fully responsive on all devices</li>
-          <li><span class="pricing-check">▹</span> Optimized for speed and Core Web Vitals</li>
-          <li><span class="pricing-check">▹</span> Contact or lead capture form with backend</li>
-          <li><span class="pricing-check">▹</span> On-page SEO — meta tags, semantic HTML, schema</li>
-          <li><span class="pricing-check">▹</span> Deployed to production with SSL</li>
+          <li><span class="pricing-check">&#9657;</span> Conversion-focused layout with clear hierarchy</li>
+          <li><span class="pricing-check">&#9657;</span> Fully responsive on all devices</li>
+          <li><span class="pricing-check">&#9657;</span> Optimized for speed and Core Web Vitals</li>
+          <li><span class="pricing-check">&#9657;</span> Contact or lead capture form with backend</li>
+          <li><span class="pricing-check">&#9657;</span> On-page SEO -- meta tags, semantic HTML, schema</li>
+          <li><span class="pricing-check">&#9657;</span> Deployed to production with SSL</li>
         </ul>
         <a href="https://wa.me/213659735828?text=Hi%2C%20I'm%20interested%20in%20the%20Landing%20Page%20plan.%20Can%20we%20talk%3F"
            class="pricing-btn pricing-btn-outline" target="_blank" rel="noopener">
-          Let's Talk →
+          Let's Talk &#8594;
         </a>
       </div>
 
       <div class="pricing-card featured fade-right d3">
-        <span class="pricing-tier-label">Plan 02 — Full Build</span>
+        <span class="pricing-tier-label">Plan 02 -- Full Build</span>
         <div class="pricing-name">Full Website</div>
         <div class="pricing-price">
           <span class="amount">$1200</span>
           <span class="amount-note">+ depending on scope</span>
         </div>
         <p class="pricing-tagline">
-          A complete web product — designed, built, and deployed personally. Every layer handled from UI to production server.
+          A complete web product -- designed, built, and deployed personally. Every layer handled from UI to production server.
         </p>
         <ul class="pricing-features">
-          <li><span class="pricing-check">▹</span> Custom design tailored to your brand — no templates</li>
-          <li><span class="pricing-check">▹</span> Multi-page with clean routing and clear structure</li>
-          <li><span class="pricing-check">▹</span> Server-rendered or static — built for SEO and speed</li>
-          <li><span class="pricing-check">▹</span> Secured backend API, authentication, and database</li>
-          <li><span class="pricing-check">▹</span> CDN delivery, lazy loading, and production-grade performance</li>
-          <li><span class="pricing-check">▹</span> Scalable codebase ready for future features</li>
-          <li><span class="pricing-check">▹</span> Full handoff — documented, version-controlled, 100% yours</li>
+          <li><span class="pricing-check">&#9657;</span> Custom design tailored to your brand -- no templates</li>
+          <li><span class="pricing-check">&#9657;</span> Multi-page with clean routing and clear structure</li>
+          <li><span class="pricing-check">&#9657;</span> Server-rendered or static -- built for SEO and speed</li>
+          <li><span class="pricing-check">&#9657;</span> Secured backend API, authentication, and database</li>
+          <li><span class="pricing-check">&#9657;</span> CDN delivery, lazy loading, and production-grade performance</li>
+          <li><span class="pricing-check">&#9657;</span> Scalable codebase ready for future features</li>
+          <li><span class="pricing-check">&#9657;</span> Full handoff -- documented, version-controlled, 100% yours</li>
         </ul>
         <a href="https://wa.me/213659735828?text=Hi%2C%20I'm%20interested%20in%20the%20Full%20Website%20plan.%20Can%20we%20talk%3F"
            class="pricing-btn pricing-btn-solid" target="_blank" rel="noopener">
-          Start the Project →
+          Start the Project &#8594;
         </a>
       </div>
     </div>
@@ -851,11 +823,11 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
     <span class="overline fade-up">What's Next?</span>
     <h2 class="fade-up d1">Get In Touch</h2>
     <p class="fade-up d2">
-      Got a project in mind? Tell me what you're building — I'll come back with a clear scope, price, and timeline. No sales process, no runaround. Just a direct conversation about your project.
+      Got a project in mind? Tell me what you're building -- I'll come back with a clear scope, price, and timeline. No sales process, no runaround. Just a direct conversation about your project.
     </p>
     <a href="https://wa.me/213659735828?text=Hi%2C%20I'm%20interested%20in%20starting%20a%20project.%20Can%20we%20talk%3F"
        class="hero-btn fade-up d3" target="_blank" rel="noopener">
-      Start the Conversation →
+      Start the Conversation &#8594;
     </a>
     <p class="fade-up d4" style="margin-top:20px;font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);">
       No commitment required. Just a real conversation.
@@ -868,28 +840,27 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
 <footer>
   <div class="footer-credit fade-up">
     <div>Designed &amp; Built by AutFlow Studio</div>
-    <div style="font-size:10px;margin-top:4px;opacity:0.6;">React · Next.js · Node.js · Laravel</div>
-    <div style="font-size:10px;margin-top:4px;opacity:0.5;">© 2026 AutFlow Studio. All rights reserved.</div>
+    <div style="font-size:10px;margin-top:4px;opacity:0.6;">React &middot; Next.js &middot; Node.js &middot; Laravel</div>
+    <div style="font-size:10px;margin-top:4px;opacity:0.5;">&#169; 2026 AutFlow Studio. All rights reserved.</div>
   </div>
 </footer>
 
 </div><!-- /#content -->
 
 <script>
-/* ===================== INTRO LOADER — exits after 2.6s ===================== */
+/* ===================== INTRO LOADER ===================== */
 (function() {
   var loader = document.getElementById('intro-loader');
   setTimeout(function() {
     loader.classList.add('hide');
     setTimeout(function() {
       loader.style.display = 'none';
-      // Trigger scroll-reveal scan after loader hides
       scanVisible();
     }, 600);
   }, 2600);
 })();
 
-/* ===================== SCROLL REVEAL (IntersectionObserver) ===================== */
+/* ===================== SCROLL REVEAL ===================== */
 var revealEls = [];
 function scanVisible() {
   revealEls = document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-in');
@@ -906,7 +877,6 @@ var observer = new IntersectionObserver(function(entries) {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-// Initial scan (will be re-called after loader hides too)
 document.addEventListener('DOMContentLoaded', function() {
   scanVisible();
 });
@@ -943,7 +913,6 @@ document.addEventListener('mousemove', function(e) {
   dot.style.top  = mouseY + 'px';
 });
 
-// Smooth ring follow
 (function animateRing() {
   ringX += (mouseX - ringX) * 0.12;
   ringY += (mouseY - ringY) * 0.12;
@@ -952,14 +921,12 @@ document.addEventListener('mousemove', function(e) {
   requestAnimationFrame(animateRing);
 })();
 
-// Expand ring on hoverable elements
 var hoverables = 'a, button, .service-card, .pricing-card, .pricing-btn, .hero-btn, .nav-cta';
 document.querySelectorAll(hoverables).forEach(function(el) {
   el.addEventListener('mouseenter', function() { ring.classList.add('hovered'); });
   el.addEventListener('mouseleave', function() { ring.classList.remove('hovered'); });
 });
 
-// Hide cursor when leaving window
 document.addEventListener('mouseleave', function() {
   dot.style.opacity  = '0';
   ring.style.opacity = '0';
@@ -969,15 +936,12 @@ document.addEventListener('mouseenter', function() {
   ring.style.opacity = '1';
 });
 
-/* ===================== TYPEWRITER on hero h1 ===================== */
-// Runs after loader exits
+/* ===================== TYPEWRITER ===================== */
 setTimeout(function() {
   var h1 = document.querySelector('.hero h1');
   if (!h1) return;
   var text = h1.innerHTML;
-  // Only apply if not already done
   if (!h1.querySelector('.typewriter')) {
-    // Wrap last word in typewriter span for blinking cursor feel
     h1.innerHTML = text;
   }
 }, 2700);
