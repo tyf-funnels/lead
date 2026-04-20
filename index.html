@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutFlow Studio — Websites Built for Business Performance</title>
+<title>AutFlow Studio — Websites Built to Convert</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
@@ -333,11 +333,15 @@ nav{
   font-weight:600;color:var(--slate-white);
   line-height:1.15;letter-spacing:-0.02em;
 }
+.hero h1 strong {
+  color: var(--green);
+  font-weight: 600;
+}
 .hero h2{
   margin:8px 0 0;
-  font-size:clamp(22px,4vw,42px);
-  font-weight:600;color:var(--slate);
-  line-height:1.2;letter-spacing:-0.01em;
+  font-size:clamp(18px,3vw,28px);
+  font-weight:400;color:var(--slate);
+  line-height:1.4;letter-spacing:-0.01em;
 }
 .hero p{
   margin:22px 0 0;max-width:500px;
@@ -384,6 +388,81 @@ nav{
   fill: #a0ffe8 !important;
 }
 
+/* Hero bullets */
+.hero-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 28px 0 0;
+  max-width: 480px;
+}
+.hero-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: var(--fz-sm);
+  color: var(--slate);
+  line-height: 1.5;
+}
+.hero-bullet-mark {
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: var(--fz-xxs);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ===================== ABOUT STRIP ===================== */
+.about-strip {
+  border: 1px solid var(--navy-mid);
+  border-radius: var(--border-radius);
+  background: rgba(17,34,64,0.4);
+  padding: 32px 36px;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+  max-width: 860px;
+}
+.about-strip::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--green);
+  border-radius: 2px 0 0 2px;
+}
+.about-strip-label {
+  font-family: var(--font-mono);
+  font-size: var(--fz-xxs);
+  color: var(--green);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: block;
+}
+.about-strip-name {
+  font-size: var(--fz-xl);
+  font-weight: 600;
+  color: var(--slate-white);
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+.about-strip-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.about-strip-body p {
+  color: var(--slate-light);
+  font-size: var(--fz-sm);
+  line-height: 1.7;
+  margin: 0;
+}
+.about-strip-body strong {
+  color: var(--slate-white);
+  font-weight: 500;
+}
+
 /* ===================== TRUST BAR ===================== */
 .trust-bar{
   border-top:1px solid var(--navy-mid);border-bottom:1px solid var(--navy-mid);
@@ -411,11 +490,38 @@ section.full-width{max-width:100%;}
 .service-card:hover{transform:translateY(-5px);border-color:var(--green);box-shadow:0 20px 50px -15px rgba(2,12,27,0.7);}
 .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),transparent);opacity:0;transition:var(--transition);}
 .service-card:hover::before{opacity:1;}
-.service-icon{margin-bottom:28px;color:var(--green);}
+.service-icon{margin-bottom:20px;color:var(--green);}
 .service-icon svg{width:36px;height:36px;}
-.service-card h3{color:var(--slate-white);font-size:var(--fz-xl);font-weight:600;margin-bottom:8px;transition:var(--transition);line-height:1.3;}
+.service-card h3{color:var(--slate-white);font-size:var(--fz-xl);font-weight:600;margin-bottom:10px;transition:var(--transition);line-height:1.3;}
 .service-card:hover h3{color:var(--green);}
-.service-card p{color:var(--slate);font-size:var(--fz-sm);line-height:1.7;margin:0;}
+.service-card .service-tagline {
+  color: var(--slate-light);
+  font-size: var(--fz-sm);
+  font-weight: 500;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.service-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.service-card ul li {
+  font-size: var(--fz-xs);
+  color: var(--slate);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+.service-card ul li::before {
+  content: '▷';
+  color: var(--green);
+  font-size: 10px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
 
 /* ===================== FREE PREVIEW CARD ===================== */
 .free-preview-card {
@@ -455,14 +561,14 @@ section.full-width{max-width:100%;}
   color: var(--slate-white);
   font-size: var(--fz-xl);
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   line-height: 1.3;
 }
-.free-preview-card p {
-  color: var(--slate);
+.free-preview-card .preview-intro {
+  color: var(--slate-light);
   font-size: var(--fz-sm);
-  line-height: 1.7;
-  max-width: 680px;
+  line-height: 1.6;
+  max-width: 600px;
   margin-bottom: 28px;
 }
 .free-preview-steps {
@@ -623,8 +729,29 @@ section.full-width{max-width:100%;}
   color: var(--slate-white);
   font-size: var(--fz-md);
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   line-height: 1.4;
+}
+.diff-block ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.diff-block ul li {
+  font-size: var(--fz-xs);
+  color: var(--slate);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+.diff-block ul li::before {
+  content: '▷';
+  color: var(--green);
+  font-size: 10px;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 .diff-block p {
   color: var(--slate);
@@ -731,7 +858,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
 
 /* ===================== RESPONSIVE ===================== */
 @media(max-width:900px){.services-grid,.pricing-grid,.results-grid,.diff-grid{grid-template-columns:1fr;}section{padding:60px 0;}}
-@media(max-width:768px){.hero h1{font-size:28px;}.hero h2{font-size:22px;}.contact-section{padding:60px 0 80px;}}
+@media(max-width:768px){.hero h1{font-size:28px;}.hero h2{font-size:18px;}.contact-section{padding:60px 0 80px;}}
 @media(max-width:480px){.pricing-price .amount{font-size:36px;}}
 
 /* ===================== TYPEWRITER ===================== */
@@ -779,9 +906,10 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
   color: var(--slate-light);
   font-size: var(--fz-md);
   line-height: 1.7;
-  margin: 0;
+  margin: 0 0 10px;
   max-width: 680px;
 }
+.problem-bar p:last-child { margin: 0; }
 .problem-bar p span {
   color: var(--slate-white);
   font-weight: 500;
@@ -932,15 +1060,31 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
     </div>
 
     <p class="overline fade-up d2">Hi, I'm Anes — I run AutFlow Studio.</p>
-    <h1 class="fade-up d3">Most business websites<br>sit online and do nothing.<br>I build ones designed to perform.</h1>
-    <h2 class="fade-up d4">Structured for clarity. Built for conversions.</h2>
-    <p class="fade-up d5">
-      I design and develop web products focused on one outcome: helping your business generate consistent, qualified enquiries. Strategy-first. No templates. No shortcuts.
-    </p>
+    <h1 class="fade-up d3">
+      Your website isn't broken.<br>
+      <strong>It's just not built to convert.</strong>
+    </h1>
+    <h2 class="fade-up d4">I fix that. Custom-built. Strategy-first. No templates.</h2>
+
+    <div class="hero-bullets fade-up d5">
+      <div class="hero-bullet">
+        <span class="hero-bullet-mark">&#9657;</span>
+        <span><strong style="color:var(--slate-white);">Most business websites look decent</strong> — but they don't actually bring in enquiries.</span>
+      </div>
+      <div class="hero-bullet">
+        <span class="hero-bullet-mark">&#9657;</span>
+        <span>I build sites <strong style="color:var(--slate-white);">structured around one thing:</strong> getting visitors to contact you.</span>
+      </div>
+      <div class="hero-bullet">
+        <span class="hero-bullet-mark">&#9657;</span>
+        <span>You get <strong style="color:var(--slate-white);">a working preview before you pay</strong> a single dollar.</span>
+      </div>
+    </div>
+
     <div class="fade-up d6" style="margin-top:40px;">
       <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20to%20see%20what%20my%20website%20could%20look%20like.%20Can%20we%20talk%3F"
          class="hero-btn" target="_blank" rel="noopener">
-        See What Your Website Could Look Like &#8594;
+        Get a Website That Actually Brings Enquiries &#8594;
       </a>
     </div>
   </section>
@@ -954,13 +1098,40 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
     <div class="trust-item">Full Ownership at Handoff</div>
   </div>
 
+  <!-- ABOUT -->
+  <section id="about" style="padding-top:100px;padding-bottom:0;">
+    <h2 class="numbered-heading fade-up">Who's Behind This</h2>
+
+    <div class="about-strip fade-up d1">
+      <span class="about-strip-label">// About Anes</span>
+      <div class="about-strip-name">I build websites that work — not just websites that exist.</div>
+      <div class="about-strip-body">
+        <p>
+          I started AutFlow Studio after seeing the same problem over and over: <strong>businesses spending money on websites that do nothing.</strong>
+        </p>
+        <p>
+          Nice design. Slow load time. No clear direction. Visitors land, scroll, and leave — without ever reaching out.
+        </p>
+        <p>
+          I got frustrated with that. So I focused entirely on one thing: <strong>building websites that are structured to generate enquiries.</strong>
+        </p>
+        <p>
+          I'm not an agency. I'm one person — and that means every project gets my full attention. <strong>No handoffs. No junior work. No surprises.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- SERVICES -->
   <section id="services">
     <h2 class="numbered-heading fade-up">What I Build For You</h2>
 
     <div class="problem-bar fade-up d1">
       <p>
-        <span>The problem most businesses face isn't a lack of online presence — it's the wrong kind.</span> A website that isn't built around your audience's decision-making process won't produce enquiries, regardless of how polished it looks. Every product I deliver starts with understanding your business, your market, and the specific action you want visitors to take.
+        <span>A website that isn't built around your visitor's decision process won't produce enquiries</span> — no matter how polished it looks.
+      </p>
+      <p>
+        Every project starts with understanding your business, your audience, and the one action you want visitors to take.
       </p>
     </div>
 
@@ -972,7 +1143,13 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           </svg>
         </div>
         <h3>Conversion-Focused Landing Pages</h3>
-        <p>A single, structured page with one clear objective — guiding visitors toward a specific action. Every section is ordered with purpose: who you serve, what you offer, why it matters, and what to do next. Built to reduce drop-off and improve enquiry rates.</p>
+        <p class="service-tagline">One page. One goal. Built to turn visitors into enquiries.</p>
+        <ul>
+          <li>Clear structure that guides visitors to act</li>
+          <li>Single, focused call-to-action — no distractions</li>
+          <li>Fast-loading and fully responsive</li>
+          <li>Contact form with direct notifications</li>
+        </ul>
       </div>
 
       <div class="service-card fade-up d2">
@@ -982,7 +1159,13 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           </svg>
         </div>
         <h3>Full Business Websites</h3>
-        <p>A complete, multi-page online presence designed to establish credibility and attract the right audience. Fast-loading, properly structured for search engines, and built around your specific positioning — not a generic template adapted to fit your name.</p>
+        <p class="service-tagline">A complete online presence — built around your brand, not a template.</p>
+        <ul>
+          <li>Multi-page structure with a logical visitor journey</li>
+          <li>Custom design matched to your positioning</li>
+          <li>SEO-ready from the ground up</li>
+          <li>Built to scale as your business grows</li>
+        </ul>
       </div>
 
       <div class="service-card fade-up d3">
@@ -992,7 +1175,13 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           </svg>
         </div>
         <h3>Custom Web Products</h3>
-        <p>When a standard website isn't enough, I build the specific tool your business needs — booking systems, client portals, internal dashboards, or interactive calculators. Purpose-built, cleanly coded, and designed to reduce manual overhead.</p>
+        <p class="service-tagline">When a standard site isn't enough — I build the tool your business actually needs.</p>
+        <ul>
+          <li>Booking systems, client portals, dashboards</li>
+          <li>Interactive calculators or intake forms</li>
+          <li>Cleanly coded, purpose-built, easy to maintain</li>
+          <li>Reduces manual overhead from day one</li>
+        </ul>
       </div>
 
       <div class="service-card fade-up d4">
@@ -1002,36 +1191,42 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           </svg>
         </div>
         <h3>Workflow Integrations</h3>
-        <p>Connect your contact forms, payment processing, scheduling, and notifications into a coordinated system. Reduce the gap between a visitor showing interest and you having a confirmed appointment or completed transaction — without adding manual steps.</p>
+        <p class="service-tagline">Connect your forms, payments, and bookings into one seamless system.</p>
+        <ul>
+          <li>Automatic notifications when enquiries come in</li>
+          <li>Payment and scheduling connected to your site</li>
+          <li>Fewer manual steps between interest and sale</li>
+          <li>Saves hours of admin work every week</li>
+        </ul>
       </div>
 
       <!-- FREE PREVIEW CARD -->
       <div class="free-preview-card fade-up d5">
         <span class="free-preview-badge">No-Risk Starting Point</span>
-        <h3>See a Real Preview of Your Website Before Any Commitment</h3>
-        <p>
-          Commissioning a website involves trust — and trust is built through transparency. That's why I offer a working preview of your website before any payment is made. You'll see the actual structure, layout, and visual direction before deciding whether to move forward. No ambiguity about what you're getting.
+        <h3>See Your Website Before You Pay Anything</h3>
+        <p class="preview-intro">
+          Hiring someone to build your website requires trust. I make that easy — by showing you a real, working preview <strong>before any payment is made.</strong> You'll see exactly what you're getting before deciding to move forward.
         </p>
         <div class="free-preview-steps">
           <div class="preview-step">
             <span class="preview-step-num">// STEP 01</span>
-            <div class="preview-step-title">Share Your Business Context</div>
-            <div class="preview-step-desc">Tell me about your business, the audience you serve, and what you want visitors to do. A brief conversation is all it takes.</div>
+            <div class="preview-step-title">Tell Me About Your Business</div>
+            <div class="preview-step-desc">Share who you serve and what you want visitors to do. A short conversation is all it takes.</div>
           </div>
           <div class="preview-step">
             <span class="preview-step-num">// STEP 02</span>
-            <div class="preview-step-title">Receive a Working Preview — Free</div>
-            <div class="preview-step-desc">I'll build a real, functional preview based on your brief. You'll see the structure and design before making any financial decision.</div>
+            <div class="preview-step-title">I Build a Real Preview — Free</div>
+            <div class="preview-step-desc">You get a functional preview showing the structure, layout, and direction — with zero financial commitment.</div>
           </div>
           <div class="preview-step">
             <span class="preview-step-num">// STEP 03</span>
-            <div class="preview-step-title">Decide With Full Clarity</div>
-            <div class="preview-step-desc">If the preview reflects what you need, we proceed together. If it doesn't, there's no obligation and no invoice. Your call entirely.</div>
+            <div class="preview-step-title">You Decide — No Pressure</div>
+            <div class="preview-step-desc">If it's right for you, we move forward. If not, there's no invoice and no awkward conversation.</div>
           </div>
         </div>
         <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20to%20request%20the%20free%20website%20preview.%20Can%20we%20talk%3F"
            class="free-preview-cta" target="_blank" rel="noopener">
-          Request Your Free Preview &#8594;
+          See Your Conversion-Ready Website &#8594;
         </a>
       </div>
     </div>
@@ -1039,82 +1234,102 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
 
   <!-- RESULTS SECTION -->
   <section id="results">
-    <h2 class="numbered-heading fade-up">Outcomes That Matter</h2>
+    <h2 class="numbered-heading fade-up">What Changes After</h2>
     <p class="fade-up d1" style="color:var(--slate);font-size:var(--fz-md);max-width:560px;margin-bottom:40px;line-height:1.7;">
-      The following examples reflect the kinds of improvements typically achieved through structured, strategy-led web design. They are representative of realistic outcomes — not guarantees.
+      These are the kinds of outcomes a strategy-led website produces. Not guarantees — realistic patterns from doing this work properly.
     </p>
 
     <div class="results-grid">
       <div class="result-card fade-up d1">
-        <span class="result-label">// Example Outcome 01</span>
-        <h4>Improved Enquiry Rate Through Structural Clarity</h4>
-        <p>Restructuring a service page around a clear value proposition and a single call-to-action — rather than multiple competing options — consistently reduces visitor hesitation and improves form submission rates.</p>
+        <span class="result-label">// Outcome 01</span>
+        <h4>More Enquiries From the Same Traffic</h4>
+        <p>Restructuring a service page around one clear value proposition — instead of several competing ideas — consistently reduces visitor hesitation and improves the rate at which people actually reach out.</p>
       </div>
 
       <div class="result-card fade-up d2">
-        <span class="result-label">// Example Outcome 02</span>
-        <h4>Reduced Bounce Rate via Page Speed Optimization</h4>
-        <p>Pages that load within two seconds retain significantly more visitors than those that don't. Performance work — image compression, code optimization, proper hosting — has a direct, measurable effect on how long potential customers stay and engage.</p>
+        <span class="result-label">// Outcome 02</span>
+        <h4>Fewer Visitors Leaving Immediately</h4>
+        <p>Pages that load in under two seconds keep significantly more visitors than those that don't. Speed work — image compression, clean code, proper hosting — has a direct effect on whether potential customers stay long enough to care.</p>
       </div>
 
       <div class="result-card fade-up d3">
-        <span class="result-label">// Example Outcome 03</span>
-        <h4>Increased Search Visibility for Local Queries</h4>
-        <p>Businesses in service-based industries frequently report improved local search positioning after proper technical SEO implementation — structured headings, page metadata, site speed, and location-relevant content working together as intended.</p>
+        <span class="result-label">// Outcome 03</span>
+        <h4>Better Visibility in Local Search</h4>
+        <p>Service businesses regularly see improved local search positioning after proper technical SEO — structured headings, fast load times, location-relevant content, and metadata all working together as intended.</p>
       </div>
 
       <div class="result-card fade-up d4">
-        <span class="result-label">// Example Outcome 04</span>
-        <h4>Faster Qualification of Potential Customers</h4>
-        <p>A well-structured contact or intake form filters serious enquiries from casual browsers, meaning less time spent on back-and-forth and more time spent on conversations with people already aligned with what you offer.</p>
+        <span class="result-label">// Outcome 04</span>
+        <h4>Better Quality Leads, Less Wasted Time</h4>
+        <p>A well-structured intake form filters serious enquiries from casual browsers. Less back-and-forth. More conversations with people who are already aligned with what you offer.</p>
       </div>
 
       <div class="result-card fade-up d5">
-        <span class="result-label">// Example Outcome 05</span>
-        <h4>Improved Credibility Perception at First Contact</h4>
-        <p>When a prospective customer is comparing options, the quality and coherence of a website frequently determines whether they reach out at all. Professional presentation signals operational seriousness in a way that social media profiles alone cannot.</p>
+        <span class="result-label">// Outcome 05</span>
+        <h4>First Impressions That Build Trust</h4>
+        <p>When someone is comparing options, your website often decides whether they reach out at all. A clear, professional site signals operational seriousness in a way that a social media page simply cannot.</p>
       </div>
 
       <div class="result-card fade-up d6">
-        <span class="result-label">// Example Outcome 06</span>
-        <h4>Reduced Manual Overhead via Integrated Systems</h4>
-        <p>Connecting booking, payment, and notification systems directly into the website eliminates the manual coordination that costs service businesses several hours per week — time better spent on the work itself.</p>
+        <span class="result-label">// Outcome 06</span>
+        <h4>Hours of Admin Work Saved Weekly</h4>
+        <p>Connecting booking, payment, and notification systems into your site eliminates the manual coordination that costs service businesses several hours a week — time better spent on the actual work.</p>
       </div>
     </div>
 
-    <p class="results-disclaimer fade-up">* These examples reflect typical patterns observed in web design projects. Individual results vary based on business type, market, and existing digital presence.</p>
+    <p class="results-disclaimer fade-up">* These reflect typical patterns in strategy-led web design projects. Results vary based on business type, market, and existing digital presence.</p>
   </section>
 
   <!-- WHY NOT FIVERR -->
   <section id="approach">
-    <h2 class="numbered-heading fade-up">Why Not a Template or a Generic Freelancer</h2>
+    <h2 class="numbered-heading fade-up">Why Not a Template or a Cheap Freelancer</h2>
     <p class="fade-up d1" style="color:var(--slate);font-size:var(--fz-md);max-width:560px;margin-bottom:40px;line-height:1.7;">
-      There's no shortage of inexpensive options. The distinction worth understanding is not price — it's what you're actually buying.
+      There are plenty of cheaper options. The real question is what you're actually buying — and what you end up with.
     </p>
 
     <div class="diff-grid">
       <div class="diff-block fade-left d2">
         <span class="diff-block-label">// The Common Alternative</span>
-        <h4>Template Builders and Low-Cost Platforms</h4>
-        <p>Platforms like Squarespace, Wix, or Fiverr gigs built on page builders deliver speed at the cost of specificity. The result is a website that resembles thousands of others in your industry — with no structural thinking applied to your particular audience, your particular offer, or your particular conversion goal. You get a presence. You rarely get a system that performs.</p>
+        <h4>Templates and Low-Cost Platforms</h4>
+        <ul>
+          <li>Looks like thousands of other sites in your industry</li>
+          <li>No structural thinking applied to your specific audience</li>
+          <li>Built around a generic goal, not your conversion goal</li>
+          <li>You get a presence. Rarely a system that performs.</li>
+        </ul>
       </div>
 
       <div class="diff-block fade-right d3">
         <span class="diff-block-label">// The AutFlow Approach</span>
-        <h4>Strategy-Led, Custom-Built, Business-Specific</h4>
-        <p>Every project begins with understanding what success looks like for your specific business. The design, copy structure, and technical decisions all follow from that. The result is a product built around your audience's decision process — not a generic template with your logo placed on it. And because everything is custom-built, it's yours entirely: no platform lock-in, no recurring fees for tools you don't control.</p>
+        <h4>Strategy-Led. Custom. Built for Your Business.</h4>
+        <ul>
+          <li>Starts with understanding what success looks like for you</li>
+          <li>Design and structure follow from your audience's decision process</li>
+          <li>No template. No platform lock-in. No recurring fees.</li>
+          <li>Everything is yours at handoff — permanently.</li>
+        </ul>
       </div>
 
       <div class="diff-block fade-left d4">
         <span class="diff-block-label">// What You're Paying For</span>
-        <h4>Deliberate Decisions, Not Hours Billed</h4>
-        <p>The investment reflects the thinking that goes in before a single line of code is written — the clarity about who your site is for, what it needs to communicate, and how it should guide visitors toward contacting you. That thinking is what separates a website that contributes to your business from one that simply exists.</p>
+        <h4>Deliberate Thinking, Not Hours Billed</h4>
+        <ul>
+          <li>The real work happens before a line of code is written</li>
+          <li>Clarity on who your site is for and what it needs to say</li>
+          <li>A clear path from visitor landing to visitor contacting you</li>
+          <li>That thinking is what separates a performing site from a passive one</li>
+        </ul>
       </div>
 
       <div class="diff-block fade-right d5">
         <span class="diff-block-label">// What You Get at the End</span>
-        <h4>Full Handoff With No Ongoing Dependency</h4>
-        <p>At project completion, you receive everything: the code, the assets, the documentation, and access to whatever hosting setup was used. There is no lock-in, no monthly retainer required to maintain basic functionality, and no situation where a platform change forces you to rebuild from scratch. The work is yours, permanently.</p>
+        <h4>Full Ownership. No Ongoing Dependency.</h4>
+        <ul>
+          <li>All code, assets, documentation, and access — fully transferred</li>
+          <li>No monthly retainer needed to keep basic functionality running</li>
+          <li>No platform change that forces you to rebuild from scratch</li>
+          <li>The work is yours. Completely.</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -1123,7 +1338,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
   <section id="pricing">
     <h2 class="numbered-heading fade-up">Investment &amp; Scope</h2>
     <p class="fade-up d1" style="color:var(--slate);font-size:var(--fz-md);max-width:520px;margin-bottom:0;line-height:1.7;">
-      Pricing is fixed and agreed before any work begins. No hourly surprises, no scope creep charges. What's quoted is what's invoiced.
+      Fixed price. Agreed before work starts. No hourly surprises. No scope creep charges. What's quoted is what's invoiced.
     </p>
 
     <div class="pricing-grid">
@@ -1134,22 +1349,22 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           <span class="amount">$400</span>
         </div>
         <p class="pricing-tagline">
-          A single, purpose-built page structured around one goal. Appropriate for businesses that need to test a specific offer, capture enquiries from a campaign, or establish a credible first presence efficiently.
+          One page. One objective. The right starting point if you want to test an offer, capture leads from a campaign, or establish a credible presence quickly.
         </p>
         <div class="pricing-roi">
-          <strong>Context:</strong> A single qualified enquiry that converts into a signed project will typically recover this cost within the first engagement. The page continues working after that without additional spend.
+          <strong>Worth noting:</strong> One qualified enquiry that turns into a project typically recovers this cost within the first engagement. The page keeps working after that — at no additional spend.
         </div>
         <ul class="pricing-features">
-          <li><span class="pricing-check">&#9657;</span> Conversion-structured layout with a single clear call-to-action</li>
-          <li><span class="pricing-check">&#9657;</span> Fully responsive across all screen sizes and devices</li>
+          <li><span class="pricing-check">&#9657;</span> Conversion-structured layout with one clear call-to-action</li>
+          <li><span class="pricing-check">&#9657;</span> Fully responsive across all screen sizes</li>
           <li><span class="pricing-check">&#9657;</span> Performance-optimized for fast load times</li>
           <li><span class="pricing-check">&#9657;</span> Integrated contact form with direct notification</li>
           <li><span class="pricing-check">&#9657;</span> Basic on-page SEO implementation</li>
-          <li><span class="pricing-check">&#9657;</span> Deployed live with SSL and full ownership transferred</li>
+          <li><span class="pricing-check">&#9657;</span> Deployed live with SSL — full ownership transferred</li>
         </ul>
         <a href="https://wa.me/213659735828?text=Hi%2C%20I%27m%20interested%20in%20the%20Landing%20Page%20plan.%20Can%20we%20talk%3F"
            class="pricing-btn pricing-btn-outline" target="_blank" rel="noopener">
-          Start With a Landing Page &#8594;
+          Build My Landing Page &#8594;
         </a>
       </div>
 
@@ -1161,37 +1376,37 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           <span class="amount-note">+ depending on scope</span>
         </div>
         <p class="pricing-tagline">
-          A complete, multi-page online presence built from the ground up. For businesses that need to establish authority, communicate a full range of services, and support the full customer decision journey.
+          A complete, multi-page presence built from scratch. For businesses that need to establish real authority, communicate their full offer, and support the customer's entire decision journey.
         </p>
         <div class="pricing-roi">
-          <strong>What separates this from cheaper alternatives:</strong> The structure, the copy architecture, and the technical foundation are each built specifically for your business — not adapted from a pre-existing template. That specificity is what drives measurable performance differences.
+          <strong>What makes this different from cheaper options:</strong> The structure, copy architecture, and technical foundation are each built specifically for your business — not pulled from a template and adjusted to fit. That specificity is what drives real performance differences.
         </div>
         <ul class="pricing-features">
-          <li><span class="pricing-check">&#9657;</span> Custom design and layout built around your brand and positioning</li>
+          <li><span class="pricing-check">&#9657;</span> Custom design built around your brand and positioning</li>
           <li><span class="pricing-check">&#9657;</span> Multi-page structure with a clear, logical visitor journey</li>
           <li><span class="pricing-check">&#9657;</span> Technical SEO foundation and performance optimization</li>
-          <li><span class="pricing-check">&#9657;</span> Secure client-facing functionality — forms, payments, or bookings as needed</li>
-          <li><span class="pricing-check">&#9657;</span> Delivered on a timeline agreed upfront, built to scale</li>
+          <li><span class="pricing-check">&#9657;</span> Secure client-facing functionality — forms, payments, or bookings</li>
+          <li><span class="pricing-check">&#9657;</span> Delivered on an agreed timeline, built to scale</li>
           <li><span class="pricing-check">&#9657;</span> Complete handoff — all assets, documentation, and access included</li>
         </ul>
         <a href="https://wa.me/213659735828?text=Hi%2C%20I%27m%20interested%20in%20the%20Full%20Website%20plan.%20Can%20we%20talk%3F"
            class="pricing-btn pricing-btn-solid" target="_blank" rel="noopener">
-          Discuss the Full Build &#8594;
+          Build My Website That Converts &#8594;
         </a>
       </div>
     </div>
 
     <p class="pricing-note fade-up d4">
-      Not sure which scope applies to your situation? Describe what you need — I'll give you a straightforward recommendation, not a sales pitch.
+      Not sure which scope is right? Tell me what you need — I'll give you a straight recommendation, not a sales pitch.
     </p>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="contact-section">
     <span class="overline fade-up">Next Step</span>
-    <h2 class="fade-up d1">Start With a Conversation</h2>
+    <h2 class="fade-up d1">Let's talk about your website.</h2>
     <p class="fade-up d2">
-      Tell me about your business and what you're trying to achieve online. I'll respond with a clear outline of what I'd recommend, the scope involved, and a fixed price — so you can make an informed decision without any pressure to commit immediately.
+      Tell me about your business and what you're trying to achieve. I'll come back with a clear recommendation, a defined scope, and a fixed price — so you can decide without any pressure.
     </p>
     <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20to%20discuss%20improving%20my%20online%20presence.%20Can%20we%20talk%3F"
        class="hero-btn fade-up d3" target="_blank" rel="noopener">
