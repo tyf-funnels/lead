@@ -292,6 +292,48 @@ nav{
 }
 .nav-cta:hover{background:var(--green-tint);}
 
+/* ===================== STICKY TOP CTA BUTTON ===================== */
+#sticky-cta {
+  position: fixed;
+  top: calc(var(--nav-height) + 12px);
+  right: 24px;
+  z-index: 90;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.3s var(--easing), transform 0.3s var(--easing);
+}
+#sticky-cta.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+.sticky-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--navy);
+  background: var(--green);
+  border: 1px solid var(--green);
+  border-radius: var(--border-radius);
+  padding: 10px 18px;
+  font-family: var(--font-mono);
+  font-size: var(--fz-xxs);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(100,255,218,0.2);
+}
+.sticky-cta-btn:hover {
+  background: transparent;
+  color: var(--green);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(100,255,218,0.25);
+}
+
 /* ===================== HAMBURGER MENU ===================== */
 .hamburger {
   display: none;
@@ -497,6 +539,119 @@ nav{
   font-size: var(--fz-xxs);
   flex-shrink: 0;
   margin-top: 2px;
+}
+
+/* ===================== QUICK PRICING STRIP ===================== */
+.quick-pricing-strip {
+  border: 1px solid var(--navy-mid);
+  border-radius: var(--border-radius);
+  background: rgba(17,34,64,0.4);
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+.quick-pricing-items {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.quick-pricing-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.quick-pricing-item .qp-label {
+  font-size: var(--fz-xs);
+  color: var(--slate);
+  font-family: var(--font-mono);
+}
+.quick-pricing-item .qp-price {
+  font-size: var(--fz-md);
+  font-weight: 600;
+  color: var(--slate-white);
+  font-family: var(--font-mono);
+}
+.quick-pricing-sep {
+  color: var(--navy-mid);
+  font-size: 18px;
+}
+.quick-pricing-note {
+  font-family: var(--font-mono);
+  font-size: var(--fz-xxs);
+  color: var(--green);
+  letter-spacing: 0.06em;
+}
+
+/* ===================== PROBLEM IDENTIFICATION SECTION ===================== */
+.problem-id-section {
+  border: 1px solid var(--navy-mid);
+  border-radius: var(--border-radius);
+  background: rgba(17,34,64,0.4);
+  padding: 36px 40px;
+  position: relative;
+  overflow: hidden;
+  max-width: 860px;
+  margin-bottom: 0;
+}
+.problem-id-section::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--green);
+  border-radius: 2px 0 0 2px;
+}
+.problem-id-label {
+  font-family: var(--font-mono);
+  font-size: var(--fz-xxs);
+  color: var(--green);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  display: block;
+}
+.problem-id-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 24px;
+}
+.problem-id-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(29,52,97,0.4);
+  font-size: var(--fz-md);
+  color: var(--slate-light);
+}
+.problem-id-line:last-child {
+  border-bottom: none;
+}
+.problem-id-line .line-num {
+  font-family: var(--font-mono);
+  font-size: var(--fz-xxs);
+  color: var(--slate);
+  flex-shrink: 0;
+  padding-top: 3px;
+  min-width: 28px;
+}
+.problem-id-conclusion {
+  background: var(--green-dim);
+  border: 1px solid rgba(100,255,218,0.12);
+  border-radius: var(--border-radius);
+  padding: 16px 20px;
+  font-size: var(--fz-sm);
+  color: var(--slate-white);
+  line-height: 1.7;
+  font-family: var(--font-mono);
+}
+.problem-id-conclusion strong {
+  color: var(--green);
 }
 
 /* ===================== ABOUT STRIP ===================== */
@@ -886,6 +1041,70 @@ section.full-width{max-width:100%;}
 }
 .pricing-roi strong { color: var(--green); }
 
+/* ===================== LINKEDIN BRIDGE SECTION ===================== */
+.linkedin-bridge {
+  border: 1px solid rgba(100,255,218,0.25);
+  border-radius: var(--border-radius);
+  background: linear-gradient(135deg, var(--navy-light) 0%, rgba(100,255,218,0.03) 100%);
+  padding: 36px 40px;
+  position: relative;
+  overflow: hidden;
+  max-width: 860px;
+}
+.linkedin-bridge::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--green);
+  border-radius: 2px 0 0 2px;
+}
+.linkedin-bridge-label {
+  font-family: var(--font-mono);
+  font-size: var(--fz-xxs);
+  color: var(--green);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+.linkedin-bridge h3 {
+  color: var(--slate-white);
+  font-size: var(--fz-xl);
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+.linkedin-bridge-send {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.linkedin-bridge-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: var(--fz-md);
+  color: var(--slate-light);
+}
+.linkedin-bridge-item .li-arrow {
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: var(--fz-xs);
+  flex-shrink: 0;
+}
+.linkedin-bridge-reply {
+  font-family: var(--font-mono);
+  font-size: var(--fz-xs);
+  color: var(--slate);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.linkedin-bridge-reply strong {
+  color: var(--slate-white);
+}
+
 /* ===================== CONTACT ===================== */
 .contact-section{max-width:600px;text-align:center;margin:0 auto;padding:100px 0 150px;}
 .contact-section .overline{display:block;font-family:var(--font-mono);font-size:var(--fz-md);font-weight:400;color:var(--green);margin-bottom:20px;letter-spacing:0.1em;}
@@ -996,6 +1215,19 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
 /* ===================== RESPONSIVE — MOBILE ONLY ===================== */
 @media(max-width:768px) {
 
+  /* --- Sticky CTA --- */
+  #sticky-cta {
+    top: auto;
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+  }
+  .sticky-cta-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: var(--fz-xs);
+  }
+
   /* --- Nav --- */
   nav { padding: 0 20px; }
   .nav-links, .nav-cta { display: none; }
@@ -1041,6 +1273,13 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
 
   /* --- Trust bar --- */
   .trust-bar { gap: 16px; padding: 18px 16px; }
+
+  /* --- Quick pricing strip --- */
+  .quick-pricing-strip { flex-direction: column; align-items: flex-start; padding: 18px 20px; }
+  .quick-pricing-items { gap: 16px; }
+
+  /* --- Problem ID --- */
+  .problem-id-section { padding: 24px 20px 24px 28px; }
 
   /* --- About strip --- */
   .about-strip { padding: 24px 20px; }
@@ -1096,6 +1335,9 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
     padding: 1rem 1rem;
     font-size: var(--fz-sm);
   }
+
+  /* --- LinkedIn bridge --- */
+  .linkedin-bridge { padding: 24px 20px 24px 28px; }
 
   /* --- Contact section --- */
   .contact-section {
@@ -1171,6 +1413,11 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
 <!-- CUSTOM CURSOR -->
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ===================== STICKY TOP CTA ===================== -->
+<div id="sticky-cta" aria-label="Get a free website preview">
+  <button class="sticky-cta-btn" id="stickyCTABtn">Send me your website — I'll show you what I'd change &#8594;</button>
+</div>
 
 <a class="skip-to-content" href="#content">Skip to Content</a>
 
@@ -1283,26 +1530,43 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
       </div>
     </div>
 
-    <p class="overline fade-up d2">Hi, I'm Anes — I build websites that actually bring in work.</p>
+    <p class="overline fade-up d2">AutFlow Studio — Websites for service businesses</p>
     <h1 class="fade-up d3">
-      Your website has visitors.<br>
-      <strong>It's just not turning them into clients.</strong>
+      You have website visitors.<br>
+      <strong>They're just not becoming clients.</strong>
     </h1>
-    <h2 class="fade-up d4">I fix that. Custom-built. No templates. No fluff.</h2>
+    <h2 class="fade-up d4">I build sites that turn that traffic into enquiries — for consultants, agencies, and coaches.</h2>
 
     <div class="hero-bullets fade-up d5">
       <div class="hero-bullet">
         <span class="hero-bullet-mark">&#9657;</span>
-        <span>A local consultancy went from zero online enquiries to <strong style="color:var(--slate-white);">14 contact form submissions in 11 days</strong> — same traffic, new structure.</span>
+        <span>A solo consulting firm went from <strong style="color:var(--slate-white);">zero enquiries to 14 contact form submissions in 11 days</strong> — same traffic, restructured page.</span>
       </div>
       <div class="hero-bullet">
         <span class="hero-bullet-mark">&#9657;</span>
-        <span>I start with <strong style="color:var(--slate-white);">understanding your business</strong> — then build around the one action that matters.</span>
+        <span>I start with <strong style="color:var(--slate-white);">your business, not a template</strong> — built around the one action that matters most.</span>
       </div>
       <div class="hero-bullet">
         <span class="hero-bullet-mark">&#9657;</span>
-        <span>You see a <strong style="color:var(--slate-white);">real, working preview before paying anything.</strong> No commitment until you're convinced.</span>
+        <span>You get a <strong style="color:var(--slate-white);">real working preview before paying anything.</strong> If it's not right, no invoice.</span>
       </div>
+    </div>
+
+    <!-- Quick Pricing Strip in Hero -->
+    <div class="quick-pricing-strip fade-up d6">
+      <div class="quick-pricing-items">
+        <div class="quick-pricing-item">
+          <span class="qp-label">Landing Page</span>
+          <span class="quick-pricing-sep">—</span>
+          <span class="qp-price">$400</span>
+        </div>
+        <div class="quick-pricing-item">
+          <span class="qp-label">Full Website</span>
+          <span class="quick-pricing-sep">—</span>
+          <span class="qp-price">from $1,200</span>
+        </div>
+      </div>
+      <span class="quick-pricing-note">No contracts. No hidden fees.</span>
     </div>
   </section>
 
@@ -1315,6 +1579,36 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
     <div class="trust-item">Full Ownership at Handoff</div>
   </div>
 
+  <!-- PROBLEM IDENTIFICATION SECTION -->
+  <section id="problem" style="padding-top:100px;padding-bottom:0;">
+    <h2 class="numbered-heading fade-up">Does This Sound Familiar</h2>
+
+    <div class="problem-id-section fade-up d1">
+      <span class="problem-id-label">// What's Happening Right Now</span>
+      <div class="problem-id-lines">
+        <div class="problem-id-line">
+          <span class="line-num">01</span>
+          <span>People find your website — from search, referrals, or your LinkedIn profile</span>
+        </div>
+        <div class="problem-id-line">
+          <span class="line-num">02</span>
+          <span>They scroll briefly, maybe read a line or two</span>
+        </div>
+        <div class="problem-id-line">
+          <span class="line-num">03</span>
+          <span>Then they leave — without reaching out</span>
+        </div>
+        <div class="problem-id-line">
+          <span class="line-num">04</span>
+          <span>You never know they were there</span>
+        </div>
+      </div>
+      <div class="problem-id-conclusion">
+        <strong>This is almost always a structure and messaging problem — not a traffic problem.</strong> The visitors are there. The site just isn't giving them a reason — or a clear path — to reach out.
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section id="about" style="padding-top:100px;padding-bottom:0;">
     <h2 class="numbered-heading fade-up">Who's Behind This</h2>
@@ -1324,13 +1618,13 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
       <div class="about-strip-name">I got tired of watching businesses pay for websites that did nothing.</div>
       <div class="about-strip-body">
         <p>
-          I've seen it too many times. A business spends money on a website, it looks fine, and then — silence. No enquiries. No calls. Just visitors who leave.
+          I've seen it too many times: a business spends real money on a site that looks fine, then — silence. No enquiries. No calls. Just visitors who leave.
         </p>
         <p>
-          That's what pushed me to start AutFlow Studio. <strong>I wanted to build sites where the design was the last step, not the only step.</strong> Where the structure, the messaging, and the flow were all decided first.
+          That's what pushed me to start AutFlow Studio. <strong>Design is the last step, not the only step.</strong> Structure, messaging, and flow come first.
         </p>
         <p>
-          I'm not an agency. I work alone — which means <strong>every project gets my full attention, from the first conversation to the final handoff.</strong> No junior work. No delays. No surprises.
+          I work alone — so <strong>every project gets my full attention, from first conversation to final handoff.</strong> No junior work. No delays.
         </p>
       </div>
     </div>
@@ -1342,7 +1636,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
 
     <div class="problem-bar fade-up d1">
       <p>
-        <span>Most websites fail for the same reason: they were designed to look good, not to guide a visitor toward a decision.</span>
+        <span>Most websites fail for the same reason: designed to look good, not to guide a visitor toward a decision.</span>
       </p>
       <p>
         Every project starts with one question: what do you want someone to do when they land on your page?
@@ -1414,30 +1708,31 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
         </ul>
       </div>
 
-      <!-- FREE PREVIEW CARD -->
+      <!-- FREE PREVIEW CARD — rewritten -->
       <div class="free-preview-card fade-up d5">
         <span class="free-preview-badge">Zero Risk</span>
-        <h3>See Your Website Before You Pay Anything</h3>
+        <h3>I'll Redesign Your Homepage for Free — You Only Pay If You Like It</h3>
         <p class="preview-intro">
-          Hiring someone requires trust. I make that easy — you get a real, functional preview of your site <strong>before any payment is made.</strong> If it's not right, there's no invoice.
+          Simple as that. You see a real, working redesign of your homepage <strong>before any payment is asked.</strong> If it doesn't feel right, there's no invoice and no awkward conversation.
         </p>
         <div class="free-preview-steps">
           <div class="preview-step">
             <span class="preview-step-num">// STEP 01</span>
-            <div class="preview-step-title">Tell Me About Your Business</div>
-            <div class="preview-step-desc">Share who you serve and what you want visitors to do. A short chat is all it takes.</div>
+            <div class="preview-step-title">Send Me Your Website</div>
+            <div class="preview-step-desc">Share your URL and what your business does. A short message is all it takes.</div>
           </div>
           <div class="preview-step">
             <span class="preview-step-num">// STEP 02</span>
             <div class="preview-step-title">I Build a Real Preview — Free</div>
-            <div class="preview-step-desc">You get a working preview showing layout, structure, and direction. No payment involved.</div>
+            <div class="preview-step-desc">You get a fully working homepage redesign. Not a mockup. Actual code, actual layout.</div>
           </div>
           <div class="preview-step">
             <span class="preview-step-num">// STEP 03</span>
             <div class="preview-step-title">You Decide — No Pressure</div>
-            <div class="preview-step-desc">If it's right for you, we move forward. If not, no invoice. No awkward conversation.</div>
+            <div class="preview-step-desc">Love it? We move forward. Not convinced? No charge. No pressure. No follow-ups.</div>
           </div>
         </div>
+        <a href="#contact" class="free-preview-cta">Want a Quick Teardown of Your Site? &#8594;</a>
       </div>
     </div>
   </section>
@@ -1446,55 +1741,55 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
   <section id="results">
     <h2 class="numbered-heading fade-up">Real Outcomes</h2>
     <p class="fade-up d1" style="color:var(--slate);font-size:var(--fz-md);max-width:560px;margin-bottom:40px;line-height:1.7;">
-      These are example outcomes based on the kind of work I do. Not guarantees — but realistic patterns when a site is built with the right intent.
+      These are outcomes based on the kind of work I do — realistic patterns when a site is built with the right intent.
     </p>
 
     <div class="results-grid">
       <div class="result-card fade-up d1">
         <span class="result-label">// Example 01</span>
         <h4>14 Enquiries in 11 Days — Same Traffic</h4>
-        <p>A local consultancy had steady site visitors but no enquiries. After restructuring the service page around a single clear offer, contact form submissions went from near-zero to 14 in the first 11 days — with no change to traffic sources.</p>
+        <p>A 2-person consulting firm had consistent traffic but near-zero enquiries. After restructuring their main service page around a single clear offer and direct contact path, form submissions went from nothing to 14 in the first 11 days — no change to traffic, no ad spend.</p>
       </div>
 
       <div class="result-card fade-up d2">
         <span class="result-label">// Example 02</span>
         <h4>40% Fewer Visitors Leaving Immediately</h4>
-        <p>A service business saw its bounce rate drop significantly after load time was cut from 6 seconds to under 2. Visitors who used to leave before the page finished loading now had time to read it — and reach out.</p>
+        <p>A one-person coaching business saw bounce rate drop sharply after load time was cut from 6 seconds to under 2. Visitors who previously left before the page finished loading now had time to read — and reach out.</p>
       </div>
 
       <div class="result-card fade-up d3">
         <span class="result-label">// Example 03</span>
         <h4>First Page Locally Within 3 Weeks</h4>
-        <p>A trades business with no previous SEO work ranked on the first page of local search results within three weeks of launch. Proper heading structure, location-relevant content, and fast load times did most of the heavy lifting.</p>
+        <p>A small trades business with no prior SEO ranked on the first page of local search results within three weeks of launch. Proper heading structure, location-relevant content, and fast load times did most of the work.</p>
       </div>
 
       <div class="result-card fade-up d4">
         <span class="result-label">// Example 04</span>
         <h4>Better Leads, Less Back-and-Forth</h4>
-        <p>Adding a structured intake form reduced pre-qualification emails by more than half. Enquiries arrived with the information needed to respond directly — cutting two or three exchanges down to one.</p>
+        <p>A freelance agency added a structured intake form to their contact page. Pre-qualification emails dropped by more than half — enquiries now arrived with enough context to respond directly, cutting a 3-step exchange down to one.</p>
       </div>
 
       <div class="result-card fade-up d5">
         <span class="result-label">// Example 05</span>
         <h4>Credibility That Closes the Gap</h4>
-        <p>When someone is comparing options, your site often decides whether they reach out at all. A clear, fast, professional site does something a social media page cannot — it signals that you're serious about your work.</p>
+        <p>When a prospect is comparing options, your site decides whether they reach out at all. A solo consultant rebranding their offer found that a clear, fast, professional site did what a LinkedIn page couldn't — it signalled they were serious.</p>
       </div>
 
       <div class="result-card fade-up d6">
         <span class="result-label">// Example 06</span>
         <h4>5+ Hours of Admin Saved Every Week</h4>
-        <p>Connecting booking and notification systems to the site eliminated most manual coordination. For a one-person service business, that's more than half a working day returned every week.</p>
+        <p>Connecting booking and notification systems to the site eliminated most manual coordination for a service business run by one person. That's more than half a working day returned — every single week.</p>
       </div>
     </div>
 
-    <p class="results-disclaimer fade-up">* These are illustrative examples based on typical patterns in this type of work. Actual results vary by business, market, and starting point.</p>
+    <p class="results-disclaimer fade-up">* Illustrative examples based on typical patterns in this type of work. Actual results vary by business, market, and starting point.</p>
   </section>
 
   <!-- WHY NOT FIVERR -->
   <section id="approach">
     <h2 class="numbered-heading fade-up">Why Not a Template or a Cheap Freelancer</h2>
     <p class="fade-up d1" style="color:var(--slate);font-size:var(--fz-md);max-width:560px;margin-bottom:40px;line-height:1.7;">
-      Cheaper options exist. The question is what you end up with — and whether it actually does anything for your business.
+      Cheaper options exist. The question is what you end up with — and whether it actually works for your business.
     </p>
 
     <div class="diff-grid">
@@ -1527,7 +1822,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           <li>The real work happens before any code is written</li>
           <li>Clarity on who the site is for and what it needs to say</li>
           <li>A clear path from visitor landing to visitor reaching out</li>
-          <li>That thinking is what separates a performing site from a passive one</li>
+          <li>That thinking separates a performing site from a passive one</li>
         </ul>
       </div>
 
@@ -1541,6 +1836,26 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           <li>The work is yours. Completely.</li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <!-- LINKEDIN BRIDGE SECTION -->
+  <section id="linkedin" style="padding-top:0;padding-bottom:60px;">
+    <div class="linkedin-bridge fade-up">
+      <span class="linkedin-bridge-label">// Came from LinkedIn?</span>
+      <h3>Here's the fastest way to get started.</h3>
+      <div class="linkedin-bridge-send">
+        <div class="linkedin-bridge-item">
+          <span class="li-arrow">&#9657;</span>
+          <span>Your website URL</span>
+        </div>
+        <div class="linkedin-bridge-item">
+          <span class="li-arrow">&#9657;</span>
+          <span>What you sell and who it's for</span>
+        </div>
+      </div>
+      <p class="linkedin-bridge-reply">Send those two things via WhatsApp and I'll reply with a <strong>quick preview of what I'd change on your homepage</strong> — no form to fill, no call to book.</p>
+      <a href="https://wa.me/213659735828?text=Hi%2C%20I%20came%20from%20LinkedIn.%20Here%27s%20my%20website%3A%20%5BURL%5D.%20I%20sell%3A%20%5BWHAT%20YOU%20SELL%5D." target="_blank" rel="noopener" class="free-preview-cta">Send Me Your Website on WhatsApp &#8594;</a>
     </div>
   </section>
 
@@ -1562,7 +1877,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           One page, one objective. The right starting point to test an offer, capture leads from a campaign, or establish a quick, credible presence.
         </p>
         <div class="pricing-roi">
-          <strong>Consider this:</strong> Many businesses spend $300–500/month on ads sent to pages that don't convert. One well-built page changes what those ads actually produce — and keeps working long after any ad spend stops.
+          <strong>Consider this:</strong> Many businesses spend $300–500/month on ads sent to pages that don't convert. One well-built page changes what those ads produce — and keeps working long after any ad spend stops.
         </div>
         <ul class="pricing-features">
           <li><span class="pricing-check">&#9657;</span> Conversion-focused layout with one clear call-to-action</li>
@@ -1572,6 +1887,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           <li><span class="pricing-check">&#9657;</span> Basic on-page SEO</li>
           <li><span class="pricing-check">&#9657;</span> Deployed live with SSL — full ownership transferred</li>
         </ul>
+        <a href="#contact" class="pricing-btn pricing-btn-outline">Send Me Your Website &#8594;</a>
       </div>
 
       <div class="pricing-card featured fade-right d3">
@@ -1585,7 +1901,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           A complete multi-page site, built from scratch. For businesses that need to establish authority, communicate their full offer, and support the customer's entire decision journey.
         </p>
         <div class="pricing-roi">
-          <strong>What makes this different:</strong> Structure, copy architecture, and technical foundation are each built specifically for your business. That specificity — not the design — is what drives real performance differences.
+          <strong>What makes this different:</strong> Structure, copy architecture, and technical foundation are each built specifically for your business — not adapted from a template.
         </div>
         <ul class="pricing-features">
           <li><span class="pricing-check">&#9657;</span> Custom design built around your brand and positioning</li>
@@ -1595,27 +1911,28 @@ footer{display:flex;flex-direction:column;align-items:center;padding:15px;text-a
           <li><span class="pricing-check">&#9657;</span> Delivered on an agreed timeline, built to scale</li>
           <li><span class="pricing-check">&#9657;</span> Complete handoff — all assets, documentation, and access</li>
         </ul>
+        <a href="#contact" class="pricing-btn pricing-btn-solid">Want a Quick Teardown? &#8594;</a>
       </div>
     </div>
 
     <p class="pricing-note fade-up d4">
-      Not sure which is right? Tell me what you need — I'll give you a straight recommendation.
+      Not sure which fits? Tell me what you need — I'll give you a straight recommendation.
     </p>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="contact-section">
     <span class="overline fade-up">Next Step</span>
-    <h2 class="fade-up d1">Let's talk about your website.</h2>
+    <h2 class="fade-up d1">Send me your website.</h2>
     <p class="fade-up d2">
-      Tell me about your business and what you're trying to achieve. I'll come back with a clear recommendation, a defined scope, and a fixed price — so you can decide without pressure.
+      Tell me your URL and what you sell. I'll come back with a clear recommendation, a defined scope, and a fixed price — so you can decide without pressure.
     </p>
-    <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20to%20discuss%20improving%20my%20online%20presence.%20Can%20we%20talk%3F"
+    <a href="https://wa.me/213659735828?text=Hi%2C%20here%27s%20my%20website%3A%20%5BURL%5D.%20I%27d%20like%20to%20see%20what%20you%27d%20change."
        class="hero-btn fade-up d3" target="_blank" rel="noopener">
-      See a Free Preview of Your Website &#8594;
+      Send Me Your Website — I'll Show You What I'd Change &#8594;
     </a>
     <p class="fade-up d4" style="margin-top:20px;font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);">
-      No commitment required. Fixed scope. Fixed price. Transparent process.
+      No contracts. No hidden fees. Fixed scope. Fixed price. You only pay if you like what you see.
     </p>
   </section>
 
@@ -1664,6 +1981,34 @@ var observer = new IntersectionObserver(function(entries) {
 
 document.addEventListener('DOMContentLoaded', function() {
   scanVisible();
+});
+
+/* ===================== STICKY CTA BUTTON ===================== */
+var stickyCTA = document.getElementById('sticky-cta');
+var stickyCTABtn = document.getElementById('stickyCTABtn');
+var contactSection = document.getElementById('contact');
+var heroSection = document.querySelector('.hero');
+var heroBottom = 0;
+
+function updateHeroBottom() {
+  heroBottom = heroSection.getBoundingClientRect().bottom + window.scrollY;
+}
+
+window.addEventListener('load', updateHeroBottom);
+window.addEventListener('resize', updateHeroBottom);
+
+window.addEventListener('scroll', function() {
+  var scrollY = window.scrollY;
+  // Show sticky CTA after user scrolls past the hero
+  if (scrollY > heroBottom - window.innerHeight) {
+    stickyCTA.classList.add('visible');
+  } else {
+    stickyCTA.classList.remove('visible');
+  }
+}, { passive: true });
+
+stickyCTABtn.addEventListener('click', function() {
+  contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
 /* ===================== NAV SHADOW ON SCROLL ===================== */
@@ -1746,7 +2091,7 @@ document.addEventListener('mousemove', function(e) {
   requestAnimationFrame(animateRing);
 })();
 
-var hoverables = 'a, button, .service-card, .pricing-card, .pricing-btn, .hero-btn, .nav-cta, .free-preview-cta, .free-preview-card, .result-card, .diff-block';
+var hoverables = 'a, button, .service-card, .pricing-card, .pricing-btn, .hero-btn, .nav-cta, .free-preview-cta, .free-preview-card, .result-card, .diff-block, .sticky-cta-btn';
 document.querySelectorAll(hoverables).forEach(function(el) {
   el.addEventListener('mouseenter', function() { ring.classList.add('hovered'); });
   el.addEventListener('mouseleave', function() { ring.classList.remove('hovered'); });
