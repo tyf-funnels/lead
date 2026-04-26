@@ -72,13 +72,11 @@ body{counter-reset:section;}
 .skip-to-content{position:absolute;top:auto;left:-999px;width:1px;height:1px;overflow:hidden;}
 .skip-to-content:focus{position:fixed;top:1em;left:1em;z-index:999;width:auto;height:auto;padding:16px 20px;background:var(--green);color:var(--navy);font-family:var(--font-mono);font-size:var(--fz-sm);border-radius:var(--radius);}
 
-/* NAV */
+/* NAV — logo only, no menu links */
 nav{display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;width:100%;height:var(--nav-h);padding:0 50px;background:rgba(8,15,30,0.88);backdrop-filter:blur(14px);z-index:100;border-bottom:1px solid rgba(26,45,74,0.6);opacity:0;animation:navDown 0.5s var(--ease) 2.4s forwards;}
 .nav-logo{position:relative;width:40px;height:40px;display:flex;align-items:center;justify-content:center;text-decoration:none;flex-shrink:0;}
 .nav-logo svg.hex-bg{position:absolute;top:0;left:0;width:40px;height:40px;color:var(--green);transition:var(--transition);}
 .nav-logo .logo-letter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-mono);font-size:17px;font-weight:500;color:var(--green);}
-.nav-audit-btn{color:var(--navy);background:var(--green);border:none;border-radius:var(--radius);padding:9px 18px;font-family:var(--font-mono);font-size:var(--fz-xs);font-weight:500;line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);letter-spacing:0.02em;box-shadow:0 0 20px rgba(77,255,195,0.2);}
-.nav-audit-btn:hover{background:rgba(77,255,195,0.85);box-shadow:0 0 32px rgba(77,255,195,0.35);transform:translateY(-1px);}
 
 /* STICKY BOTTOM CTA */
 #sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:90;padding:14px 20px;background:rgba(8,15,30,0.94);backdrop-filter:blur(12px);border-top:1px solid rgba(77,255,195,0.15);display:flex;align-items:center;justify-content:center;gap:16px;opacity:0;transform:translateY(100%);pointer-events:none;transition:opacity 0.35s var(--ease),transform 0.35s var(--ease);}
@@ -105,21 +103,20 @@ section{max-width:920px;padding:110px 0;}
 .mark-wrap{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:16px 20px;border-radius:10px;background:rgba(77,255,195,0.04);border:1px solid rgba(77,255,195,0.14);transition:all 0.3s ease;cursor:default;animation:glow-pulse 5s ease-in-out infinite;}
 .mark-wrap:hover{border-color:rgba(77,255,195,0.35);transform:translateY(-2px);}
 .hero-svg{width:150px;height:auto;}
-.hero-svg .filled-dot{fill:var(--green)!important;stroke:none!important;}
 .hero-eyebrow{font-family:var(--font-mono);font-size:var(--fz-xs);color:var(--green);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:20px;display:block;}
+
+/* Revised hero copy */
 .hero-h1{font-size:clamp(30px,5.5vw,62px);font-weight:700;color:var(--slate-white);line-height:1.1;letter-spacing:-0.03em;margin-bottom:6px;}
-.hero-problem{font-size:clamp(30px,5.5vw,62px);font-weight:700;color:var(--slate-white);line-height:1.1;letter-spacing:-0.03em;margin-bottom:32px;}
-.hero-problem em{font-style:normal;color:var(--green);position:relative;display:inline-block;}
-.hero-problem em::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;animation:underlineGrow 0.8s var(--ease) 3.2s forwards;}
+.hero-problem{font-size:clamp(30px,5.5vw,62px);font-weight:700;color:var(--slate-white);line-height:1.1;letter-spacing:-0.03em;margin-bottom:12px;}
+.hero-fix{font-size:clamp(30px,5.5vw,62px);font-weight:700;color:var(--green);line-height:1.1;letter-spacing:-0.03em;margin-bottom:36px;position:relative;display:block;}
+.hero-fix::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;animation:underlineGrow 0.8s var(--ease) 3.2s forwards;}
+
 .hero-sub{font-size:clamp(16px,2vw,20px);color:var(--slate-light);line-height:1.65;max-width:520px;margin-bottom:44px;font-weight:400;}
 .hero-sub strong{color:var(--slate-white);font-weight:500;}
 .cta-primary{display:inline-flex;align-items:center;gap:10px;color:var(--navy);background:var(--green);border:none;border-radius:var(--radius);padding:18px 28px;font-family:var(--font-mono);font-size:var(--fz-sm);font-weight:600;line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);box-shadow:0 0 40px rgba(77,255,195,0.25);letter-spacing:0.02em;}
 .cta-primary:hover{background:rgba(77,255,195,0.88);box-shadow:0 0 60px rgba(77,255,195,0.4);transform:translateY(-3px);}
 .cta-primary .arrow{transition:transform 0.2s ease;}
 .cta-primary:hover .arrow{transform:translateX(4px);}
-.cta-secondary{display:inline-flex;align-items:center;gap:8px;color:var(--slate-light);background:transparent;border:1px solid var(--navy-mid);border-radius:var(--radius);padding:18px 24px;font-family:var(--font-mono);font-size:var(--fz-xs);line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);letter-spacing:0.03em;}
-.cta-secondary:hover{border-color:rgba(77,255,195,0.3);color:var(--green);}
-.hero-cta-group{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
 .hero-risk-note{margin-top:20px;font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.05em;}
 .hero-risk-note::before{content:'✓  ';color:var(--green);}
 .hero-stats{margin-top:56px;padding-top:32px;border-top:1px solid var(--navy-mid);display:flex;gap:48px;flex-wrap:wrap;}
@@ -198,16 +195,18 @@ section{max-width:920px;padding:110px 0;}
 .li-bridge-reply{font-family:var(--font-mono);font-size:var(--fz-xs);color:var(--slate);line-height:1.7;}
 .li-bridge-reply strong{color:var(--slate-white);}
 
-/* CONTACT */
+/* CONTACT — no button, only trust line */
 .contact-section{max-width:700px;text-align:center;margin:0 auto;padding:100px 0 180px;}
 .contact-label{display:inline-block;font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--green);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:24px;padding:6px 14px;border:1px solid rgba(77,255,195,0.2);border-radius:100px;}
 .contact-h2{font-size:clamp(32px,5.5vw,62px);font-weight:700;color:var(--slate-white);margin-bottom:20px;letter-spacing:-0.03em;line-height:1.1;}
 .contact-h2 span{color:var(--green);}
-.contact-sub{color:var(--slate-light);font-size:clamp(var(--fz-md),1.8vw,var(--fz-lg));line-height:1.7;margin-bottom:44px;max-width:500px;margin-left:auto;margin-right:auto;}
+.contact-sub{color:var(--slate-light);font-size:clamp(var(--fz-md),1.8vw,var(--fz-lg));line-height:1.7;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;}
 .contact-sub strong{color:var(--slate-white);}
-.contact-guarantee{margin-top:24px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;}
-.guarantee-item{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.04em;display:flex;align-items:center;gap:6px;}
-.guarantee-item::before{content:'✓';color:var(--green);}
+
+/* Trust micro-line replacing contact CTA */
+.contact-trust-line{font-family:var(--font-mono);font-size:var(--fz-xs);color:var(--slate);letter-spacing:0.08em;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
+.contact-trust-line .trust-sep{color:var(--navy-mid);}
+.contact-trust-line span{color:var(--slate-light);}
 
 /* CURSOR */
 .cursor-dot{position:fixed;width:7px;height:7px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);mix-blend-mode:difference;}
@@ -221,7 +220,6 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 /* RESPONSIVE */
 @media(max-width:768px){
   nav{padding:0 18px;}
-  .nav-audit-btn{font-size:10px;padding:8px 12px;}
   #sticky-cta{flex-direction:column;gap:8px;padding:14px 16px;}
   .sticky-cta-text{display:none;}
   .sticky-cta-btn{width:100%;justify-content:center;}
@@ -229,7 +227,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .numbered-heading{white-space:normal;font-size:clamp(18px,5vw,24px);}
   .numbered-heading::after{display:none;}
   .hero{padding-top:calc(var(--nav-h) + 16px);}
-  .hero-h1,.hero-problem{font-size:clamp(28px,7vw,42px);}
+  .hero-h1,.hero-problem,.hero-fix{font-size:clamp(28px,7vw,42px);}
   .hero-sub{font-size:var(--fz-md);}
   .hero-stats{gap:28px;margin-top:36px;padding-top:24px;}
   .trust-item{padding:0 14px;font-size:10px;}
@@ -242,12 +240,11 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .li-bridge{padding:24px 20px 24px 26px;}
   .contact-section{padding:70px 0 100px;}
   .contact-h2{font-size:clamp(28px,7vw,44px);}
-  .contact-guarantee{gap:12px;}
-  .hero-cta-group{flex-direction:column;align-items:flex-start;}
-  .cta-primary,.cta-secondary{width:100%;justify-content:center;}
+  .contact-trust-line{gap:10px;}
   .mark-wrap{padding:12px 14px;}
   .hero-svg{width:110px;}
   .hero-mark{margin-bottom:32px;}
+  .cta-primary{width:100%;justify-content:center;}
 }
 @media(max-width:480px){
   nav{padding:0 14px;}
@@ -314,6 +311,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 
 <a class="skip-to-content" href="#content">Skip to Content</a>
 
+<!-- NAV: logo only — no menu links -->
 <nav>
   <a href="/" class="nav-logo" aria-label="AutFlow Studio home">
     <svg class="hex-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 96" fill="none">
@@ -323,8 +321,6 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </svg>
     <span class="logo-letter">A</span>
   </a>
-  <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20a%20free%20conversion%20audit%20of%20my%20website%3A%20%5BURL%5D"
-     class="nav-audit-btn" target="_blank" rel="noopener">Free Conversion Audit &#8594;</a>
 </nav>
 
 <div class="side-el left" aria-orientation="vertical">
@@ -392,19 +388,21 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </div>
 
     <span class="hero-eyebrow fade-up d2">Web Design for Service Businesses</span>
-    <p class="hero-h1 fade-up d3">Your website has traffic.</p>
-    <p class="hero-problem fade-up d3">It's <em>bleeding clients</em> every day.</p>
+    <!-- Revised hero copy per brief -->
+    <p class="hero-h1 fade-up d3">Your website gets visitors.</p>
+    <p class="hero-problem fade-up d3">It just doesn't turn them into enquiries.</p>
+    <p class="hero-fix fade-up d3">I fix that.</p>
+
     <p class="hero-sub fade-up d4">
-      Most service business websites are built around the owner's ego, not the visitor's decision.
-      I find exactly <strong>what's killing your conversions</strong> and fix it — for free, before you commit to anything.
+      Send me your website — I'll show you <strong>exactly what I'd change</strong> and why it's costing you clients. Free. Before you commit to anything.
     </p>
 
-    <div class="hero-cta-group fade-up d5">
+    <!-- Single hero CTA only -->
+    <div class="fade-up d5">
       <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20a%20free%20conversion%20audit%20of%20my%20website%3A%20%5BURL%5D"
          class="cta-primary" target="_blank" rel="noopener">
-        Get My Free Conversion Audit <span class="arrow">&#8594;</span>
+        Send Me Your Website <span class="arrow">&#8594;</span>
       </a>
-      <a href="#how" class="cta-secondary">See how it works</a>
     </div>
     <p class="hero-risk-note fade-up d5">Free. No commitment. I'll show you what's wrong before you pay anything.</p>
 
@@ -531,20 +529,20 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </div>
   </section>
 
+  <!-- Contact section: no button — trust micro-line only -->
   <section id="contact" class="contact-section">
     <span class="contact-label fade-up">Free Audit — No Commitment</span>
     <h2 class="contact-h2 fade-up d1">Find out why your website<br><span>isn't getting clients.</span></h2>
     <p class="contact-sub fade-up d2">
       I'll show you <strong>exactly what's stopping people from reaching out</strong> — and what a fixed version looks like. Free, specific, and actionable.
     </p>
-    <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20a%20free%20conversion%20audit%20of%20my%20website%3A%20%5BURL%5D"
-       class="cta-primary fade-up d3" target="_blank" rel="noopener">
-      Get My Free Conversion Audit <span class="arrow">&#8594;</span>
-    </a>
-    <div class="contact-guarantee fade-up d4">
-      <span class="guarantee-item">Completely free</span>
-      <span class="guarantee-item">No contracts</span>
-      <span class="guarantee-item">Pay only if you love it</span>
+    <!-- Trust micro-line replacing the CTA button -->
+    <div class="contact-trust-line fade-up d3">
+      <span>Free.</span>
+      <span class="trust-sep">&middot;</span>
+      <span>No pressure.</span>
+      <span class="trust-sep">&middot;</span>
+      <span>Just clarity.</span>
     </div>
   </section>
 
@@ -598,7 +596,7 @@ var mx=0,my=0,rx=0,ry=0;
 if(window.innerWidth>768){
   document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
   (function anim(){rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);})();
-  document.querySelectorAll('a,button,.result-card,.step-block,.pricing-row,.offer-card,.cta-primary,.cta-secondary').forEach(function(el){
+  document.querySelectorAll('a,button,.result-card,.step-block,.pricing-row,.offer-card,.cta-primary').forEach(function(el){
     el.addEventListener('mouseenter',function(){ring.classList.add('hovered');});
     el.addEventListener('mouseleave',function(){ring.classList.remove('hovered');});
   });
