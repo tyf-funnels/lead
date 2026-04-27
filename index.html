@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutFlow Studio — Free Website Conversion Audit</title>
+<title>AutFlow Studio — Web Design That Converts</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -120,8 +120,6 @@ section{max-width:920px;padding:110px 0;}
 .cta-secondary{display:inline-flex;align-items:center;gap:8px;color:var(--slate-light);background:transparent;border:1px solid var(--navy-mid);border-radius:var(--radius);padding:18px 24px;font-family:var(--font-mono);font-size:var(--fz-xs);line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);letter-spacing:0.03em;}
 .cta-secondary:hover{border-color:rgba(77,255,195,0.3);color:var(--green);}
 .hero-cta-group{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.hero-risk-note{margin-top:20px;font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.05em;}
-.hero-risk-note::before{content:'✓  ';color:var(--green);}
 .hero-stats{margin-top:56px;padding-top:32px;border-top:1px solid var(--navy-mid);display:flex;gap:48px;flex-wrap:wrap;}
 .hero-stat-item{display:flex;flex-direction:column;gap:4px;}
 .hero-stat-num{font-family:var(--font-mono);font-size:clamp(22px,3vw,32px);font-weight:500;color:var(--slate-white);}
@@ -151,6 +149,9 @@ section{max-width:920px;padding:110px 0;}
 .offer-badge{display:inline-block;font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--navy);background:var(--green);padding:4px 12px;border-radius:2px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px;font-weight:600;}
 .offer-card h3{color:var(--slate-white);font-size:clamp(var(--fz-xl),2.5vw,28px);font-weight:700;margin-bottom:10px;line-height:1.25;letter-spacing:-0.02em;}
 .offer-card p{color:var(--slate-light);font-size:var(--fz-sm);line-height:1.7;margin:0;}
+.offer-guarantee{margin-top:20px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.guarantee-item{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.04em;display:flex;align-items:center;gap:6px;}
+.guarantee-item::before{content:'✓';color:var(--green);}
 
 /* STEPS */
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:4px;}
@@ -205,9 +206,13 @@ section{max-width:920px;padding:110px 0;}
 .contact-h2 span{color:var(--green);}
 .contact-sub{color:var(--slate-light);font-size:clamp(var(--fz-md),1.8vw,var(--fz-lg));line-height:1.7;margin-bottom:44px;max-width:500px;margin-left:auto;margin-right:auto;}
 .contact-sub strong{color:var(--slate-white);}
-.contact-guarantee{margin-top:24px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;}
-.guarantee-item{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.04em;display:flex;align-items:center;gap:6px;}
-.guarantee-item::before{content:'✓';color:var(--green);}
+
+/* ABOUT */
+.about-block{border:1px solid var(--navy-mid);border-radius:var(--radius);background:var(--navy-light);padding:36px 40px;position:relative;overflow:hidden;max-width:820px;}
+.about-block::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--green);}
+.about-tag{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:16px;display:block;}
+.about-block p{color:var(--slate-light);font-size:var(--fz-md);line-height:1.75;margin:0;}
+.about-block p strong{color:var(--slate-white);}
 
 /* CURSOR */
 .cursor-dot{position:fixed;width:7px;height:7px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);mix-blend-mode:difference;}
@@ -234,6 +239,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .hero-stats{gap:28px;margin-top:36px;padding-top:24px;}
   .trust-item{padding:0 14px;font-size:10px;}
   .problem-block{padding:28px 20px 28px 28px;}
+  .about-block{padding:24px 20px 24px 26px;}
   .offer-card{padding:2rem 1.5rem;}
   .steps-grid{grid-template-columns:1fr;gap:12px;}
   .results-grid{grid-template-columns:1fr;gap:12px;}
@@ -242,7 +248,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .li-bridge{padding:24px 20px 24px 26px;}
   .contact-section{padding:70px 0 100px;}
   .contact-h2{font-size:clamp(28px,7vw,44px);}
-  .contact-guarantee{gap:12px;}
+  .offer-guarantee{gap:12px;}
   .hero-cta-group{flex-direction:column;align-items:flex-start;}
   .cta-primary,.cta-secondary{width:100%;justify-content:center;}
   .mark-wrap{padding:12px 14px;}
@@ -307,7 +313,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 <div class="cursor-ring" id="cursorRing"></div>
 
 <div id="sticky-cta">
-  <span class="sticky-cta-text">Free &middot; No commitment &middot; Takes 60 seconds</span>
+  <span class="sticky-cta-text">Web design built around results, not aesthetics</span>
 </div>
 
 <a class="skip-to-content" href="#content">Skip to Content</a>
@@ -322,15 +328,28 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     <span class="logo-letter">A</span>
   </a>
   <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20a%20free%20conversion%20audit%20of%20my%20website%3A%20%5BURL%5D"
-     class="nav-audit-btn" target="_blank" rel="noopener">Free Conversion Audit &#8594;</a>
+     class="nav-audit-btn" target="_blank" rel="noopener">Get a Free Audit &#8594;</a>
 </nav>
 
+<!-- TASK 1: LinkedIn icon added below WhatsApp, same style -->
 <div class="side-el left" aria-orientation="vertical">
   <ul class="social-list" aria-label="Social media">
     <li>
       <a href="https://wa.me/213659735828" aria-label="WhatsApp" target="_blank" rel="noreferrer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <title>WhatsApp</title><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10c.5 1 1 1.5 2 2s1.5.5 2.5-.5"/>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/in/anes-hass" aria-label="LinkedIn" target="_blank" rel="noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <title>LinkedIn</title>
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M7 10v7"/>
+          <path d="M11 10v7"/>
+          <path d="M11 13a3 3 0 0 1 6 0v4"/>
+          <circle cx="7" cy="7" r="1" fill="currentColor" stroke="none"/>
         </svg>
       </a>
     </li>
@@ -382,14 +401,21 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       </div>
     </div>
 
-    <span class="hero-eyebrow fade-up d2">Web Design for Service Businesses</span>
-    <p class="hero-h1 fade-up d3">Your website has traffic.</p>
-    <p class="hero-problem fade-up d3">It's <em>bleeding clients</em> every day.</p>
+    <!-- TASK 2: Rewritten hero copy -->
+    <span class="hero-eyebrow fade-up d2">Conversion-First Web Design</span>
+    <p class="hero-h1 fade-up d3">Your website gets visitors.</p>
+    <p class="hero-problem fade-up d3">They leave without <em>contacting you</em>.</p>
     <p class="hero-sub fade-up d4">
-      Most service business websites are built around the owner's ego, not the visitor's decision.
-      I find exactly <strong>what's killing your conversions</strong> and fix it — for free, before you commit to anything.
+      Most service business websites fail for one reason: they're built around the owner's vision, not the client's decision. I design websites that <strong>turn visitors into enquiries</strong> — through clear structure, fast performance, and copy that converts.
     </p>
-    <p class="hero-risk-note fade-up d5">Free. No commitment. I'll show you what's wrong before you pay anything.</p>
+
+    <div class="hero-cta-group fade-up d5">
+      <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20a%20free%20conversion%20audit%20of%20my%20website%3A%20%5BURL%5D"
+         class="cta-primary" target="_blank" rel="noopener">
+        Work With Me <span class="arrow">&#8594;</span>
+      </a>
+      <a href="#offer" class="cta-secondary">See the Free Offer</a>
+    </div>
 
     <div class="hero-stats fade-up d6">
       <div class="hero-stat-item">
@@ -401,8 +427,8 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
         <span class="hero-stat-label">drop in bounce rate — same visitors</span>
       </div>
       <div class="hero-stat-item">
-        <span class="hero-stat-num">$0</span>
-        <span class="hero-stat-label">cost if you don't like the result</span>
+        <span class="hero-stat-num">3×</span>
+        <span class="hero-stat-label">average conversion lift post-redesign</span>
       </div>
     </div>
   </section>
@@ -414,28 +440,59 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     <div class="trust-item"><span class="trust-dot"></span>Full Ownership at Handoff</div>
   </div>
 
-  <section id="problem" style="padding-bottom:0;">
+  <!-- About Me section (new, as requested) -->
+  <section id="about" style="padding-bottom:0;">
+    <h2 class="numbered-heading fade-up">About Me</h2>
+    <div class="about-block fade-up d1">
+      <span class="about-tag">// Who's behind this</span>
+      <p>I'm a web designer and developer with a focus on <strong>conversion strategy and performance</strong>. I build landing pages, business websites, e-commerce stores, and web applications — adapting to whatever your business requires. Every project starts with understanding your audience and your goal, then building around that. Design is the last step, not the first.</p>
+    </div>
+  </section>
+
+  <section id="problem" style="padding-top:80px;padding-bottom:0;">
     <h2 class="numbered-heading fade-up">Why Your Website Isn't Working</h2>
     <div class="problem-block fade-up d1">
       <span class="problem-tag">// What's actually happening</span>
       <div class="problem-lines">
-        <div class="problem-line"><span class="problem-num">01</span><span>Someone lands on your website — they have a real need</span></div>
-        <div class="problem-line"><span class="problem-num">02</span><span>Nothing instantly tells them you're the right choice</span></div>
-        <div class="problem-line"><span class="problem-num">03</span><span>They hesitate. Then they leave. Then they call your competitor.</span></div>
+        <div class="problem-line"><span class="problem-num">01</span><span>A qualified prospect lands on your site — they have a real need</span></div>
+        <div class="problem-line"><span class="problem-num">02</span><span>Nothing tells them immediately that you're the right choice</span></div>
+        <div class="problem-line"><span class="problem-num">03</span><span>They hesitate. They leave. They contact your competitor.</span></div>
       </div>
       <div class="problem-verdict">
         <strong>This isn't a design problem. It's a clarity and structure problem.</strong><br>
-        And it's costing you clients every single week — silently.
+        And it's costing you clients every single week — without you ever knowing.
       </div>
     </div>
   </section>
 
+  <section id="results" style="padding-top:80px;padding-bottom:0;">
+    <h2 class="numbered-heading fade-up">Results</h2>
+    <div class="results-grid">
+      <div class="result-card fade-left d1">
+        <span class="result-label">// Case 01 — 2-person consulting firm</span>
+        <h4>14 Enquiries in 11 Days. Same Traffic, Zero Ad Spend.</h4>
+        <p>The site had healthy visitor numbers but near-zero enquiries. After restructuring around a single, clear offer, 14 form submissions came in during the first 11 days. No new traffic. No ads. Just better structure.</p>
+      </div>
+      <div class="result-card fade-right d2">
+        <span class="result-label">// Case 02 — Solo coaching business</span>
+        <h4>40% Drop in Bounce Rate. Visitors Stayed — and Reached Out.</h4>
+        <p>Page load time went from 6 seconds to under 2. Visitors who had been bouncing immediately now stayed long enough to read and convert. Site speed isn't a technical metric — it's a revenue metric.</p>
+      </div>
+    </div>
+    <p class="fade-up" style="font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);opacity:0.55;margin-top:18px;letter-spacing:0.04em;">* Illustrative examples based on typical client outcomes. Individual results vary.</p>
+  </section>
+
   <section id="offer" style="padding-top:80px;padding-bottom:0;">
-    <h2 class="numbered-heading fade-up">The Offer</h2>
+    <h2 class="numbered-heading fade-up">The Free Offer</h2>
     <div class="offer-card fade-up d1">
       <span class="offer-badge">Zero Risk</span>
       <h3>I'll audit and redesign your homepage — at no charge.</h3>
-      <p>You get a real, working redesign with a breakdown of exactly what was wrong and why the new version converts better. You only pay if you want to move forward. No invoices. No pressure.</p>
+      <p>Send me your URL. I'll review your site, identify exactly what's costing you conversions, and build a real working redesign — not a PDF report, not a list of vague suggestions. You see the problem and the fix before you pay a single cent. If you want it live, we agree a fixed price and move forward. If not, the audit is yours to keep.</p>
+      <div class="offer-guarantee">
+        <span class="guarantee-item">Completely free</span>
+        <span class="guarantee-item">No contracts</span>
+        <span class="guarantee-item">Pay only if you want to proceed</span>
+      </div>
     </div>
   </section>
 
@@ -445,36 +502,19 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       <div class="step-block fade-up d1">
         <span class="step-num">// Step 01</span>
         <h4>Share Your Website</h4>
-        <p>Drop your URL and tell me what you sell and who you sell to. That's all I need to start.</p>
+        <p>Send your URL and tell me what you sell and who buys it. That's all I need to get started.</p>
       </div>
       <div class="step-block fade-up d2">
         <span class="step-num">// Step 02</span>
         <h4>I Build the Fix</h4>
-        <p>A real, working redesign — not a PDF. I'll show you what changed and exactly why it converts better.</p>
+        <p>A real, working redesign with a clear breakdown of what changed and why it converts better.</p>
       </div>
       <div class="step-block fade-up d3">
         <span class="step-num">// Step 03</span>
         <h4>You Decide</h4>
-        <p>Want it live? Fixed price, agreed upfront. Don't? You keep the audit free. No invoice either way.</p>
+        <p>Want it live? We agree a fixed price and I handle everything. Not interested? The audit is yours, free of charge.</p>
       </div>
     </div>
-  </section>
-
-  <section id="results" style="padding-top:80px;">
-    <h2 class="numbered-heading fade-up">What Happens After</h2>
-    <div class="results-grid">
-      <div class="result-card fade-left d1">
-        <span class="result-label">// Case 01 — 2-person consulting firm</span>
-        <h4>Zero to 14 Enquiries in 11 Days — Without One Extra Visitor</h4>
-        <p>Traffic was healthy. Enquiries were non-existent. After restructuring around one clear offer, 14 form submissions arrived in the first 11 days. No ads. No SEO changes. Just structure.</p>
-      </div>
-      <div class="result-card fade-right d2">
-        <span class="result-label">// Case 02 — Solo coaching business</span>
-        <h4>40% Drop in Bounce Rate. Same Traffic. More Conversations.</h4>
-        <p>Page load time dropped from 6 seconds to under 2. Visitors who had been leaving now stayed long enough to read — and reach out. Speed isn't a technical metric. It's a revenue metric.</p>
-      </div>
-    </div>
-    <p class="fade-up" style="font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);opacity:0.55;margin-top:18px;letter-spacing:0.04em;">* Illustrative examples based on typical client outcomes. Individual results vary.</p>
   </section>
 
   <section id="pricing">
@@ -505,30 +545,25 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   <section id="linkedin" style="padding-top:0;padding-bottom:60px;">
     <div class="li-bridge fade-up">
       <span class="li-bridge-tag">// Came from LinkedIn?</span>
-      <h3>Here's all you need to start.</h3>
+      <h3>Here's all you need to get started.</h3>
       <div class="li-bridge-items">
         <div class="li-bridge-item"><span class="li-arrow">&#9657;</span><span>Your website URL</span></div>
         <div class="li-bridge-item"><span class="li-arrow">&#9657;</span><span>What you sell and who buys it</span></div>
       </div>
-      <p class="li-bridge-reply">I'll reply with a <strong>free breakdown of what I'd change and why.</strong> Specific. Actionable. No fluff.</p>
+      <p class="li-bridge-reply">I'll come back with a <strong>specific breakdown of what I'd change and why.</strong> No fluff. No generic advice.</p>
     </div>
   </section>
 
   <section id="contact" class="contact-section">
-    <span class="contact-label fade-up">Free Audit — No Commitment</span>
-    <h2 class="contact-h2 fade-up d1">Find out why your website<br><span>isn't getting clients.</span></h2>
+    <span class="contact-label fade-up">Let's Talk</span>
+    <h2 class="contact-h2 fade-up d1">Ready to turn your website<br><span>into your best salesperson?</span></h2>
     <p class="contact-sub fade-up d2">
-      I'll show you <strong>exactly what's stopping people from reaching out</strong> — and what a fixed version looks like. Free, specific, and actionable.
+      Send me your URL and I'll show you <strong>exactly what's stopping visitors from reaching out</strong> — and what a fixed version looks like.
     </p>
     <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20a%20free%20conversion%20audit%20of%20my%20website%3A%20%5BURL%5D"
        class="cta-primary fade-up d3" target="_blank" rel="noopener">
-      Get My Free Conversion Audit <span class="arrow">&#8594;</span>
+      Send Me Your Website <span class="arrow">&#8594;</span>
     </a>
-    <div class="contact-guarantee fade-up d4">
-      <span class="guarantee-item">Completely free</span>
-      <span class="guarantee-item">No contracts</span>
-      <span class="guarantee-item">Pay only if you love it</span>
-    </div>
   </section>
 
 </main>
