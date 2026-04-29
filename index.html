@@ -145,11 +145,11 @@ section{max-width:920px;padding:110px 0;}
 .problem-verdict{background:var(--green-dim);border:1px solid rgba(77,255,195,0.1);border-radius:4px;padding:16px 20px;font-family:var(--font-mono);font-size:var(--fz-xs);color:var(--slate-white);line-height:1.7;}
 .problem-verdict strong{color:var(--green);}
 
-/* ═══ FREE OFFER — REDESIGNED ═══ */
+/* ═══ FREE OFFER — REWRITTEN ═══ */
 .offer-card{
-  border:1px solid rgba(77,255,195,0.25);
+  border:1px solid rgba(77,255,195,0.2);
   border-radius:var(--radius);
-  background:linear-gradient(135deg,var(--navy-light) 0%,rgba(77,255,195,0.03) 100%);
+  background:var(--navy-light);
   padding:0;
   position:relative;
   overflow:hidden;
@@ -159,194 +159,150 @@ section{max-width:920px;padding:110px 0;}
   content:'';
   position:absolute;
   top:0;left:0;right:0;
-  height:2px;
+  height:1px;
   background:linear-gradient(90deg,transparent,var(--green),transparent);
   background-size:200% 100%;
   animation:borderRun 3s linear infinite;
 }
+
+/* Header */
 .offer-card-header{
   padding:2.5rem 2.5rem 2rem;
   border-bottom:1px solid rgba(26,45,74,0.7);
 }
-.offer-badge{
-  display:inline-block;
+.offer-scope-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
   font-family:var(--font-mono);
   font-size:var(--fz-xxs);
-  color:var(--navy);
-  background:var(--green);
-  padding:4px 12px;
-  border-radius:2px;
-  letter-spacing:0.12em;
+  color:var(--slate);
+  border:1px solid var(--navy-mid);
+  border-radius:100px;
+  padding:5px 14px;
+  letter-spacing:0.1em;
   text-transform:uppercase;
-  margin-bottom:20px;
-  font-weight:600;
+  margin-bottom:22px;
+}
+.offer-scope-tag::before{
+  content:'';
+  display:inline-block;
+  width:5px;height:5px;
+  border-radius:50%;
+  background:var(--green);
+  flex-shrink:0;
 }
 .offer-card h3{
   color:var(--slate-white);
   font-size:clamp(var(--fz-xl),2.5vw,28px);
   font-weight:700;
-  margin-bottom:12px;
+  margin-bottom:16px;
   line-height:1.25;
   letter-spacing:-0.02em;
 }
-.offer-card-lead{
+.offer-lead-text{
   color:var(--slate-light);
   font-size:var(--fz-md);
-  line-height:1.7;
-  max-width:680px;
+  line-height:1.75;
+  max-width:640px;
 }
-.offer-card-lead strong{
-  color:var(--slate-white);
+.offer-lead-text + .offer-lead-text{
+  margin-top:12px;
 }
 
-/* Before / After Comparison */
-.offer-compare{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:0;
+/* Specifics strip */
+.offer-specifics{
+  padding:1.75rem 2.5rem;
   border-bottom:1px solid rgba(26,45,74,0.7);
 }
-.offer-compare-col{
-  padding:1.75rem 2.5rem;
-  position:relative;
-}
-.offer-compare-col:first-child{
-  border-right:1px solid rgba(26,45,74,0.7);
-  background:rgba(255,60,60,0.02);
-}
-.offer-compare-col:last-child{
-  background:rgba(77,255,195,0.02);
-}
-.offer-compare-label{
+.offer-specifics-label{
   font-family:var(--font-mono);
   font-size:10px;
+  color:var(--green);
   letter-spacing:0.14em;
   text-transform:uppercase;
-  margin-bottom:14px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.offer-compare-label.bad{color:#ff6b6b;}
-.offer-compare-label.good{color:var(--green);}
-.offer-compare-label::before{
-  content:'';
-  display:inline-block;
-  width:6px;height:6px;
-  border-radius:50%;
-  flex-shrink:0;
-}
-.offer-compare-label.bad::before{background:#ff6b6b;}
-.offer-compare-label.good::before{background:var(--green);}
-.offer-compare-items{
-  display:flex;
-  flex-direction:column;
-  gap:9px;
-}
-.offer-compare-item{
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-  font-size:var(--fz-xs);
-  line-height:1.55;
-}
-.offer-compare-item.bad-item{color:var(--slate);}
-.offer-compare-item.good-item{color:var(--slate-light);}
-.compare-icon{
-  font-family:var(--font-mono);
-  font-size:10px;
-  flex-shrink:0;
-  padding-top:2px;
-  line-height:1.55;
-}
-.compare-icon.x{color:#ff6b6b;}
-.compare-icon.check{color:var(--green);}
-
-/* Deliverables strip */
-.offer-deliverables{
-  padding:1.75rem 2.5rem;
-  border-bottom:1px solid rgba(26,45,74,0.7);
-  background:rgba(77,255,195,0.025);
-}
-.offer-deliverables-title{
-  font-family:var(--font-mono);
-  font-size:var(--fz-xxs);
-  color:var(--green);
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  margin-bottom:16px;
+  margin-bottom:18px;
   display:block;
 }
-.offer-deliverables-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px 24px;
+.offer-points{
+  display:flex;
+  flex-direction:column;
+  gap:13px;
+  list-style:none;
 }
-.offer-deliverable-item{
+.offer-point{
   display:flex;
   align-items:flex-start;
-  gap:10px;
-  font-size:var(--fz-xs);
+  gap:14px;
+  font-size:var(--fz-sm);
   color:var(--slate-light);
-  line-height:1.55;
+  line-height:1.6;
 }
-.offer-deliverable-item .arrow{
-  color:var(--green);
+.offer-point-marker{
   font-family:var(--font-mono);
-  font-size:var(--fz-xs);
+  font-size:10px;
+  color:var(--green);
   flex-shrink:0;
-  padding-top:1px;
+  padding-top:3px;
+  letter-spacing:0.04em;
+}
+.offer-point strong{
+  color:var(--slate-white);
+  font-weight:500;
 }
 
-/* Proof note */
-.offer-proof{
+/* Scope limiter note */
+.offer-scope-note{
   padding:1.25rem 2.5rem;
   border-bottom:1px solid rgba(26,45,74,0.7);
-  background:var(--green-dim);
-}
-.offer-proof-inner{
+  background:rgba(77,255,195,0.03);
   display:flex;
   align-items:flex-start;
   gap:14px;
 }
-.offer-proof-icon{
-  font-size:18px;
-  flex-shrink:0;
-  line-height:1.4;
-}
-.offer-proof-text{
+.offer-scope-note-icon{
   font-family:var(--font-mono);
   font-size:var(--fz-xs);
-  color:var(--slate-white);
+  color:var(--slate);
+  flex-shrink:0;
+  padding-top:1px;
+}
+.offer-scope-note-text{
+  font-family:var(--font-mono);
+  font-size:var(--fz-xs);
+  color:var(--slate);
   line-height:1.75;
 }
-.offer-proof-text strong{color:var(--green);}
+.offer-scope-note-text strong{
+  color:var(--slate-white);
+}
 
-/* Footer guarantee bar */
+/* Next step footer */
 .offer-footer{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:16px;
-  padding:1.25rem 2.5rem;
-  flex-wrap:wrap;
-}
-.offer-guarantees{
-  display:flex;
-  align-items:center;
   gap:20px;
+  padding:1.5rem 2.5rem;
   flex-wrap:wrap;
 }
-.guarantee-item{
+.offer-next-label{
   font-family:var(--font-mono);
   font-size:var(--fz-xxs);
   color:var(--slate);
-  letter-spacing:0.04em;
-  display:flex;
-  align-items:center;
-  gap:6px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
 }
-.guarantee-item::before{content:'✓';color:var(--green);}
+.offer-next-label span{
+  color:var(--slate-white);
+  display:block;
+  font-size:var(--fz-xs);
+  text-transform:none;
+  letter-spacing:0;
+  margin-top:4px;
+  font-family:var(--font-sans);
+  line-height:1.5;
+}
 
 /* STEPS */
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:4px;}
@@ -446,12 +402,8 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .problem-block{padding:28px 20px 28px 28px;}
   .about-block{padding:24px 20px 24px 26px;}
   .offer-card-header{padding:1.75rem 1.25rem 1.5rem;}
-  .offer-compare{grid-template-columns:1fr;}
-  .offer-compare-col{padding:1.25rem 1.25rem;}
-  .offer-compare-col:first-child{border-right:none;border-bottom:1px solid rgba(26,45,74,0.7);}
-  .offer-deliverables{padding:1.25rem 1.25rem;}
-  .offer-deliverables-grid{grid-template-columns:1fr;}
-  .offer-proof{padding:1rem 1.25rem;}
+  .offer-specifics{padding:1.25rem 1.25rem;}
+  .offer-scope-note{padding:1rem 1.25rem;}
   .offer-footer{padding:1rem 1.25rem;}
   .steps-grid{grid-template-columns:1fr;gap:12px;}
   .results-grid{grid-template-columns:1fr;gap:12px;}
@@ -460,7 +412,6 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .li-bridge{padding:24px 20px 24px 26px;}
   .contact-section{padding:70px 0 100px;}
   .contact-h2{font-size:clamp(28px,7vw,44px);}
-  .offer-guarantees{gap:12px;}
   .hero-cta-group{flex-direction:column;align-items:flex-start;}
   .cta-primary,.cta-secondary{width:100%;justify-content:center;}
   .mark-wrap{padding:12px 14px;}
@@ -621,7 +572,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </p>
 
     <div class="hero-cta-group fade-up d5">
-      <a href="#offer" class="cta-secondary js-scroll-offer">See My Free Rebuilt Offer→</a>
+      <a href="#offer" class="cta-secondary js-scroll-offer">See the Free Sample Redesign &#8594;</a>
     </div>
 
     <div class="hero-stats fade-up d6">
@@ -656,14 +607,14 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       <div class="ticker-item"><span class="ticker-num">&lt;1.8s</span><span class="ticker-label">Load Time</span></div>
       <div class="ticker-item"><span class="ticker-num">3×</span><span class="ticker-label">Conversion Uplift</span></div>
       <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">Fixed-Price Delivery</span></div>
-      <div class="ticker-item"><span class="ticker-num">Free</span><span class="ticker-label">Audit & Redesign Concept</span></div>
+      <div class="ticker-item"><span class="ticker-num">Free</span><span class="ticker-label">Sample Redesign</span></div>
       <div class="ticker-item"><span class="ticker-num">0</span><span class="ticker-label">Risk to Start</span></div>
       <div class="ticker-item"><span class="ticker-num">+67%</span><span class="ticker-label">Signup Lift</span></div>
       <div class="ticker-item"><span class="ticker-num">-40%</span><span class="ticker-label">Bounce Rate</span></div>
       <div class="ticker-item"><span class="ticker-num">&lt;1.8s</span><span class="ticker-label">Load Time</span></div>
       <div class="ticker-item"><span class="ticker-num">3×</span><span class="ticker-label">Conversion Uplift</span></div>
       <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">Fixed-Price Delivery</span></div>
-      <div class="ticker-item"><span class="ticker-num">Free</span><span class="ticker-label">Audit & Redesign Concept</span></div>
+      <div class="ticker-item"><span class="ticker-num">Free</span><span class="ticker-label">Sample Redesign</span></div>
       <div class="ticker-item"><span class="ticker-num">0</span><span class="ticker-label">Risk to Start</span></div>
     </div>
   </div>
@@ -712,70 +663,59 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     <p class="fade-up" style="font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);opacity:0.55;margin-top:18px;letter-spacing:0.04em;">* Illustrative examples based on typical client outcomes. Individual results vary.</p>
   </section>
 
-  <!-- ═══════════════════════════════ FREE OFFER ═══════════════════════════════ -->
+  <!-- ═══════════════════════════════ FREE OFFER — REWRITTEN ═══════════════════════════════ -->
   <section id="offer" style="padding-top:80px;padding-bottom:0;">
     <h2 class="numbered-heading fade-up">The Free Offer</h2>
     <div class="offer-card fade-up d1">
 
       <!-- Header -->
       <div class="offer-card-header">
-        <span class="offer-badge">Zero Risk · Zero Cost · No Commitment</span>
-        <h3>I'll rebuild your landing page and hand you a live, working version — before you spend a single dollar.</h3>
-        <p class="offer-card-lead">
-          This is not a PDF report. Not a checklist. Not a list of vague suggestions.<br>
-          Send me your URL and I'll produce a <strong>fully working, interactive redesign</strong> of your landing page — rebuilt from scratch around conversion psychology. You'll see your product, your offer, your copy — restructured so it actually converts the visitors already hitting your page.
+        <span class="offer-scope-tag">Sample redesign — no commitment required</span>
+        <h3>I'll redesign your landing page as a free concept — so you can see what better conversion looks like before deciding anything.</h3>
+        <p class="offer-lead-text">
+          Send me your current page. I'll rebuild the core of it — the structure, the message hierarchy, the above-the-fold — with one clear goal: showing you what a conversion-focused version could look like.
+        </p>
+        <p class="offer-lead-text" style="margin-top:12px;">
+          This is a working concept, not a mockup image. You can interact with it, share it with your team, and make an informed decision about whether to take it further.
         </p>
       </div>
 
-      <!-- Before / After -->
-      <div class="offer-compare">
-        <div class="offer-compare-col">
-          <span class="offer-compare-label bad">What you have now</span>
-          <div class="offer-compare-items">
-            <div class="offer-compare-item bad-item"><span class="compare-icon x">✕</span><span>A page that gets traffic but doesn't convert it</span></div>
-            <div class="offer-compare-item bad-item"><span class="compare-icon x">✕</span><span>Visitors bouncing before they reach your CTA</span></div>
-            <div class="offer-compare-item bad-item"><span class="compare-icon x">✕</span><span>No visibility into where and why people drop off</span></div>
-            <div class="offer-compare-item bad-item"><span class="compare-icon x">✕</span><span>Generic design that fails to build trust in 5 seconds</span></div>
-          </div>
-        </div>
-        <div class="offer-compare-col">
-          <span class="offer-compare-label good">What you'll see after</span>
-          <div class="offer-compare-items">
-            <div class="offer-compare-item good-item"><span class="compare-icon check">✓</span><span>A live redesign you can click through before paying anything</span></div>
-            <div class="offer-compare-item good-item"><span class="compare-icon check">✓</span><span>Above-the-fold that communicates value in under 5 seconds</span></div>
-            <div class="offer-compare-item good-item"><span class="compare-icon check">✓</span><span>Every conversion barrier identified, explained, and fixed</span></div>
-            <div class="offer-compare-item good-item"><span class="compare-icon check">✓</span><span>Signup flow rebuilt to reduce hesitation and friction</span></div>
-          </div>
-        </div>
+      <!-- What's in the concept -->
+      <div class="offer-specifics">
+        <span class="offer-specifics-label">// What the concept covers</span>
+        <ul class="offer-points">
+          <li class="offer-point">
+            <span class="offer-point-marker">▶</span>
+            <span><strong>Above-the-fold rewrite</strong> — headline, subheadline, and CTA restructured to communicate value clearly in under 5 seconds</span>
+          </li>
+          <li class="offer-point">
+            <span class="offer-point-marker">▶</span>
+            <span><strong>Message and structure improvements</strong> — content reordered around how buyers actually make decisions, not how products are built</span>
+          </li>
+          <li class="offer-point">
+            <span class="offer-point-marker">▶</span>
+            <span><strong>Friction points flagged</strong> — the 2–3 specific things on your current page most likely to cause drop-off, explained plainly</span>
+          </li>
+          <li class="offer-point">
+            <span class="offer-point-marker">▶</span>
+            <span><strong>A concrete basis for comparison</strong> — not suggestions, but an actual alternative you can evaluate side-by-side with what you have</span>
+          </li>
+        </ul>
       </div>
 
-      <!-- Deliverables -->
-      <div class="offer-deliverables">
-        <span class="offer-deliverables-title">// What's included — completely free</span>
-        <div class="offer-deliverables-grid">
-          <div class="offer-deliverable-item"><span class="arrow">▶</span><span>Full conversion audit of your current page — what's leaking signups and exactly why</span></div>
-          <div class="offer-deliverable-item"><span class="arrow">▶</span><span>Working redesign preview you can interact with before making any decision</span></div>
-          <div class="offer-deliverable-item"><span class="arrow">▶</span><span>Annotated breakdown of every structural change and the psychology behind it</span></div>
-          <div class="offer-deliverable-item"><span class="arrow">▶</span><span>Revision round on the preview — request changes before you commit to anything</span></div>
-        </div>
+      <!-- Scope limiter -->
+      <div class="offer-scope-note">
+        <span class="offer-scope-note-icon">—</span>
+        <p class="offer-scope-note-text">
+          This is a <strong>focused concept, not a full project</strong>. It covers the structural and messaging layer of your page — enough to make an informed decision. If you want the complete, production-ready version built and shipped, that's a paid engagement with a fixed price agreed upfront.
+        </p>
       </div>
 
-      <!-- Proof note -->
-      <div class="offer-proof">
-        <div class="offer-proof-inner">
-          <span class="offer-proof-icon">→</span>
-          <p class="offer-proof-text">
-            <strong>If you want it live</strong>, we agree a fixed price and I ship the final, production-ready version. If you don't — the redesign preview and the full conversion breakdown are yours to keep, free of charge, with no invoice and no follow-up pressure. The risk is entirely mine.
-          </p>
-        </div>
-      </div>
-
-      <!-- Footer -->
+      <!-- Footer / next step -->
       <div class="offer-footer">
-        <div class="offer-guarantees">
-          <span class="guarantee-item">Real working redesign — not a report</span>
-          <span class="guarantee-item">Review &amp; request changes first</span>
-          <span class="guarantee-item">Pay only if you want it shipped</span>
+        <div class="offer-next-label">
+          What happens next
+          <span>Share your URL. I review it, build the concept, and send it back — usually within a few days. You look it over, ask questions, and decide whether to take it live. No invoice either way.</span>
         </div>
       </div>
 
@@ -789,17 +729,17 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       <div class="step-block fade-up d1">
         <span class="step-num">// Step 01</span>
         <h4>Share Your URL</h4>
-        <p>Send your landing page URL and tell me what your product does and who it's for. That's all I need to start the audit.</p>
+        <p>Send your landing page URL and tell me what your product does and who it's for. That's all I need to start.</p>
       </div>
       <div class="step-block fade-up d2">
         <span class="step-num">// Step 02</span>
-        <h4>I Identify the Leak & Build the Fix</h4>
-        <p>A real, working redesign concept with a clear breakdown of every conversion barrier I found — and exactly why the new version converts better.</p>
+        <h4>I Build the Concept</h4>
+        <p>A working redesign concept with a plain-language breakdown of the structural changes and why they convert better.</p>
       </div>
       <div class="step-block fade-up d3">
         <span class="step-num">// Step 03</span>
         <h4>You Decide</h4>
-        <p>Want it live? We agree a fixed price and I handle everything. Not ready? The audit and concept are yours, with no obligation.</p>
+        <p>Want it live? We agree a fixed price and I handle everything. Not ready? The concept is yours, no strings attached.</p>
       </div>
     </div>
   </section>
@@ -839,20 +779,20 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
         <div class="li-bridge-item"><span class="li-arrow">&#9657;</span><span>Your SaaS landing page URL</span></div>
         <div class="li-bridge-item"><span class="li-arrow">&#9657;</span><span>What your product does and who your target user is</span></div>
       </div>
-      <p class="li-bridge-reply">I'll come back with a <strong>specific conversion audit and a working redesign concept.</strong> No fluff. No generic "add social proof" advice. An actual diagnosis — and an actual fix.</p>
+      <p class="li-bridge-reply">I'll come back with a <strong>working redesign concept and a clear explanation of the changes.</strong> No generic advice. An actual alternative you can evaluate.</p>
     </div>
   </section>
 
   <!-- ═══════════════════════════════ LET'S TALK ═══════════════════════════════ -->
   <section id="contact" class="contact-section">
     <span class="contact-label fade-up">Let's Talk</span>
-    <h2 class="contact-h2 fade-up d1">Ready to turn your landing page<br><span>into your top-performing channel?</span></h2>
+    <h2 class="contact-h2 fade-up d1">Ready to see what your landing page<br><span>could actually look like?</span></h2>
     <p class="contact-sub fade-up d2">
-      Send me your URL and I'll show you <strong>exactly what's preventing visitors from signing up</strong> — and what a fixed version looks like. No cost. No commitment.
+      Send me your URL. I'll build a <strong>free concept redesign</strong> based on your existing page — so you can see a better version before committing to anything.
     </p>
-    <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20a%20free%20conversion%20audit%20of%20my%20SaaS%20landing%20page%3A%20%5BURL%5D"
+    <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20a%20free%20concept%20redesign%20of%20my%20SaaS%20landing%20page%3A%20%5BURL%5D"
        class="cta-primary fade-up d3" target="_blank" rel="noopener">
-     Rebuild My Website Now (Free)→<span class="arrow">&#8594;</span>
+      Get My Free Concept Redesign <span class="arrow">&#8594;</span>
     </a>
   </section>
 
@@ -903,7 +843,7 @@ document.querySelectorAll('.js-scroll-contact').forEach(function(a){
   });
 });
 
-/* SMOOTH SCROLL — "See the Free Offer" → #offer */
+/* SMOOTH SCROLL — "See the Free Sample Redesign" → #offer */
 document.querySelectorAll('.js-scroll-offer').forEach(function(a){
   a.addEventListener('click',function(e){
     e.preventDefault();
