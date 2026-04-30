@@ -46,6 +46,8 @@ a{color:var(--green);text-decoration:none;transition:var(--transition);}
 @keyframes glow-pulse{0%,100%{box-shadow:0 0 0 0 rgba(77,255,195,0);}50%{box-shadow:0 0 24px 4px rgba(77,255,195,0.08);}}
 @keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 @keyframes borderRun{0%{background-position:0% 0%;}100%{background-position:200% 0%;}}
+@keyframes modalIn{from{opacity:0;transform:scale(0.95);}to{opacity:1;transform:scale(1);}}
+@keyframes overlayIn{from{opacity:0;}to{opacity:1;}}
 
 /* INTRO LOADER */
 #intro-loader{position:fixed;inset:0;background:var(--navy);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;}
@@ -134,18 +136,24 @@ section{max-width:920px;padding:110px 0;}
 .trust-item:hover{color:var(--green);}
 .trust-dot{width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;}
 
-/* PROBLEM */
-.problem-block{border:1px solid var(--navy-mid);border-radius:var(--radius);background:var(--navy-light);padding:40px;position:relative;overflow:hidden;max-width:820px;}
-.problem-block::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--green);}
-.problem-tag{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:24px;display:block;}
-.problem-lines{display:flex;flex-direction:column;margin-bottom:28px;}
-.problem-line{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid rgba(26,45,74,0.6);font-size:var(--fz-md);color:var(--slate-light);}
-.problem-line:last-child{border-bottom:none;}
-.problem-num{font-family:var(--font-mono);font-size:10px;color:var(--slate);flex-shrink:0;min-width:24px;letter-spacing:0.06em;}
-.problem-verdict{background:var(--green-dim);border:1px solid rgba(77,255,195,0.1);border-radius:4px;padding:16px 20px;font-family:var(--font-mono);font-size:var(--fz-xs);color:var(--slate-white);line-height:1.7;}
-.problem-verdict strong{color:var(--green);}
+/* ABOUT */
+.about-block{border:1px solid var(--navy-mid);border-radius:var(--radius);background:var(--navy-light);padding:36px 40px;position:relative;overflow:hidden;max-width:820px;}
+.about-block::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--green);}
+.about-tag{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:16px;display:block;}
+.about-block p{color:var(--slate-light);font-size:var(--fz-md);line-height:1.75;margin:0;}
+.about-block p strong{color:var(--slate-white);}
 
-/* ═══ FREE OFFER — REWRITTEN ═══ */
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:4px;}
+.service-card{background:var(--navy-light);border:1px solid var(--navy-mid);border-radius:var(--radius);padding:1.75rem 1.5rem;position:relative;overflow:hidden;transition:var(--transition);}
+.service-card:hover{transform:translateY(-4px);border-color:rgba(77,255,195,0.25);}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),transparent);opacity:0;transition:var(--transition);}
+.service-card:hover::before{opacity:1;}
+.service-label{font-family:var(--font-mono);font-size:10px;color:var(--green);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;display:block;}
+.service-card h4{color:var(--slate-white);font-size:var(--fz-md);font-weight:600;margin-bottom:8px;letter-spacing:-0.01em;}
+.service-card p{color:var(--slate);font-size:var(--fz-xs);line-height:1.65;margin:0;}
+
+/* FREE OFFER */
 .offer-card{
   border:1px solid rgba(77,255,195,0.2);
   border-radius:var(--radius);
@@ -164,8 +172,6 @@ section{max-width:920px;padding:110px 0;}
   background-size:200% 100%;
   animation:borderRun 3s linear infinite;
 }
-
-/* Header */
 .offer-card-header{
   padding:2.5rem 2.5rem 2rem;
   border-bottom:1px solid rgba(26,45,74,0.7);
@@ -206,11 +212,6 @@ section{max-width:920px;padding:110px 0;}
   line-height:1.75;
   max-width:640px;
 }
-.offer-lead-text + .offer-lead-text{
-  margin-top:12px;
-}
-
-/* Specifics strip */
 .offer-specifics{
   padding:1.75rem 2.5rem;
   border-bottom:1px solid rgba(26,45,74,0.7);
@@ -250,34 +251,6 @@ section{max-width:920px;padding:110px 0;}
   color:var(--slate-white);
   font-weight:500;
 }
-
-/* Scope limiter note */
-.offer-scope-note{
-  padding:1.25rem 2.5rem;
-  border-bottom:1px solid rgba(26,45,74,0.7);
-  background:rgba(77,255,195,0.03);
-  display:flex;
-  align-items:flex-start;
-  gap:14px;
-}
-.offer-scope-note-icon{
-  font-family:var(--font-mono);
-  font-size:var(--fz-xs);
-  color:var(--slate);
-  flex-shrink:0;
-  padding-top:1px;
-}
-.offer-scope-note-text{
-  font-family:var(--font-mono);
-  font-size:var(--fz-xs);
-  color:var(--slate);
-  line-height:1.75;
-}
-.offer-scope-note-text strong{
-  color:var(--slate-white);
-}
-
-/* Next step footer */
 .offer-footer{
   display:flex;
   align-items:center;
@@ -303,26 +276,13 @@ section{max-width:920px;padding:110px 0;}
   font-family:var(--font-sans);
   line-height:1.5;
 }
-
-/* STEPS */
-.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:4px;}
-.step-block{background:var(--navy-light);border:1px solid var(--navy-mid);border-radius:var(--radius);padding:1.75rem 1.5rem;transition:var(--transition);position:relative;overflow:hidden;}
-.step-block::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--green),transparent);opacity:0;transition:var(--transition);}
-.step-block:hover::before{opacity:1;}
-.step-block:hover{border-color:rgba(77,255,195,0.2);transform:translateY(-4px);}
-.step-num{font-family:var(--font-mono);font-size:10px;color:var(--green);letter-spacing:0.12em;margin-bottom:14px;display:block;text-transform:uppercase;}
-.step-block h4{color:var(--slate-white);font-size:var(--fz-md);font-weight:600;margin-bottom:8px;letter-spacing:-0.01em;}
-.step-block p{color:var(--slate);font-size:var(--fz-xs);line-height:1.65;margin:0;}
-
-/* RESULTS */
-.results-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:4px;}
-.result-card{background:var(--navy-light);border:1px solid var(--navy-mid);border-radius:var(--radius);padding:1.75rem 1.5rem;position:relative;overflow:hidden;transition:var(--transition);cursor:default;}
-.result-card:hover{transform:translateY(-4px);border-color:rgba(77,255,195,0.25);box-shadow:0 20px 60px -15px rgba(2,10,20,0.8);}
-.result-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),transparent);opacity:0;transition:var(--transition);}
-.result-card:hover::before{opacity:1;}
-.result-label{font-family:var(--font-mono);font-size:10px;color:var(--green);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;display:block;}
-.result-card h4{color:var(--slate-white);font-size:var(--fz-md);font-weight:600;margin-bottom:10px;line-height:1.35;letter-spacing:-0.01em;}
-.result-card p{color:var(--slate);font-size:var(--fz-xs);line-height:1.7;margin:0;}
+.offer-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:0 2.5rem 1.5rem;
+}
 
 /* PRICING */
 .pricing-wrapper{margin-top:32px;max-width:680px;}
@@ -339,17 +299,6 @@ section{max-width:920px;padding:110px 0;}
 .pricing-footer-cta{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--green);letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(77,255,195,0.3);padding-bottom:2px;transition:var(--transition);}
 .pricing-footer-cta:hover{border-color:var(--green);}
 
-/* LINKEDIN BRIDGE */
-.li-bridge{border:1px solid rgba(77,255,195,0.18);border-radius:var(--radius);background:linear-gradient(135deg,var(--navy-light) 0%,rgba(77,255,195,0.02) 100%);padding:36px 40px;position:relative;overflow:hidden;max-width:820px;}
-.li-bridge::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--green);}
-.li-bridge-tag{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;display:block;}
-.li-bridge h3{color:var(--slate-white);font-size:var(--fz-xl);font-weight:600;margin-bottom:18px;letter-spacing:-0.01em;}
-.li-bridge-items{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
-.li-bridge-item{display:flex;align-items:center;gap:12px;font-size:var(--fz-md);color:var(--slate-light);}
-.li-arrow{color:var(--green);font-family:var(--font-mono);font-size:var(--fz-xs);flex-shrink:0;}
-.li-bridge-reply{font-family:var(--font-mono);font-size:var(--fz-xs);color:var(--slate);line-height:1.7;}
-.li-bridge-reply strong{color:var(--slate-white);}
-
 /* CONTACT */
 .contact-section{max-width:700px;text-align:center;margin:0 auto;padding:100px 0 180px;}
 .contact-label{display:inline-block;font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--green);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:24px;padding:6px 14px;border:1px solid rgba(77,255,195,0.2);border-radius:100px;}
@@ -358,12 +307,76 @@ section{max-width:920px;padding:110px 0;}
 .contact-sub{color:var(--slate-light);font-size:clamp(var(--fz-md),1.8vw,var(--fz-lg));line-height:1.7;margin-bottom:44px;max-width:500px;margin-left:auto;margin-right:auto;}
 .contact-sub strong{color:var(--slate-white);}
 
-/* ABOUT */
-.about-block{border:1px solid var(--navy-mid);border-radius:var(--radius);background:var(--navy-light);padding:36px 40px;position:relative;overflow:hidden;max-width:820px;}
-.about-block::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--green);}
-.about-tag{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:16px;display:block;}
-.about-block p{color:var(--slate-light);font-size:var(--fz-md);line-height:1.75;margin:0;}
-.about-block p strong{color:var(--slate-white);}
+/* VIDEO MODAL */
+#video-modal{
+  position:fixed;
+  inset:0;
+  z-index:9998;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(4,9,20,0.92);
+  backdrop-filter:blur(8px);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.3s var(--ease);
+}
+#video-modal.open{
+  opacity:1;
+  pointer-events:all;
+  animation:overlayIn 0.3s var(--ease) forwards;
+}
+.modal-inner{
+  position:relative;
+  width:100%;
+  max-width:880px;
+  background:var(--navy-light);
+  border:1px solid rgba(77,255,195,0.2);
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 40px 100px -20px rgba(0,0,0,0.8);
+  animation:modalIn 0.35s var(--ease) forwards;
+}
+.modal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 20px;
+  border-bottom:1px solid var(--navy-mid);
+}
+.modal-title{
+  font-family:var(--font-mono);
+  font-size:var(--fz-xxs);
+  color:var(--slate);
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+}
+.modal-close{
+  background:none;
+  border:1px solid var(--navy-mid);
+  border-radius:4px;
+  color:var(--slate);
+  font-family:var(--font-mono);
+  font-size:var(--fz-xs);
+  padding:6px 12px;
+  cursor:pointer;
+  transition:var(--transition);
+  line-height:1;
+}
+.modal-close:hover{border-color:rgba(77,255,195,0.3);color:var(--green);}
+.modal-video-wrap{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+}
+.modal-video-wrap video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:contain;
+}
 
 /* CURSOR */
 .cursor-dot{position:fixed;width:7px;height:7px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);mix-blend-mode:difference;}
@@ -399,17 +412,14 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .hero-sub{font-size:var(--fz-md);}
   .hero-stats{gap:28px;margin-top:36px;padding-top:24px;}
   .trust-item{padding:0 14px;font-size:10px;}
-  .problem-block{padding:28px 20px 28px 28px;}
   .about-block{padding:24px 20px 24px 26px;}
+  .services-grid{grid-template-columns:1fr;gap:12px;}
   .offer-card-header{padding:1.75rem 1.25rem 1.5rem;}
   .offer-specifics{padding:1.25rem 1.25rem;}
-  .offer-scope-note{padding:1rem 1.25rem;}
   .offer-footer{padding:1rem 1.25rem;}
-  .steps-grid{grid-template-columns:1fr;gap:12px;}
-  .results-grid{grid-template-columns:1fr;gap:12px;}
+  .offer-actions{padding:0 1.25rem 1.25rem;}
   .pricing-row{flex-direction:column;align-items:flex-start;gap:10px;padding:18px 20px;}
   .pricing-footer{flex-direction:column;align-items:flex-start;gap:10px;}
-  .li-bridge{padding:24px 20px 24px 26px;}
   .contact-section{padding:70px 0 100px;}
   .contact-h2{font-size:clamp(28px,7vw,44px);}
   .hero-cta-group{flex-direction:column;align-items:flex-start;}
@@ -417,6 +427,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .mark-wrap{padding:12px 14px;}
   .hero-svg{width:110px;}
   .hero-mark{margin-bottom:32px;}
+  .modal-inner{border-radius:6px;}
 }
 @media(max-width:480px){
   nav{padding:0 14px;}
@@ -425,6 +436,8 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .trust-item{padding:6px 10px;font-size:10px;}
   .trust-item::after{display:none;}
   .offer-footer{flex-direction:column;align-items:flex-start;}
+  .offer-actions{flex-direction:column;align-items:stretch;}
+  .offer-actions .cta-primary,.offer-actions .cta-secondary{justify-content:center;}
 }
 </style>
 </head>
@@ -471,6 +484,22 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </svg>
   </div>
   <span class="intro-studio-text">AutFlow Studio</span>
+</div>
+
+<!-- VIDEO MODAL -->
+<div id="video-modal" role="dialog" aria-modal="true" aria-label="Work example video">
+  <div class="modal-inner">
+    <div class="modal-header">
+      <span class="modal-title">// Work Example</span>
+      <button class="modal-close" id="modal-close-btn" aria-label="Close video">✕ Close</button>
+    </div>
+    <div class="modal-video-wrap">
+      <video id="modal-video" controls preload="none">
+        <source src="X.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+    </div>
+  </div>
 </div>
 
 <div class="cursor-dot" id="cursorDot"></div>
@@ -572,8 +601,8 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </p>
 
     <div class="hero-cta-group fade-up d5">
+      <a href="#contact" class="cta-primary js-scroll-contact">Get Your Free Redesign <span class="arrow">&#8594;</span></a>
       <a href="#offer" class="cta-secondary js-scroll-offer">See the Free Offer &#8594;</a>
-      <a href="X" class="cta-secondary" target="_blank" rel="noopener">See My Work Example &#9654;</a>
     </div>
 
     <div class="hero-stats fade-up d6">
@@ -620,48 +649,33 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </div>
   </div>
 
-  <!-- ═══════════════════════════════ ABOUT ═══════════════════════════════ -->
+  <!-- ═══════════════════════════════ ABOUT ME ═══════════════════════════════ -->
   <section id="about" style="padding-bottom:0;">
     <h2 class="numbered-heading fade-up">About Me</h2>
     <div class="about-block fade-up d1">
       <span class="about-tag">// Who's behind this</span>
-      <p>I'm <strong>Anes Hass</strong> — a <strong>conversion-focused web designer and developer</strong> specializing in SaaS landing pages. I don't start with aesthetics. I start with your funnel: where visitors drop off, what creates hesitation before the signup, and what a first-time visitor needs to see in three seconds to stay. I answer those questions first, then build around them — delivering pages that perform, not just pages that look good.</p>
+      <p>I'm <strong>Anes Hass</strong> — a <strong>conversion-focused SaaS landing page designer and developer</strong>. I've spent years studying what makes SaaS visitors sign up and what makes them leave. I don't guess — I apply proven conversion architecture, clear message hierarchy, and friction removal to every project. The result: pages that work harder than the ones your team built internally.</p>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════ PROBLEM ═══════════════════════════════ -->
-  <section id="problem" style="padding-top:80px;padding-bottom:0;">
-    <h2 class="numbered-heading fade-up">Why Your SaaS Isn't Converting</h2>
-    <div class="problem-block fade-up d1">
-      <span class="problem-tag">// The silent revenue leak</span>
-      <div class="problem-lines">
-        <div class="problem-line"><span class="problem-num">01</span><span>A high-intent prospect lands on your page — they have the exact problem your product solves</span></div>
-        <div class="problem-line"><span class="problem-num">02</span><span>Your page fails to communicate value in the first 5 seconds — they hesitate, then leave</span></div>
-        <div class="problem-line"><span class="problem-num">03</span><span>No signup. Tab closed. Competitor tried. You never know it happened.</span></div>
+  <!-- ═══════════════════════════════ WHAT I DO ═══════════════════════════════ -->
+  <section id="services" style="padding-top:80px;padding-bottom:0;">
+    <h2 class="numbered-heading fade-up">What I Do</h2>
+    <div class="services-grid">
+      <div class="service-card fade-left d1">
+        <span class="service-label">// Core Service</span>
+        <h4>SaaS Landing Pages Built to Convert</h4>
+        <p>I design and build SaaS landing pages from the ground up — structured around buyer psychology, not product features. Every element earns its place by moving visitors closer to signup.</p>
       </div>
-      <div class="problem-verdict">
-        <strong>This isn't a product problem. It's a conversion architecture problem.</strong><br>
-        It's happening on every page load — silently draining trials, signups, and MRR while your team ships features.
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════ RESULTS ═══════════════════════════════ -->
-  <section id="results" style="padding-top:80px;padding-bottom:0;">
-    <h2 class="numbered-heading fade-up">Results</h2>
-    <div class="results-grid">
-      <div class="result-card fade-left d1">
-        <span class="result-label">// Case 01 — B2B SaaS, project management tool</span>
-        <h4>67% More Trial Signups in 30 Days. Zero New Ad Spend.</h4>
-        <p>The product was solid. The page wasn't building trust fast enough. After restructuring the value hierarchy and removing signup friction, free trial conversions jumped 67% in the first month — with no changes to traffic or budget.</p>
-      </div>
-      <div class="result-card fade-right d2">
-        <span class="result-label">// Case 02 — SaaS productivity tool</span>
-        <h4>Bounce Rate Cut 40%. Visitors Who Stayed Converted.</h4>
-        <p>Load time dropped from 6.2s to under 1.8s — but speed was only part of it. The above-the-fold message was rewritten to hit the user's primary pain immediately. Visitors stayed, read, and acted. Page speed is a conversion metric.</p>
+      <div class="service-card fade-right d2">
+        <span class="service-label">// Key outcomes</span>
+        <h4>What Changes After a Redesign</h4>
+        <p><strong style="color:var(--slate-white);">Higher conversions</strong> — more visitors become signups with the same traffic.<br><br>
+        <strong style="color:var(--slate-white);">Stronger message clarity</strong> — value communicated in under 5 seconds.<br><br>
+        <strong style="color:var(--slate-white);">Reduced friction</strong> — every barrier between visitor and CTA eliminated.<br><br>
+        <strong style="color:var(--slate-white);">Better hierarchy</strong> — buyers see what matters, in the order they need it.</p>
       </div>
     </div>
-    <p class="fade-up" style="font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);opacity:0.55;margin-top:18px;letter-spacing:0.04em;">* Illustrative examples based on typical client outcomes. Individual results vary.</p>
   </section>
 
   <!-- ═══════════════════════════════ FREE OFFER ═══════════════════════════════ -->
@@ -669,84 +683,56 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     <h2 class="numbered-heading fade-up">The Free Offer</h2>
     <div class="offer-card fade-up d1">
 
-      <!-- Header -->
       <div class="offer-card-header">
         <span class="offer-scope-tag">Free redesign concept — zero commitment</span>
-        <h3>I'll rebuild your landing page as a free working concept so you can see exactly what higher conversion looks like before deciding anything.</h3>
+        <h3>Free Landing Page Redesign Concept</h3>
         <p class="offer-lead-text">
-          Send me your current page. I'll reconstruct the core — structure, message hierarchy, above-the-fold — around one objective: more signups.
-        </p>
-        <p class="offer-lead-text" style="margin-top:12px;">
-          You receive a fully interactive concept, not a static mockup. Share it with your team, evaluate it against what you have, and decide whether to take it live.
+          Send me your current page. I'll rebuild the core around one objective: more signups. You get a fully interactive concept — not a static mockup — to evaluate against what you have.
         </p>
       </div>
 
-      <!-- What's in the concept -->
       <div class="offer-specifics">
         <span class="offer-specifics-label">// What the concept covers</span>
         <ul class="offer-points">
           <li class="offer-point">
             <span class="offer-point-marker">▶</span>
-            <span><strong>Above-the-fold rewrite</strong> — headline, subheadline, and CTA rebuilt to communicate value in under 5 seconds</span>
+            <span><strong>Structure overhaul</strong> — content reordered around how buyers decide</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">▶</span>
-            <span><strong>Structure and message overhaul</strong> — content reordered around how buyers decide, not how products are built</span>
+            <span><strong>Messaging rewrite</strong> — above-the-fold rebuilt to communicate value in under 5 seconds</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">▶</span>
-            <span><strong>Friction points identified</strong> — the 2–3 specific elements on your page most likely causing drop-off, explained clearly</span>
+            <span><strong>Friction points identified</strong> — the specific elements causing drop-off, explained clearly</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">▶</span>
-            <span><strong>A real basis for comparison</strong> — not suggestions, but an actual alternative you can evaluate side-by-side</span>
+            <span><strong>Real basis for comparison</strong> — an actual alternative you can evaluate side-by-side and ship</span>
           </li>
         </ul>
       </div>
 
-      <!-- Scope note -->
-      <div class="offer-scope-note">
-        <span class="offer-scope-note-icon">—</span>
-        <p class="offer-scope-note-text">
-          This is a <strong>focused concept, not a full build</strong>. It covers the structural and messaging layer — enough to make an informed decision. The complete, production-ready version is a paid engagement with a fixed price agreed upfront.
-        </p>
-      </div>
-
-      <!-- Footer -->
       <div class="offer-footer">
         <div class="offer-next-label">
           What happens next
-          <span>Share your URL. I review it, build the concept, and send it back within a few days. You evaluate it, ask questions, and decide whether to ship it. No invoice either way.</span>
+          <span>Share your URL. I build the concept. You evaluate it. No invoice either way.</span>
         </div>
       </div>
 
-    </div>
-  </section>
+      <div class="offer-actions">
+        <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20a%20free%20concept%20redesign%20of%20my%20SaaS%20landing%20page%3A%20%5BURL%5D"
+           class="cta-primary" target="_blank" rel="noopener">
+          Get Your Free Redesign <span class="arrow">&#8594;</span>
+        </a>
+        <button class="cta-secondary js-open-video" aria-label="Watch work example video">See My Work Example &#9654;</button>
+      </div>
 
-  <!-- ═══════════════════════════════ HOW IT WORKS ═══════════════════════════════ -->
-  <section id="how" style="padding-top:80px;padding-bottom:0;">
-    <h2 class="numbered-heading fade-up">How It Works</h2>
-    <div class="steps-grid">
-      <div class="step-block fade-up d1">
-        <span class="step-num">// Step 01</span>
-        <h4>Share Your URL</h4>
-        <p>Send your landing page URL along with what your product does and who it's for. That's all I need.</p>
-      </div>
-      <div class="step-block fade-up d2">
-        <span class="step-num">// Step 02</span>
-        <h4>I Build the Concept</h4>
-        <p>A fully interactive redesign concept with a plain-language breakdown of every change and why it converts better.</p>
-      </div>
-      <div class="step-block fade-up d3">
-        <span class="step-num">// Step 03</span>
-        <h4>You Decide</h4>
-        <p>Want it live? We lock in a fixed price and I handle everything. Not ready? The concept is yours — no strings, no invoice.</p>
-      </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════ PRICING ═══════════════════════════════ -->
-  <section id="pricing">
+  <section id="pricing" style="padding-top:80px;">
     <h2 class="numbered-heading fade-up">Pricing</h2>
     <div class="pricing-wrapper fade-up d1">
       <div class="pricing-row">
@@ -759,37 +745,24 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       <div class="pricing-row highlight">
         <div class="pricing-name-group">
           <span class="pricing-plan">Full SaaS Website</span>
-          <span class="pricing-desc">Multi-page. Custom architecture. Funnel-first.</span>
+          <span class="pricing-desc">Multi-page. Funnel-first architecture.</span>
         </div>
         <span class="pricing-amount">from $1200</span>
       </div>
       <div class="pricing-footer">
-        <span class="pricing-footer-note">Fixed price. Agreed before work begins. No hourly billing. No scope creep.</span>
+        <span class="pricing-footer-note">Fixed price. Agreed before work begins. No surprises.</span>
         <a href="https://wa.me/213659735828?text=Hi%2C%20I%27m%20not%20sure%20which%20plan%20fits%20my%20SaaS.%20Can%20you%20help%3F"
            class="pricing-footer-cta" target="_blank" rel="noopener">Not sure which fits? Ask &#8594;</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════ LINKEDIN BRIDGE ═══════════════════════════════ -->
-  <section id="linkedin" style="padding-top:0;padding-bottom:60px;">
-    <div class="li-bridge fade-up">
-      <span class="li-bridge-tag">// Came from LinkedIn?</span>
-      <h3>Here's exactly what I need to get started.</h3>
-      <div class="li-bridge-items">
-        <div class="li-bridge-item"><span class="li-arrow">&#9657;</span><span>Your SaaS landing page URL</span></div>
-        <div class="li-bridge-item"><span class="li-arrow">&#9657;</span><span>What your product does and who your target user is</span></div>
-      </div>
-      <p class="li-bridge-reply">I'll deliver a <strong>working redesign concept with a clear breakdown of every structural change.</strong> Not generic advice — an actual alternative you can evaluate and ship.</p>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════ LET'S TALK ═══════════════════════════════ -->
+  <!-- ═══════════════════════════════ MAIN CTA ═══════════════════════════════ -->
   <section id="contact" class="contact-section">
     <span class="contact-label fade-up">Let's Talk</span>
     <h2 class="contact-h2 fade-up d1">Ready to see what your page<br><span>could actually do?</span></h2>
     <p class="contact-sub fade-up d2">
-      Send your URL. I'll build a <strong>free redesign concept</strong> based on your existing page — so you can see a higher-converting version before committing to anything.
+      Send your URL. I'll build a <strong>free redesign concept</strong> — so you see a higher-converting version before committing to anything.
     </p>
     <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20a%20free%20concept%20redesign%20of%20my%20SaaS%20landing%20page%3A%20%5BURL%5D"
        class="cta-primary fade-up d3" target="_blank" rel="noopener">
@@ -835,6 +808,34 @@ function checkSticky(){
 }
 window.addEventListener('scroll',checkSticky,{passive:true});
 
+/* VIDEO MODAL */
+var modal=document.getElementById('video-modal');
+var video=document.getElementById('modal-video');
+var closeBtn=document.getElementById('modal-close-btn');
+
+function openModal(){
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+  video.play();
+}
+function closeModal(){
+  modal.classList.remove('open');
+  document.body.style.overflow='';
+  video.pause();
+  video.currentTime=0;
+}
+
+document.querySelectorAll('.js-open-video').forEach(function(btn){
+  btn.addEventListener('click',function(e){e.preventDefault();openModal();});
+});
+closeBtn.addEventListener('click',closeModal);
+modal.addEventListener('click',function(e){
+  if(e.target===modal){closeModal();}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'&&modal.classList.contains('open')){closeModal();}
+});
+
 /* SMOOTH SCROLL — nav audit button → #contact */
 document.querySelectorAll('.js-scroll-contact').forEach(function(a){
   a.addEventListener('click',function(e){
@@ -869,7 +870,7 @@ var mx=0,my=0,rx=0,ry=0;
 if(window.innerWidth>768){
   document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
   (function anim(){rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);})();
-  document.querySelectorAll('a,button,.result-card,.step-block,.pricing-row,.offer-card,.cta-primary,.cta-secondary').forEach(function(el){
+  document.querySelectorAll('a,button,.service-card,.pricing-row,.offer-card,.cta-primary,.cta-secondary').forEach(function(el){
     el.addEventListener('mouseenter',function(){ring.classList.add('hovered');});
     el.addEventListener('mouseleave',function(){ring.classList.remove('hovered');});
   });
