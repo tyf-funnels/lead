@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutFlow Studio — SaaS Landing Page & CRO Design</title>
+<title>AutFlow Studio — SaaS Landing Page & CRO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -154,135 +154,23 @@ section{max-width:920px;padding:110px 0;}
 .service-card p{color:var(--slate);font-size:var(--fz-xs);line-height:1.65;margin:0;}
 
 /* FREE OFFER */
-.offer-card{
-  border:1px solid rgba(77,255,195,0.2);
-  border-radius:var(--radius);
-  background:var(--navy-light);
-  padding:0;
-  position:relative;
-  overflow:hidden;
-  max-width:820px;
-}
-.offer-card::before{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--green),transparent);
-  background-size:200% 100%;
-  animation:borderRun 3s linear infinite;
-}
-.offer-card-header{
-  padding:2.5rem 2.5rem 2rem;
-  border-bottom:1px solid rgba(26,45,74,0.7);
-}
-.offer-scope-tag{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  font-family:var(--font-mono);
-  font-size:var(--fz-xxs);
-  color:var(--slate);
-  border:1px solid var(--navy-mid);
-  border-radius:100px;
-  padding:5px 14px;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  margin-bottom:22px;
-}
-.offer-scope-tag::before{
-  content:'';
-  display:inline-block;
-  width:5px;height:5px;
-  border-radius:50%;
-  background:var(--green);
-  flex-shrink:0;
-}
-.offer-card h3{
-  color:var(--slate-white);
-  font-size:clamp(var(--fz-xl),2.5vw,28px);
-  font-weight:700;
-  margin-bottom:16px;
-  line-height:1.25;
-  letter-spacing:-0.02em;
-}
-.offer-lead-text{
-  color:var(--slate-light);
-  font-size:var(--fz-md);
-  line-height:1.75;
-  max-width:640px;
-}
-.offer-specifics{
-  padding:1.75rem 2.5rem;
-  border-bottom:1px solid rgba(26,45,74,0.7);
-}
-.offer-specifics-label{
-  font-family:var(--font-mono);
-  font-size:10px;
-  color:var(--green);
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  margin-bottom:18px;
-  display:block;
-}
-.offer-points{
-  display:flex;
-  flex-direction:column;
-  gap:13px;
-  list-style:none;
-}
-.offer-point{
-  display:flex;
-  align-items:flex-start;
-  gap:14px;
-  font-size:var(--fz-sm);
-  color:var(--slate-light);
-  line-height:1.6;
-}
-.offer-point-marker{
-  font-family:var(--font-mono);
-  font-size:10px;
-  color:var(--green);
-  flex-shrink:0;
-  padding-top:3px;
-  letter-spacing:0.04em;
-}
-.offer-point strong{
-  color:var(--slate-white);
-  font-weight:500;
-}
-.offer-footer{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding:1.5rem 2.5rem;
-  flex-wrap:wrap;
-}
-.offer-next-label{
-  font-family:var(--font-mono);
-  font-size:var(--fz-xxs);
-  color:var(--slate);
-  letter-spacing:0.06em;
-  text-transform:uppercase;
-}
-.offer-next-label span{
-  color:var(--slate-white);
-  display:block;
-  font-size:var(--fz-xs);
-  text-transform:none;
-  letter-spacing:0;
-  margin-top:4px;
-  font-family:var(--font-sans);
-  line-height:1.5;
-}
-.offer-actions{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-  padding:0 2.5rem 1.5rem;
-}
+.offer-card{border:1px solid rgba(77,255,195,0.2);border-radius:var(--radius);background:var(--navy-light);padding:0;position:relative;overflow:hidden;max-width:820px;}
+.offer-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);background-size:200% 100%;animation:borderRun 3s linear infinite;}
+.offer-card-header{padding:2.5rem 2.5rem 2rem;border-bottom:1px solid rgba(26,45,74,0.7);}
+.offer-scope-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);border:1px solid var(--navy-mid);border-radius:100px;padding:5px 14px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:22px;}
+.offer-scope-tag::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;}
+.offer-card h3{color:var(--slate-white);font-size:clamp(var(--fz-xl),2.5vw,28px);font-weight:700;margin-bottom:16px;line-height:1.25;letter-spacing:-0.02em;}
+.offer-lead-text{color:var(--slate-light);font-size:var(--fz-md);line-height:1.75;max-width:640px;}
+.offer-specifics{padding:1.75rem 2.5rem;border-bottom:1px solid rgba(26,45,74,0.7);}
+.offer-specifics-label{font-family:var(--font-mono);font-size:10px;color:var(--green);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:18px;display:block;}
+.offer-points{display:flex;flex-direction:column;gap:13px;list-style:none;}
+.offer-point{display:flex;align-items:flex-start;gap:14px;font-size:var(--fz-sm);color:var(--slate-light);line-height:1.6;}
+.offer-point-marker{font-family:var(--font-mono);font-size:10px;color:var(--green);flex-shrink:0;padding-top:3px;letter-spacing:0.04em;}
+.offer-point strong{color:var(--slate-white);font-weight:500;}
+.offer-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:1.5rem 2.5rem;flex-wrap:wrap;}
+.offer-next-label{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.06em;text-transform:uppercase;}
+.offer-next-label span{color:var(--slate-white);display:block;font-size:var(--fz-xs);text-transform:none;letter-spacing:0;margin-top:4px;font-family:var(--font-sans);line-height:1.5;}
+.offer-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:0 2.5rem 1.5rem;}
 
 /* PRICING */
 .pricing-wrapper{margin-top:32px;max-width:680px;}
@@ -308,75 +196,15 @@ section{max-width:920px;padding:110px 0;}
 .contact-sub strong{color:var(--slate-white);}
 
 /* VIDEO MODAL */
-#video-modal{
-  position:fixed;
-  inset:0;
-  z-index:9998;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  background:rgba(4,9,20,0.92);
-  backdrop-filter:blur(8px);
-  opacity:0;
-  pointer-events:none;
-  transition:opacity 0.3s var(--ease);
-}
-#video-modal.open{
-  opacity:1;
-  pointer-events:all;
-  animation:overlayIn 0.3s var(--ease) forwards;
-}
-.modal-inner{
-  position:relative;
-  width:100%;
-  max-width:880px;
-  background:var(--navy-light);
-  border:1px solid rgba(77,255,195,0.2);
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 40px 100px -20px rgba(0,0,0,0.8);
-  animation:modalIn 0.35s var(--ease) forwards;
-}
-.modal-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:16px 20px;
-  border-bottom:1px solid var(--navy-mid);
-}
-.modal-title{
-  font-family:var(--font-mono);
-  font-size:var(--fz-xxs);
-  color:var(--slate);
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-}
-.modal-close{
-  background:none;
-  border:1px solid var(--navy-mid);
-  border-radius:4px;
-  color:var(--slate);
-  font-family:var(--font-mono);
-  font-size:var(--fz-xs);
-  padding:6px 12px;
-  cursor:pointer;
-  transition:var(--transition);
-  line-height:1;
-}
+#video-modal{position:fixed;inset:0;z-index:9998;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(4,9,20,0.92);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity 0.3s var(--ease);}
+#video-modal.open{opacity:1;pointer-events:all;animation:overlayIn 0.3s var(--ease) forwards;}
+.modal-inner{position:relative;width:100%;max-width:880px;background:var(--navy-light);border:1px solid rgba(77,255,195,0.2);border-radius:10px;overflow:hidden;box-shadow:0 40px 100px -20px rgba(0,0,0,0.8);animation:modalIn 0.35s var(--ease) forwards;}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--navy-mid);}
+.modal-title{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.1em;text-transform:uppercase;}
+.modal-close{background:none;border:1px solid var(--navy-mid);border-radius:4px;color:var(--slate);font-family:var(--font-mono);font-size:var(--fz-xs);padding:6px 12px;cursor:pointer;transition:var(--transition);line-height:1;}
 .modal-close:hover{border-color:rgba(77,255,195,0.3);color:var(--green);}
-.modal-video-wrap{
-  position:relative;
-  width:100%;
-  aspect-ratio:16/9;
-  background:#000;
-}
-.modal-video-wrap video{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:contain;
-}
+.modal-video-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;}
+.modal-video-wrap video{width:100%;height:100%;display:block;object-fit:contain;}
 
 /* CURSOR */
 .cursor-dot{position:fixed;width:7px;height:7px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);mix-blend-mode:difference;}
@@ -491,7 +319,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   <div class="modal-inner">
     <div class="modal-header">
       <span class="modal-title">// Work Example</span>
-      <button class="modal-close" id="modal-close-btn" aria-label="Close video">✕ Close</button>
+      <button class="modal-close" id="modal-close-btn" aria-label="Close video">&#10005; Close</button>
     </div>
     <div class="modal-video-wrap">
       <video id="modal-video" controls preload="none">
@@ -506,7 +334,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 <div class="cursor-ring" id="cursorRing"></div>
 
 <div id="sticky-cta">
-  <span class="sticky-cta-text">If your SaaS is getting traffic but not signups, the page is the problem — not the product</span>
+  <span class="sticky-cta-text">Most SaaS pages lose the trial conversion before the visitor reaches the CTA. The structure is why.</span>
 </div>
 
 <a class="skip-to-content" href="#content">Skip to Content</a>
@@ -520,7 +348,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </svg>
     <span class="logo-letter">A</span>
   </a>
-  <a href="#contact" class="nav-audit-btn js-scroll-contact">Get a Free Concept &#8594;</a>
+  <a href="#contact" class="nav-audit-btn js-scroll-contact">Request a Benchmark &#8594;</a>
 </nav>
 
 <div class="side-el left" aria-orientation="vertical">
@@ -550,7 +378,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 <div id="content">
 <main>
 
-  <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+  <!-- HERO -->
   <section class="hero" aria-label="Hero">
     <div class="hero-mark fade-up d1">
       <div class="mark-wrap">
@@ -593,121 +421,121 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       </div>
     </div>
 
-    <span class="hero-eyebrow fade-up d2">SaaS Landing Page Design & Conversion Rate Optimization</span>
-    <p class="hero-h1 fade-up d3">Your SaaS is getting traffic.</p>
-    <p class="hero-problem fade-up d3">Your page is losing it before the first <em>signup</em>.</p>
+    <span class="hero-eyebrow fade-up d2">Landing Page Architecture &amp; Conversion Rate Optimization for SaaS</span>
+    <p class="hero-h1 fade-up d3">Your acquisition is working.</p>
+    <p class="hero-problem fade-up d3">Your landing page is where the <em>deal breaks</em>.</p>
     <p class="hero-sub fade-up d4">
-      Most SaaS pages are built by engineers who understand the product — but not how buyers evaluate it. I restructure the <strong>information hierarchy, value clarity, and call-to-action sequence</strong> so the page does the selling your team doesn't have time to do.
+      SaaS founders spend on ads, content, and outbound — then send that traffic to a page with a broken information hierarchy, a headline written for the builder's mental model, and a CTA placed before the visitor has resolved their core objection. I rebuild the page structure around <strong>how a skeptical buyer actually evaluates a new tool</strong>. The result is a page your CAC can support.
     </p>
 
     <div class="hero-cta-group fade-up d5">
-      <a href="#offer" class="cta-secondary js-scroll-offer">See How the Evaluation Works &#8594;</a>
+      <a href="#offer" class="cta-secondary js-scroll-offer">See How the Page Evaluation Works &#8594;</a>
     </div>
 
     <div class="hero-stats fade-up d6">
       <div class="hero-stat-item">
         <span class="hero-stat-num">~2–5%</span>
-        <span class="hero-stat-label">industry avg. SaaS trial conversion rate</span>
+        <span class="hero-stat-label">industry median SaaS trial conversion rate</span>
       </div>
       <div class="hero-stat-item">
         <span class="hero-stat-num">&lt;8 sec</span>
-        <span class="hero-stat-label">time before a visitor decides to leave or stay</span>
+        <span class="hero-stat-label">average time before a visitor commits or exits</span>
       </div>
       <div class="hero-stat-item">
         <span class="hero-stat-num">Fixed</span>
-        <span class="hero-stat-label">price agreed before a single line of code is written</span>
+        <span class="hero-stat-label">price locked before a single line of code is written</span>
       </div>
     </div>
   </section>
 
   <!-- TRUST BAR -->
   <div class="trust-bar fade-up">
-    <div class="trust-item"><span class="trust-dot"></span>Buyer-Journey Page Architecture</div>
-    <div class="trust-item"><span class="trust-dot"></span>Above-the-Fold Value Clarity</div>
-    <div class="trust-item"><span class="trust-dot"></span>Sub-2s Load Performance</div>
+    <div class="trust-item"><span class="trust-dot"></span>Decision-Sequence Page Architecture</div>
+    <div class="trust-item"><span class="trust-dot"></span>Above-the-Fold Clarity in Under 5 Seconds</div>
+    <div class="trust-item"><span class="trust-dot"></span>Sub-2s Verified Load Performance</div>
     <div class="trust-item"><span class="trust-dot"></span>Full Code Ownership at Handoff</div>
   </div>
 
   <!-- METRICS TICKER -->
   <div class="metrics-ticker-wrap fade-up">
     <div class="metrics-ticker" id="ticker">
-      <div class="ticker-item"><span class="ticker-num">5 sec</span><span class="ticker-label">Value Clarity Target</span></div>
-      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Load Time</span></div>
-      <div class="ticker-item"><span class="ticker-num">Fixed</span><span class="ticker-label">Scoped Price</span></div>
+      <div class="ticker-item"><span class="ticker-num">5 sec</span><span class="ticker-label">Value Clarity Benchmark</span></div>
+      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Load Time Target</span></div>
+      <div class="ticker-item"><span class="ticker-num">Fixed</span><span class="ticker-label">Scoped Price, No Overruns</span></div>
       <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Vague Deliverables</span></div>
-      <div class="ticker-item"><span class="ticker-num">Free</span><span class="ticker-label">Concept to Evaluate</span></div>
-      <div class="ticker-item"><span class="ticker-num">0</span><span class="ticker-label">Obligation to Proceed</span></div>
-      <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">Code Ownership</span></div>
-      <div class="ticker-item"><span class="ticker-num">5 sec</span><span class="ticker-label">Value Clarity Target</span></div>
-      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Load Time</span></div>
-      <div class="ticker-item"><span class="ticker-num">Fixed</span><span class="ticker-label">Scoped Price</span></div>
+      <div class="ticker-item"><span class="ticker-num">Structured</span><span class="ticker-label">Evaluation, No Sales Call</span></div>
+      <div class="ticker-item"><span class="ticker-num">0</span><span class="ticker-label">Obligation Before You've Seen the Work</span></div>
+      <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">Code Ownership at Handoff</span></div>
+      <div class="ticker-item"><span class="ticker-num">5 sec</span><span class="ticker-label">Value Clarity Benchmark</span></div>
+      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Load Time Target</span></div>
+      <div class="ticker-item"><span class="ticker-num">Fixed</span><span class="ticker-label">Scoped Price, No Overruns</span></div>
       <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Vague Deliverables</span></div>
-      <div class="ticker-item"><span class="ticker-num">Free</span><span class="ticker-label">Concept to Evaluate</span></div>
-      <div class="ticker-item"><span class="ticker-num">0</span><span class="ticker-label">Obligation to Proceed</span></div>
-      <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">Code Ownership</span></div>
+      <div class="ticker-item"><span class="ticker-num">Structured</span><span class="ticker-label">Evaluation, No Sales Call</span></div>
+      <div class="ticker-item"><span class="ticker-num">0</span><span class="ticker-label">Obligation Before You've Seen the Work</span></div>
+      <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">Code Ownership at Handoff</span></div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════ ABOUT ME ═══════════════════════════════ -->
+  <!-- ABOUT ME -->
   <section id="about" style="padding-bottom:0;">
     <h2 class="numbered-heading fade-up">About Me</h2>
     <div class="about-block fade-up d1">
-      <span class="about-tag">// Who's behind this</span>
-      <p>I'm <strong>Anes Hass</strong> — a designer and developer who works exclusively on <strong>SaaS landing pages and conversion rate optimization</strong>. I've spent years dissecting what separates pages that sign users up from pages that just look like they should. My work focuses on three things every underperforming SaaS page gets wrong: <strong>unclear value hierarchy above the fold, CTA placement that fights the buyer's decision process, and messaging written for the builder — not the buyer</strong>. I fix those. The result is a page your acquisition spend can finally justify.</p>
+      <span class="about-tag">// The person doing the work</span>
+      <p>I'm <strong>Anes Hass</strong> — a designer and developer whose work is scoped to one problem: <strong>SaaS landing pages that don't convert at the rate the acquisition budget demands</strong>. I've spent years working through why high-intent visitors leave before the CTA — and the answer is almost always the same three structural failures. The above-the-fold section doesn't communicate value to a cold visitor in time to hold attention. The content sequence reflects internal product logic instead of how a skeptical buyer evaluates a new tool. And the CTA appears before the page has neutralized the visitor's default objection. <strong>Those three things are what I fix.</strong> Everything else is a consequence of getting those right.</p>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════ WHAT I DO ═══════════════════════════════ -->
+  <!-- WHAT I DO -->
   <section id="services" style="padding-top:80px;padding-bottom:0;">
     <h2 class="numbered-heading fade-up">What I Do</h2>
     <div class="services-grid">
       <div class="service-card fade-left d1">
-        <span class="service-label">// Core Service</span>
-        <h4>SaaS Landing Pages Rebuilt Around the Buyer's Decision Process</h4>
-        <p>I redesign and rebuild SaaS landing pages from the ground up. The structure follows how a skeptical prospect evaluates a new tool — problem recognition, proof of fit, risk reduction, action. Every content block is placed to advance that sequence, not to showcase features.</p>
+        <span class="service-label">// Core scope</span>
+        <h4>Landing Pages Rebuilt Around How Buyers Actually Evaluate SaaS</h4>
+        <p>A prospect landing on your page for the first time has one implicit question running in parallel with everything they read: "Is this worth the friction of signing up?" The page needs to answer that question before they've decided to leave. I rebuild the full page — structure, hierarchy, messaging, and CTA sequencing — so that every section advances the buyer toward that decision rather than interrupting it.</p>
       </div>
       <div class="service-card fade-right d2">
-        <span class="service-label">// What changes</span>
-        <h4>The Four Levers That Move Your Conversion Rate</h4>
-        <p><strong style="color:var(--slate-white);">Value clarity in under 5 seconds</strong> — visitors understand exactly what you do and who it's for before they scroll.<br><br>
-        <strong style="color:var(--slate-white);">Hierarchy that guides, not overwhelms</strong> — content sequenced so buyers see the right thing at the right moment.<br><br>
-        <strong style="color:var(--slate-white);">Friction removed before the CTA</strong> — every objection addressed before the visitor reaches the signup button.<br><br>
-        <strong style="color:var(--slate-white);">Load speed that doesn't punish paid traffic</strong> — pages delivered under 2 seconds, so your CAC doesn't evaporate at load time.</p>
+        <span class="service-label">// The four structural levers</span>
+        <h4>Where Most SaaS Pages Break — and What Changes When They Don't</h4>
+        <p><strong style="color:var(--slate-white);">Above-the-fold clarity under 5 seconds</strong> — headline, subheadline, and primary CTA rebuilt so a cold visitor immediately understands what you do, for whom, and why it's worth the next scroll.<br><br>
+        <strong style="color:var(--slate-white);">Message hierarchy that follows the buyer's sequence</strong> — content ordered to match how a skeptical evaluator moves from problem recognition to proof of fit to objection resolution.<br><br>
+        <strong style="color:var(--slate-white);">Objection removal before the CTA</strong> — the specific friction points preventing signup are addressed in the page body before the visitor reaches the action step.<br><br>
+        <strong style="color:var(--slate-white);">Load performance that doesn't waste acquisition spend</strong> — pages delivered under 2 seconds so paid traffic isn't lost at the browser's rendering step.</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════ FREE OFFER ═══════════════════════════════ -->
+  <!-- HOW IT WORKS -->
   <section id="offer" style="padding-top:80px;padding-bottom:0;">
     <h2 class="numbered-heading fade-up">How It Works</h2>
     <div class="offer-card fade-up d1">
 
       <div class="offer-card-header">
-        <span class="offer-scope-tag">Mutual evaluation — no commitment required</span>
-        <h3>I Build a Conversion-Focused Concept. You Decide If It's Worth Pursuing.</h3>
+        <span class="offer-scope-tag">Structured benchmark — you evaluate the work before any commitment</span>
+        <h3>I Rebuild Your Page. You Compare It Against Your Live Version. Then You Decide.</h3>
         <p class="offer-lead-text">
-          Before any contract, I rebuild your landing page structure around a single objective: more signups. You get a fully interactive concept — working code, not a static mockup — to put next to your current page and judge for yourself. If it's not clearly better, you walk away with useful analysis and no invoice.
+          Before any contract or scope agreement, I take your current landing page and rebuild its core structure around a single objective: reducing the gap between a visitor arriving and them initiating a trial. You receive a fully functional coded page — not a static mockup, not a Figma file — that you can place directly beside your live version and evaluate on measurable criteria. If the rebuilt version isn't a clear structural improvement, you leave with a documented diagnosis of what's broken and no invoice.
         </p>
       </div>
 
       <div class="offer-specifics">
-        <span class="offer-specifics-label">// What the concept includes</span>
+        <span class="offer-specifics-label">// What the benchmark includes</span>
         <ul class="offer-points">
           <li class="offer-point">
-            <span class="offer-point-marker">▶</span>
-            <span><strong>Information architecture reorder</strong> — content restructured to match how a prospect moves from skepticism to signup, not how your team thinks about the product</span>
+            <span class="offer-point-marker">&#9658;</span>
+            <span><strong>Information architecture restructure</strong> — content reordered to match the decision stages a first-time buyer moves through: problem relevance, product fit, credibility evidence, risk reduction, action. Each section earns its position in that sequence.</span>
           </li>
           <li class="offer-point">
-            <span class="offer-point-marker">▶</span>
-            <span><strong>Above-the-fold rewrite</strong> — headline, subheadline, and primary CTA rebuilt to communicate your specific value in under 5 seconds to a cold visitor</span>
+            <span class="offer-point-marker">&#9658;</span>
+            <span><strong>Above-the-fold rewrite</strong> — headline, subheadline, and primary CTA rebuilt to communicate your specific value proposition to a cold, skeptical visitor in under 5 seconds. No jargon, no feature lists above the fold.</span>
           </li>
           <li class="offer-point">
-            <span class="offer-point-marker">▶</span>
-            <span><strong>Drop-off diagnosis</strong> — the specific structural and messaging issues causing visitors to leave before converting, explained in plain language</span>
+            <span class="offer-point-marker">&#9658;</span>
+            <span><strong>Friction-point diagnosis</strong> — the specific structural and messaging failures causing pre-CTA exits, identified from your current page and explained in language that maps to a concrete fix, not a list of best practices.</span>
           </li>
           <li class="offer-point">
-            <span class="offer-point-marker">▶</span>
-            <span><strong>A shippable alternative</strong> — an actual page you can deploy, A/B test, or hand off to your team — not a PDF of suggestions</span>
+            <span class="offer-point-marker">&#9658;</span>
+            <span><strong>A deployable alternative</strong> — working, production-ready code. You can ship it, A/B test it against your live page, or hand it to your team. This is a functional deliverable, not a consultation document.</span>
           </li>
         </ul>
       </div>
@@ -715,7 +543,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       <div class="offer-footer">
         <div class="offer-next-label">
           The process
-          <span>Send your URL. I audit, rebuild, and deliver the concept. You evaluate it against your live page. No scope call required to start.</span>
+          <span>Share your URL. I audit the current page, identify the structural conversion gaps, rebuild the core around a signup-first information hierarchy, and deliver working code. No discovery call required before that happens.</span>
         </div>
       </div>
 
@@ -726,40 +554,40 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </div>
   </section>
 
-  <!-- ═══════════════════════════════ PRICING ═══════════════════════════════ -->
+  <!-- PRICING -->
   <section id="pricing" style="padding-top:80px;">
     <h2 class="numbered-heading fade-up">Pricing</h2>
     <div class="pricing-wrapper fade-up d1">
       <div class="pricing-row">
         <div class="pricing-name-group">
           <span class="pricing-plan">SaaS Landing Page</span>
-          <span class="pricing-desc">One page. One signup objective. Fully delivered.</span>
+          <span class="pricing-desc">Single page. Single conversion objective. Full structural rebuild.</span>
         </div>
         <span class="pricing-amount">from $400</span>
       </div>
       <div class="pricing-row highlight">
         <div class="pricing-name-group">
           <span class="pricing-plan">Full SaaS Website</span>
-          <span class="pricing-desc">Multi-page. Funnel-first. Built to scale with your acquisition.</span>
+          <span class="pricing-desc">Multi-page. Built around acquisition funnel logic from entry to conversion.</span>
         </div>
         <span class="pricing-amount">from $1,200</span>
       </div>
       <div class="pricing-footer">
-        <span class="pricing-footer-note">Scope and price defined upfront. Work begins only after you approve both.</span>
+        <span class="pricing-footer-note">Scope and price defined in writing before work begins. No open-ended engagements.</span>
         <a href="https://wa.me/213659735828?text=Hi%2C%20I%27m%20not%20sure%20which%20plan%20fits%20my%20SaaS.%20Can%20you%20help%3F"
-           class="pricing-footer-cta" target="_blank" rel="noopener">Not sure what you need? Let's talk &#8594;</a>
+           class="pricing-footer-cta" target="_blank" rel="noopener">Unsure what your situation requires? Let's determine that. &#8594;</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════ MAIN CTA ═══════════════════════════════ -->
+  <!-- CONTACT -->
   <section id="contact" class="contact-section">
     <span class="contact-label fade-up">Start Here</span>
-    <h2 class="contact-h2 fade-up d1">See what a higher-converting<br><span>version of your page looks like.</span></h2>
+    <h2 class="contact-h2 fade-up d1">See what a structurally sound version of your page <span>actually looks like.</span></h2>
     <p class="contact-sub fade-up d2">
-      Share your URL. I'll rebuild the core of your page and send you a <strong>working concept</strong> — structured around signups, not aesthetics. Evaluate it against your live page before deciding anything.
+      Send your URL. I'll rebuild the core structure around a single objective — more trials — and deliver a <strong>working coded page</strong> you can evaluate against your live version. No contract, no discovery call, no obligation until you've seen the output and decided it's worth pursuing.
     </p>
-    <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20a%20free%20concept%20redesign%20of%20my%20SaaS%20landing%20page%3A%20%5BURL%5D"
+    <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20a%20benchmark%20rebuild%20of%20my%20SaaS%20landing%20page%3A%20%5BURL%5D"
        class="cta-primary fade-up d3" target="_blank" rel="noopener">
       Send My Page URL <span class="arrow">&#8594;</span>
     </a>
@@ -831,7 +659,7 @@ document.addEventListener('keydown',function(e){
   if(e.key==='Escape'&&modal.classList.contains('open')){closeModal();}
 });
 
-/* SMOOTH SCROLL — nav audit button → #contact */
+/* SMOOTH SCROLL */
 document.querySelectorAll('.js-scroll-contact').forEach(function(a){
   a.addEventListener('click',function(e){
     e.preventDefault();
@@ -840,7 +668,6 @@ document.querySelectorAll('.js-scroll-contact').forEach(function(a){
   });
 });
 
-/* SMOOTH SCROLL — "See the Free Offer" → #offer */
 document.querySelectorAll('.js-scroll-offer').forEach(function(a){
   a.addEventListener('click',function(e){
     e.preventDefault();
@@ -849,7 +676,6 @@ document.querySelectorAll('.js-scroll-offer').forEach(function(a){
   });
 });
 
-/* SMOOTH SCROLL — all other hash links */
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   if(a.classList.contains('js-scroll-contact')||a.classList.contains('js-scroll-offer'))return;
   a.addEventListener('click',function(e){
