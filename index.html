@@ -34,6 +34,7 @@ a{color:var(--green);text-decoration:none;transition:var(--transition);}
 .fade-right.appeared{opacity:1;transform:translateX(0);}
 .d1{transition-delay:0.08s!important}.d2{transition-delay:0.16s!important}.d3{transition-delay:0.24s!important}
 .d4{transition-delay:0.32s!important}.d5{transition-delay:0.4s!important}.d6{transition-delay:0.5s!important}
+.d7{transition-delay:0.6s!important}
 @keyframes navDown{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
 @keyframes sideUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
 @keyframes logoFadeIn{to{opacity:1;}}
@@ -46,8 +47,6 @@ a{color:var(--green);text-decoration:none;transition:var(--transition);}
 @keyframes glow-pulse{0%,100%{box-shadow:0 0 0 0 rgba(77,255,195,0);}50%{box-shadow:0 0 24px 4px rgba(77,255,195,0.08);}}
 @keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 @keyframes borderRun{0%{background-position:0% 0%;}100%{background-position:200% 0%;}}
-@keyframes modalIn{from{opacity:0;transform:scale(0.95);}to{opacity:1;transform:scale(1);}}
-@keyframes overlayIn{from{opacity:0;}to{opacity:1;}}
 
 /* INTRO LOADER */
 #intro-loader{position:fixed;inset:0;background:var(--navy);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;}
@@ -109,7 +108,6 @@ section{max-width:920px;padding:110px 0;}
 .mark-wrap{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:16px 20px;border-radius:10px;background:rgba(77,255,195,0.04);border:1px solid rgba(77,255,195,0.14);transition:all 0.3s ease;cursor:default;animation:glow-pulse 5s ease-in-out infinite;}
 .mark-wrap:hover{border-color:rgba(77,255,195,0.35);transform:translateY(-2px);}
 .hero-svg{width:150px;height:auto;}
-.hero-svg .filled-dot{fill:var(--green)!important;stroke:none!important;}
 .hero-eyebrow{font-family:var(--font-mono);font-size:var(--fz-xs);color:var(--green);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:20px;display:block;}
 .hero-h1{font-size:clamp(30px,5.5vw,62px);font-weight:700;color:var(--slate-white);line-height:1.1;letter-spacing:-0.03em;margin-bottom:6px;}
 .hero-problem{font-size:clamp(30px,5.5vw,62px);font-weight:700;color:var(--slate-white);line-height:1.1;letter-spacing:-0.03em;margin-bottom:32px;}
@@ -128,6 +126,57 @@ section{max-width:920px;padding:110px 0;}
 .hero-stat-item{display:flex;flex-direction:column;gap:4px;}
 .hero-stat-num{font-family:var(--font-mono);font-size:clamp(22px,3vw,32px);font-weight:500;color:var(--slate-white);}
 .hero-stat-label{font-size:var(--fz-xs);color:var(--slate);letter-spacing:0.03em;}
+
+/* ============================================================
+   HERO INLINE VIDEO — reuses modal visual style inline
+   ============================================================ */
+.hero-video-wrap{
+  margin-top:48px;
+  max-width:100%;
+}
+.hero-video-label{
+  font-family:var(--font-mono);
+  font-size:var(--fz-xxs);
+  color:var(--slate);
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  margin-bottom:12px;
+  display:block;
+}
+/* Container inherits the modal-inner visual style */
+.hero-video-inner{
+  background:var(--navy-light);
+  border:1px solid rgba(77,255,195,0.2);
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 40px 100px -20px rgba(0,0,0,0.8);
+}
+.hero-video-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 20px;
+  border-bottom:1px solid var(--navy-mid);
+}
+.hero-video-title{
+  font-family:var(--font-mono);
+  font-size:var(--fz-xxs);
+  color:var(--slate);
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+}
+.hero-video-player-wrap{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+}
+.hero-video-player-wrap video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:contain;
+}
 
 /* TRUST BAR */
 .trust-bar{border-top:1px solid var(--navy-mid);border-bottom:1px solid var(--navy-mid);padding:20px 0;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;background:rgba(13,27,48,0.6);}
@@ -170,7 +219,6 @@ section{max-width:920px;padding:110px 0;}
 .offer-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:1.5rem 2.5rem;flex-wrap:wrap;}
 .offer-next-label{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.06em;text-transform:uppercase;}
 .offer-next-label span{color:var(--slate-white);display:block;font-size:var(--fz-xs);text-transform:none;letter-spacing:0;margin-top:4px;font-family:var(--font-sans);line-height:1.5;}
-.offer-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:0 2.5rem 1.5rem;}
 
 /* PRICING */
 .pricing-wrapper{margin-top:32px;max-width:680px;}
@@ -194,17 +242,6 @@ section{max-width:920px;padding:110px 0;}
 .contact-h2 span{color:var(--green);}
 .contact-sub{color:var(--slate-light);font-size:clamp(var(--fz-md),1.8vw,var(--fz-lg));line-height:1.7;margin-bottom:44px;max-width:500px;margin-left:auto;margin-right:auto;}
 .contact-sub strong{color:var(--slate-white);}
-
-/* VIDEO MODAL */
-#video-modal{position:fixed;inset:0;z-index:9998;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(4,9,20,0.92);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity 0.3s var(--ease);}
-#video-modal.open{opacity:1;pointer-events:all;animation:overlayIn 0.3s var(--ease) forwards;}
-.modal-inner{position:relative;width:100%;max-width:880px;background:var(--navy-light);border:1px solid rgba(77,255,195,0.2);border-radius:10px;overflow:hidden;box-shadow:0 40px 100px -20px rgba(0,0,0,0.8);animation:modalIn 0.35s var(--ease) forwards;}
-.modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--navy-mid);}
-.modal-title{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.1em;text-transform:uppercase;}
-.modal-close{background:none;border:1px solid var(--navy-mid);border-radius:4px;color:var(--slate);font-family:var(--font-mono);font-size:var(--fz-xs);padding:6px 12px;cursor:pointer;transition:var(--transition);line-height:1;}
-.modal-close:hover{border-color:rgba(77,255,195,0.3);color:var(--green);}
-.modal-video-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;}
-.modal-video-wrap video{width:100%;height:100%;display:block;object-fit:contain;}
 
 /* CURSOR */
 .cursor-dot{position:fixed;width:7px;height:7px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);mix-blend-mode:difference;}
@@ -245,7 +282,6 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .offer-card-header{padding:1.75rem 1.25rem 1.5rem;}
   .offer-specifics{padding:1.25rem 1.25rem;}
   .offer-footer{padding:1rem 1.25rem;}
-  .offer-actions{padding:0 1.25rem 1.25rem;}
   .pricing-row{flex-direction:column;align-items:flex-start;gap:10px;padding:18px 20px;}
   .pricing-footer{flex-direction:column;align-items:flex-start;gap:10px;}
   .contact-section{padding:70px 0 100px;}
@@ -255,7 +291,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .mark-wrap{padding:12px 14px;}
   .hero-svg{width:110px;}
   .hero-mark{margin-bottom:32px;}
-  .modal-inner{border-radius:6px;}
+  .hero-video-inner{border-radius:6px;}
 }
 @media(max-width:480px){
   nav{padding:0 14px;}
@@ -264,8 +300,6 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .trust-item{padding:6px 10px;font-size:10px;}
   .trust-item::after{display:none;}
   .offer-footer{flex-direction:column;align-items:flex-start;}
-  .offer-actions{flex-direction:column;align-items:stretch;}
-  .offer-actions .cta-primary,.offer-actions .cta-secondary{justify-content:center;}
 }
 </style>
 </head>
@@ -314,41 +348,15 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   <span class="intro-studio-text">AutFlow Studio</span>
 </div>
 
-<!-- VIDEO MODAL — unchanged structure, updated label only -->
-<div id="video-modal" role="dialog" aria-modal="true" aria-label="Before and after rebuild example">
-  <div class="modal-inner">
-    <div class="modal-header">
-      <span class="modal-title">// Before &amp; After: Conversion Rebuild</span>
-      <button class="modal-close" id="modal-close-btn" aria-label="Close video">&#10005; Close</button>
-    </div>
-    <div class="modal-video-wrap">
-      <video id="modal-video" controls preload="none">
-        <source src="X.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-      </video>
-    </div>
-  </div>
-</div>
-
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- ============================================================
-     STICKY BOTTOM CTA — REWRITTEN
-     Old: "Most SaaS pages lose the trial conversion before the visitor reaches the CTA. The structure is why."
-     New: More specific, outcome-oriented, speaks to CAC waste
-     ============================================================ -->
 <div id="sticky-cta">
   <span class="sticky-cta-text">Your acquisition spend is working. Your landing page is where it stops paying off.</span>
 </div>
 
 <a class="skip-to-content" href="#content">Skip to Content</a>
 
-<!-- ============================================================
-     NAV — REWRITTEN CTA
-     Old: "Request a Benchmark →"
-     New: Action-oriented, implies evaluation not sales
-     ============================================================ -->
 <nav>
   <a href="/" class="nav-logo" aria-label="AutFlow Studio home">
     <svg class="hex-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 96" fill="none">
@@ -388,18 +396,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 <div id="content">
 <main>
 
-  <!-- ============================================================
-       HERO — FULLY REWRITTEN
-       Changes:
-       - Eyebrow: more specific, CRO-specialist framing
-       - H1: reframed from generic to CAC-specific pain
-       - Hero problem: sharpened, "deal breaks" kept (strong), em word refined
-       - Sub: tightened, removed vague "how a skeptical buyer evaluates"
-         replaced with concrete 5-second clarity language
-       - CTA: changed from passive "See How" to active evaluation framing
-       - Stats: removed generic industry stats, added evaluation-specific
-         framing that implies experience without fake numbers
-       ============================================================ -->
+  <!-- HERO -->
   <section class="hero" aria-label="Hero">
     <div class="hero-mark fade-up d1">
       <div class="mark-wrap">
@@ -442,25 +439,38 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       </div>
     </div>
 
-    <!-- EYEBROW: was generic, now positions specialization explicitly -->
     <span class="hero-eyebrow fade-up d2">SaaS Landing Page CRO — Above-the-Fold Clarity &amp; Signup Conversion Specialist</span>
 
-    <!-- H1 + HERO PROBLEM: kept rhythm, sharpened the pain point -->
     <p class="hero-h1 fade-up d3">Your traffic isn't the problem.</p>
     <p class="hero-problem fade-up d3">Your landing page is <em>burning it</em>.</p>
 
-    <!-- SUB: replaced vague "skeptical buyer" with concrete 5-second clarity framing -->
     <p class="hero-sub fade-up d4">
       SaaS founders invest heavily in acquisition — paid, content, outbound — then send that traffic to a page that fails the first test every visitor runs: <strong>does this solve my problem, and is it worth signing up to find out?</strong> That question gets answered in under 5 seconds or not at all. I rebuild your landing page structure so it answers that question before the visitor makes the decision to leave.
     </p>
 
-    <!-- CTA: changed from passive scroll anchor to active evaluation framing -->
     <div class="hero-cta-group fade-up d5">
       <a href="#offer" class="cta-secondary js-scroll-offer">See How the Evaluation Works &#8594;</a>
     </div>
 
-    <!-- STATS: removed fake/unsupported numbers, replaced with process-anchored specifics -->
-    <div class="hero-stats fade-up d6">
+    <!-- ============================================================
+         INLINE VIDEO — moved from modal, same visual container style
+         ============================================================ -->
+    <div class="hero-video-wrap fade-up d6">
+      <span class="hero-video-label">// Before &amp; After: Conversion Rebuild</span>
+      <div class="hero-video-inner">
+        <div class="hero-video-header">
+          <span class="hero-video-title">// Before &amp; After: Conversion Rebuild</span>
+        </div>
+        <div class="hero-video-player-wrap">
+          <video controls preload="none">
+            <source src="X.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-stats fade-up d7">
       <div class="hero-stat-item">
         <span class="hero-stat-num">5 sec</span>
         <span class="hero-stat-label">the window your above-the-fold has to pass or fail</span>
@@ -476,11 +486,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </div>
   </section>
 
-  <!-- ============================================================
-       TRUST BAR — REWRITTEN
-       Old: generic process claims
-       New: outcome-specific signals that imply specialization
-       ============================================================ -->
+  <!-- TRUST BAR -->
   <div class="trust-bar fade-up">
     <div class="trust-item"><span class="trust-dot"></span>Above-the-Fold Clarity Within 5 Seconds</div>
     <div class="trust-item"><span class="trust-dot"></span>Signup-First Information Architecture</div>
@@ -488,11 +494,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     <div class="trust-item"><span class="trust-dot"></span>Full Code Ownership — No Platform Lock-In</div>
   </div>
 
-  <!-- ============================================================
-       METRICS TICKER — REWRITTEN
-       Old: abstract metrics like "Zero Vague Deliverables"
-       New: specificity-first, outcome language
-       ============================================================ -->
+  <!-- METRICS TICKER -->
   <div class="metrics-ticker-wrap fade-up">
     <div class="metrics-ticker" id="ticker">
       <div class="ticker-item"><span class="ticker-num">5 sec</span><span class="ticker-label">Above-the-Fold Clarity Test</span></div>
@@ -512,12 +514,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </div>
   </div>
 
-  <!-- ============================================================
-       ABOUT ME — REWRITTEN
-       Old: "I've spent years working through why..."
-       New: Implies focused SaaS CRO experience, names the three
-            structural failures with more authority, no fake claims
-       ============================================================ -->
+  <!-- ABOUT -->
   <section id="about" style="padding-bottom:0;">
     <h2 class="numbered-heading fade-up">About Me</h2>
     <div class="about-block fade-up d1">
@@ -526,14 +523,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </div>
   </section>
 
-  <!-- ============================================================
-       WHAT I DO — REWRITTEN
-       Old: "how a skeptical buyer evaluates a new tool" (good, kept)
-       Changes:
-       - Card 1: sharpened the one implicit question framing
-       - Card 2: replaced vague "load performance" with CAC framing,
-         tightened all four levers to be more concrete and outcome-linked
-       ============================================================ -->
+  <!-- WHAT I DO -->
   <section id="services" style="padding-top:80px;padding-bottom:0;">
     <h2 class="numbered-heading fade-up">What I Do</h2>
     <div class="services-grid">
@@ -553,18 +543,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </div>
   </section>
 
-  <!-- ============================================================
-       HOW IT WORKS — FULLY REWRITTEN (most critical section)
-       Changes:
-       - Scope tag: reframes from "benchmark" to risk-reversal framing
-       - H3: rewritten to lead with the 48-hour rebuild, risk-reversal close
-       - Lead text: removed "benchmark" language, replaced with
-         selective + high-effort framing — not desperate, not free
-       - Offer points: all four rewritten to be more concrete and
-         outcome-specific; removed vague "benchmark includes" label
-       - Footer process: tightened, no-call framing preserved and sharpened
-       - CTA button: updated to match rebuilt section (before/after)
-       ============================================================ -->
+  <!-- HOW IT WORKS -->
   <section id="offer" style="padding-top:80px;padding-bottom:0;">
     <h2 class="numbered-heading fade-up">How It Works</h2>
     <div class="offer-card fade-up d1">
@@ -606,22 +585,10 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
         </div>
       </div>
 
-      <div class="offer-actions">
-        <button class="cta-secondary js-open-video" aria-label="Watch before and after rebuild example">See a Before &amp; After Rebuild &#9654;</button>
-      </div>
-
     </div>
   </section>
 
-  <!-- ============================================================
-       PRICING — REWRITTEN POSITIONING LANGUAGE ONLY
-       Numbers unchanged ($400 / $1,200)
-       Changes:
-       - Descriptions reframed as specialist-tier engagements
-       - "from" retained (preserves flexibility)
-       - Footer note rewritten to reinforce premium positioning
-       - Footer CTA rewritten to be more direct
-       ============================================================ -->
+  <!-- PRICING -->
   <section id="pricing" style="padding-top:80px;">
     <h2 class="numbered-heading fade-up">Pricing</h2>
     <div class="pricing-wrapper fade-up d1">
@@ -647,16 +614,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </div>
   </section>
 
-  <!-- ============================================================
-       CONTACT — REWRITTEN
-       Old: "See what a structurally sound version of your page actually looks like."
-       New: Selective, evaluation-framed, risk-reversal close
-       Changes:
-       - Label: changed from "Start Here" to "Submit for Evaluation"
-       - H2: rewritten to imply selective, diagnostic process
-       - Sub: tightened, "coded page" kept, "no contract" language sharpened
-       - CTA button: rewritten from "Send My Page URL" to action-specific
-       ============================================================ -->
+  <!-- CONTACT -->
   <section id="contact" class="contact-section">
     <span class="contact-label fade-up">Submit for Evaluation</span>
     <h2 class="contact-h2 fade-up d1">Find out exactly <span>what's blocking your signups</span> — before you commit to fixing it.</h2>
@@ -706,34 +664,6 @@ function checkSticky(){
   else{stickyCTA.classList.remove('visible');}
 }
 window.addEventListener('scroll',checkSticky,{passive:true});
-
-/* VIDEO MODAL */
-var modal=document.getElementById('video-modal');
-var video=document.getElementById('modal-video');
-var closeBtn=document.getElementById('modal-close-btn');
-
-function openModal(){
-  modal.classList.add('open');
-  document.body.style.overflow='hidden';
-  video.play();
-}
-function closeModal(){
-  modal.classList.remove('open');
-  document.body.style.overflow='';
-  video.pause();
-  video.currentTime=0;
-}
-
-document.querySelectorAll('.js-open-video').forEach(function(btn){
-  btn.addEventListener('click',function(e){e.preventDefault();openModal();});
-});
-closeBtn.addEventListener('click',closeModal);
-modal.addEventListener('click',function(e){
-  if(e.target===modal){closeModal();}
-});
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape'&&modal.classList.contains('open')){closeModal();}
-});
 
 /* SMOOTH SCROLL */
 document.querySelectorAll('.js-scroll-contact').forEach(function(a){
