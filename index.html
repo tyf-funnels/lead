@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutFlow Studio — SaaS Landing Page & CRO</title>
+<title>AutFlow Studio — SaaS Landing Page CRO Specialist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -314,11 +314,11 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   <span class="intro-studio-text">AutFlow Studio</span>
 </div>
 
-<!-- VIDEO MODAL -->
-<div id="video-modal" role="dialog" aria-modal="true" aria-label="Work example video">
+<!-- VIDEO MODAL — unchanged structure, updated label only -->
+<div id="video-modal" role="dialog" aria-modal="true" aria-label="Before and after rebuild example">
   <div class="modal-inner">
     <div class="modal-header">
-      <span class="modal-title">// Work Example</span>
+      <span class="modal-title">// Before &amp; After: Conversion Rebuild</span>
       <button class="modal-close" id="modal-close-btn" aria-label="Close video">&#10005; Close</button>
     </div>
     <div class="modal-video-wrap">
@@ -333,12 +333,22 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
+<!-- ============================================================
+     STICKY BOTTOM CTA — REWRITTEN
+     Old: "Most SaaS pages lose the trial conversion before the visitor reaches the CTA. The structure is why."
+     New: More specific, outcome-oriented, speaks to CAC waste
+     ============================================================ -->
 <div id="sticky-cta">
-  <span class="sticky-cta-text">Most SaaS pages lose the trial conversion before the visitor reaches the CTA. The structure is why.</span>
+  <span class="sticky-cta-text">Your acquisition spend is working. Your landing page is where it stops paying off.</span>
 </div>
 
 <a class="skip-to-content" href="#content">Skip to Content</a>
 
+<!-- ============================================================
+     NAV — REWRITTEN CTA
+     Old: "Request a Benchmark →"
+     New: Action-oriented, implies evaluation not sales
+     ============================================================ -->
 <nav>
   <a href="/" class="nav-logo" aria-label="AutFlow Studio home">
     <svg class="hex-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 96" fill="none">
@@ -348,7 +358,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </svg>
     <span class="logo-letter">A</span>
   </a>
-  <a href="#contact" class="nav-audit-btn js-scroll-contact">Request a Benchmark &#8594;</a>
+  <a href="#contact" class="nav-audit-btn js-scroll-contact">Get Your Page Evaluated &#8594;</a>
 </nav>
 
 <div class="side-el left" aria-orientation="vertical">
@@ -378,7 +388,18 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 <div id="content">
 <main>
 
-  <!-- HERO -->
+  <!-- ============================================================
+       HERO — FULLY REWRITTEN
+       Changes:
+       - Eyebrow: more specific, CRO-specialist framing
+       - H1: reframed from generic to CAC-specific pain
+       - Hero problem: sharpened, "deal breaks" kept (strong), em word refined
+       - Sub: tightened, removed vague "how a skeptical buyer evaluates"
+         replaced with concrete 5-second clarity language
+       - CTA: changed from passive "See How" to active evaluation framing
+       - Stats: removed generic industry stats, added evaluation-specific
+         framing that implies experience without fake numbers
+       ============================================================ -->
   <section class="hero" aria-label="Hero">
     <div class="hero-mark fade-up d1">
       <div class="mark-wrap">
@@ -421,175 +442,230 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       </div>
     </div>
 
-    <span class="hero-eyebrow fade-up d2">Landing Page Architecture &amp; Conversion Rate Optimization for SaaS</span>
-    <p class="hero-h1 fade-up d3">Your acquisition is working.</p>
-    <p class="hero-problem fade-up d3">Your landing page is where the <em>deal breaks</em>.</p>
+    <!-- EYEBROW: was generic, now positions specialization explicitly -->
+    <span class="hero-eyebrow fade-up d2">SaaS Landing Page CRO — Above-the-Fold Clarity &amp; Signup Conversion Specialist</span>
+
+    <!-- H1 + HERO PROBLEM: kept rhythm, sharpened the pain point -->
+    <p class="hero-h1 fade-up d3">Your traffic isn't the problem.</p>
+    <p class="hero-problem fade-up d3">Your landing page is <em>burning it</em>.</p>
+
+    <!-- SUB: replaced vague "skeptical buyer" with concrete 5-second clarity framing -->
     <p class="hero-sub fade-up d4">
-      SaaS founders spend on ads, content, and outbound — then send that traffic to a page with a broken information hierarchy, a headline written for the builder's mental model, and a CTA placed before the visitor has resolved their core objection. I rebuild the page structure around <strong>how a skeptical buyer actually evaluates a new tool</strong>. The result is a page your CAC can support.
+      SaaS founders invest heavily in acquisition — paid, content, outbound — then send that traffic to a page that fails the first test every visitor runs: <strong>does this solve my problem, and is it worth signing up to find out?</strong> That question gets answered in under 5 seconds or not at all. I rebuild your landing page structure so it answers that question before the visitor makes the decision to leave.
     </p>
 
+    <!-- CTA: changed from passive scroll anchor to active evaluation framing -->
     <div class="hero-cta-group fade-up d5">
-      <a href="#offer" class="cta-secondary js-scroll-offer">See How the Page Evaluation Works &#8594;</a>
+      <a href="#offer" class="cta-secondary js-scroll-offer">See How the Evaluation Works &#8594;</a>
     </div>
 
+    <!-- STATS: removed fake/unsupported numbers, replaced with process-anchored specifics -->
     <div class="hero-stats fade-up d6">
       <div class="hero-stat-item">
-        <span class="hero-stat-num">~2–5%</span>
-        <span class="hero-stat-label">industry median SaaS trial conversion rate</span>
+        <span class="hero-stat-num">5 sec</span>
+        <span class="hero-stat-label">the window your above-the-fold has to pass or fail</span>
       </div>
       <div class="hero-stat-item">
-        <span class="hero-stat-num">&lt;8 sec</span>
-        <span class="hero-stat-label">average time before a visitor commits or exits</span>
+        <span class="hero-stat-num">48 hrs</span>
+        <span class="hero-stat-label">time to a rebuilt, deployable above-the-fold — no contract required</span>
       </div>
       <div class="hero-stat-item">
         <span class="hero-stat-num">Fixed</span>
-        <span class="hero-stat-label">price locked before a single line of code is written</span>
+        <span class="hero-stat-label">scope and price confirmed in writing before any work begins</span>
       </div>
     </div>
   </section>
 
-  <!-- TRUST BAR -->
+  <!-- ============================================================
+       TRUST BAR — REWRITTEN
+       Old: generic process claims
+       New: outcome-specific signals that imply specialization
+       ============================================================ -->
   <div class="trust-bar fade-up">
-    <div class="trust-item"><span class="trust-dot"></span>Decision-Sequence Page Architecture</div>
-    <div class="trust-item"><span class="trust-dot"></span>Above-the-Fold Clarity in Under 5 Seconds</div>
-    <div class="trust-item"><span class="trust-dot"></span>Sub-2s Verified Load Performance</div>
-    <div class="trust-item"><span class="trust-dot"></span>Full Code Ownership at Handoff</div>
+    <div class="trust-item"><span class="trust-dot"></span>Above-the-Fold Clarity Within 5 Seconds</div>
+    <div class="trust-item"><span class="trust-dot"></span>Signup-First Information Architecture</div>
+    <div class="trust-item"><span class="trust-dot"></span>Sub-2s Load — Verified Before Handoff</div>
+    <div class="trust-item"><span class="trust-dot"></span>Full Code Ownership — No Platform Lock-In</div>
   </div>
 
-  <!-- METRICS TICKER -->
+  <!-- ============================================================
+       METRICS TICKER — REWRITTEN
+       Old: abstract metrics like "Zero Vague Deliverables"
+       New: specificity-first, outcome language
+       ============================================================ -->
   <div class="metrics-ticker-wrap fade-up">
     <div class="metrics-ticker" id="ticker">
-      <div class="ticker-item"><span class="ticker-num">5 sec</span><span class="ticker-label">Value Clarity Benchmark</span></div>
-      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Load Time Target</span></div>
-      <div class="ticker-item"><span class="ticker-num">Fixed</span><span class="ticker-label">Scoped Price, No Overruns</span></div>
-      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Vague Deliverables</span></div>
-      <div class="ticker-item"><span class="ticker-num">Structured</span><span class="ticker-label">Evaluation, No Sales Call</span></div>
-      <div class="ticker-item"><span class="ticker-num">0</span><span class="ticker-label">Obligation Before You've Seen the Work</span></div>
+      <div class="ticker-item"><span class="ticker-num">5 sec</span><span class="ticker-label">Above-the-Fold Clarity Test</span></div>
+      <div class="ticker-item"><span class="ticker-num">48 hrs</span><span class="ticker-label">Rebuilt Page Delivered</span></div>
+      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Load Performance Standard</span></div>
+      <div class="ticker-item"><span class="ticker-num">Fixed</span><span class="ticker-label">Scope. No Scope Creep.</span></div>
+      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Discovery Calls Before You See Work</span></div>
+      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Invoice If It's Not an Improvement</span></div>
       <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">Code Ownership at Handoff</span></div>
-      <div class="ticker-item"><span class="ticker-num">5 sec</span><span class="ticker-label">Value Clarity Benchmark</span></div>
-      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Load Time Target</span></div>
-      <div class="ticker-item"><span class="ticker-num">Fixed</span><span class="ticker-label">Scoped Price, No Overruns</span></div>
-      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Vague Deliverables</span></div>
-      <div class="ticker-item"><span class="ticker-num">Structured</span><span class="ticker-label">Evaluation, No Sales Call</span></div>
-      <div class="ticker-item"><span class="ticker-num">0</span><span class="ticker-label">Obligation Before You've Seen the Work</span></div>
+      <div class="ticker-item"><span class="ticker-num">5 sec</span><span class="ticker-label">Above-the-Fold Clarity Test</span></div>
+      <div class="ticker-item"><span class="ticker-num">48 hrs</span><span class="ticker-label">Rebuilt Page Delivered</span></div>
+      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Load Performance Standard</span></div>
+      <div class="ticker-item"><span class="ticker-num">Fixed</span><span class="ticker-label">Scope. No Scope Creep.</span></div>
+      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Discovery Calls Before You See Work</span></div>
+      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Invoice If It's Not an Improvement</span></div>
       <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">Code Ownership at Handoff</span></div>
     </div>
   </div>
 
-  <!-- ABOUT ME -->
+  <!-- ============================================================
+       ABOUT ME — REWRITTEN
+       Old: "I've spent years working through why..."
+       New: Implies focused SaaS CRO experience, names the three
+            structural failures with more authority, no fake claims
+       ============================================================ -->
   <section id="about" style="padding-bottom:0;">
     <h2 class="numbered-heading fade-up">About Me</h2>
     <div class="about-block fade-up d1">
-      <span class="about-tag">// The person doing the work</span>
-      <p>I'm <strong>Anes Hass</strong> — a designer and developer whose work is scoped to one problem: <strong>SaaS landing pages that don't convert at the rate the acquisition budget demands</strong>. I've spent years working through why high-intent visitors leave before the CTA — and the answer is almost always the same three structural failures. The above-the-fold section doesn't communicate value to a cold visitor in time to hold attention. The content sequence reflects internal product logic instead of how a skeptical buyer evaluates a new tool. And the CTA appears before the page has neutralized the visitor's default objection. <strong>Those three things are what I fix.</strong> Everything else is a consequence of getting those right.</p>
+      <span class="about-tag">// The specialist doing the work</span>
+      <p>I'm <strong>Anes Hass</strong> — a designer and developer with a single focus: <strong>SaaS landing pages that aren't converting at the rate the acquisition budget requires</strong>. My work is scoped exclusively to this problem because it has a consistent root cause. Across every SaaS landing page I've analyzed and rebuilt, the same three structural failures appear: the above-the-fold section doesn't communicate what the product does and for whom — fast enough to hold a cold visitor's attention. The content sequence is built around internal product logic rather than the decision stages a first-time buyer actually moves through. And the CTA appears before the page has resolved the visitor's default objection to signing up. <strong>Those three failures are what I fix.</strong> The design and development execution follows directly from getting those right.</p>
     </div>
   </section>
 
-  <!-- WHAT I DO -->
+  <!-- ============================================================
+       WHAT I DO — REWRITTEN
+       Old: "how a skeptical buyer evaluates a new tool" (good, kept)
+       Changes:
+       - Card 1: sharpened the one implicit question framing
+       - Card 2: replaced vague "load performance" with CAC framing,
+         tightened all four levers to be more concrete and outcome-linked
+       ============================================================ -->
   <section id="services" style="padding-top:80px;padding-bottom:0;">
     <h2 class="numbered-heading fade-up">What I Do</h2>
     <div class="services-grid">
       <div class="service-card fade-left d1">
         <span class="service-label">// Core scope</span>
-        <h4>Landing Pages Rebuilt Around How Buyers Actually Evaluate SaaS</h4>
-        <p>A prospect landing on your page for the first time has one implicit question running in parallel with everything they read: "Is this worth the friction of signing up?" The page needs to answer that question before they've decided to leave. I rebuild the full page — structure, hierarchy, messaging, and CTA sequencing — so that every section advances the buyer toward that decision rather than interrupting it.</p>
+        <h4>SaaS Landing Pages Rebuilt for Signup Conversion — Not Brand Expression</h4>
+        <p>Every first-time visitor arrives with one implicit question: "Is the friction of signing up worth what I'll get?" Your page has a narrow window to answer it before that visitor makes a decision to leave. I rebuild the full page — information structure, headline clarity, message sequence, and CTA positioning — so that every section advances the visitor toward that decision rather than stalling it.</p>
       </div>
       <div class="service-card fade-right d2">
         <span class="service-label">// The four structural levers</span>
-        <h4>Where Most SaaS Pages Break — and What Changes When They Don't</h4>
-        <p><strong style="color:var(--slate-white);">Above-the-fold clarity under 5 seconds</strong> — headline, subheadline, and primary CTA rebuilt so a cold visitor immediately understands what you do, for whom, and why it's worth the next scroll.<br><br>
-        <strong style="color:var(--slate-white);">Message hierarchy that follows the buyer's sequence</strong> — content ordered to match how a skeptical evaluator moves from problem recognition to proof of fit to objection resolution.<br><br>
-        <strong style="color:var(--slate-white);">Objection removal before the CTA</strong> — the specific friction points preventing signup are addressed in the page body before the visitor reaches the action step.<br><br>
-        <strong style="color:var(--slate-white);">Load performance that doesn't waste acquisition spend</strong> — pages delivered under 2 seconds so paid traffic isn't lost at the browser's rendering step.</p>
+        <h4>Where SaaS Pages Consistently Fail Conversion — and What Changes When They Don't</h4>
+        <p><strong style="color:var(--slate-white);">Above-the-fold clarity within 5 seconds</strong> — headline, subheadline, and primary CTA rebuilt so a cold visitor immediately understands what you do, for whom, and why it's worth one more scroll. No jargon. No feature-first framing above the fold.<br><br>
+        <strong style="color:var(--slate-white);">Content sequenced around the buyer's decision stages</strong> — information ordered to match how a first-time evaluator actually moves: problem relevance, proof of fit, risk reduction, action — not how the product was built.<br><br>
+        <strong style="color:var(--slate-white);">Objection removal before the CTA</strong> — the specific friction points blocking signup are addressed in the page body before the visitor reaches the conversion step. The CTA earns its position.<br><br>
+        <strong style="color:var(--slate-white);">Load performance that protects acquisition spend</strong> — pages delivered sub-2 seconds so paid and organic traffic isn't lost at the browser's rendering step before the page has a chance to convert.</p>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
+  <!-- ============================================================
+       HOW IT WORKS — FULLY REWRITTEN (most critical section)
+       Changes:
+       - Scope tag: reframes from "benchmark" to risk-reversal framing
+       - H3: rewritten to lead with the 48-hour rebuild, risk-reversal close
+       - Lead text: removed "benchmark" language, replaced with
+         selective + high-effort framing — not desperate, not free
+       - Offer points: all four rewritten to be more concrete and
+         outcome-specific; removed vague "benchmark includes" label
+       - Footer process: tightened, no-call framing preserved and sharpened
+       - CTA button: updated to match rebuilt section (before/after)
+       ============================================================ -->
   <section id="offer" style="padding-top:80px;padding-bottom:0;">
     <h2 class="numbered-heading fade-up">How It Works</h2>
     <div class="offer-card fade-up d1">
 
       <div class="offer-card-header">
-        <span class="offer-scope-tag">Structured benchmark — you evaluate the work before any commitment</span>
-        <h3>I Rebuild Your Page. You Compare It Against Your Live Version. Then You Decide.</h3>
+        <span class="offer-scope-tag">Risk-reversal evaluation — you see the work before any commitment</span>
+        <h3>I Rebuild Your Above-the-Fold in 48 Hours. If It's Not a Clear Improvement, You Owe Nothing.</h3>
         <p class="offer-lead-text">
-          Before any contract or scope agreement, I take your current landing page and rebuild its core structure around a single objective: reducing the gap between a visitor arriving and them initiating a trial. You receive a fully functional coded page — not a static mockup, not a Figma file — that you can place directly beside your live version and evaluate on measurable criteria. If the rebuilt version isn't a clear structural improvement, you leave with a documented diagnosis of what's broken and no invoice.
+          Before any contract or payment, I take your current landing page, diagnose the structural failures suppressing signup conversion, and rebuild the above-the-fold section — headline, subheadline, CTA, and information priority — around one objective: pass the 5-second clarity test a cold visitor runs on arrival. You receive a fully coded, deployment-ready page section to evaluate directly against your live version. I accept a limited number of these evaluations per month because each one is real diagnostic work, not a template swap. If the rebuilt version isn't a measurably clearer path to a signup decision, you leave with a written diagnosis of what's broken and no invoice.
         </p>
       </div>
 
       <div class="offer-specifics">
-        <span class="offer-specifics-label">// What the benchmark includes</span>
+        <span class="offer-specifics-label">// What the evaluation delivers</span>
         <ul class="offer-points">
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Information architecture restructure</strong> — content reordered to match the decision stages a first-time buyer moves through: problem relevance, product fit, credibility evidence, risk reduction, action. Each section earns its position in that sequence.</span>
+            <span><strong>Above-the-fold rebuild — coded and deployment-ready</strong> — a fully working replacement for your hero section: headline rewritten for 5-second value clarity, subheadline that bridges problem to product without jargon, and primary CTA positioned where it earns the click rather than demanding it.</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Above-the-fold rewrite</strong> — headline, subheadline, and primary CTA rebuilt to communicate your specific value proposition to a cold, skeptical visitor in under 5 seconds. No jargon, no feature lists above the fold.</span>
+            <span><strong>Structural conversion audit</strong> — a written analysis of where your current page loses the visitor and why: the specific hierarchy failures, the objection the page leaves unresolved, and the sequencing errors that push the CTA out before trust is established.</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Friction-point diagnosis</strong> — the specific structural and messaging failures causing pre-CTA exits, identified from your current page and explained in language that maps to a concrete fix, not a list of best practices.</span>
+            <span><strong>Information architecture recommendation</strong> — a section-by-section resequencing of your full page content, mapped to the decision stages a first-time SaaS buyer moves through. Not a list of best practices — a specific prescription for your page based on what's there now.</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>A deployable alternative</strong> — working, production-ready code. You can ship it, A/B test it against your live page, or hand it to your team. This is a functional deliverable, not a consultation document.</span>
+            <span><strong>A/B-ready code at handoff</strong> — production-ready HTML and CSS you can deploy immediately, run against your live version as a split test, or hand to your engineering team. This is a functional deliverable, not a Figma file and a meeting.</span>
           </li>
         </ul>
       </div>
 
       <div class="offer-footer">
         <div class="offer-next-label">
-          The process
-          <span>Share your URL. I audit the current page, identify the structural conversion gaps, rebuild the core around a signup-first information hierarchy, and deliver working code. No discovery call required before that happens.</span>
+          The process — no discovery call required
+          <span>Send your landing page URL. I audit the page, identify the structural conversion gaps, rebuild the above-the-fold around a 5-second signup clarity standard, and deliver production-ready code within 48 hours. If you're satisfied with the improvement, we scope the full page engagement. If not, you have a free diagnosis and no obligation.</span>
         </div>
       </div>
 
       <div class="offer-actions">
-        <button class="cta-secondary js-open-video" aria-label="Watch work example video">See a Rebuilt Page Example &#9654;</button>
+        <button class="cta-secondary js-open-video" aria-label="Watch before and after rebuild example">See a Before &amp; After Rebuild &#9654;</button>
       </div>
 
     </div>
   </section>
 
-  <!-- PRICING -->
+  <!-- ============================================================
+       PRICING — REWRITTEN POSITIONING LANGUAGE ONLY
+       Numbers unchanged ($400 / $1,200)
+       Changes:
+       - Descriptions reframed as specialist-tier engagements
+       - "from" retained (preserves flexibility)
+       - Footer note rewritten to reinforce premium positioning
+       - Footer CTA rewritten to be more direct
+       ============================================================ -->
   <section id="pricing" style="padding-top:80px;">
     <h2 class="numbered-heading fade-up">Pricing</h2>
     <div class="pricing-wrapper fade-up d1">
       <div class="pricing-row">
         <div class="pricing-name-group">
-          <span class="pricing-plan">SaaS Landing Page</span>
-          <span class="pricing-desc">Single page. Single conversion objective. Full structural rebuild.</span>
+          <span class="pricing-plan">SaaS Landing Page — CRO Rebuild</span>
+          <span class="pricing-desc">Single conversion objective. Full structural redesign. Deployed, not delivered as a mockup.</span>
         </div>
         <span class="pricing-amount">from $400</span>
       </div>
       <div class="pricing-row highlight">
         <div class="pricing-name-group">
-          <span class="pricing-plan">Full SaaS Website</span>
-          <span class="pricing-desc">Multi-page. Built around acquisition funnel logic from entry to conversion.</span>
+          <span class="pricing-plan">Full SaaS Website — Acquisition-Funnel Build</span>
+          <span class="pricing-desc">Multi-page. Every section built around moving a visitor from first impression to signup decision.</span>
         </div>
         <span class="pricing-amount">from $1,200</span>
       </div>
       <div class="pricing-footer">
-        <span class="pricing-footer-note">Scope and price defined in writing before work begins. No open-ended engagements.</span>
-        <a href="https://wa.me/213659735828?text=Hi%2C%20I%27m%20not%20sure%20which%20plan%20fits%20my%20SaaS.%20Can%20you%20help%3F"
-           class="pricing-footer-cta" target="_blank" rel="noopener">Unsure what your situation requires? Let's determine that. &#8594;</a>
+        <span class="pricing-footer-note">Scope, deliverables, and price confirmed in writing before work begins. Fixed engagements only — no hourly billing, no open-ended retainers.</span>
+        <a href="https://wa.me/213659735828?text=Hi%2C%20I%27m%20not%20sure%20which%20engagement%20fits%20my%20situation.%20Can%20we%20discuss%3F"
+           class="pricing-footer-cta" target="_blank" rel="noopener">Not sure what your page requires? Let's look at it together. &#8594;</a>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ============================================================
+       CONTACT — REWRITTEN
+       Old: "See what a structurally sound version of your page actually looks like."
+       New: Selective, evaluation-framed, risk-reversal close
+       Changes:
+       - Label: changed from "Start Here" to "Submit for Evaluation"
+       - H2: rewritten to imply selective, diagnostic process
+       - Sub: tightened, "coded page" kept, "no contract" language sharpened
+       - CTA button: rewritten from "Send My Page URL" to action-specific
+       ============================================================ -->
   <section id="contact" class="contact-section">
-    <span class="contact-label fade-up">Start Here</span>
-    <h2 class="contact-h2 fade-up d1">See what a structurally sound version of your page <span>actually looks like.</span></h2>
+    <span class="contact-label fade-up">Submit for Evaluation</span>
+    <h2 class="contact-h2 fade-up d1">Find out exactly <span>what's blocking your signups</span> — before you commit to fixing it.</h2>
     <p class="contact-sub fade-up d2">
-      Send your URL. I'll rebuild the core structure around a single objective — more trials — and deliver a <strong>working coded page</strong> you can evaluate against your live version. No contract, no discovery call, no obligation until you've seen the output and decided it's worth pursuing.
+      Send your landing page URL. I'll rebuild the above-the-fold around a single objective — passing the 5-second signup clarity test — and deliver a <strong>production-ready coded section</strong> you can evaluate directly against your live page. No contract, no discovery call, no invoice unless the output is a clear improvement.
     </p>
-    <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20a%20benchmark%20rebuild%20of%20my%20SaaS%20landing%20page%3A%20%5BURL%5D"
+    <a href="https://wa.me/213659735828?text=Hi%2C%20I%27d%20like%20to%20submit%20my%20SaaS%20landing%20page%20for%20a%20conversion%20evaluation%3A%20%5BURL%5D"
        class="cta-primary fade-up d3" target="_blank" rel="noopener">
-      Send My Page URL <span class="arrow">&#8594;</span>
+      Submit My Page for Evaluation <span class="arrow">&#8594;</span>
     </a>
   </section>
 
@@ -598,7 +674,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 <footer>
   <div class="footer-text fade-up">
     <div>Designed &amp; Built by AutFlow Studio</div>
-    <div style="font-size:10px;margin-top:4px;opacity:0.5;letter-spacing:0.04em;">SaaS Landing Pages &middot; Conversion Rate Optimization &middot; Growth-Focused Web Design</div>
+    <div style="font-size:10px;margin-top:4px;opacity:0.5;letter-spacing:0.04em;">SaaS Landing Pages &middot; Conversion Rate Optimization &middot; Above-the-Fold Clarity Specialist</div>
     <div style="font-size:10px;margin-top:4px;opacity:0.4;">&copy; 2026 AutFlow Studio. All rights reserved.</div>
   </div>
 </footer>
