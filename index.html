@@ -115,6 +115,8 @@ section{max-width:920px;padding:110px 0;}
 .hero-problem em::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;animation:underlineGrow 0.8s var(--ease) 3.2s forwards;}
 .hero-sub{font-size:clamp(16px,2vw,20px);color:var(--slate-light);line-height:1.65;max-width:560px;margin-bottom:44px;font-weight:400;}
 .hero-sub strong{color:var(--slate-white);font-weight:500;}
+
+/* PRIMARY CTA — single unified action */
 .cta-primary{display:inline-flex;align-items:center;gap:10px;color:var(--navy);background:var(--green);border:none;border-radius:var(--radius);padding:18px 28px;font-family:var(--font-mono);font-size:var(--fz-sm);font-weight:600;line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);box-shadow:0 0 40px rgba(77,255,195,0.25);letter-spacing:0.02em;}
 .cta-primary:hover{background:rgba(77,255,195,0.88);box-shadow:0 0 60px rgba(77,255,195,0.4);transform:translateY(-3px);}
 .cta-primary .arrow{transition:transform 0.2s ease;}
@@ -122,19 +124,22 @@ section{max-width:920px;padding:110px 0;}
 .cta-secondary{display:inline-flex;align-items:center;gap:8px;color:var(--slate-light);background:transparent;border:1px solid var(--navy-mid);border-radius:var(--radius);padding:18px 24px;font-family:var(--font-mono);font-size:var(--fz-xs);line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);letter-spacing:0.03em;}
 .cta-secondary:hover{border-color:rgba(77,255,195,0.3);color:var(--green);}
 .hero-cta-group{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+
+/* HERO PROOF STRIP — replaces video, adds social proof anchoring */
+.hero-proof-strip{margin-top:48px;border:1px solid rgba(77,255,195,0.12);border-radius:10px;background:rgba(13,27,48,0.7);overflow:hidden;box-shadow:0 32px 80px -20px rgba(0,0,0,0.6);}
+.proof-strip-header{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid var(--navy-mid);}
+.proof-strip-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(77,255,195,0.5);}
+.proof-strip-label{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.12em;text-transform:uppercase;}
+.proof-strip-body{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;align-items:center;}
+.proof-divider{width:1px;height:100%;background:var(--navy-mid);align-self:stretch;}
+.proof-item{padding:24px 28px;display:flex;flex-direction:column;gap:6px;}
+.proof-item-num{font-family:var(--font-mono);font-size:clamp(20px,2.5vw,28px);font-weight:500;color:var(--green);}
+.proof-item-label{font-size:var(--fz-xs);color:var(--slate);line-height:1.5;}
+
 .hero-stats{margin-top:56px;padding-top:32px;border-top:1px solid var(--navy-mid);display:flex;gap:48px;flex-wrap:wrap;}
 .hero-stat-item{display:flex;flex-direction:column;gap:4px;}
 .hero-stat-num{font-family:var(--font-mono);font-size:clamp(22px,3vw,32px);font-weight:500;color:var(--slate-white);}
 .hero-stat-label{font-size:var(--fz-xs);color:var(--slate);letter-spacing:0.03em;}
-
-/* HERO INLINE VIDEO */
-.hero-video-wrap{margin-top:48px;max-width:100%;}
-.hero-video-label{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;display:block;}
-.hero-video-inner{background:var(--navy-light);border:1px solid rgba(77,255,195,0.2);border-radius:10px;overflow:hidden;box-shadow:0 40px 100px -20px rgba(0,0,0,0.8);}
-.hero-video-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--navy-mid);}
-.hero-video-title{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.1em;text-transform:uppercase;}
-.hero-video-player-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;}
-.hero-video-player-wrap video{width:100%;height:100%;display:block;object-fit:contain;}
 
 /* TRUST BAR */
 .trust-bar{border-top:1px solid var(--navy-mid);border-bottom:1px solid var(--navy-mid);padding:20px 0;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;background:rgba(13,27,48,0.6);}
@@ -224,11 +229,12 @@ section{max-width:920px;padding:110px 0;}
 footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-align:center;}
 .footer-text{font-family:var(--font-mono);font-size:var(--fz-xxs);line-height:2.8;color:var(--slate);}
 
-/* WA BUTTON */
-.cta-wa{display:inline-flex;align-items:center;gap:10px;color:var(--navy);background:var(--green);border:none;border-radius:var(--radius);padding:18px 28px;font-family:var(--font-mono);font-size:var(--fz-sm);font-weight:600;line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);box-shadow:0 0 40px rgba(77,255,195,0.25);letter-spacing:0.02em;}
-.cta-wa:hover{background:rgba(77,255,195,0.88);box-shadow:0 0 60px rgba(77,255,195,0.4);transform:translateY(-3px);}
-.cta-wa .arrow{transition:transform 0.2s ease;}
-.cta-wa:hover .arrow{transform:translateX(4px);}
+/* INSTAGRAM DM CTA — unified primary action */
+.cta-ig{display:inline-flex;align-items:center;gap:10px;color:var(--navy);background:var(--green);border:none;border-radius:var(--radius);padding:18px 28px;font-family:var(--font-mono);font-size:var(--fz-sm);font-weight:600;line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);box-shadow:0 0 40px rgba(77,255,195,0.25);letter-spacing:0.02em;}
+.cta-ig:hover{background:rgba(77,255,195,0.88);box-shadow:0 0 60px rgba(77,255,195,0.4);transform:translateY(-3px);}
+.cta-ig .arrow{transition:transform 0.2s ease;}
+.cta-ig:hover .arrow{transform:translateX(4px);}
+.cta-ig svg{width:16px;height:16px;flex-shrink:0;}
 
 /* RESPONSIVE */
 @media(max-width:768px){
@@ -255,12 +261,14 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .contact-section{padding:70px 0 100px;}
   .contact-h2{font-size:clamp(28px,7vw,44px);}
   .hero-cta-group{flex-direction:column;align-items:flex-start;}
-  .cta-primary,.cta-secondary,.cta-wa{width:100%;justify-content:center;}
+  .cta-primary,.cta-secondary,.cta-ig{width:100%;justify-content:center;}
   .mark-wrap{padding:12px 14px;}
   .hero-svg{width:110px;}
   .hero-mark{margin-bottom:32px;}
-  .hero-video-inner{border-radius:6px;}
   .guarantee-block{flex-direction:column;gap:12px;}
+  .proof-strip-body{grid-template-columns:1fr;gap:0;}
+  .proof-divider{width:100%;height:1px;align-self:auto;}
+  .proof-item{padding:18px 20px;}
 }
 @media(max-width:480px){
   nav{padding:0 14px;}
@@ -321,10 +329,12 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- STICKY CTA -->
+<!-- STICKY BOTTOM CTA — single action, Instagram DM -->
 <div id="sticky-cta">
-  <span class="sticky-cta-text">You're building an audience. Your landing page should be converting it into clients.</span>
-  <a href="https://wa.me/213659735828" class="sticky-cta-btn" target="_blank" rel="noreferrer">Message on WhatsApp &#8594;</a>
+  <span class="sticky-cta-text">Your Instagram is growing. Your landing page should be converting it.</span>
+  <a href="https://instagram.com/aneshassnawi" class="sticky-cta-btn" target="_blank" rel="noreferrer">
+    Send a DM to get started &#8594;
+  </a>
 </div>
 
 <a class="skip-to-content" href="#content">Skip to Content</a>
@@ -339,18 +349,20 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </svg>
     <span class="logo-letter">A</span>
   </a>
-  <a href="https://wa.me/213659735828" class="nav-cta-btn js-scroll-contact" target="_blank" rel="noreferrer">Get Your Page Rebuilt &#8594;</a>
+  <a href="https://instagram.com/aneshassnawi" class="nav-cta-btn" target="_blank" rel="noreferrer">Send a DM &#8594;</a>
 </nav>
 
-<!-- SIDE SOCIAL -->
+<!-- SIDE SOCIAL — Instagram icon only -->
 <div class="side-el left" aria-orientation="vertical">
   <ul class="social-list" aria-label="Contact">
     <li>
-      <a href="https://wa.me/213659735828" aria-label="WhatsApp" target="_blank" rel="noreferrer">
+      <a href="https://instagram.com/aneshassnawi" aria-label="Instagram @aneshassnawi" target="_blank" rel="noreferrer">
+        <!-- Instagram icon -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <title>WhatsApp</title>
-          <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/>
-          <path d="M9 10c.5 1 1 1.5 2 2s1.5.5 2.5-.5"/>
+          <title>Instagram</title>
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
         </svg>
       </a>
     </li>
@@ -409,46 +421,46 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     <p class="hero-problem fade-up d3">Your landing page is <em>killing your sales</em>.</p>
 
     <p class="hero-sub fade-up d4">
-      You're putting in the work — posting consistently, building trust, getting DMs. Then you send people to a landing page that fails to close them. <strong>The problem isn't your offer. It's how the page presents it.</strong> I rebuild landing pages that turn your Instagram traffic into paying clients and course sales — in 48 hours.
+      You're posting consistently, building trust, getting DMs — then sending people to a landing page that fails to close them. <strong>The problem isn't your offer. It's how the page presents it.</strong> I rebuild landing pages that turn your Instagram traffic into paying clients, in 48 hours.
     </p>
 
+    <!-- SINGLE UNIFIED CTA — Instagram DM only -->
     <div class="hero-cta-group fade-up d5">
-      <a href="https://wa.me/213659735828" class="cta-wa" target="_blank" rel="noreferrer">
-        Message Me on WhatsApp <span class="arrow">&#8594;</span>
+      <a href="https://instagram.com/aneshassnawi" class="cta-ig" target="_blank" rel="noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        Send me a DM to get started <span class="arrow">&#8594;</span>
       </a>
       <a href="#offer" class="cta-secondary js-scroll-offer">See How It Works &#8594;</a>
     </div>
 
-    <!-- INLINE VIDEO -->
-    <div class="hero-video-wrap fade-up d6">
-      <span class="hero-video-label">// Before &amp; After: Page Rebuild</span>
-      <div class="hero-video-inner">
-        <div class="hero-video-header">
-          <span class="hero-video-title">// Before &amp; After: Page Rebuild</span>
+    <!-- PROOF STRIP — replaces video, static & high-converting -->
+    <div class="hero-proof-strip fade-up d6">
+      <div class="proof-strip-header">
+        <div class="proof-strip-dot"></div>
+        <span class="proof-strip-label">// What you get</span>
+      </div>
+      <div class="proof-strip-body">
+        <div class="proof-item">
+          <span class="proof-item-num">48 hrs</span>
+          <span class="proof-item-label">Rebuilt page delivered, ready to go live</span>
         </div>
-        <div class="hero-video-player-wrap">
-          <video autoplay muted playsinline controls preload="auto">
-            <source src="X.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-          </video>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+          <span class="proof-item-num">$400</span>
+          <span class="proof-item-label">Flat price — no hidden fees, no hourly billing</span>
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+          <span class="proof-item-num">Zero</span>
+          <span class="proof-item-label">Payment if the page isn't a clear improvement</span>
         </div>
       </div>
     </div>
 
-    <div class="hero-stats fade-up d7">
-      <div class="hero-stat-item">
-        <span class="hero-stat-num">48 hrs</span>
-        <span class="hero-stat-label">your rebuilt page delivered, ready to go live</span>
-      </div>
-      <div class="hero-stat-item">
-        <span class="hero-stat-num">$400</span>
-        <span class="hero-stat-label">flat price — no hidden fees, no hourly billing</span>
-      </div>
-      <div class="hero-stat-item">
-        <span class="hero-stat-num">Zero</span>
-        <span class="hero-stat-label">payment if the page isn't a clear improvement</span>
-      </div>
-    </div>
   </section>
 
   <!-- TRUST BAR -->
@@ -544,7 +556,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       <div class="offer-footer">
         <div class="offer-next-label">
           The process
-          <span>Send your landing page URL on WhatsApp. I review it, identify exactly why it's not converting, rebuild it around your offer and your audience, and send you a finished page within 48 hours. You decide if it's worth paying for. If not — you keep the diagnosis for free.</span>
+          <span>Send your landing page URL as a DM on Instagram. I review it, identify exactly why it's not converting, rebuild it around your offer and your audience, and send you a finished page within 48 hours. You decide if it's worth paying for. If not — you keep the diagnosis for free.</span>
         </div>
       </div>
 
@@ -564,7 +576,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       </div>
       <div class="pricing-footer">
         <span class="pricing-footer-note">Flat price. Scope confirmed before work begins. No invoice if the page isn't an improvement.</span>
-        <a href="https://wa.me/213659735828" class="pricing-footer-cta" target="_blank" rel="noreferrer">Not sure if your page needs this? Message me and we'll look at it. &#8594;</a>
+        <a href="https://instagram.com/aneshassnawi" class="pricing-footer-cta" target="_blank" rel="noreferrer">Not sure if your page needs this? DM me and we'll look at it. &#8594;</a>
       </div>
     </div>
 
@@ -577,15 +589,20 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT — single action, frictionless -->
   <section id="contact" class="contact-section">
     <span class="contact-label fade-up">Ready to fix your page?</span>
     <h2 class="contact-h2 fade-up d1">Let's turn your <span>Instagram traffic</span> into actual sales.</h2>
     <p class="contact-sub fade-up d2">
-      Send me your landing page link on WhatsApp. I'll tell you honestly what's blocking conversions — and rebuild it in 48 hours. <strong>No contract. No payment until you see the result.</strong>
+      Send me your landing page link as a DM on Instagram. I'll tell you honestly what's blocking conversions — and rebuild it in 48 hours. <strong>No contract. No payment until you see the result.</strong>
     </p>
-    <a href="https://wa.me/213659735828" class="cta-wa fade-up d3" target="_blank" rel="noreferrer">
-      Message Me on WhatsApp <span class="arrow">&#8594;</span>
+    <a href="https://instagram.com/aneshassnawi" class="cta-ig fade-up d3" target="_blank" rel="noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+      </svg>
+      Send me a DM to get started <span class="arrow">&#8594;</span>
     </a>
   </section>
 
@@ -651,7 +668,7 @@ var mx=0,my=0,rx=0,ry=0;
 if(window.innerWidth>768){
   document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
   (function anim(){rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);})();
-  document.querySelectorAll('a,button,.service-card,.pricing-single,.offer-card,.cta-wa,.cta-secondary').forEach(function(el){
+  document.querySelectorAll('a,button,.service-card,.pricing-single,.offer-card,.cta-ig,.cta-secondary').forEach(function(el){
     el.addEventListener('mouseenter',function(){ring.classList.add('hovered');});
     el.addEventListener('mouseleave',function(){ring.classList.remove('hovered');});
   });
