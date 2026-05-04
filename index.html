@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutFlow Studio — SaaS Landing Page CRO Specialist</title>
+<title>AutFlow Studio — Landing Pages for Instagram Coaches</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -80,8 +80,8 @@ nav{display:flex;justify-content:space-between;align-items:center;position:fixed
 .nav-logo{position:relative;width:40px;height:40px;display:flex;align-items:center;justify-content:center;text-decoration:none;flex-shrink:0;}
 .nav-logo svg.hex-bg{position:absolute;top:0;left:0;width:40px;height:40px;color:var(--green);transition:var(--transition);}
 .nav-logo .logo-letter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-mono);font-size:17px;font-weight:500;color:var(--green);}
-.nav-audit-btn{color:var(--navy);background:var(--green);border:none;border-radius:var(--radius);padding:9px 18px;font-family:var(--font-mono);font-size:var(--fz-xs);font-weight:500;line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);letter-spacing:0.02em;box-shadow:0 0 20px rgba(77,255,195,0.2);}
-.nav-audit-btn:hover{background:rgba(77,255,195,0.85);box-shadow:0 0 32px rgba(77,255,195,0.35);transform:translateY(-1px);}
+.nav-cta-btn{color:var(--navy);background:var(--green);border:none;border-radius:var(--radius);padding:9px 18px;font-family:var(--font-mono);font-size:var(--fz-xs);font-weight:500;line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);letter-spacing:0.02em;box-shadow:0 0 20px rgba(77,255,195,0.2);}
+.nav-cta-btn:hover{background:rgba(77,255,195,0.85);box-shadow:0 0 32px rgba(77,255,195,0.35);transform:translateY(-1px);}
 
 /* STICKY BOTTOM CTA */
 #sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:90;padding:14px 20px;background:rgba(8,15,30,0.94);backdrop-filter:blur(12px);border-top:1px solid rgba(77,255,195,0.15);display:flex;align-items:center;justify-content:center;gap:16px;opacity:0;transform:translateY(100%);pointer-events:none;transition:opacity 0.35s var(--ease),transform 0.35s var(--ease);}
@@ -128,52 +128,13 @@ section{max-width:920px;padding:110px 0;}
 .hero-stat-label{font-size:var(--fz-xs);color:var(--slate);letter-spacing:0.03em;}
 
 /* HERO INLINE VIDEO */
-.hero-video-wrap{
-  margin-top:48px;
-  max-width:100%;
-}
-.hero-video-label{
-  font-family:var(--font-mono);
-  font-size:var(--fz-xxs);
-  color:var(--slate);
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  margin-bottom:12px;
-  display:block;
-}
-.hero-video-inner{
-  background:var(--navy-light);
-  border:1px solid rgba(77,255,195,0.2);
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 40px 100px -20px rgba(0,0,0,0.8);
-}
-.hero-video-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:16px 20px;
-  border-bottom:1px solid var(--navy-mid);
-}
-.hero-video-title{
-  font-family:var(--font-mono);
-  font-size:var(--fz-xxs);
-  color:var(--slate);
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-}
-.hero-video-player-wrap{
-  position:relative;
-  width:100%;
-  aspect-ratio:16/9;
-  background:#000;
-}
-.hero-video-player-wrap video{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:contain;
-}
+.hero-video-wrap{margin-top:48px;max-width:100%;}
+.hero-video-label{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;display:block;}
+.hero-video-inner{background:var(--navy-light);border:1px solid rgba(77,255,195,0.2);border-radius:10px;overflow:hidden;box-shadow:0 40px 100px -20px rgba(0,0,0,0.8);}
+.hero-video-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--navy-mid);}
+.hero-video-title{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.1em;text-transform:uppercase;}
+.hero-video-player-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;}
+.hero-video-player-wrap video{width:100%;height:100%;display:block;object-fit:contain;}
 
 /* TRUST BAR */
 .trust-bar{border-top:1px solid var(--navy-mid);border-bottom:1px solid var(--navy-mid);padding:20px 0;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;background:rgba(13,27,48,0.6);}
@@ -199,7 +160,7 @@ section{max-width:920px;padding:110px 0;}
 .service-card h4{color:var(--slate-white);font-size:var(--fz-md);font-weight:600;margin-bottom:8px;letter-spacing:-0.01em;}
 .service-card p{color:var(--slate);font-size:var(--fz-xs);line-height:1.65;margin:0;}
 
-/* FREE OFFER */
+/* OFFER */
 .offer-card{border:1px solid rgba(77,255,195,0.2);border-radius:var(--radius);background:var(--navy-light);padding:0;position:relative;overflow:hidden;max-width:820px;}
 .offer-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);background-size:200% 100%;animation:borderRun 3s linear infinite;}
 .offer-card-header{padding:2.5rem 2.5rem 2rem;border-bottom:1px solid rgba(26,45,74,0.7);}
@@ -219,18 +180,22 @@ section{max-width:920px;padding:110px 0;}
 
 /* PRICING */
 .pricing-wrapper{margin-top:32px;max-width:680px;}
-.pricing-row{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;border:1px solid var(--navy-mid);background:var(--navy-light);transition:var(--transition);}
-.pricing-row:first-child{border-radius:var(--radius) var(--radius) 0 0;}
-.pricing-row:hover{border-color:rgba(77,255,195,0.2);}
-.pricing-row.highlight{border:1px solid rgba(77,255,195,0.35);background:linear-gradient(135deg,var(--navy-light),rgba(77,255,195,0.03));border-top:none;}
+.pricing-single{display:flex;align-items:center;justify-content:space-between;padding:28px 32px;border:1px solid rgba(77,255,195,0.35);background:linear-gradient(135deg,var(--navy-light),rgba(77,255,195,0.03));border-radius:var(--radius) var(--radius) 0 0;transition:var(--transition);}
+.pricing-single:hover{border-color:rgba(77,255,195,0.55);}
 .pricing-name-group{display:flex;flex-direction:column;gap:4px;}
 .pricing-plan{font-size:var(--fz-lg);font-weight:600;color:var(--slate-white);letter-spacing:-0.01em;}
 .pricing-desc{font-size:var(--fz-xs);color:var(--slate);font-family:var(--font-mono);}
-.pricing-amount{font-family:var(--font-mono);font-size:clamp(20px,2.5vw,28px);font-weight:500;color:var(--green);white-space:nowrap;}
+.pricing-amount{font-family:var(--font-mono);font-size:clamp(24px,3vw,36px);font-weight:500;color:var(--green);white-space:nowrap;}
 .pricing-footer{margin-top:0;padding:16px 20px;border:1px solid var(--navy-mid);border-top:none;border-radius:0 0 var(--radius) var(--radius);background:rgba(13,27,48,0.5);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .pricing-footer-note{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.04em;}
 .pricing-footer-cta{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--green);letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(77,255,195,0.3);padding-bottom:2px;transition:var(--transition);}
 .pricing-footer-cta:hover{border-color:var(--green);}
+
+/* GUARANTEE BLOCK */
+.guarantee-block{margin-top:32px;max-width:680px;background:rgba(77,255,195,0.04);border:1px solid rgba(77,255,195,0.18);border-radius:var(--radius);padding:28px 32px;display:flex;gap:20px;align-items:flex-start;}
+.guarantee-icon{font-size:28px;flex-shrink:0;line-height:1;}
+.guarantee-text h4{color:var(--slate-white);font-size:var(--fz-md);font-weight:600;margin-bottom:8px;}
+.guarantee-text p{color:var(--slate-light);font-size:var(--fz-sm);line-height:1.7;margin:0;}
 
 /* CONTACT */
 .contact-section{max-width:700px;text-align:center;margin:0 auto;padding:100px 0 180px;}
@@ -259,10 +224,16 @@ section{max-width:920px;padding:110px 0;}
 footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-align:center;}
 .footer-text{font-family:var(--font-mono);font-size:var(--fz-xxs);line-height:2.8;color:var(--slate);}
 
+/* WA BUTTON */
+.cta-wa{display:inline-flex;align-items:center;gap:10px;color:var(--navy);background:var(--green);border:none;border-radius:var(--radius);padding:18px 28px;font-family:var(--font-mono);font-size:var(--fz-sm);font-weight:600;line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);box-shadow:0 0 40px rgba(77,255,195,0.25);letter-spacing:0.02em;}
+.cta-wa:hover{background:rgba(77,255,195,0.88);box-shadow:0 0 60px rgba(77,255,195,0.4);transform:translateY(-3px);}
+.cta-wa .arrow{transition:transform 0.2s ease;}
+.cta-wa:hover .arrow{transform:translateX(4px);}
+
 /* RESPONSIVE */
 @media(max-width:768px){
   nav{padding:0 18px;}
-  .nav-audit-btn{font-size:10px;padding:8px 12px;}
+  .nav-cta-btn{font-size:10px;padding:8px 12px;}
   #sticky-cta{flex-direction:column;gap:8px;padding:14px 16px;}
   .sticky-cta-text{display:none;}
   .sticky-cta-btn{width:100%;justify-content:center;}
@@ -279,16 +250,17 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .offer-card-header{padding:1.75rem 1.25rem 1.5rem;}
   .offer-specifics{padding:1.25rem 1.25rem;}
   .offer-footer{padding:1rem 1.25rem;}
-  .pricing-row{flex-direction:column;align-items:flex-start;gap:10px;padding:18px 20px;}
+  .pricing-single{flex-direction:column;align-items:flex-start;gap:10px;padding:18px 20px;}
   .pricing-footer{flex-direction:column;align-items:flex-start;gap:10px;}
   .contact-section{padding:70px 0 100px;}
   .contact-h2{font-size:clamp(28px,7vw,44px);}
   .hero-cta-group{flex-direction:column;align-items:flex-start;}
-  .cta-primary,.cta-secondary{width:100%;justify-content:center;}
+  .cta-primary,.cta-secondary,.cta-wa{width:100%;justify-content:center;}
   .mark-wrap{padding:12px 14px;}
   .hero-svg{width:110px;}
   .hero-mark{margin-bottom:32px;}
   .hero-video-inner{border-radius:6px;}
+  .guarantee-block{flex-direction:column;gap:12px;}
 }
 @media(max-width:480px){
   nav{padding:0 14px;}
@@ -302,6 +274,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 </head>
 <body>
 
+<!-- INTRO LOADER -->
 <div id="intro-loader" aria-hidden="true">
   <div class="intro-svg-wrap">
     <div class="intro-glow"></div>
@@ -348,12 +321,15 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
+<!-- STICKY CTA -->
 <div id="sticky-cta">
-  <span class="sticky-cta-text">Your acquisition spend is working. Your landing page is where it stops paying off.</span>
+  <span class="sticky-cta-text">You're building an audience. Your landing page should be converting it into clients.</span>
+  <a href="https://wa.me/213659735828" class="sticky-cta-btn" target="_blank" rel="noreferrer">Message on WhatsApp &#8594;</a>
 </div>
 
 <a class="skip-to-content" href="#content">Skip to Content</a>
 
+<!-- NAV -->
 <nav>
   <a href="/" class="nav-logo" aria-label="AutFlow Studio home">
     <svg class="hex-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 96" fill="none">
@@ -363,30 +339,18 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </svg>
     <span class="logo-letter">A</span>
   </a>
-  <a href="#contact" class="nav-audit-btn js-scroll-contact">Get Your Page Evaluated &#8594;</a>
+  <a href="https://wa.me/213659735828" class="nav-cta-btn js-scroll-contact" target="_blank" rel="noreferrer">Get Your Page Rebuilt &#8594;</a>
 </nav>
 
-<!-- SIDE SOCIAL ICONS: WhatsApp + LinkedIn (original, restored) -->
+<!-- SIDE SOCIAL -->
 <div class="side-el left" aria-orientation="vertical">
-  <ul class="social-list" aria-label="Social media">
+  <ul class="social-list" aria-label="Contact">
     <li>
       <a href="https://wa.me/213659735828" aria-label="WhatsApp" target="_blank" rel="noreferrer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <title>WhatsApp</title>
           <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/>
           <path d="M9 10c.5 1 1 1.5 2 2s1.5.5 2.5-.5"/>
-        </svg>
-      </a>
-    </li>
-    <li>
-      <a href="https://www.linkedin.com/in/anes-hass" aria-label="LinkedIn" target="_blank" rel="noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <title>LinkedIn</title>
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <path d="M7 10v7"/>
-          <path d="M11 10v7"/>
-          <path d="M11 13a3 3 0 0 1 6 0v4"/>
-          <circle cx="7" cy="7" r="1" fill="currentColor" stroke="none"/>
         </svg>
       </a>
     </li>
@@ -439,25 +403,28 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       </div>
     </div>
 
-    <span class="hero-eyebrow fade-up d2">SaaS Landing Page CRO — Above-the-Fold Clarity &amp; Signup Conversion Specialist</span>
+    <span class="hero-eyebrow fade-up d2">Landing Pages for Instagram Coaches &amp; Course Creators</span>
 
-    <p class="hero-h1 fade-up d3">Your traffic isn't the problem.</p>
-    <p class="hero-problem fade-up d3">Your landing page is <em>burning it</em>.</p>
+    <p class="hero-h1 fade-up d3">Your Instagram is growing.</p>
+    <p class="hero-problem fade-up d3">Your landing page is <em>killing your sales</em>.</p>
 
     <p class="hero-sub fade-up d4">
-      SaaS founders invest heavily in acquisition — paid, content, outbound — then send that traffic to a page that fails the first test every visitor runs: <strong>does this solve my problem, and is it worth signing up to find out?</strong> That question gets answered in under 5 seconds or not at all. I rebuild your landing page structure so it answers that question before the visitor makes the decision to leave.
+      You're putting in the work — posting consistently, building trust, getting DMs. Then you send people to a landing page that fails to close them. <strong>The problem isn't your offer. It's how the page presents it.</strong> I rebuild landing pages that turn your Instagram traffic into paying clients and course sales — in 48 hours.
     </p>
 
     <div class="hero-cta-group fade-up d5">
-      <a href="#offer" class="cta-secondary js-scroll-offer">See How the Evaluation Works &#8594;</a>
+      <a href="https://wa.me/213659735828" class="cta-wa" target="_blank" rel="noreferrer">
+        Message Me on WhatsApp <span class="arrow">&#8594;</span>
+      </a>
+      <a href="#offer" class="cta-secondary js-scroll-offer">See How It Works &#8594;</a>
     </div>
 
-    <!-- INLINE VIDEO: autoplay + muted + playsinline + controls -->
+    <!-- INLINE VIDEO -->
     <div class="hero-video-wrap fade-up d6">
-      <span class="hero-video-label">// Before &amp; After: Conversion Rebuild</span>
+      <span class="hero-video-label">// Before &amp; After: Page Rebuild</span>
       <div class="hero-video-inner">
         <div class="hero-video-header">
-          <span class="hero-video-title">// Before &amp; After: Conversion Rebuild</span>
+          <span class="hero-video-title">// Before &amp; After: Page Rebuild</span>
         </div>
         <div class="hero-video-player-wrap">
           <video autoplay muted playsinline controls preload="auto">
@@ -470,45 +437,43 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 
     <div class="hero-stats fade-up d7">
       <div class="hero-stat-item">
-        <span class="hero-stat-num">5 sec</span>
-        <span class="hero-stat-label">the window your above-the-fold has to pass or fail</span>
-      </div>
-      <div class="hero-stat-item">
         <span class="hero-stat-num">48 hrs</span>
-        <span class="hero-stat-label">time to a rebuilt, deployable above-the-fold — no contract required</span>
+        <span class="hero-stat-label">your rebuilt page delivered, ready to go live</span>
       </div>
       <div class="hero-stat-item">
-        <span class="hero-stat-num">Fixed</span>
-        <span class="hero-stat-label">scope and price confirmed in writing before any work begins</span>
+        <span class="hero-stat-num">$400</span>
+        <span class="hero-stat-label">flat price — no hidden fees, no hourly billing</span>
+      </div>
+      <div class="hero-stat-item">
+        <span class="hero-stat-num">Zero</span>
+        <span class="hero-stat-label">payment if the page isn't a clear improvement</span>
       </div>
     </div>
   </section>
 
   <!-- TRUST BAR -->
   <div class="trust-bar fade-up">
-    <div class="trust-item"><span class="trust-dot"></span>Above-the-Fold Clarity Within 5 Seconds</div>
-    <div class="trust-item"><span class="trust-dot"></span>Signup-First Information Architecture</div>
-    <div class="trust-item"><span class="trust-dot"></span>Sub-2s Load — Verified Before Handoff</div>
-    <div class="trust-item"><span class="trust-dot"></span>Full Code Ownership — No Platform Lock-In</div>
+    <div class="trust-item"><span class="trust-dot"></span>Built for Instagram Funnels</div>
+    <div class="trust-item"><span class="trust-dot"></span>Delivered in 48 Hours</div>
+    <div class="trust-item"><span class="trust-dot"></span>Full Code — You Own It</div>
+    <div class="trust-item"><span class="trust-dot"></span>No Pay If No Improvement</div>
   </div>
 
   <!-- METRICS TICKER -->
   <div class="metrics-ticker-wrap fade-up">
     <div class="metrics-ticker" id="ticker">
-      <div class="ticker-item"><span class="ticker-num">5 sec</span><span class="ticker-label">Above-the-Fold Clarity Test</span></div>
-      <div class="ticker-item"><span class="ticker-num">48 hrs</span><span class="ticker-label">Rebuilt Page Delivered</span></div>
-      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Load Performance Standard</span></div>
-      <div class="ticker-item"><span class="ticker-num">Fixed</span><span class="ticker-label">Scope. No Scope Creep.</span></div>
-      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Discovery Calls Before You See Work</span></div>
-      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Invoice If It's Not an Improvement</span></div>
-      <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">Code Ownership at Handoff</span></div>
-      <div class="ticker-item"><span class="ticker-num">5 sec</span><span class="ticker-label">Above-the-Fold Clarity Test</span></div>
-      <div class="ticker-item"><span class="ticker-num">48 hrs</span><span class="ticker-label">Rebuilt Page Delivered</span></div>
-      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Load Performance Standard</span></div>
-      <div class="ticker-item"><span class="ticker-num">Fixed</span><span class="ticker-label">Scope. No Scope Creep.</span></div>
-      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Discovery Calls Before You See Work</span></div>
-      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Invoice If It's Not an Improvement</span></div>
-      <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">Code Ownership at Handoff</span></div>
+      <div class="ticker-item"><span class="ticker-num">48 hrs</span><span class="ticker-label">Rebuilt &amp; Delivered</span></div>
+      <div class="ticker-item"><span class="ticker-num">$400</span><span class="ticker-label">Flat. One Price.</span></div>
+      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Discovery Calls Required</span></div>
+      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Invoice If No Improvement</span></div>
+      <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">You Own the Code</span></div>
+      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Page Load Standard</span></div>
+      <div class="ticker-item"><span class="ticker-num">48 hrs</span><span class="ticker-label">Rebuilt &amp; Delivered</span></div>
+      <div class="ticker-item"><span class="ticker-num">$400</span><span class="ticker-label">Flat. One Price.</span></div>
+      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Discovery Calls Required</span></div>
+      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Invoice If No Improvement</span></div>
+      <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">You Own the Code</span></div>
+      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Page Load Standard</span></div>
     </div>
   </div>
 
@@ -516,27 +481,27 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   <section id="about" style="padding-bottom:0;">
     <h2 class="numbered-heading fade-up">About Me</h2>
     <div class="about-block fade-up d1">
-      <span class="about-tag">// The specialist doing the work</span>
-      <p>I'm <strong>Anes Hass</strong> — a designer and developer with a single focus: <strong>SaaS landing pages that aren't converting at the rate the acquisition budget requires</strong>. My work is scoped exclusively to this problem because it has a consistent root cause. Across every SaaS landing page I've analyzed and rebuilt, the same three structural failures appear: the above-the-fold section doesn't communicate what the product does and for whom — fast enough to hold a cold visitor's attention. The content sequence is built around internal product logic rather than the decision stages a first-time buyer actually moves through. And the CTA appears before the page has resolved the visitor's default objection to signing up. <strong>Those three failures are what I fix.</strong> The design and development execution follows directly from getting those right.</p>
+      <span class="about-tag">// Who's doing the work</span>
+      <p>I'm <strong>Anes Hass</strong> — a designer and developer focused on one thing: <strong>landing pages that convert Instagram traffic into paying clients</strong>. I've seen the same pattern over and over. A coach or course creator builds a real audience, posts consistently, gets engagement — then sends people to a page that doesn't close. Not because the offer is weak. But because the page is doing the wrong job. It's explaining the course instead of selling it. It's listing features instead of resolving the doubt in the reader's head. It's asking for the sale before it's earned the trust. <strong>That's the exact problem I fix.</strong> I rebuild your page so it speaks directly to the person coming from your Instagram — and moves them from "interested" to "I need this."</p>
     </div>
   </section>
 
-  <!-- WHAT I DO -->
+  <!-- WHAT I FIX -->
   <section id="services" style="padding-top:80px;padding-bottom:0;">
-    <h2 class="numbered-heading fade-up">What I Do</h2>
+    <h2 class="numbered-heading fade-up">What I Fix</h2>
     <div class="services-grid">
       <div class="service-card fade-left d1">
-        <span class="service-label">// Core scope</span>
-        <h4>SaaS Landing Pages Rebuilt for Signup Conversion — Not Brand Expression</h4>
-        <p>Every first-time visitor arrives with one implicit question: "Is the friction of signing up worth what I'll get?" Your page has a narrow window to answer it before that visitor makes a decision to leave. I rebuild the full page — information structure, headline clarity, message sequence, and CTA positioning — so that every section advances the visitor toward that decision rather than stalling it.</p>
+        <span class="service-label">// The core problem</span>
+        <h4>Your Page Isn't Selling Your Offer — It's Just Describing It</h4>
+        <p>There's a big difference between a page that explains what your course or program is, and a page that makes someone feel like they need it right now. Most coaches have the first kind. I build the second. Every section is written and structured to answer one question the visitor is silently asking — and move them one step closer to buying.</p>
       </div>
       <div class="service-card fade-right d2">
-        <span class="service-label">// The four structural levers</span>
-        <h4>Where SaaS Pages Consistently Fail Conversion — and What Changes When They Don't</h4>
-        <p><strong style="color:var(--slate-white);">Above-the-fold clarity within 5 seconds</strong> — headline, subheadline, and primary CTA rebuilt so a cold visitor immediately understands what you do, for whom, and why it's worth one more scroll. No jargon. No feature-first framing above the fold.<br><br>
-        <strong style="color:var(--slate-white);">Content sequenced around the buyer's decision stages</strong> — information ordered to match how a first-time evaluator actually moves: problem relevance, proof of fit, risk reduction, action — not how the product was built.<br><br>
-        <strong style="color:var(--slate-white);">Objection removal before the CTA</strong> — the specific friction points blocking signup are addressed in the page body before the visitor reaches the conversion step. The CTA earns its position.<br><br>
-        <strong style="color:var(--slate-white);">Load performance that protects acquisition spend</strong> — pages delivered sub-2 seconds so paid and organic traffic isn't lost at the browser's rendering step before the page has a chance to convert.</p>
+        <span class="service-label">// What changes after a rebuild</span>
+        <h4>Four Things That Turn Visitors into Buyers</h4>
+        <p><strong style="color:var(--slate-white);">A headline that speaks to the right person</strong> — the first thing your visitor reads tells them immediately: "this is for me" or "this isn't for me." I rewrite it so the right person knows it in 3 seconds.<br><br>
+        <strong style="color:var(--slate-white);">Copy that addresses real objections</strong> — "is this worth the money?" "will this actually work for me?" — those doubts live in your visitor's head. Your page has to resolve them before the buy button appears.<br><br>
+        <strong style="color:var(--slate-white);">A flow that builds trust before asking for the sale</strong> — the order of your content matters. Problem → transformation → proof → offer → action. Most pages get this wrong and bury the CTA before trust is established.<br><br>
+        <strong style="color:var(--slate-white);">A page that loads fast and looks credible</strong> — slow, cluttered pages kill conversions before the copy even gets a chance. Pages I deliver load in under 2 seconds on mobile.</p>
       </div>
     </div>
   </section>
@@ -547,39 +512,39 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     <div class="offer-card fade-up d1">
 
       <div class="offer-card-header">
-        <span class="offer-scope-tag">Risk-reversal evaluation — you see the work before any commitment</span>
-        <h3>I Rebuild Your Above-the-Fold in 48 Hours. If It's Not a Clear Improvement, You Owe Nothing.</h3>
+        <span class="offer-scope-tag">You see the rebuilt page before you pay a single cent</span>
+        <h3>Send Me Your Page. I Rebuild It in 48 Hours. If It's Not Better — You Don't Pay.</h3>
         <p class="offer-lead-text">
-          Before any contract or payment, I take your current landing page, diagnose the structural failures suppressing signup conversion, and rebuild the above-the-fold section — headline, subheadline, CTA, and information priority — around one objective: pass the 5-second clarity test a cold visitor runs on arrival. You receive a fully coded, deployment-ready page section to evaluate directly against your live version. I accept a limited number of these evaluations per month because each one is real diagnostic work, not a template swap. If the rebuilt version isn't a measurably clearer path to a signup decision, you leave with a written diagnosis of what's broken and no invoice.
+          No contracts. No discovery calls. No upfront payment. You send me your current landing page. I look at what's blocking people from buying, rebuild the page around your offer and your audience, and deliver a finished, ready-to-publish version within 48 hours. You compare it to your live page. If it's not clearly a better job of selling your offer, you owe me nothing. Simple as that.
         </p>
       </div>
 
       <div class="offer-specifics">
-        <span class="offer-specifics-label">// What the evaluation delivers</span>
+        <span class="offer-specifics-label">// What you get</span>
         <ul class="offer-points">
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Above-the-fold rebuild — coded and deployment-ready</strong> — a fully working replacement for your hero section: headline rewritten for 5-second value clarity, subheadline that bridges problem to product without jargon, and primary CTA positioned where it earns the click rather than demanding it.</span>
+            <span><strong>A fully rebuilt landing page — ready to publish</strong> — not a mockup, not a PDF. A real, working page you can put live immediately. Rewritten copy, redesigned layout, and a structure built to sell your specific offer to your specific audience.</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Structural conversion audit</strong> — a written analysis of where your current page loses the visitor and why: the specific hierarchy failures, the objection the page leaves unresolved, and the sequencing errors that push the CTA out before trust is established.</span>
+            <span><strong>Copy written for Instagram-warm visitors</strong> — the people coming from your content already know you. Your page needs to speak to that. I write copy that meets them where they are and moves them to buy — not copy that treats them like strangers.</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Information architecture recommendation</strong> — a section-by-section resequencing of your full page content, mapped to the decision stages a first-time SaaS buyer moves through. Not a list of best practices — a specific prescription for your page based on what's there now.</span>
+            <span><strong>A page structure that handles objections before the buy button</strong> — every doubt a potential client has about your offer gets addressed in the right place, at the right point in the page. The CTA appears when it's been earned.</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>A/B-ready code at handoff</strong> — production-ready HTML and CSS you can deploy immediately, run against your live version as a split test, or hand to your engineering team. This is a functional deliverable, not a Figma file and a meeting.</span>
+            <span><strong>Full code ownership — no platform dependency</strong> — you get clean HTML and CSS that you own completely. No Webflow subscription required. No page builder lock-in. Give it to your developer, publish it yourself, or host it anywhere.</span>
           </li>
         </ul>
       </div>
 
       <div class="offer-footer">
         <div class="offer-next-label">
-          The process — no discovery call required
-          <span>Send your landing page URL. I audit the page, identify the structural conversion gaps, rebuild the above-the-fold around a 5-second signup clarity standard, and deliver production-ready code within 48 hours. If you're satisfied with the improvement, we scope the full page engagement. If not, you have a free diagnosis and no obligation.</span>
+          The process
+          <span>Send your landing page URL on WhatsApp. I review it, identify exactly why it's not converting, rebuild it around your offer and your audience, and send you a finished page within 48 hours. You decide if it's worth paying for. If not — you keep the diagnosis for free.</span>
         </div>
       </div>
 
@@ -590,38 +555,37 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   <section id="pricing" style="padding-top:80px;">
     <h2 class="numbered-heading fade-up">Pricing</h2>
     <div class="pricing-wrapper fade-up d1">
-      <div class="pricing-row">
+      <div class="pricing-single">
         <div class="pricing-name-group">
-          <span class="pricing-plan">SaaS Landing Page — CRO Rebuild</span>
-          <span class="pricing-desc">Single conversion objective. Full structural redesign. Deployed, not delivered as a mockup.</span>
+          <span class="pricing-plan">Landing Page Rebuild — Coaches &amp; Course Creators</span>
+          <span class="pricing-desc">One offer. Full rebuild. Delivered in 48 hours. Yours to keep.</span>
         </div>
-        <span class="pricing-amount">from $400</span>
-      </div>
-      <div class="pricing-row highlight">
-        <div class="pricing-name-group">
-          <span class="pricing-plan">Full SaaS Website — Acquisition-Funnel Build</span>
-          <span class="pricing-desc">Multi-page. Every section built around moving a visitor from first impression to signup decision.</span>
-        </div>
-        <span class="pricing-amount">from $1,200</span>
+        <span class="pricing-amount">$400</span>
       </div>
       <div class="pricing-footer">
-        <span class="pricing-footer-note">Scope, deliverables, and price confirmed in writing before work begins. Fixed engagements only — no hourly billing, no open-ended retainers.</span>
-        <a href="https://www.linkedin.com/in/anes-hass"
-           class="pricing-footer-cta" target="_blank" rel="noopener">Not sure what your page requires? Let's look at it together. &#8594;</a>
+        <span class="pricing-footer-note">Flat price. Scope confirmed before work begins. No invoice if the page isn't an improvement.</span>
+        <a href="https://wa.me/213659735828" class="pricing-footer-cta" target="_blank" rel="noreferrer">Not sure if your page needs this? Message me and we'll look at it. &#8594;</a>
+      </div>
+    </div>
+
+    <div class="guarantee-block fade-up d2">
+      <div class="guarantee-icon">&#9679;</div>
+      <div class="guarantee-text">
+        <h4>You don't pay unless the page is clearly better.</h4>
+        <p>When I deliver the rebuilt page, you compare it to what you have now. If it doesn't obviously do a better job presenting your offer — clearer, more compelling, more likely to convert — you don't owe anything. No awkward conversations. No chasing invoices. Just honest work with a simple guarantee behind it.</p>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="contact-section">
-    <span class="contact-label fade-up">Submit for Evaluation</span>
-    <h2 class="contact-h2 fade-up d1">Find out exactly <span>what's blocking your signups</span> — before you commit to fixing it.</h2>
+    <span class="contact-label fade-up">Ready to fix your page?</span>
+    <h2 class="contact-h2 fade-up d1">Let's turn your <span>Instagram traffic</span> into actual sales.</h2>
     <p class="contact-sub fade-up d2">
-      Send your landing page URL. I'll rebuild the above-the-fold around a single objective — passing the 5-second signup clarity test — and deliver a <strong>production-ready coded section</strong> you can evaluate directly against your live page. No contract, no discovery call, no invoice unless the output is a clear improvement.
+      Send me your landing page link on WhatsApp. I'll tell you honestly what's blocking conversions — and rebuild it in 48 hours. <strong>No contract. No payment until you see the result.</strong>
     </p>
-    <a href="https://www.linkedin.com/in/anes-hass"
-       class="cta-primary fade-up d3" target="_blank" rel="noopener">
-      Submit My Page for Evaluation <span class="arrow">&#8594;</span>
+    <a href="https://wa.me/213659735828" class="cta-wa fade-up d3" target="_blank" rel="noreferrer">
+      Message Me on WhatsApp <span class="arrow">&#8594;</span>
     </a>
   </section>
 
@@ -630,7 +594,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 <footer>
   <div class="footer-text fade-up">
     <div>Designed &amp; Built by AutFlow Studio</div>
-    <div style="font-size:10px;margin-top:4px;opacity:0.5;letter-spacing:0.04em;">SaaS Landing Pages &middot; Conversion Rate Optimization &middot; Above-the-Fold Clarity Specialist</div>
+    <div style="font-size:10px;margin-top:4px;opacity:0.5;letter-spacing:0.04em;">Landing Pages for Instagram Coaches &middot; Course Creators &middot; Online Mentors</div>
     <div style="font-size:10px;margin-top:4px;opacity:0.4;">&copy; 2026 AutFlow Studio. All rights reserved.</div>
   </div>
 </footer>
@@ -664,14 +628,6 @@ function checkSticky(){
 window.addEventListener('scroll',checkSticky,{passive:true});
 
 /* SMOOTH SCROLL */
-document.querySelectorAll('.js-scroll-contact').forEach(function(a){
-  a.addEventListener('click',function(e){
-    e.preventDefault();
-    var t=document.querySelector('#contact');
-    if(t){t.scrollIntoView({behavior:'smooth',block:'start'});}
-  });
-});
-
 document.querySelectorAll('.js-scroll-offer').forEach(function(a){
   a.addEventListener('click',function(e){
     e.preventDefault();
@@ -681,7 +637,7 @@ document.querySelectorAll('.js-scroll-offer').forEach(function(a){
 });
 
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  if(a.classList.contains('js-scroll-contact')||a.classList.contains('js-scroll-offer'))return;
+  if(a.classList.contains('js-scroll-offer'))return;
   a.addEventListener('click',function(e){
     var t=document.querySelector(a.getAttribute('href'));
     if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
@@ -695,7 +651,7 @@ var mx=0,my=0,rx=0,ry=0;
 if(window.innerWidth>768){
   document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
   (function anim(){rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);})();
-  document.querySelectorAll('a,button,.service-card,.pricing-row,.offer-card,.cta-primary,.cta-secondary').forEach(function(el){
+  document.querySelectorAll('a,button,.service-card,.pricing-single,.offer-card,.cta-wa,.cta-secondary').forEach(function(el){
     el.addEventListener('mouseenter',function(){ring.classList.add('hovered');});
     el.addEventListener('mouseleave',function(){ring.classList.remove('hovered');});
   });
