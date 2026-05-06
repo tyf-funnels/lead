@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutFlow Studio — Premium Landing Pages for High-Ticket Coaches</title>
+<title>AutFlow Studio — Landing Pages That Close</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -22,8 +22,10 @@ html{scroll-behavior:smooth;}
 body{background:var(--navy);color:var(--slate);font-family:var(--font-sans);font-size:var(--fz-lg);line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 ::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:var(--navy);}::-webkit-scrollbar-thumb{background:var(--navy-mid);border-radius:3px;}
 ::selection{background:rgba(77,255,195,0.2);color:var(--white);}
+
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9000;}
 body::before{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50%);width:900px;height:700px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(77,255,195,0.04) 0%,transparent 70%);pointer-events:none;z-index:0;}
+
 a{color:var(--green);text-decoration:none;transition:var(--transition);}
 
 /* ANIMATIONS */
@@ -36,6 +38,7 @@ a{color:var(--green);text-decoration:none;transition:var(--transition);}
 .d1{transition-delay:0.08s!important}.d2{transition-delay:0.16s!important}.d3{transition-delay:0.24s!important}
 .d4{transition-delay:0.32s!important}.d5{transition-delay:0.4s!important}.d6{transition-delay:0.5s!important}
 .d7{transition-delay:0.6s!important}
+
 @keyframes navDown{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
 @keyframes sideUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
 @keyframes logoFadeIn{to{opacity:1;}}
@@ -49,8 +52,9 @@ a{color:var(--green);text-decoration:none;transition:var(--transition);}
 @keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 @keyframes borderRun{0%{background-position:0% 0%;}100%{background-position:200% 0%;}}
 @keyframes goldPulse{0%,100%{opacity:0.7;}50%{opacity:1;}}
-@keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(0.98);}to{opacity:1;transform:translateY(0) scale(1);}}
+@keyframes modalIn{from{opacity:0;transform:translateY(24px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
 @keyframes overlayIn{from{opacity:0;}to{opacity:1;}}
+@keyframes spinGlow{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
 
 /* INTRO LOADER */
 #intro-loader{position:fixed;inset:0;background:var(--navy);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;}
@@ -73,9 +77,11 @@ a{color:var(--green);text-decoration:none;transition:var(--transition);}
 @media(max-width:768px){#content{padding:0 22px;}}
 @media(max-width:480px){#content{padding:0 16px;}}
 body{counter-reset:section;}
+
 .numbered-heading{display:flex;align-items:center;position:relative;margin:0 0 44px;width:100%;font-size:clamp(20px,3.5vw,30px);white-space:nowrap;color:var(--slate-white);font-weight:600;letter-spacing:-0.01em;}
 .numbered-heading::before{position:relative;counter-increment:section;content:'0' counter(section) '.';margin-right:12px;color:var(--green);font-family:var(--font-mono);font-size:clamp(var(--fz-sm),2.5vw,var(--fz-lg));font-weight:400;}
 .numbered-heading::after{content:'';display:block;position:relative;top:-3px;flex:1;max-width:260px;height:1px;margin-left:20px;background:var(--navy-mid);}
+
 .skip-to-content{position:absolute;top:auto;left:-999px;width:1px;height:1px;overflow:hidden;}
 .skip-to-content:focus{position:fixed;top:1em;left:1em;z-index:999;width:auto;height:auto;padding:16px 20px;background:var(--green);color:var(--navy);font-family:var(--font-mono);font-size:var(--fz-sm);border-radius:var(--radius);}
 
@@ -128,13 +134,34 @@ section{max-width:920px;padding:110px 0;}
 .cta-secondary:hover{border-color:rgba(77,255,195,0.3);color:var(--green);}
 .hero-cta-group{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
 
-/* PORTFOLIO TRIGGER — inline hero variant */
-.portfolio-trigger{display:inline-flex;align-items:center;gap:9px;color:var(--slate);background:transparent;border:1px solid rgba(26,45,74,0.9);border-radius:var(--radius);padding:18px 22px;font-family:var(--font-mono);font-size:var(--fz-xs);line-height:1;cursor:pointer;transition:var(--transition);letter-spacing:0.06em;text-transform:uppercase;}
-.portfolio-trigger:hover{border-color:rgba(77,255,195,0.3);color:var(--green);}
-.portfolio-trigger svg{width:13px;height:13px;flex-shrink:0;transition:var(--transition);}
-.portfolio-trigger:hover svg{transform:translateY(-1px);}
+/* ===== PORTFOLIO TRIGGER — PRIMARY HERO BUTTON ===== */
+.portfolio-trigger{
+  display:inline-flex;align-items:center;gap:10px;
+  color:var(--navy);background:var(--green);
+  border:none;border-radius:var(--radius);
+  padding:20px 32px;
+  font-family:var(--font-mono);font-size:var(--fz-sm);font-weight:600;
+  line-height:1;cursor:pointer;transition:var(--transition);
+  box-shadow:0 0 40px rgba(77,255,195,0.3);
+  letter-spacing:0.02em;
+  position:relative;overflow:hidden;
+}
+.portfolio-trigger::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.15) 0%,transparent 60%);
+  opacity:0;transition:opacity 0.3s ease;
+}
+.portfolio-trigger:hover{
+  background:rgba(77,255,195,0.88);
+  box-shadow:0 0 60px rgba(77,255,195,0.45);
+  transform:translateY(-3px);
+}
+.portfolio-trigger:hover::before{opacity:1;}
+.portfolio-trigger:active{transform:translateY(-1px);}
+.portfolio-trigger svg{width:15px;height:15px;flex-shrink:0;transition:transform 0.2s ease;}
+.portfolio-trigger:hover svg{transform:scale(1.1);}
 
-/* HERO PROOF STRIP */
+/* Hero proof strip */
 .hero-proof-strip{margin-top:52px;border:1px solid rgba(77,255,195,0.12);border-radius:10px;background:rgba(13,27,48,0.7);overflow:hidden;box-shadow:0 32px 80px -20px rgba(0,0,0,0.6);}
 .proof-strip-header{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid var(--navy-mid);}
 .proof-strip-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(77,255,195,0.5);}
@@ -236,127 +263,153 @@ section{max-width:920px;padding:110px 0;}
 .contact-caveat{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.07em;}
 
 /* ============================================================
-   PORTFOLIO MODAL
+   PORTFOLIO MODAL — REDESIGNED
    ============================================================ */
 .modal-overlay{
   position:fixed;inset:0;z-index:8000;
-  background:rgba(4,9,18,0.93);
-  backdrop-filter:blur(12px);
+  background:rgba(4,9,18,0.95);
+  backdrop-filter:blur(16px);
   display:flex;align-items:flex-start;justify-content:center;
-  padding:40px 20px 60px;
+  padding:32px 20px 60px;
   opacity:0;pointer-events:none;
-  transition:opacity 0.35s var(--ease);
+  transition:opacity 0.3s var(--ease);
   overflow-y:auto;
 }
 .modal-overlay.open{
   opacity:1;pointer-events:all;
-  animation:overlayIn 0.35s var(--ease) forwards;
 }
 .modal-box{
-  width:100%;max-width:800px;
+  width:100%;max-width:840px;
   background:var(--navy-light);
-  border:1px solid rgba(77,255,195,0.18);
-  border-radius:12px;
+  border:1px solid rgba(77,255,195,0.2);
+  border-radius:14px;
   overflow:hidden;
   position:relative;
-  transform:translateY(20px) scale(0.98);
-  transition:transform 0.4s var(--ease),opacity 0.4s var(--ease);
+  transform:translateY(32px) scale(0.97);
+  transition:transform 0.45s var(--ease),opacity 0.45s var(--ease);
   opacity:0;
   flex-shrink:0;
+  box-shadow:0 40px 120px -20px rgba(0,0,0,0.7),0 0 0 1px rgba(77,255,195,0.05);
 }
 .modal-overlay.open .modal-box{
   transform:translateY(0) scale(1);
   opacity:1;
-  animation:modalIn 0.4s var(--ease) 0.05s forwards;
 }
 .modal-box::before{
   content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--green),transparent);
+  background:linear-gradient(90deg,transparent 0%,var(--green) 50%,transparent 100%);
   background-size:200% 100%;
   animation:borderRun 3s linear infinite;
 }
+
+/* Modal Header */
 .modal-header{
   display:flex;align-items:center;justify-content:space-between;
-  padding:24px 32px;
+  padding:28px 36px;
   border-bottom:1px solid var(--navy-mid);
-  background:rgba(8,15,30,0.4);
+  background:rgba(8,15,30,0.5);
+  gap:16px;
 }
-.modal-header-left{display:flex;flex-direction:column;gap:6px;}
+.modal-header-left{display:flex;flex-direction:column;gap:4px;}
 .modal-eyebrow{
   font-family:var(--font-mono);font-size:var(--fz-xxs);
-  color:var(--green);letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--green);letter-spacing:0.18em;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;
+}
+.modal-eyebrow::before{
+  content:'';width:18px;height:1px;background:var(--green);display:inline-block;
 }
 .modal-title{
-  font-size:var(--fz-xl);font-weight:700;
-  color:var(--slate-white);letter-spacing:-0.02em;line-height:1.2;
+  font-size:clamp(var(--fz-xl),3vw,26px);font-weight:700;
+  color:var(--slate-white);letter-spacing:-0.025em;line-height:1.2;
 }
 .modal-subtitle{
   font-size:var(--fz-xs);color:var(--slate);line-height:1.5;
-  margin-top:2px;font-family:var(--font-sans);
+  margin-top:2px;
 }
 .modal-close{
-  width:36px;height:36px;border-radius:6px;
-  background:rgba(26,45,74,0.6);border:1px solid var(--navy-mid);
+  width:40px;height:40px;border-radius:8px;
+  background:rgba(26,45,74,0.5);border:1px solid var(--navy-mid);
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;color:var(--slate);
   transition:var(--transition);flex-shrink:0;
 }
-.modal-close:hover{background:rgba(26,45,74,1);border-color:rgba(77,255,195,0.3);color:var(--green);}
-.modal-close svg{width:14px;height:14px;}
+.modal-close:hover{
+  background:rgba(26,45,74,1);
+  border-color:rgba(77,255,195,0.35);
+  color:var(--green);
+  transform:rotate(90deg);
+}
+.modal-close svg{width:15px;height:15px;}
 
-.modal-body{padding:36px 32px 40px;display:flex;flex-direction:column;gap:40px;}
+/* Modal Body */
+.modal-body{padding:36px 36px 40px;display:flex;flex-direction:column;gap:44px;}
 
-/* individual project block */
-.portfolio-item{display:flex;flex-direction:column;gap:18px;}
-.portfolio-item-header{display:flex;align-items:center;gap:14px;}
+/* Individual project block */
+.portfolio-item{display:flex;flex-direction:column;gap:16px;}
+.portfolio-item-header{
+  display:flex;align-items:center;gap:12px;
+}
 .portfolio-item-index{
   font-family:var(--font-mono);font-size:var(--fz-xxs);
   color:var(--green);letter-spacing:0.1em;
   background:rgba(77,255,195,0.08);
-  border:1px solid rgba(77,255,195,0.18);
-  border-radius:4px;padding:4px 10px;
+  border:1px solid rgba(77,255,195,0.2);
+  border-radius:4px;padding:5px 10px;
   flex-shrink:0;
 }
 .portfolio-item-name{
   font-size:var(--fz-md);font-weight:600;
   color:var(--slate-white);letter-spacing:-0.01em;
 }
-.portfolio-item-meta{
-  font-family:var(--font-mono);font-size:var(--fz-xxs);
-  color:var(--slate);letter-spacing:0.06em;
-  margin-left:auto;flex-shrink:0;
-}
 .portfolio-divider{
   height:1px;flex:1;
-  background:linear-gradient(to right,var(--navy-mid),transparent);
+  background:linear-gradient(to right,rgba(26,45,74,0.8),transparent);
 }
 
-/* video wrapper */
+/* Video wrapper */
 .video-wrap{
-  position:relative;border-radius:8px;overflow:hidden;
+  position:relative;border-radius:10px;overflow:hidden;
   border:1px solid var(--navy-mid);
-  background:var(--navy);
-  transition:border-color 0.25s ease, box-shadow 0.25s ease;
+  background:#04090e;
+  transition:border-color 0.25s ease,box-shadow 0.25s ease;
 }
 .video-wrap:hover{
-  border-color:rgba(77,255,195,0.2);
-  box-shadow:0 12px 48px -12px rgba(0,0,0,0.5);
+  border-color:rgba(77,255,195,0.25);
+  box-shadow:0 16px 56px -12px rgba(0,0,0,0.6);
 }
 .video-wrap video{
   width:100%;display:block;
-  max-height:480px;object-fit:contain;
+  max-height:500px;object-fit:contain;
   background:#04090e;
 }
 
-/* separator between items */
-.portfolio-separator{
-  height:1px;
-  background:linear-gradient(90deg,transparent,rgba(26,45,74,0.8),transparent);
+/* Video loading state */
+.video-loading{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(4,9,18,0.6);
+  pointer-events:none;
+  transition:opacity 0.3s ease;
+}
+.video-loading.hidden{opacity:0;}
+.video-spinner{
+  width:32px;height:32px;
+  border:2px solid rgba(77,255,195,0.15);
+  border-top-color:var(--green);
+  border-radius:50%;
+  animation:spinGlow 0.8s linear infinite;
 }
 
-/* modal footer */
+/* Separator between items */
+.portfolio-separator{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(26,45,74,0.6),transparent);
+}
+
+/* Modal footer */
 .modal-footer{
-  padding:18px 32px;
+  padding:20px 36px;
   border-top:1px solid var(--navy-mid);
   display:flex;align-items:center;justify-content:space-between;gap:16px;
   flex-wrap:wrap;
@@ -367,17 +420,21 @@ section{max-width:920px;padding:110px 0;}
   color:var(--slate);letter-spacing:0.05em;
 }
 .modal-footer-cta{
-  display:inline-flex;align-items:center;gap:7px;
+  display:inline-flex;align-items:center;gap:8px;
   color:var(--navy);background:var(--green);
   border:none;border-radius:var(--radius);
-  padding:10px 18px;
+  padding:11px 20px;
   font-family:var(--font-mono);font-size:var(--fz-xxs);font-weight:600;
   line-height:1;text-decoration:none;cursor:pointer;
   transition:var(--transition);letter-spacing:0.03em;
   box-shadow:0 0 20px rgba(77,255,195,0.2);
 }
-.modal-footer-cta:hover{background:rgba(77,255,195,0.85);box-shadow:0 0 32px rgba(77,255,195,0.35);transform:translateY(-1px);}
-.modal-footer-cta svg{width:12px;height:12px;}
+.modal-footer-cta:hover{
+  background:rgba(77,255,195,0.85);
+  box-shadow:0 0 32px rgba(77,255,195,0.35);
+  transform:translateY(-1px);
+}
+.modal-footer-cta svg{width:13px;height:13px;}
 
 /* CURSOR */
 .cursor-dot{position:fixed;width:7px;height:7px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);mix-blend-mode:difference;}
@@ -423,11 +480,10 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .proof-item{padding:18px 20px;}
   .pricing-includes{padding:20px;}
   .pricing-card-top{padding:24px 20px 20px;}
-  .modal-overlay{padding:16px 12px 40px;}
-  .modal-header{padding:18px 20px;}
-  .modal-body{padding:24px 20px 32px;gap:32px;}
-  .modal-footer{padding:14px 20px;}
-  .portfolio-item-meta{display:none;}
+  .modal-overlay{padding:12px 12px 40px;}
+  .modal-header{padding:20px 20px;}
+  .modal-body{padding:24px 20px 32px;gap:36px;}
+  .modal-footer{padding:16px 20px;}
 }
 @media(max-width:480px){
   nav{padding:0 14px;}
@@ -502,7 +558,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </a>
     <button class="nav-portfolio-btn js-open-portfolio" aria-label="View portfolio">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-      View Portfolio
+      View My Work
     </button>
   </div>
   <a href="https://instagram.com/aneshassnawi" class="nav-cta-btn" target="_blank" rel="noreferrer">Apply for a Rebuild &#8594;</a>
@@ -527,13 +583,13 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 <!-- ============================================================
      PORTFOLIO MODAL
      ============================================================ -->
-<div class="modal-overlay" id="portfolioModal" role="dialog" aria-modal="true" aria-label="Portfolio — Selected Work">
+<div class="modal-overlay" id="portfolioModal" role="dialog" aria-modal="true" aria-label="Portfolio — My Work">
   <div class="modal-box" id="modalBox">
 
     <div class="modal-header">
       <div class="modal-header-left">
-        <span class="modal-eyebrow">// Selected Work</span>
-        <h2 class="modal-title">Landing Pages</h2>
+        <span class="modal-eyebrow">Selected Work</span>
+        <h2 class="modal-title">Pages I've Built</h2>
         <p class="modal-subtitle">Hand-coded from scratch — no templates, no page builders.</p>
       </div>
       <button class="modal-close js-close-portfolio" aria-label="Close portfolio">
@@ -543,19 +599,26 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 
     <div class="modal-body">
 
-      <!-- Project 01 -->
+      <!-- Project 01 — AUTOPLAY -->
       <div class="portfolio-item">
         <div class="portfolio-item-header">
           <span class="portfolio-item-index">01</span>
-          <span class="portfolio-item-name">High-Ticket Coaching Page</span>
+          <span class="portfolio-item-name">First Page I Built</span>
           <div class="portfolio-divider"></div>
-          <span class="portfolio-item-meta">Conversion Rebuild</span>
         </div>
         <div class="video-wrap">
-          <video controls preload="metadata" playsinline>
-            <source src="https://raw.githubusercontent.com/aneshassnawi/portfolio/main/1.mp4" type="video/mp4">
+          <video
+            id="video-1"
+            controls
+            muted
+            playsinline
+            preload="auto"
+            src="https://raw.githubusercontent.com/aneshassnawi/portfolio/main/1.mp4">
             Your browser does not support the video tag.
           </video>
+          <div class="video-loading" id="loader-1">
+            <div class="video-spinner"></div>
+          </div>
         </div>
       </div>
 
@@ -565,15 +628,22 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       <div class="portfolio-item">
         <div class="portfolio-item-header">
           <span class="portfolio-item-index">02</span>
-          <span class="portfolio-item-name">Course Creator Sales Page</span>
+          <span class="portfolio-item-name">Second Page I Built</span>
           <div class="portfolio-divider"></div>
-          <span class="portfolio-item-meta">Full Rebuild</span>
         </div>
         <div class="video-wrap">
-          <video controls preload="metadata" playsinline>
-            <source src="https://raw.githubusercontent.com/aneshassnawi/portfolio/main/3.mp4" type="video/mp4">
+          <video
+            id="video-2"
+            controls
+            muted
+            playsinline
+            preload="metadata"
+            src="https://raw.githubusercontent.com/aneshassnawi/portfolio/main/3.mp4">
             Your browser does not support the video tag.
           </video>
+          <div class="video-loading" id="loader-2">
+            <div class="video-spinner"></div>
+          </div>
         </div>
       </div>
 
@@ -583,15 +653,22 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       <div class="portfolio-item">
         <div class="portfolio-item-header">
           <span class="portfolio-item-index">03</span>
-          <span class="portfolio-item-name">Premium Offer Landing Page</span>
+          <span class="portfolio-item-name">Third Page I Built</span>
           <div class="portfolio-divider"></div>
-          <span class="portfolio-item-meta">Warm Traffic Optimized</span>
         </div>
         <div class="video-wrap">
-          <video controls preload="metadata" playsinline>
-            <source src="https://raw.githubusercontent.com/aneshassnawi/portfolio/main/2.mp4" type="video/mp4">
+          <video
+            id="video-3"
+            controls
+            muted
+            playsinline
+            preload="metadata"
+            src="https://raw.githubusercontent.com/aneshassnawi/portfolio/main/2.mp4">
             Your browser does not support the video tag.
           </video>
+          <div class="video-loading" id="loader-3">
+            <div class="video-spinner"></div>
+          </div>
         </div>
       </div>
 
@@ -654,18 +731,18 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       </div>
     </div>
 
-    <span class="hero-eyebrow fade-up d2">Conversion-Engineered Landing Pages for High-Ticket Coaches</span>
+    <span class="hero-eyebrow fade-up d2">Landing Pages for High-Ticket Coaches &amp; Course Creators</span>
 
-    <p class="hero-h1 fade-up d3">Your audience already trusts you.</p>
-    <p class="hero-problem fade-up d3">Your landing page is <em>costing you that trust</em> before the sale.</p>
+    <p class="hero-h1 fade-up d3">Your audience trusts you.</p>
+    <p class="hero-problem fade-up d3">Your landing page is <em>losing that sale</em>.</p>
 
     <p class="hero-sub fade-up d4">
-      You've built a real following. People watch your content, read every caption, reply to your stories. They arrive at your landing page <strong>already convinced by you</strong> — and the page loses them. Not because your offer is weak. Because a page built for cold strangers cannot close someone who arrived through a relationship. <strong>I rebuild it so it can.</strong>
+      They follow you for months. They watch your content, reply to your stories, read every caption. They arrive at your landing page <strong>already convinced by you</strong> — and the page loses them. Not because your offer is weak. Because a page built for cold strangers cannot close someone who came through a relationship. <strong>I rebuild it to close them.</strong>
     </p>
 
     <div class="hero-cta-group fade-up d5">
       <button class="portfolio-trigger js-open-portfolio" aria-label="View portfolio">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         View My Work
       </button>
       <a href="#offer" class="cta-secondary js-scroll-offer">See How It Works &#8594;</a>
@@ -726,9 +803,9 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     <h2 class="numbered-heading fade-up">About</h2>
     <div class="about-block fade-up d1">
       <span class="about-tag">// The person behind the work</span>
-      <p>I'm <strong>Anes Hass</strong> — a conversion designer and developer who works exclusively with online coaches and course creators running high-ticket offers. My focus is deliberately narrow: <strong>landing pages that convert warm, Instagram-sourced traffic into paying clients.</strong></p>
-      <p>Here's a pattern I see constantly. A coach builds a genuinely valuable program — $2K, $5K, sometimes more. They create content that earns real trust, drive consistent traffic to a landing page, and watch that traffic leave without buying. The offer isn't the problem. The page is. It was written for cold strangers. It lists modules instead of resolving doubt. It describes the program instead of enrolling the reader. It asks for the sale before earning the right to ask.</p>
-      <p><strong>That's a solvable problem — and it's the only one I solve.</strong> I audit your page, identify precisely where trust breaks and buyers exit, then rebuild every section to speak directly to someone who just came from your content. Someone who's already warm. Someone who just needs the page to do its job.</p>
+      <p>I'm <strong>Anes Hass</strong> — a conversion designer and developer focused exclusively on coaches and course creators running high-ticket offers. My work is deliberately narrow: <strong>landing pages that convert warm, Instagram-sourced traffic into paying clients.</strong></p>
+      <p>Here's what I see constantly: a coach builds a genuinely valuable program — $2K, $5K, more. They earn real trust through their content. They drive consistent traffic to a landing page. And that page loses them. Not because the offer is weak — because the page was written for cold strangers. It lists modules instead of resolving doubt. It describes the program instead of enrolling the reader. It asks for the sale before earning the right to ask.</p>
+      <p><strong>That's a solvable problem. And it's the only problem I solve.</strong> I audit your page, identify exactly where trust breaks and buyers exit, then rebuild every section to speak directly to someone who just came from your content — someone who's warm, already curious, and just needs the page to do its job.</p>
     </div>
   </section>
 
@@ -739,16 +816,16 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       <div class="service-card fade-left d1">
         <span class="service-label">// Why strong offers lose sales</span>
         <h4>Your Page Is Describing Your Offer. It Should Be Enrolling Your Reader.</h4>
-        <p>A description tells visitors what they get. An enrollment page makes them feel what changes when they have it. Most pages — written by the coach or a generalist — land in "feature list" territory. Every section I write is anchored to a single question the visitor is silently asking at that exact point in the page. Answer the right question at the right moment, and resistance drops. Drop resistance, and the buy button gets clicked.</p>
+        <p>A description tells visitors what they get. An enrollment page makes them feel what changes when they have it. Most pages land in "feature list" territory — written by the coach or a generalist. Every section I write is anchored to a single question the visitor is silently asking at that exact moment. Answer the right question at the right moment, and resistance drops. Drop resistance, and the buy button gets clicked.</p>
       </div>
       <div class="service-card fade-right d2">
         <span class="service-label">// What a rebuilt page does differently</span>
-        <h4>Four Conversion Levers Your Current Page Is Almost Certainly Missing</h4>
+        <h4>Four Things Your Page Is Almost Certainly Missing</h4>
         <p>
           <strong style="color:var(--slate-white);">An identity-locked headline</strong> — your ideal buyer should read the first line and think "this was written for me." Most headlines describe an outcome. They should identify the person.<br><br>
-          <strong style="color:var(--slate-white);">Objection resolution embedded in the body</strong> — "Is this right for me at this stage?" lives in every reader's head. Your page needs to answer that before the CTA appears, not after it.<br><br>
-          <strong style="color:var(--slate-white);">A trust arc that honors the relationship</strong> — your audience already trusts you from months of content. The page should mirror that relationship, not reset it. Copy, tone, and structure that feel like a natural extension of your brand.<br><br>
-          <strong style="color:var(--slate-white);">Technical credibility that holds attention</strong> — slow loads and cluttered layouts silently signal "not serious." Every page I deliver loads in under two seconds on mobile and is built to retain focus, not fragment it.
+          <strong style="color:var(--slate-white);">Objections answered before the CTA</strong> — "Is this right for me?" lives in every reader's head. Your page needs to resolve that before asking for the sale.<br><br>
+          <strong style="color:var(--slate-white);">A trust arc that honors the relationship</strong> — your audience already trusts you from months of content. The page should mirror that — not reset it cold.<br><br>
+          <strong style="color:var(--slate-white);">Technical credibility</strong> — slow loads and cluttered layouts signal "not serious." Every page I deliver loads under two seconds on mobile and is built to hold attention.
         </p>
       </div>
     </div>
@@ -761,9 +838,9 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 
       <div class="offer-card-header">
         <span class="offer-scope-tag">You see the finished page before a single dollar changes hands</span>
-        <h3>Send Me Your Page. I Rebuild It in 48 Hours. You Only Pay If It's Clearly Better.</h3>
+        <h3>Send Me Your Page. Rebuilt in 48 Hours. You Only Pay If It's Clearly Better.</h3>
         <p class="offer-lead-text">
-          No retainers. No strategy sessions. No briefing decks. Send me your current landing page and a short description of your offer and audience. I run a full conversion audit — identifying precisely where warm visitors lose confidence and exit — then rebuild the entire page from scratch around your offer, your voice, and your buyer's psychology. A finished, publish-ready page lands in your inbox within 48 hours of kickoff. You compare it to what you have live. If it isn't materially stronger at every level — copy, structure, trust architecture, and close — you don't pay. No negotiation. No exceptions.
+          No retainers. No strategy sessions. No briefing decks. Send me your current landing page and a short note about your offer and audience. I run a full conversion audit — identifying exactly where warm visitors lose confidence and exit — then rebuild the entire page from scratch around your offer, your voice, and your buyer's psychology. A finished, publish-ready page lands in your inbox within 48 hours of kickoff. You compare it to what you have live. If it isn't materially stronger — copy, structure, trust architecture, and close — you don't pay. No negotiation. No exceptions.
         </p>
       </div>
 
@@ -772,23 +849,23 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
         <ul class="offer-points">
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Full conversion audit of your existing page</strong> — before a word of copy is written, I map exactly where your page is losing readers and why. Every rebuild starts from a precise diagnosis, not assumptions.</span>
+            <span><strong>Full conversion audit of your existing page</strong> — before a word of copy is written, I map exactly where your page is losing readers and why. Every rebuild starts from a precise diagnosis.</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Complete page rewrite — copy, structure, and hierarchy</strong> — not a surface edit. Every section is rebuilt from scratch: headline, subheads, body copy, objection handling, social proof placement, and CTA. Written in your voice, aimed directly at your warm audience.</span>
+            <span><strong>Complete page rewrite — copy, structure, and hierarchy</strong> — every section rebuilt from scratch: headline, subheads, body copy, objection handling, social proof placement, and CTA. Written in your voice, aimed at your warm audience.</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Conversion-sequenced layout</strong> — the order of sections determines whether trust is built before the ask or destroyed by it. I rebuild the structure so your page earns the sale before it requests it.</span>
+            <span><strong>Conversion-sequenced layout</strong> — the order of sections determines whether trust is built before the ask, or destroyed by it. I rebuild the structure so the page earns the sale before it requests it.</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Production-grade HTML/CSS — fully yours</strong> — clean, documented code with zero platform dependency. No Webflow subscription. No page builder lock-in. Host it anywhere, hand it to any developer.</span>
+            <span><strong>Production-grade HTML/CSS — fully yours</strong> — clean, documented code. No Webflow subscription. No page builder lock-in. Host it anywhere, hand it to any developer.</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Mobile-first performance build</strong> — your audience reads on their phone. The page delivers sub-2-second load times, a layout optimized for vertical scroll, and CTAs placed exactly where mobile readers convert.</span>
+            <span><strong>Mobile-first performance build</strong> — your audience reads on their phone. Sub-2-second load times, vertical scroll optimized, CTAs placed exactly where mobile readers convert.</span>
           </li>
         </ul>
       </div>
@@ -796,7 +873,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       <div class="offer-footer">
         <div class="offer-next-label">
           The process
-          <span>Send your landing page URL on Instagram along with a short note about your offer and audience. I'll confirm scope and timeline before anything begins. The rebuilt page is in your hands within 48 hours of kickoff — and you decide what happens next.</span>
+          <span>DM me your landing page URL on Instagram with a short note about your offer and audience. I'll confirm scope before anything starts. The rebuilt page is in your hands within 48 hours of kickoff — and you decide what happens next.</span>
         </div>
       </div>
 
@@ -817,7 +894,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
         <div class="pricing-card-top">
           <div class="pricing-name-group">
             <span class="pricing-plan">Full Landing Page Rebuild</span>
-            <span class="pricing-desc">For coaches and service businesses ready to turn warm traffic into paying clients. One page. Complete rebuild. Delivered in 48 hours. Yours to own and publish anywhere.</span>
+            <span class="pricing-desc">One page. Complete rebuild. Delivered in 48 hours. Yours to own and publish anywhere — no platform lock-in, no recurring fees.</span>
           </div>
           <div class="pricing-amount-group">
             <span class="pricing-amount">from $300</span>
@@ -847,7 +924,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       <div class="guarantee-icon">&#9679;</div>
       <div class="guarantee-text">
         <h4>You don't pay unless the rebuild is a clear, objective improvement.</h4>
-        <p>When the rebuilt page is delivered, compare it side-by-side with your current version. If it doesn't demonstrate a materially stronger case for your offer — tighter copy, resolved objections, a cleaner path to the CTA — you owe nothing. This isn't a refund policy. It's a standard I hold myself to because I only take on work I'm confident I can improve. It also means I decline projects where I can't see a clear path to a better outcome — which protects your time as much as mine.</p>
+        <p>When the rebuilt page is delivered, compare it side-by-side with your current version. If it doesn't demonstrate a materially stronger case for your offer — tighter copy, resolved objections, a cleaner path to the CTA — you owe nothing. This isn't a refund policy. It's a standard I hold myself to, because I only take on work I'm confident I can improve. It also means I sometimes decline projects when I can't see a clear path to a better outcome — which protects your time as much as mine.</p>
       </div>
     </div>
   </section>
@@ -859,7 +936,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     <h2 class="contact-h2 fade-up d1">Your audience is<br><span>already sold on you.</span><br>Let's build the page<br>that closes them.</h2>
 
     <p class="contact-sub fade-up d2">
-      Send me your landing page link on Instagram. I'll review it and tell you exactly what's suppressing conversions — no obligation, no pitch. If we're a fit, the rebuilt page is in your hands in 48 hours. <strong>You only pay after you've seen the result.</strong>
+      DM me your landing page link on Instagram. I'll tell you exactly what's suppressing conversions — no obligation, no pitch. If we're a fit, the rebuilt page is in your hands in 48 hours. <strong>You only pay after you've seen the result.</strong>
     </p>
 
     <div class="contact-cta-wrap fade-up d3">
@@ -891,58 +968,90 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
    INTRO LOADER
    ============================================================ */
 (function(){
-  var loader=document.getElementById('intro-loader');
+  var loader = document.getElementById('intro-loader');
   setTimeout(function(){
     loader.classList.add('hide');
-    setTimeout(function(){loader.style.display='none';scanVisible();},500);
-  },2400);
+    setTimeout(function(){
+      loader.style.display = 'none';
+      scanVisible();
+    }, 500);
+  }, 2400);
 })();
 
 /* ============================================================
    SCROLL ANIMATIONS
    ============================================================ */
 function scanVisible(){
-  var els=document.querySelectorAll('.fade-up,.fade-left,.fade-right');
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('appeared');obs.unobserve(e.target);}});
-  },{threshold:0.1,rootMargin:'0px 0px -36px 0px'});
-  els.forEach(function(el){obs.observe(el);});
+  var els = document.querySelectorAll('.fade-up,.fade-left,.fade-right');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('appeared'); obs.unobserve(e.target); }
+    });
+  }, {threshold:0.1, rootMargin:'0px 0px -36px 0px'});
+  els.forEach(function(el){ obs.observe(el); });
 }
-document.addEventListener('DOMContentLoaded',scanVisible);
+document.addEventListener('DOMContentLoaded', scanVisible);
 
 /* ============================================================
    PORTFOLIO MODAL
    ============================================================ */
-var modal = document.getElementById('portfolioModal');
-var modalBox = document.getElementById('modalBox');
+var modal    = document.getElementById('portfolioModal');
+var video1   = document.getElementById('video-1');
+var loader1  = document.getElementById('loader-1');
+var loader2  = document.getElementById('loader-2');
+var loader3  = document.getElementById('loader-3');
+
+/* Hide spinner once video can play */
+function bindLoader(video, loader){
+  if(!video || !loader) return;
+  var hide = function(){ loader.classList.add('hidden'); };
+  video.addEventListener('canplay', hide);
+  video.addEventListener('playing', hide);
+  // Already ready
+  if(video.readyState >= 3) hide();
+}
+bindLoader(document.getElementById('video-1'), loader1);
+bindLoader(document.getElementById('video-2'), loader2);
+bindLoader(document.getElementById('video-3'), loader3);
 
 function openModal(){
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
+
+  // Autoplay first video (muted is required by browsers)
+  if(video1){
+    video1.currentTime = 0;
+    var playPromise = video1.play();
+    if(playPromise !== undefined){
+      playPromise.catch(function(){
+        // Autoplay blocked — video stays paused, user can press play
+      });
+    }
+  }
+
+  // Focus close button for a11y
   setTimeout(function(){
     var closeBtn = modal.querySelector('.js-close-portfolio');
     if(closeBtn) closeBtn.focus();
-  }, 100);
+  }, 150);
 }
 
 function closeModal(){
   modal.classList.remove('open');
   document.body.style.overflow = '';
+  // Pause all videos
   modal.querySelectorAll('video').forEach(function(v){ v.pause(); });
 }
 
 document.querySelectorAll('.js-open-portfolio').forEach(function(btn){
   btn.addEventListener('click', openModal);
 });
-
 document.querySelectorAll('.js-close-portfolio').forEach(function(btn){
   btn.addEventListener('click', closeModal);
 });
-
 modal.addEventListener('click', function(e){
   if(e.target === modal) closeModal();
 });
-
 document.addEventListener('keydown', function(e){
   if(e.key === 'Escape' && modal.classList.contains('open')) closeModal();
 });
@@ -951,35 +1060,39 @@ document.addEventListener('keydown', function(e){
    SMOOTH SCROLL
    ============================================================ */
 document.querySelectorAll('.js-scroll-offer').forEach(function(a){
-  a.addEventListener('click',function(e){
+  a.addEventListener('click', function(e){
     e.preventDefault();
-    var t=document.querySelector('#offer');
-    if(t){t.scrollIntoView({behavior:'smooth',block:'start'});}
+    var t = document.querySelector('#offer');
+    if(t){ t.scrollIntoView({behavior:'smooth', block:'start'}); }
   });
 });
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   if(a.classList.contains('js-scroll-offer')) return;
-  a.addEventListener('click',function(e){
-    var t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  a.addEventListener('click', function(e){
+    var t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
   });
 });
 
 /* ============================================================
    CURSOR
    ============================================================ */
-var dot=document.getElementById('cursorDot');
-var ring=document.getElementById('cursorRing');
-var mx=0,my=0,rx=0,ry=0;
-if(window.innerWidth>768){
-  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-  (function anim(){rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);})();
+var dot  = document.getElementById('cursorDot');
+var ring = document.getElementById('cursorRing');
+var mx=0, my=0, rx=0, ry=0;
+if(window.innerWidth > 768){
+  document.addEventListener('mousemove', function(e){ mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; });
+  (function anim(){
+    rx += (mx-rx)*0.1; ry += (my-ry)*0.1;
+    ring.style.left=rx+'px'; ring.style.top=ry+'px';
+    requestAnimationFrame(anim);
+  })();
   document.querySelectorAll('a,button,.service-card,.pricing-card,.offer-card,.cta-primary,.cta-secondary,.portfolio-trigger,.video-wrap').forEach(function(el){
-    el.addEventListener('mouseenter',function(){ring.classList.add('hovered');});
-    el.addEventListener('mouseleave',function(){ring.classList.remove('hovered');});
+    el.addEventListener('mouseenter', function(){ ring.classList.add('hovered'); });
+    el.addEventListener('mouseleave', function(){ ring.classList.remove('hovered'); });
   });
-  document.addEventListener('mouseleave',function(){dot.style.opacity='0';ring.style.opacity='0';});
-  document.addEventListener('mouseenter',function(){dot.style.opacity='1';ring.style.opacity='1';});
+  document.addEventListener('mouseleave', function(){ dot.style.opacity='0'; ring.style.opacity='0'; });
+  document.addEventListener('mouseenter', function(){ dot.style.opacity='1'; ring.style.opacity='1'; });
 }
 </script>
 </body>
