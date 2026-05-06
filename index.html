@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,10 +91,6 @@ nav{display:flex;justify-content:space-between;align-items:center;position:fixed
 .nav-logo{position:relative;width:40px;height:40px;display:flex;align-items:center;justify-content:center;text-decoration:none;flex-shrink:0;}
 .nav-logo svg.hex-bg{position:absolute;top:0;left:0;width:40px;height:40px;color:var(--green);transition:var(--transition);}
 .nav-logo .logo-letter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-mono);font-size:17px;font-weight:500;color:var(--green);}
-.nav-social-icons{display:flex;align-items:center;gap:10px;}
-.nav-social-icon{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:var(--radius);border:1px solid rgba(26,45,74,0.9);color:var(--slate-light);transition:var(--transition);}
-.nav-social-icon:hover{border-color:rgba(77,255,195,0.3);color:var(--green);}
-.nav-social-icon svg{width:16px;height:16px;}
 .nav-cta-btn{color:var(--navy);background:var(--green);border:none;border-radius:var(--radius);padding:9px 18px;font-family:var(--font-mono);font-size:var(--fz-xs);font-weight:500;line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);letter-spacing:0.02em;box-shadow:0 0 20px rgba(77,255,195,0.2);}
 .nav-cta-btn:hover{background:rgba(77,255,195,0.85);box-shadow:0 0 32px rgba(77,255,195,0.35);transform:translateY(-1px);}
 
@@ -433,7 +428,6 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .trust-bar{gap:0;}
   .trust-item{padding:6px 10px;font-size:10px;}
   .trust-item::after{display:none;}
-  .nav-social-icons .nav-social-icon{width:30px;height:30px;}
 }
 </style>
 </head>
@@ -488,7 +482,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 
 <a class="skip-to-content" href="#content">Skip to Content</a>
 
-<!-- NAV -->
+<!-- NAV — social icons removed, logo only on left -->
 <nav>
   <div class="nav-left">
     <a href="/" class="nav-logo" aria-label="AutFlow Studio home">
@@ -499,27 +493,11 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       </svg>
       <span class="logo-letter">A</span>
     </a>
-    <!-- Social icons: Instagram + WhatsApp -->
-    <div class="nav-social-icons">
-      <a href="https://instagram.com/aneshassnawi" class="nav-social-icon" aria-label="Instagram @aneshassnawi" target="_blank" rel="noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-        </svg>
-      </a>
-      <a href="https://wa.me/213676127853" class="nav-social-icon" aria-label="Message on WhatsApp" target="_blank" rel="noreferrer">
-        <!-- WhatsApp icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-        </svg>
-      </a>
-    </div>
   </div>
   <a href="https://wa.me/213676127853" class="nav-cta-btn" target="_blank" rel="noreferrer">Message on WhatsApp &#8594;</a>
 </nav>
 
-<!-- SIDE SOCIAL -->
+<!-- SIDE SOCIAL (unchanged) -->
 <div class="side-el left" aria-orientation="vertical">
   <ul class="social-list" aria-label="Contact">
     <li>
@@ -543,9 +521,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   </ul>
 </div>
 
-<!-- ============================================================
-     PORTFOLIO MODAL — No videos, WhatsApp CTA
-     ============================================================ -->
+<!-- PORTFOLIO MODAL -->
 <div class="modal-overlay" id="portfolioModal" role="dialog" aria-modal="true" aria-label="Portfolio — My Work">
   <div class="modal-box" id="modalBox">
 
@@ -654,7 +630,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       </div>
       <div class="proof-strip-body">
         <div class="proof-item">
-          <span class="proof-item-num">48 hrs</span>
+          <span class="proof-item-num">24 hrs</span>
           <span class="proof-item-label">Fully rebuilt page, ready to publish</span>
         </div>
         <div class="proof-divider"></div>
@@ -674,7 +650,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   <!-- TRUST BAR -->
   <div class="trust-bar fade-up">
     <div class="trust-item"><span class="trust-dot"></span>Built for Warm Traffic</div>
-    <div class="trust-item"><span class="trust-dot"></span>Delivered in 48 Hours</div>
+    <div class="trust-item"><span class="trust-dot"></span>Delivered in 24 Hours</div>
     <div class="trust-item"><span class="trust-dot"></span>Full Code Ownership</div>
     <div class="trust-item"><span class="trust-dot"></span>Risk-Free Guarantee</div>
   </div>
@@ -682,13 +658,13 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   <!-- METRICS TICKER -->
   <div class="metrics-ticker-wrap fade-up">
     <div class="metrics-ticker" id="ticker">
-      <div class="ticker-item"><span class="ticker-num">48 hrs</span><span class="ticker-label">Rebuilt &amp; Delivered</span></div>
+      <div class="ticker-item"><span class="ticker-num">24 hrs</span><span class="ticker-label">Rebuilt &amp; Delivered</span></div>
       <div class="ticker-item"><span class="ticker-num">from $300</span><span class="ticker-label">Flat. One Price.</span></div>
       <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Discovery Calls Required</span></div>
       <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Invoice If No Improvement</span></div>
       <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">You Own the Code</span></div>
       <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Mobile Load Standard</span></div>
-      <div class="ticker-item"><span class="ticker-num">48 hrs</span><span class="ticker-label">Rebuilt &amp; Delivered</span></div>
+      <div class="ticker-item"><span class="ticker-num">24 hrs</span><span class="ticker-label">Rebuilt &amp; Delivered</span></div>
       <div class="ticker-item"><span class="ticker-num">from $300</span><span class="ticker-label">Flat. One Price.</span></div>
       <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Discovery Calls Required</span></div>
       <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Invoice If No Improvement</span></div>
@@ -737,9 +713,9 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 
       <div class="offer-card-header">
         <span class="offer-scope-tag">You see the finished page before a single dollar changes hands</span>
-        <h3>Send Me Your Page. Rebuilt in 48 Hours. You Only Pay If It's Clearly Better.</h3>
+        <h3>Send Me Your Page. Rebuilt in 24 Hours. You Only Pay If It's Clearly Better.</h3>
         <p class="offer-lead-text">
-          No retainers. No strategy sessions. No briefing decks. Send me your current landing page and a short note about your offer and audience. I run a full conversion audit — identifying exactly where warm visitors lose confidence and exit — then rebuild the entire page from scratch around your offer, your voice, and your buyer's psychology. A finished, publish-ready page lands in your inbox within 48 hours of kickoff. You compare it to what you have live. If it isn't materially stronger — copy, structure, trust architecture, and close — you don't pay. No negotiation. No exceptions.
+          No retainers. No strategy sessions. No briefing decks. Send me your current landing page and a short note about your offer and audience. I run a full conversion audit — identifying exactly where warm visitors lose confidence and exit — then rebuild the entire page from scratch around your offer, your voice, and your buyer's psychology. A finished, publish-ready page lands in your inbox within 24 hours of kickoff. You compare it to what you have live. If it isn't materially stronger — copy, structure, trust architecture, and close — you don't pay. No negotiation. No exceptions.
         </p>
       </div>
 
@@ -772,7 +748,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       <div class="offer-footer">
         <div class="offer-next-label">
           The process
-          <span>Message me your landing page URL on WhatsApp with a short note about your offer and audience. I'll confirm scope before anything starts. The rebuilt page is in your hands within 48 hours of kickoff — and you decide what happens next.</span>
+          <span>Message me your landing page URL on WhatsApp with a short note about your offer and audience. I'll confirm scope before anything starts. The rebuilt page is in your hands within 24 hours of kickoff — and you decide what happens next.</span>
         </div>
       </div>
 
@@ -793,7 +769,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
         <div class="pricing-card-top">
           <div class="pricing-name-group">
             <span class="pricing-plan">Full Landing Page Rebuild</span>
-            <span class="pricing-desc">One page. Complete rebuild. Delivered in 48 hours. Yours to own and publish anywhere — no platform lock-in, no recurring fees.</span>
+            <span class="pricing-desc">One page. Complete rebuild. Delivered in 24 hours. Yours to own and publish anywhere — no platform lock-in, no recurring fees.</span>
           </div>
           <div class="pricing-amount-group">
             <span class="pricing-amount">from $300</span>
@@ -835,12 +811,11 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     <h2 class="contact-h2 fade-up d1">Your audience is<br><span>already sold on you.</span><br>Let's build the page<br>that closes them.</h2>
 
     <p class="contact-sub fade-up d2">
-      Message me your landing page link on WhatsApp. I'll tell you exactly what's suppressing conversions — no obligation, no pitch. If we're a fit, the rebuilt page is in your hands in 48 hours. <strong>You only pay after you've seen the result.</strong>
+      Message me your landing page link on WhatsApp. I'll tell you exactly what's suppressing conversions — no obligation, no pitch. If we're a fit, the rebuilt page is in your hands in 24 hours. <strong>You only pay after you've seen the result.</strong>
     </p>
 
     <div class="contact-cta-wrap fade-up d3">
       <a href="https://wa.me/213676127853" class="cta-primary" target="_blank" rel="noreferrer">
-        <!-- WhatsApp icon -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
         </svg>
