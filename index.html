@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,10 +92,10 @@ nav{display:flex;justify-content:space-between;align-items:center;position:fixed
 .nav-logo{position:relative;width:40px;height:40px;display:flex;align-items:center;justify-content:center;text-decoration:none;flex-shrink:0;}
 .nav-logo svg.hex-bg{position:absolute;top:0;left:0;width:40px;height:40px;color:var(--green);transition:var(--transition);}
 .nav-logo .logo-letter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-mono);font-size:17px;font-weight:500;color:var(--green);}
-.nav-portfolio-btn{display:inline-flex;align-items:center;gap:7px;color:var(--slate-light);background:transparent;border:1px solid rgba(26,45,74,0.9);border-radius:var(--radius);padding:8px 14px;font-family:var(--font-mono);font-size:var(--fz-xxs);line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);letter-spacing:0.08em;text-transform:uppercase;}
-.nav-portfolio-btn:hover{border-color:rgba(77,255,195,0.3);color:var(--green);}
-.nav-portfolio-btn svg{width:12px;height:12px;flex-shrink:0;opacity:0.6;transition:var(--transition);}
-.nav-portfolio-btn:hover svg{opacity:1;}
+.nav-social-icons{display:flex;align-items:center;gap:10px;}
+.nav-social-icon{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:var(--radius);border:1px solid rgba(26,45,74,0.9);color:var(--slate-light);transition:var(--transition);}
+.nav-social-icon:hover{border-color:rgba(77,255,195,0.3);color:var(--green);}
+.nav-social-icon svg{width:16px;height:16px;}
 .nav-cta-btn{color:var(--navy);background:var(--green);border:none;border-radius:var(--radius);padding:9px 18px;font-family:var(--font-mono);font-size:var(--fz-xs);font-weight:500;line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);letter-spacing:0.02em;box-shadow:0 0 20px rgba(77,255,195,0.2);}
 .nav-cta-btn:hover{background:rgba(77,255,195,0.85);box-shadow:0 0 32px rgba(77,255,195,0.35);transform:translateY(-1px);}
 
@@ -134,7 +135,7 @@ section{max-width:920px;padding:110px 0;}
 .cta-secondary:hover{border-color:rgba(77,255,195,0.3);color:var(--green);}
 .hero-cta-group{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
 
-/* ===== PORTFOLIO TRIGGER — PRIMARY HERO BUTTON ===== */
+/* ===== PORTFOLIO MODAL TRIGGER ===== */
 .portfolio-trigger{
   display:inline-flex;align-items:center;gap:10px;
   color:var(--navy);background:var(--green);
@@ -263,7 +264,7 @@ section{max-width:920px;padding:110px 0;}
 .contact-caveat{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.07em;}
 
 /* ============================================================
-   PORTFOLIO MODAL — REDESIGNED
+   PORTFOLIO MODAL — no videos, just a coming soon state
    ============================================================ */
 .modal-overlay{
   position:fixed;inset:0;z-index:8000;
@@ -302,7 +303,6 @@ section{max-width:920px;padding:110px 0;}
   animation:borderRun 3s linear infinite;
 }
 
-/* Modal Header */
 .modal-header{
   display:flex;align-items:center;justify-content:space-between;
   padding:28px 36px;
@@ -342,72 +342,15 @@ section{max-width:920px;padding:110px 0;}
 }
 .modal-close svg{width:15px;height:15px;}
 
-/* Modal Body */
-.modal-body{padding:36px 36px 40px;display:flex;flex-direction:column;gap:44px;}
+.modal-body{padding:56px 36px 60px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px;min-height:280px;}
+.modal-coming-icon{width:56px;height:56px;border-radius:50%;background:rgba(77,255,195,0.06);border:1px solid rgba(77,255,195,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto;}
+.modal-coming-icon svg{width:24px;height:24px;color:var(--green);}
+.modal-coming-title{font-size:var(--fz-xl);font-weight:700;color:var(--slate-white);letter-spacing:-0.02em;}
+.modal-coming-text{font-size:var(--fz-sm);color:var(--slate-light);line-height:1.7;max-width:420px;}
+.modal-coming-cta{display:inline-flex;align-items:center;gap:9px;color:var(--navy);background:var(--green);border:none;border-radius:var(--radius);padding:14px 24px;font-family:var(--font-mono);font-size:var(--fz-xs);font-weight:600;line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);letter-spacing:0.02em;box-shadow:0 0 24px rgba(77,255,195,0.25);margin-top:8px;}
+.modal-coming-cta:hover{background:rgba(77,255,195,0.85);box-shadow:0 0 40px rgba(77,255,195,0.4);transform:translateY(-2px);}
+.modal-coming-cta svg{width:15px;height:15px;}
 
-/* Individual project block */
-.portfolio-item{display:flex;flex-direction:column;gap:16px;}
-.portfolio-item-header{
-  display:flex;align-items:center;gap:12px;
-}
-.portfolio-item-index{
-  font-family:var(--font-mono);font-size:var(--fz-xxs);
-  color:var(--green);letter-spacing:0.1em;
-  background:rgba(77,255,195,0.08);
-  border:1px solid rgba(77,255,195,0.2);
-  border-radius:4px;padding:5px 10px;
-  flex-shrink:0;
-}
-.portfolio-item-name{
-  font-size:var(--fz-md);font-weight:600;
-  color:var(--slate-white);letter-spacing:-0.01em;
-}
-.portfolio-divider{
-  height:1px;flex:1;
-  background:linear-gradient(to right,rgba(26,45,74,0.8),transparent);
-}
-
-/* Video wrapper */
-.video-wrap{
-  position:relative;border-radius:10px;overflow:hidden;
-  border:1px solid var(--navy-mid);
-  background:#04090e;
-  transition:border-color 0.25s ease,box-shadow 0.25s ease;
-}
-.video-wrap:hover{
-  border-color:rgba(77,255,195,0.25);
-  box-shadow:0 16px 56px -12px rgba(0,0,0,0.6);
-}
-.video-wrap video{
-  width:100%;display:block;
-  max-height:500px;object-fit:contain;
-  background:#04090e;
-}
-
-/* Video loading state */
-.video-loading{
-  position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(4,9,18,0.6);
-  pointer-events:none;
-  transition:opacity 0.3s ease;
-}
-.video-loading.hidden{opacity:0;}
-.video-spinner{
-  width:32px;height:32px;
-  border:2px solid rgba(77,255,195,0.15);
-  border-top-color:var(--green);
-  border-radius:50%;
-  animation:spinGlow 0.8s linear infinite;
-}
-
-/* Separator between items */
-.portfolio-separator{
-  height:1px;
-  background:linear-gradient(90deg,transparent,rgba(26,45,74,0.6),transparent);
-}
-
-/* Modal footer */
 .modal-footer{
   padding:20px 36px;
   border-top:1px solid var(--navy-mid);
@@ -451,7 +394,6 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 @media(max-width:768px){
   nav{padding:0 18px;}
   .nav-cta-btn{font-size:10px;padding:8px 12px;}
-  .nav-portfolio-btn{display:none;}
   section{padding:70px 0;max-width:100%;}
   .numbered-heading{white-space:normal;font-size:clamp(18px,5vw,24px);}
   .numbered-heading::after{display:none;}
@@ -482,7 +424,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .pricing-card-top{padding:24px 20px 20px;}
   .modal-overlay{padding:12px 12px 40px;}
   .modal-header{padding:20px 20px;}
-  .modal-body{padding:24px 20px 32px;gap:36px;}
+  .modal-body{padding:40px 20px 48px;}
   .modal-footer{padding:16px 20px;}
 }
 @media(max-width:480px){
@@ -491,6 +433,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   .trust-bar{gap:0;}
   .trust-item{padding:6px 10px;font-size:10px;}
   .trust-item::after{display:none;}
+  .nav-social-icons .nav-social-icon{width:30px;height:30px;}
 }
 </style>
 </head>
@@ -556,12 +499,24 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       </svg>
       <span class="logo-letter">A</span>
     </a>
-    <button class="nav-portfolio-btn js-open-portfolio" aria-label="View portfolio">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-      View My Work
-    </button>
+    <!-- Social icons: Instagram + WhatsApp -->
+    <div class="nav-social-icons">
+      <a href="https://instagram.com/aneshassnawi" class="nav-social-icon" aria-label="Instagram @aneshassnawi" target="_blank" rel="noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/213676127853" class="nav-social-icon" aria-label="Message on WhatsApp" target="_blank" rel="noreferrer">
+        <!-- WhatsApp icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+      </a>
+    </div>
   </div>
-  <a href="https://instagram.com/aneshassnawi" class="nav-cta-btn" target="_blank" rel="noreferrer">Apply for a Rebuild &#8594;</a>
+  <a href="https://wa.me/213676127853" class="nav-cta-btn" target="_blank" rel="noreferrer">Message on WhatsApp &#8594;</a>
 </nav>
 
 <!-- SIDE SOCIAL -->
@@ -577,11 +532,19 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
         </svg>
       </a>
     </li>
+    <li>
+      <a href="https://wa.me/213676127853" aria-label="Message on WhatsApp" target="_blank" rel="noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <title>WhatsApp</title>
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+      </a>
+    </li>
   </ul>
 </div>
 
 <!-- ============================================================
-     PORTFOLIO MODAL
+     PORTFOLIO MODAL — No videos, WhatsApp CTA
      ============================================================ -->
 <div class="modal-overlay" id="portfolioModal" role="dialog" aria-modal="true" aria-label="Portfolio — My Work">
   <div class="modal-box" id="modalBox">
@@ -598,87 +561,29 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     </div>
 
     <div class="modal-body">
-
-      <!-- Project 01 — AUTOPLAY -->
-      <div class="portfolio-item">
-        <div class="portfolio-item-header">
-          <span class="portfolio-item-index">01</span>
-          <span class="portfolio-item-name">First Page I Built</span>
-          <div class="portfolio-divider"></div>
-        </div>
-        <div class="video-wrap">
-          <video
-            id="video-1"
-            controls
-            muted
-            playsinline
-            preload="auto"
-            src="https://raw.githubusercontent.com/aneshassnawi/portfolio/main/1.mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="video-loading" id="loader-1">
-            <div class="video-spinner"></div>
-          </div>
-        </div>
+      <div class="modal-coming-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+        </svg>
       </div>
-
-      <div class="portfolio-separator"></div>
-
-      <!-- Project 02 -->
-      <div class="portfolio-item">
-        <div class="portfolio-item-header">
-          <span class="portfolio-item-index">02</span>
-          <span class="portfolio-item-name">Second Page I Built</span>
-          <div class="portfolio-divider"></div>
-        </div>
-        <div class="video-wrap">
-          <video
-            id="video-2"
-            controls
-            muted
-            playsinline
-            preload="metadata"
-            src="https://raw.githubusercontent.com/aneshassnawi/portfolio/main/3.mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="video-loading" id="loader-2">
-            <div class="video-spinner"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-separator"></div>
-
-      <!-- Project 03 -->
-      <div class="portfolio-item">
-        <div class="portfolio-item-header">
-          <span class="portfolio-item-index">03</span>
-          <span class="portfolio-item-name">Third Page I Built</span>
-          <div class="portfolio-divider"></div>
-        </div>
-        <div class="video-wrap">
-          <video
-            id="video-3"
-            controls
-            muted
-            playsinline
-            preload="metadata"
-            src="https://raw.githubusercontent.com/aneshassnawi/portfolio/main/2.mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="video-loading" id="loader-3">
-            <div class="video-spinner"></div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /modal-body -->
+      <p class="modal-coming-title">Portfolio Available on Request</p>
+      <p class="modal-coming-text">Message me on WhatsApp and I'll send you examples relevant to your niche — coaches, course creators, and high-ticket offers.</p>
+      <a href="https://wa.me/213676127853" class="modal-coming-cta" target="_blank" rel="noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+        Message me on WhatsApp &#8594;
+      </a>
+    </div>
 
     <div class="modal-footer">
       <span class="modal-footer-note">Want a page like these for your offer?</span>
-      <a href="https://instagram.com/aneshassnawi" class="modal-footer-cta" target="_blank" rel="noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        Apply for a Rebuild &#8594;
+      <a href="https://wa.me/213676127853" class="modal-footer-cta" target="_blank" rel="noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+        Start on WhatsApp &#8594;
       </a>
     </div>
 
@@ -873,7 +778,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       <div class="offer-footer">
         <div class="offer-next-label">
           The process
-          <span>DM me your landing page URL on Instagram with a short note about your offer and audience. I'll confirm scope before anything starts. The rebuilt page is in your hands within 48 hours of kickoff — and you decide what happens next.</span>
+          <span>Message me your landing page URL on WhatsApp with a short note about your offer and audience. I'll confirm scope before anything starts. The rebuilt page is in your hands within 48 hours of kickoff — and you decide what happens next.</span>
         </div>
       </div>
 
@@ -936,19 +841,18 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     <h2 class="contact-h2 fade-up d1">Your audience is<br><span>already sold on you.</span><br>Let's build the page<br>that closes them.</h2>
 
     <p class="contact-sub fade-up d2">
-      DM me your landing page link on Instagram. I'll tell you exactly what's suppressing conversions — no obligation, no pitch. If we're a fit, the rebuilt page is in your hands in 48 hours. <strong>You only pay after you've seen the result.</strong>
+      Message me your landing page link on WhatsApp. I'll tell you exactly what's suppressing conversions — no obligation, no pitch. If we're a fit, the rebuilt page is in your hands in 48 hours. <strong>You only pay after you've seen the result.</strong>
     </p>
 
     <div class="contact-cta-wrap fade-up d3">
-      <a href="https://instagram.com/aneshassnawi" class="cta-primary" target="_blank" rel="noreferrer">
+      <a href="https://wa.me/213676127853" class="cta-primary" target="_blank" rel="noreferrer">
+        <!-- WhatsApp icon -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
         </svg>
         Start Your Rebuild <span class="arrow">&#8594;</span>
       </a>
-      <span class="contact-caveat">@aneshassnawi &nbsp;·&nbsp; Limited spots — I take on a small number of projects at a time</span>
+      <span class="contact-caveat">WhatsApp: +213 676 127 853 &nbsp;·&nbsp; Limited spots — I take on a small number of projects at a time</span>
     </div>
   </section>
 
@@ -995,41 +899,11 @@ document.addEventListener('DOMContentLoaded', scanVisible);
 /* ============================================================
    PORTFOLIO MODAL
    ============================================================ */
-var modal    = document.getElementById('portfolioModal');
-var video1   = document.getElementById('video-1');
-var loader1  = document.getElementById('loader-1');
-var loader2  = document.getElementById('loader-2');
-var loader3  = document.getElementById('loader-3');
-
-/* Hide spinner once video can play */
-function bindLoader(video, loader){
-  if(!video || !loader) return;
-  var hide = function(){ loader.classList.add('hidden'); };
-  video.addEventListener('canplay', hide);
-  video.addEventListener('playing', hide);
-  // Already ready
-  if(video.readyState >= 3) hide();
-}
-bindLoader(document.getElementById('video-1'), loader1);
-bindLoader(document.getElementById('video-2'), loader2);
-bindLoader(document.getElementById('video-3'), loader3);
+var modal = document.getElementById('portfolioModal');
 
 function openModal(){
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
-
-  // Autoplay first video (muted is required by browsers)
-  if(video1){
-    video1.currentTime = 0;
-    var playPromise = video1.play();
-    if(playPromise !== undefined){
-      playPromise.catch(function(){
-        // Autoplay blocked — video stays paused, user can press play
-      });
-    }
-  }
-
-  // Focus close button for a11y
   setTimeout(function(){
     var closeBtn = modal.querySelector('.js-close-portfolio');
     if(closeBtn) closeBtn.focus();
@@ -1039,8 +913,6 @@ function openModal(){
 function closeModal(){
   modal.classList.remove('open');
   document.body.style.overflow = '';
-  // Pause all videos
-  modal.querySelectorAll('video').forEach(function(v){ v.pause(); });
 }
 
 document.querySelectorAll('.js-open-portfolio').forEach(function(btn){
@@ -1087,7 +959,7 @@ if(window.innerWidth > 768){
     ring.style.left=rx+'px'; ring.style.top=ry+'px';
     requestAnimationFrame(anim);
   })();
-  document.querySelectorAll('a,button,.service-card,.pricing-card,.offer-card,.cta-primary,.cta-secondary,.portfolio-trigger,.video-wrap').forEach(function(el){
+  document.querySelectorAll('a,button,.service-card,.pricing-card,.offer-card,.cta-primary,.cta-secondary,.portfolio-trigger').forEach(function(el){
     el.addEventListener('mouseenter', function(){ ring.classList.add('hovered'); });
     el.addEventListener('mouseleave', function(){ ring.classList.remove('hovered'); });
   });
