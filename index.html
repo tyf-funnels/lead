@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutFlow Studio — Landing Pages That Close</title>
+<title>AutFlow Studio — More Calls. More Bookings. More Customers.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -258,9 +258,7 @@ section{max-width:920px;padding:110px 0;}
 .contact-cta-wrap{display:flex;flex-direction:column;align-items:center;gap:16px;}
 .contact-caveat{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.07em;}
 
-/* ============================================================
-   PORTFOLIO MODAL — no videos, just a coming soon state
-   ============================================================ */
+/* PORTFOLIO MODAL */
 .modal-overlay{
   position:fixed;inset:0;z-index:8000;
   background:rgba(4,9,18,0.95);
@@ -271,9 +269,7 @@ section{max-width:920px;padding:110px 0;}
   transition:opacity 0.3s var(--ease);
   overflow-y:auto;
 }
-.modal-overlay.open{
-  opacity:1;pointer-events:all;
-}
+.modal-overlay.open{opacity:1;pointer-events:all;}
 .modal-box{
   width:100%;max-width:840px;
   background:var(--navy-light);
@@ -287,17 +283,13 @@ section{max-width:920px;padding:110px 0;}
   flex-shrink:0;
   box-shadow:0 40px 120px -20px rgba(0,0,0,0.7),0 0 0 1px rgba(77,255,195,0.05);
 }
-.modal-overlay.open .modal-box{
-  transform:translateY(0) scale(1);
-  opacity:1;
-}
+.modal-overlay.open .modal-box{transform:translateY(0) scale(1);opacity:1;}
 .modal-box::before{
   content:'';position:absolute;top:0;left:0;right:0;height:1px;
   background:linear-gradient(90deg,transparent 0%,var(--green) 50%,transparent 100%);
   background-size:200% 100%;
   animation:borderRun 3s linear infinite;
 }
-
 .modal-header{
   display:flex;align-items:center;justify-content:space-between;
   padding:28px 36px;
@@ -311,17 +303,9 @@ section{max-width:920px;padding:110px 0;}
   color:var(--green);letter-spacing:0.18em;text-transform:uppercase;
   display:flex;align-items:center;gap:8px;
 }
-.modal-eyebrow::before{
-  content:'';width:18px;height:1px;background:var(--green);display:inline-block;
-}
-.modal-title{
-  font-size:clamp(var(--fz-xl),3vw,26px);font-weight:700;
-  color:var(--slate-white);letter-spacing:-0.025em;line-height:1.2;
-}
-.modal-subtitle{
-  font-size:var(--fz-xs);color:var(--slate);line-height:1.5;
-  margin-top:2px;
-}
+.modal-eyebrow::before{content:'';width:18px;height:1px;background:var(--green);display:inline-block;}
+.modal-title{font-size:clamp(var(--fz-xl),3vw,26px);font-weight:700;color:var(--slate-white);letter-spacing:-0.025em;line-height:1.2;}
+.modal-subtitle{font-size:var(--fz-xs);color:var(--slate);line-height:1.5;margin-top:2px;}
 .modal-close{
   width:40px;height:40px;border-radius:8px;
   background:rgba(26,45,74,0.5);border:1px solid var(--navy-mid);
@@ -329,14 +313,8 @@ section{max-width:920px;padding:110px 0;}
   cursor:pointer;color:var(--slate);
   transition:var(--transition);flex-shrink:0;
 }
-.modal-close:hover{
-  background:rgba(26,45,74,1);
-  border-color:rgba(77,255,195,0.35);
-  color:var(--green);
-  transform:rotate(90deg);
-}
+.modal-close:hover{background:rgba(26,45,74,1);border-color:rgba(77,255,195,0.35);color:var(--green);transform:rotate(90deg);}
 .modal-close svg{width:15px;height:15px;}
-
 .modal-body{padding:56px 36px 60px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px;min-height:280px;}
 .modal-coming-icon{width:56px;height:56px;border-radius:50%;background:rgba(77,255,195,0.06);border:1px solid rgba(77,255,195,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto;}
 .modal-coming-icon svg{width:24px;height:24px;color:var(--green);}
@@ -345,7 +323,6 @@ section{max-width:920px;padding:110px 0;}
 .modal-coming-cta{display:inline-flex;align-items:center;gap:9px;color:var(--navy);background:var(--green);border:none;border-radius:var(--radius);padding:14px 24px;font-family:var(--font-mono);font-size:var(--fz-xs);font-weight:600;line-height:1;text-decoration:none;cursor:pointer;transition:var(--transition);letter-spacing:0.02em;box-shadow:0 0 24px rgba(77,255,195,0.25);margin-top:8px;}
 .modal-coming-cta:hover{background:rgba(77,255,195,0.85);box-shadow:0 0 40px rgba(77,255,195,0.4);transform:translateY(-2px);}
 .modal-coming-cta svg{width:15px;height:15px;}
-
 .modal-footer{
   padding:20px 36px;
   border-top:1px solid var(--navy-mid);
@@ -353,26 +330,7 @@ section{max-width:920px;padding:110px 0;}
   flex-wrap:wrap;
   background:rgba(8,15,30,0.5);
 }
-.modal-footer-note{
-  font-family:var(--font-mono);font-size:var(--fz-xxs);
-  color:var(--slate);letter-spacing:0.05em;
-}
-.modal-footer-cta{
-  display:inline-flex;align-items:center;gap:8px;
-  color:var(--navy);background:var(--green);
-  border:none;border-radius:var(--radius);
-  padding:11px 20px;
-  font-family:var(--font-mono);font-size:var(--fz-xxs);font-weight:600;
-  line-height:1;text-decoration:none;cursor:pointer;
-  transition:var(--transition);letter-spacing:0.03em;
-  box-shadow:0 0 20px rgba(77,255,195,0.2);
-}
-.modal-footer-cta:hover{
-  background:rgba(77,255,195,0.85);
-  box-shadow:0 0 32px rgba(77,255,195,0.35);
-  transform:translateY(-1px);
-}
-.modal-footer-cta svg{width:13px;height:13px;}
+.modal-footer-note{font-family:var(--font-mono);font-size:var(--fz-xxs);color:var(--slate);letter-spacing:0.05em;}
 
 /* CURSOR */
 .cursor-dot{position:fixed;width:7px;height:7px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);mix-blend-mode:difference;}
@@ -383,9 +341,7 @@ section{max-width:920px;padding:110px 0;}
 footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-align:center;}
 .footer-text{font-family:var(--font-mono);font-size:var(--fz-xxs);line-height:2.8;color:var(--slate);}
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
+/* RESPONSIVE */
 @media(max-width:768px){
   nav{padding:0 18px;}
   .nav-cta-btn{font-size:10px;padding:8px 12px;}
@@ -494,7 +450,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       <span class="logo-letter">A</span>
     </a>
   </div>
-  <a href="https://wa.me/213676127853" class="nav-cta-btn" target="_blank" rel="noreferrer">Start Now &#8594;</a>
+  <a href="https://wa.me/213676127853" class="nav-cta-btn" target="_blank" rel="noreferrer">Get More Customers &#8594;</a>
 </nav>
 
 <!-- SIDE SOCIAL -->
@@ -527,9 +483,9 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 
     <div class="modal-header">
       <div class="modal-header-left">
-        <span class="modal-eyebrow">Selected Work</span>
-        <h2 class="modal-title">Pages I've Built</h2>
-        <p class="modal-subtitle">Hand-coded from scratch — no templates, no page builders.</p>
+        <span class="modal-eyebrow">Example Work</span>
+        <h2 class="modal-title">Pages I've Built for Local Businesses</h2>
+        <p class="modal-subtitle">Every page built from scratch — no templates, no generic layouts.</p>
       </div>
       <button class="modal-close js-close-portfolio" aria-label="Close portfolio">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -543,18 +499,18 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
           <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
         </svg>
       </div>
-      <p class="modal-coming-title">Portfolio Available on Request</p>
-      <p class="modal-coming-text">Message me on WhatsApp and I'll send you examples relevant to your niche — coaches, course creators, and high-ticket offers.</p>
+      <p class="modal-coming-title">Examples Available on Request</p>
+      <p class="modal-coming-text">Message me on WhatsApp and I'll send you examples that match your type of business — salons, clinics, service companies, and more.</p>
       <a href="https://wa.me/213676127853" class="modal-coming-cta" target="_blank" rel="noreferrer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
         </svg>
-        Message me on WhatsApp &#8594;
+        Send Me Examples on WhatsApp &#8594;
       </a>
     </div>
 
     <div class="modal-footer">
-      <span class="modal-footer-note">Want a page like these for your offer?</span>
+      <span class="modal-footer-note">Want a page like this for your business?</span>
     </div>
 
   </div>
@@ -606,42 +562,42 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
       </div>
     </div>
 
-    <span class="hero-eyebrow fade-up d2">Landing Pages for High-Ticket Coaches &amp; Course Creators</span>
+    <span class="hero-eyebrow fade-up d2">Landing Pages for Local Businesses — Salons, Clinics &amp; Service Companies</span>
 
-    <p class="hero-h1 fade-up d3">Your audience trusts you.</p>
-    <p class="hero-problem fade-up d3">Your landing page is <em>losing that sale</em>.</p>
+    <p class="hero-h1 fade-up d3">People find your business online.</p>
+    <p class="hero-problem fade-up d3">Your website is <em>sending them away</em>.</p>
 
     <p class="hero-sub fade-up d4">
-      They follow you for months. They watch your content, reply to your stories, read every caption. They arrive at your landing page <strong>already convinced by you</strong> — and the page loses them. Not because your offer is weak. Because a page built for cold strangers cannot close someone who came through a relationship. <strong>I build landing pages from scratch, or fully redesign existing ones, to close them.</strong>
+      Someone searches for your service, they find your page, and they leave without calling. Not because your business isn't good — because your page doesn't give them a clear reason to act <strong>right now.</strong> I redesign local business websites and landing pages in 48 hours so they actually bring in calls, bookings, and new customers. <strong>You see the result before you pay a single dollar.</strong>
     </p>
 
     <div class="hero-cta-group fade-up d5">
       <button class="portfolio-trigger js-open-portfolio" aria-label="View portfolio">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        View My Work
+        See Example Pages
       </button>
-      <a href="#offer" class="cta-secondary js-scroll-offer">See How It Works &#8594;</a>
+      <a href="#offer" class="cta-secondary js-scroll-offer">How It Works &#8594;</a>
     </div>
 
     <div class="hero-proof-strip fade-up d6">
       <div class="proof-strip-header">
         <div class="proof-strip-dot"></div>
-        <span class="proof-strip-label">// Delivered in every project</span>
+        <span class="proof-strip-label">// What every project includes</span>
       </div>
       <div class="proof-strip-body">
         <div class="proof-item">
-          <span class="proof-item-num">24 hrs</span>
-          <span class="proof-item-label">Built from scratch or fully redesigned, ready to publish</span>
+          <span class="proof-item-num">48 hrs</span>
+          <span class="proof-item-label">Your new page, fully built and ready to go live</span>
         </div>
         <div class="proof-divider"></div>
         <div class="proof-item">
           <span class="proof-item-num">from $300</span>
-          <span class="proof-item-label">Flat investment. Scope confirmed upfront.</span>
+          <span class="proof-item-label">One flat price. Agreed before any work starts.</span>
         </div>
         <div class="proof-divider"></div>
         <div class="proof-item">
           <span class="proof-item-num">$0</span>
-          <span class="proof-item-label">Invoice if the result isn't a clear upgrade</span>
+          <span class="proof-item-label">You owe nothing if the new page isn't clearly better</span>
         </div>
       </div>
     </div>
@@ -649,27 +605,27 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 
   <!-- TRUST BAR -->
   <div class="trust-bar fade-up">
-    <div class="trust-item"><span class="trust-dot"></span>Built for Warm Traffic</div>
-    <div class="trust-item"><span class="trust-dot"></span>Delivered in 24 Hours</div>
-    <div class="trust-item"><span class="trust-dot"></span>Full Code Ownership</div>
+    <div class="trust-item"><span class="trust-dot"></span>Works on Mobile</div>
+    <div class="trust-item"><span class="trust-dot"></span>Ready in 48 Hours</div>
+    <div class="trust-item"><span class="trust-dot"></span>You Own Everything</div>
     <div class="trust-item"><span class="trust-dot"></span>Risk-Free Guarantee</div>
   </div>
 
   <!-- METRICS TICKER -->
   <div class="metrics-ticker-wrap fade-up">
     <div class="metrics-ticker" id="ticker">
-      <div class="ticker-item"><span class="ticker-num">24 hrs</span><span class="ticker-label">Built &amp; Delivered</span></div>
-      <div class="ticker-item"><span class="ticker-num">from $300</span><span class="ticker-label">Flat. One Price.</span></div>
-      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Discovery Calls Required</span></div>
-      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Invoice If No Improvement</span></div>
-      <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">You Own the Code</span></div>
-      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Mobile Load Standard</span></div>
-      <div class="ticker-item"><span class="ticker-num">24 hrs</span><span class="ticker-label">Built &amp; Delivered</span></div>
-      <div class="ticker-item"><span class="ticker-num">from $300</span><span class="ticker-label">Flat. One Price.</span></div>
-      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Discovery Calls Required</span></div>
-      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Invoice If No Improvement</span></div>
-      <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">You Own the Code</span></div>
-      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Mobile Load Standard</span></div>
+      <div class="ticker-item"><span class="ticker-num">48 hrs</span><span class="ticker-label">Built &amp; Live-Ready</span></div>
+      <div class="ticker-item"><span class="ticker-num">from $300</span><span class="ticker-label">Flat Price. No Surprises.</span></div>
+      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Upfront Payment Required</span></div>
+      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Invoice If Not Clearly Better</span></div>
+      <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">You Own the Page</span></div>
+      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Mobile Load Speed</span></div>
+      <div class="ticker-item"><span class="ticker-num">48 hrs</span><span class="ticker-label">Built &amp; Live-Ready</span></div>
+      <div class="ticker-item"><span class="ticker-num">from $300</span><span class="ticker-label">Flat Price. No Surprises.</span></div>
+      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Upfront Payment Required</span></div>
+      <div class="ticker-item"><span class="ticker-num">Zero</span><span class="ticker-label">Invoice If Not Clearly Better</span></div>
+      <div class="ticker-item"><span class="ticker-num">100%</span><span class="ticker-label">You Own the Page</span></div>
+      <div class="ticker-item"><span class="ticker-num">&lt;2s</span><span class="ticker-label">Mobile Load Speed</span></div>
     </div>
   </div>
 
@@ -678,9 +634,9 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     <h2 class="numbered-heading fade-up">About</h2>
     <div class="about-block fade-up d1">
       <span class="about-tag">// The person behind the work</span>
-      <p>I'm <strong>Anes Hass</strong> — a conversion designer and developer focused exclusively on coaches and course creators running high-ticket offers. My work is deliberately narrow: <strong>landing pages that convert warm, Instagram-sourced traffic into paying clients.</strong></p>
-      <p>Here's what I see constantly: a coach builds a genuinely valuable program — $2K, $5K, more. They earn real trust through their content. They drive consistent traffic to a landing page. And that page loses them. Not because the offer is weak — because the page was written for cold strangers. It lists modules instead of resolving doubt. It describes the program instead of enrolling the reader. It asks for the sale before earning the right to ask.</p>
-      <p><strong>That's a solvable problem. And it's the only problem I solve.</strong> Whether you have an existing page or are starting from zero, I identify exactly what's missing or what's breaking trust, then build every section to speak directly to someone who just came from your content — someone who's warm, already curious, and just needs the page to do its job.</p>
+      <p>I'm <strong>Anes Hass</strong> — a web designer focused on one thing: helping local businesses get more customers from the website they already have. I work with salons, clinics, dental offices, gyms, law firms, and other service businesses that are losing leads every day because their page doesn't make it easy enough to call or book.</p>
+      <p>Here's the situation I see all the time: a business owner spends money on ads or relies on Google search to drive traffic. People land on the page. And then they leave — without calling, without booking, without doing anything. Not because the business isn't good. Because the page is confusing, slow on mobile, or doesn't tell the visitor what to do next.</p>
+      <p><strong>That's a fixable problem — and it's the only problem I fix.</strong> I look at your current page, identify exactly what's stopping visitors from taking action, and rebuild it in 48 hours. Faster loading, clearer message, an obvious next step. You see it before you pay. If it's not better, you owe nothing.</p>
     </div>
   </section>
 
@@ -689,18 +645,18 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     <h2 class="numbered-heading fade-up">The Real Problem</h2>
     <div class="services-grid">
       <div class="service-card fade-left d1">
-        <span class="service-label">// Why strong offers lose sales</span>
-        <h4>Your Page Is Describing Your Offer. It Should Be Enrolling Your Reader.</h4>
-        <p>A description tells visitors what they get. An enrollment page makes them feel what changes when they have it. Most pages land in "feature list" territory — written by the coach or a generalist. Every section I write is anchored to a single question the visitor is silently asking at that exact moment. Answer the right question at the right moment, and resistance drops. Drop resistance, and the buy button gets clicked.</p>
+        <span class="service-label">// Why your page isn't converting</span>
+        <h4>Your Page Has Traffic. It Just Isn't Turning That Traffic Into Calls.</h4>
+        <p>Most local business pages have the same issue: they tell visitors what the business does, but they don't give the visitor a clear, confident reason to call right now. No urgency. No obvious next step. A button buried at the bottom. On mobile, it's even worse — slow loading, tiny text, a phone number you have to copy-paste. Every one of those friction points costs you a customer. I remove all of them.</p>
       </div>
       <div class="service-card fade-right d2">
-        <span class="service-label">// What a high-converting page does differently</span>
-        <h4>Four Things Your Page Is Almost Certainly Missing</h4>
+        <span class="service-label">// What a page that converts actually does</span>
+        <h4>Four Things Most Local Business Pages Are Missing</h4>
         <p>
-          <strong style="color:var(--slate-white);">An identity-locked headline</strong> — your ideal buyer should read the first line and think "this was written for me." Most headlines describe an outcome. They should identify the person.<br><br>
-          <strong style="color:var(--slate-white);">Objections answered before the CTA</strong> — "Is this right for me?" lives in every reader's head. Your page needs to resolve that before asking for the sale.<br><br>
-          <strong style="color:var(--slate-white);">A trust arc that honors the relationship</strong> — your audience already trusts you from months of content. The page should mirror that — not reset it cold.<br><br>
-          <strong style="color:var(--slate-white);">Technical credibility</strong> — slow loads and cluttered layouts signal "not serious." Every page I deliver loads under two seconds on mobile and is built to hold attention.
+          <strong style="color:var(--slate-white);">A headline that speaks to the customer, not the business</strong> — the first line should make a visitor think "yes, this is exactly what I need." Most headlines just say the business name.<br><br>
+          <strong style="color:var(--slate-white);">One clear action, front and center</strong> — call, book, or message. Not three options. Not buried. Right there, immediately visible.<br><br>
+          <strong style="color:var(--slate-white);">Answers to the questions every visitor has</strong> — "Is this place good? Do they serve my area? How much does it cost?" Unresolved questions mean they go to your competitor.<br><br>
+          <strong style="color:var(--slate-white);">A page that actually works on a phone</strong> — over 80% of your visitors are on mobile. A slow, cluttered page on mobile loses the sale before they read a single word.
         </p>
       </div>
     </div>
@@ -712,43 +668,43 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
     <div class="offer-card fade-up d1">
 
       <div class="offer-card-header">
-        <span class="offer-scope-tag">You see the finished page before a single dollar changes hands</span>
-        <h3>Built from Scratch or Fully Redesigned in 24 Hours. You Only Pay If It's Clearly Better.</h3>
+        <span class="offer-scope-tag">You see the finished page before paying anything</span>
+        <h3>I Rebuild Your Page in 48 Hours — You Only Pay If You're Happy With the Result.</h3>
         <p class="offer-lead-text">
-          No retainers. No strategy sessions. No briefing decks. Send me your current landing page — or let me know you're starting from zero — along with a short note about your offer and audience. I build the entire page from the ground up around your offer, your voice, and your buyer's psychology. A finished, publish-ready page lands in your inbox within 24 hours of kickoff. You compare it to what you had (or evaluate it fresh, if you're starting out). If it isn't materially stronger — copy, structure, trust architecture, and close — you don't pay. No negotiation. No exceptions.
+          No contracts. No long onboarding. No technical knowledge needed on your end. Send me your current website or page link on WhatsApp, tell me a little about your business and what you want customers to do — call, book, fill a form — and I'll handle everything. In 48 hours, a fully rebuilt page lands in your inbox, ready to go live. You look at it, compare it to what you have now, and decide. If it's not clearly better at getting customers to take action, you don't pay. Simple as that.
         </p>
       </div>
 
       <div class="offer-specifics">
-        <span class="offer-specifics-label">// What the build includes</span>
+        <span class="offer-specifics-label">// What's included in every build</span>
         <ul class="offer-points">
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Full audit or clean-slate brief</strong> — whether you have an existing page or are starting from zero, I map the gaps and opportunities before a word of copy is written. Every project starts from a precise diagnosis.</span>
+            <span><strong>A full review of your current page</strong> — I identify every reason a visitor might leave without calling or booking, then fix all of it before I write a single line of the new page.</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Complete page build — copy, structure, and hierarchy</strong> — every section built from the ground up: headline, subheads, body copy, objection handling, social proof placement, and CTA. Written in your voice, aimed at your warm audience.</span>
+            <span><strong>New copy written for your specific customers</strong> — not generic filler. Every line is written to speak to the kind of person searching for your service in your area, and move them toward booking.</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Conversion-sequenced layout</strong> — the order of sections determines whether trust is built before the ask, or destroyed by it. I structure the page so it earns the sale before it requests it.</span>
+            <span><strong>A layout built to convert, not just look nice</strong> — the right sections in the right order: clear headline, what you offer, why trust you, what to do next. Structured so visitors take action.</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Production-grade HTML/CSS — fully yours</strong> — clean, documented code. No Webflow subscription. No page builder lock-in. Host it anywhere, hand it to any developer.</span>
+            <span><strong>Clean code — no monthly fees, no platform lock-in</strong> — you get the full page file. Host it on your existing website, give it to your developer, or go live yourself. You own it completely.</span>
           </li>
           <li class="offer-point">
             <span class="offer-point-marker">&#9658;</span>
-            <span><strong>Mobile-first performance build</strong> — your audience reads on their phone. Sub-2-second load times, vertical scroll optimized, CTAs placed exactly where mobile readers convert.</span>
+            <span><strong>Fully optimized for mobile visitors</strong> — loads in under 2 seconds, easy to read on a phone, call button visible the moment the page opens. Most of your customers are on mobile — this page is built for them.</span>
           </li>
         </ul>
       </div>
 
       <div class="offer-footer">
         <div class="offer-next-label">
-          The process
-          <span>Message me your landing page URL on WhatsApp — or let me know you're starting from scratch — along with a short note about your offer and audience. I'll confirm scope before anything starts. The finished page is in your hands within 24 hours of kickoff, and you decide what happens next.</span>
+          The next step
+          <span>Send me your website link on WhatsApp — or just tell me you're starting from scratch. I'll take a look and let you know exactly what I'd change and what it would cost. No obligation. If we agree to move forward, the new page is in your hands within 48 hours.</span>
         </div>
       </div>
 
@@ -762,56 +718,56 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 
       <div class="pricing-badge">
         <span class="pricing-badge-dot"></span>
-        <span class="pricing-badge-text">New Build or Full Redesign</span>
+        <span class="pricing-badge-text">Full Redesign or New Build</span>
       </div>
 
       <div class="pricing-card">
         <div class="pricing-card-top">
           <div class="pricing-name-group">
             <span class="pricing-plan">Full Landing Page Build or Redesign</span>
-            <span class="pricing-desc">One page. Built from scratch or completely redesigned. Delivered in 24 hours. Yours to own and publish anywhere — no platform lock-in, no recurring fees.</span>
+            <span class="pricing-desc">One page, completely rebuilt for your business. Delivered in 48 hours. No monthly fees, no subscriptions — one flat price and you own it forever.</span>
           </div>
           <div class="pricing-amount-group">
             <span class="pricing-amount">from $300</span>
-            <span class="pricing-amount-note">Flat fee. Scope confirmed before work begins.</span>
+            <span class="pricing-amount-note">Flat fee. Price agreed before work starts.</span>
           </div>
         </div>
 
         <div class="pricing-includes">
-          <span class="pricing-includes-label">// What's included</span>
+          <span class="pricing-includes-label">// Everything included</span>
           <div class="pricing-includes-grid">
-            <div class="pricing-include-item"><span class="pricing-include-marker">&#9658;</span><span>Full audit or clean-slate brief</span></div>
-            <div class="pricing-include-item"><span class="pricing-include-marker">&#9658;</span><span>Complete copy build in your voice</span></div>
-            <div class="pricing-include-item"><span class="pricing-include-marker">&#9658;</span><span>Conversion-sequenced layout</span></div>
-            <div class="pricing-include-item"><span class="pricing-include-marker">&#9658;</span><span>Objection handling woven into copy</span></div>
-            <div class="pricing-include-item"><span class="pricing-include-marker">&#9658;</span><span>Production HTML/CSS — zero lock-in</span></div>
-            <div class="pricing-include-item"><span class="pricing-include-marker">&#9658;</span><span>Mobile-first, sub-2s load performance</span></div>
+            <div class="pricing-include-item"><span class="pricing-include-marker">&#9658;</span><span>Full review of your current page</span></div>
+            <div class="pricing-include-item"><span class="pricing-include-marker">&#9658;</span><span>Copy written for your customers</span></div>
+            <div class="pricing-include-item"><span class="pricing-include-marker">&#9658;</span><span>Layout designed to get calls &amp; bookings</span></div>
+            <div class="pricing-include-item"><span class="pricing-include-marker">&#9658;</span><span>Answers to common customer questions built in</span></div>
+            <div class="pricing-include-item"><span class="pricing-include-marker">&#9658;</span><span>Clean code — yours to keep, forever</span></div>
+            <div class="pricing-include-item"><span class="pricing-include-marker">&#9658;</span><span>Mobile-first, loads in under 2 seconds</span></div>
           </div>
         </div>
       </div>
 
       <div class="pricing-footer">
-        <span class="pricing-footer-note">Final price confirmed after reviewing your page or brief and offer. No surprises, no scope creep.</span>
+        <span class="pricing-footer-note">Final price confirmed after I review your page or brief. No surprises. Nothing added later.</span>
       </div>
     </div>
 
     <div class="guarantee-block fade-up d2">
       <div class="guarantee-icon">&#9679;</div>
       <div class="guarantee-text">
-        <h4>You don't pay unless the page is a clear, objective improvement — or exactly what was briefed.</h4>
-        <p>When the page is delivered, compare it to what you had — or evaluate it against your brief if you're starting fresh. If it doesn't demonstrate a materially strong case for your offer — tight copy, resolved objections, a clear path to the CTA — you owe nothing. This isn't a refund policy. It's a standard I hold myself to, because I only take on work I'm confident I can execute well. It also means I sometimes decline projects when I can't see a clear path to a strong outcome — which protects your time as much as mine.</p>
+        <h4>You don't pay unless the new page is clearly better at getting customers to take action.</h4>
+        <p>When I deliver the page, compare it to what you had. If it isn't an obvious improvement — clearer message, better layout on mobile, a stronger call-to-action — you don't pay anything. No awkward conversations, no refund process. I only take on projects I'm confident I can deliver well, which is why I review your page first and occasionally decline work when I don't see a clear way to improve it. That protects your time and mine.</p>
       </div>
     </div>
   </section>
 
   <!-- ===== CONTACT ===== -->
   <section id="contact" class="contact-section">
-    <span class="contact-label fade-up">Ready to stop leaking sales?</span>
+    <span class="contact-label fade-up">Ready to get more calls and bookings?</span>
 
-    <h2 class="contact-h2 fade-up d1">Your audience is<br><span>already sold on you.</span><br>Let's build the page<br>that closes them.</h2>
+    <h2 class="contact-h2 fade-up d1">People are already<br><span>searching for you.</span><br>Let's build the page<br>that makes them call.</h2>
 
     <p class="contact-sub fade-up d2">
-      Message me your landing page link on WhatsApp — or let me know you're starting from scratch. I'll tell you exactly what's needed to convert your warm traffic — no obligation, no pitch. If we're a fit, the finished page is in your hands in 24 hours. <strong>You only pay after you've seen the result.</strong>
+      Send me your website link on WhatsApp and I'll tell you exactly what's costing you customers — no charge, no obligation. If we move forward, your rebuilt page is ready in 48 hours. <strong>You only pay after you've seen the result and you're happy with it.</strong>
     </p>
 
     <div class="contact-cta-wrap fade-up d3">
@@ -819,9 +775,9 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
         </svg>
-        Start Your Build <span class="arrow">&#8594;</span>
+        Send My Website on WhatsApp <span class="arrow">&#8594;</span>
       </a>
-      <span class="contact-caveat">·&nbsp; Limited spots — I take on a small number of projects at a time</span>
+      <span class="contact-caveat">·&nbsp; I take on a small number of projects — reply today to hold your spot</span>
     </div>
   </section>
 
@@ -830,16 +786,14 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
 <footer>
   <div class="footer-text fade-up">
     <div>Designed &amp; Built by AutFlow Studio</div>
-    <div style="font-size:10px;margin-top:4px;opacity:0.5;letter-spacing:0.04em;">Conversion Pages for Coaches &middot; Course Creators &middot; Online Service Businesses</div>
+    <div style="font-size:10px;margin-top:4px;opacity:0.5;letter-spacing:0.04em;">Landing Pages for Salons &middot; Clinics &middot; Local Service Businesses</div>
     <div style="font-size:10px;margin-top:4px;opacity:0.4;">&copy; 2026 AutFlow Studio. All rights reserved.</div>
   </div>
 </footer>
 </div>
 
 <script>
-/* ============================================================
-   INTRO LOADER
-   ============================================================ */
+/* INTRO LOADER */
 (function(){
   var loader = document.getElementById('intro-loader');
   setTimeout(function(){
@@ -851,9 +805,7 @@ footer{display:flex;flex-direction:column;align-items:center;padding:20px;text-a
   }, 2400);
 })();
 
-/* ============================================================
-   SCROLL ANIMATIONS
-   ============================================================ */
+/* SCROLL ANIMATIONS */
 function scanVisible(){
   var els = document.querySelectorAll('.fade-up,.fade-left,.fade-right');
   var obs = new IntersectionObserver(function(entries){
@@ -865,9 +817,7 @@ function scanVisible(){
 }
 document.addEventListener('DOMContentLoaded', scanVisible);
 
-/* ============================================================
-   PORTFOLIO MODAL
-   ============================================================ */
+/* PORTFOLIO MODAL */
 var modal = document.getElementById('portfolioModal');
 
 function openModal(){
@@ -897,9 +847,7 @@ document.addEventListener('keydown', function(e){
   if(e.key === 'Escape' && modal.classList.contains('open')) closeModal();
 });
 
-/* ============================================================
-   SMOOTH SCROLL
-   ============================================================ */
+/* SMOOTH SCROLL */
 document.querySelectorAll('.js-scroll-offer').forEach(function(a){
   a.addEventListener('click', function(e){
     e.preventDefault();
@@ -915,9 +863,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   });
 });
 
-/* ============================================================
-   CURSOR
-   ============================================================ */
+/* CURSOR */
 var dot  = document.getElementById('cursorDot');
 var ring = document.getElementById('cursorRing');
 var mx=0, my=0, rx=0, ry=0;
